@@ -1,9 +1,23 @@
-# Post de exemplo — só pra validar o pipeline, apagar depois
+# Post de exemplo — só pra validar o pipeline
 
 ## Slide 1
-**Título:** Isso é um teste
-Texto de apoio do primeiro slide, só pra confirmar que o pipeline de render funciona antes de a identidade de marca estar pronta.
+```yaml
+tipo: capa
+titulo: isso é um teste
+subtitulo: validando o pipeline novo, com capa, texto e fechamento
+```
 
 ## Slide 2
-**Título:** Segundo slide
-Mais um bloco de texto de exemplo aqui, pra ver quebra de linha e espaçamento.
+```yaml
+tipo: texto
+paragrafos:
+  - Esse é um parágrafo de teste, só pra conferir quebra de linha, espaçamento e a textura de fundo.
+  - Segundo parágrafo, mais curto.
+```
+
+## Slide 3
+```yaml
+tipo: fechamento
+paragrafos:
+  - Pipeline validado com o layout novo.
+```

@@ -1,12 +1,20 @@
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
+import yaml from 'js-yaml';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { slideBase } from '../templates/slide-base.mjs';
+import { coverSlide, textSlide, listSlide, closingSlide } from '../templates/slides.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
+
+const BUILDERS = {
+  capa: coverSlide,
+  texto: textSlide,
+  lista: listSlide,
+  fechamento: closingSlide,
+};
 
 const slug = process.argv[2];
 if (!slug) {
@@ -22,11 +30,17 @@ if (!existsSync(briefPath)) {
 
 const brief = readFileSync(briefPath, 'utf8');
 const slideBlocks = brief.split(/^## Slide \d+\s*$/m).slice(1);
-const slides = slideBlocks.map((block) => {
-  const tituloMatch = block.match(/\*\*Título:\*\*\s*(.+)/);
-  const titulo = tituloMatch ? tituloMatch[1].trim() : '';
-  const texto = block.replace(/\*\*Título:\*\*\s*.+/, '').trim();
-  return { titulo, texto };
+
+const slides = slideBlocks.map((block, i) => {
+  const yamlMatch = block.match(/```yaml\n([\s\S]*?)```/);
+  if (!yamlMatch) {
+    throw new Error(`Slide ${i + 1}: não achei um bloco \`\`\`yaml ... \`\`\``);
+  }
+  const data = yaml.load(yamlMatch[1]);
+  if (!data.tipo || !BUILDERS[data.tipo]) {
+    throw new Error(`Slide ${i + 1}: "tipo" precisa ser um de ${Object.keys(BUILDERS).join(', ')} (veio "${data.tipo}")`);
+  }
+  return data;
 });
 
 if (slides.length === 0) {
@@ -36,18 +50,14 @@ if (slides.length === 0) {
 
 const fontDisplay = readFileSync(join(root, 'templates', 'fonts', 'FiraSansCondensed-Italic-600.woff'));
 const fontBody = readFileSync(join(root, 'templates', 'fonts', 'RedHatDisplay-Regular-400.woff'));
+const fontBodyBold = readFileSync(join(root, 'templates', 'fonts', 'RedHatDisplay-Bold-700.woff'));
 
 const outDir = join(root, 'output', slug);
 mkdirSync(outDir, { recursive: true });
 
 for (let i = 0; i < slides.length; i++) {
-  const { titulo, texto } = slides[i];
-  const tree = slideBase({
-    titulo,
-    texto,
-    slideAtual: i + 1,
-    totalSlides: slides.length,
-  });
+  const { tipo, ...data } = slides[i];
+  const tree = BUILDERS[tipo](data);
 
   const svg = await satori(tree, {
     width: 1080,
@@ -55,6 +65,7 @@ for (let i = 0; i < slides.length; i++) {
     fonts: [
       { name: 'Fira Sans Condensed', data: fontDisplay, weight: 600, style: 'italic' },
       { name: 'Red Hat Display', data: fontBody, weight: 400, style: 'normal' },
+      { name: 'Red Hat Display', data: fontBodyBold, weight: 700, style: 'normal' },
     ],
   });
 
@@ -63,5 +74,5 @@ for (let i = 0; i < slides.length; i++) {
 
   const outPath = join(outDir, `slide-${i + 1}.png`);
   writeFileSync(outPath, png);
-  console.log(`✓ ${outPath}`);
+  console.log(`✓ ${outPath} (${tipo})`);
 }

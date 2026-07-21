@@ -30,7 +30,7 @@ A marca deve transmitir simplicidade, equilíbrio com velocidade e versatilidade
 - **Títulos:** Fira Sans Compressed (ou Extra Condensed) — lowercase, itálico, semi-bold (600), letter-spacing `-0.3em`, line-height 110%.
   > ⚠️ `-0.3em` de letter-spacing é um valor extremo (letras sobrepostas na maioria dos tamanhos) — pelo manual está assim, mas pode ser erro de digitação por `-0.03em`. Apliquei `-0.03em` em `tokens.css` por ser o valor plausível; confirmar com quem gerou o manual antes de vir a valer.
 - **Corpo:** Red Hat Display, normal (400), line-height 130% ou mais.
-- Ambas as fontes existem no Google Fonts (`Fira Sans Condensed`, `Red Hat Display`) — carregadas via `<link>` no template, sem precisar embutir arquivo de fonte.
+- Ambas as fontes existem no Google Fonts (`Fira Sans Condensed`, `Red Hat Display`). Baixadas uma vez como `.woff` em `templates/fonts/` (o render via Satori precisa do arquivo, não aceita `<link>`/CDN).
 
 ## Nome da marca
 
@@ -52,7 +52,17 @@ Arquivos em `identidade/logos/`:
 ## Formato dos posts
 
 - Dimensão do slide: `1080×1350` (proporção 4:5, padrão carrossel Instagram) — não especificado no manual, mantendo o padrão já usado no template.
-- Quantos slides por carrossel, tipicamente: não especificado — a definir conforme o conteúdo.
+- Quantos slides por carrossel, tipicamente: não especificado — os exemplos variam de 3 a 11 slides.
+
+## Padrão visual de slide (aprendido de `identidade/exemplos/`)
+
+Não está no manual de marca, mas é consistente em todos os posts feitos à mão que o Vitor passou como referência (`Modelo conteúdo.pdf`, `black friday.pdf`, `melhore SEO/`, `Pontos de Fidelidade/`):
+
+- **Fundo:** gradiente escuro diagonal (roxo pra quase preto) + textura de listras diagonais finas e sutis por cima. É o fundo padrão — não vi nenhum exemplo de conteúdo em fundo claro.
+- **Capa:** título grande, itálico, lowercase, condensado (a fonte de display) + subtítulo em texto normal logo abaixo. Logo branco no rodapé à esquerda, seta (→) no rodapé à direita indicando "arraste pro lado".
+- **Slides de conteúdo:** sem logo, sem cabeçalho, sem rodapé — só o texto, começando por volta de 22-30% do topo. Ou parágrafos corridos (1-3, curtos mas substanciais, não uma frase solta), ou um título em negrito (não itálico) + lista com marcador.
+- **Fechamento:** mesma estrutura de conteúdo (parágrafos), mas com o logo branco de volta no rodapé — sem seta, porque é o último slide.
+- Isso é o que `templates/slides.mjs` implementa (`capa`, `texto`, `lista`, `fechamento`).
 
 ## Fonte
 
