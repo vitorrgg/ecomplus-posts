@@ -2,22 +2,30 @@
 
 Fábrica de posts em formato slide/carrossel pra o Instagram da e-com.plus. Você (ou o Claude) escreve o conteúdo em markdown, o script renderiza imagens prontas pra postar, com a identidade visual da marca aplicada.
 
+Renderização via [Satori](https://github.com/vercel/satori) (mesma lib que o Vercel usa pra Open Graph images) + [resvg](https://github.com/RazrFalcon/resvg) — pacotes npm puros, sem navegador/Chromium e sem dependência de sistema. Tentamos Playwright antes; travou em `apt-get install --with-deps` neste ambiente (sudo sem senha configurada) e trocamos pela alternativa mais leve.
+
 ## Status
 
-⚠️ **`identidade/marca.md` ainda está com placeholders.** Antes de gerar posts reais, exportar o guia de marca em **PDF** e pedir pro Claude ler e preencher `identidade/marca.md` + `templates/tokens.css` com os valores reais (cores, tipografia, logo, tom de voz).
+✅ Identidade de marca aplicada (`identidade/marca.md`, extraída do manual em PDF) — cores, tipografia (Fira Sans Condensed + Red Hat Display) e logos.
+
+⚠️ Dois pontos não especificados no manual, resolvidos por inferência — conferir em `identidade/marca.md`: cor do texto de corpo, e o `letter-spacing` dos títulos (o manual diz `-0.3em`, valor extremo demais pra usar como está; apliquei `-0.03em`).
 
 ## Estrutura
 
 ```
-identidade/       Guia de marca em markdown (cores, tipografia, logo, voz) — fonte dos tokens
+identidade/
+  marca.md            Guia de marca em markdown (cores, tipografia, logo, voz) — fonte dos tokens
+  logos/               Arquivos de logo (svg/png, variações normal e negativa)
 templates/
-  tokens.css       Variáveis CSS de marca, consumidas pelos templates de slide
-  slide-base.html   Template de slide (título + texto de apoio)
+  tokens.css           Tokens de marca em CSS (referência/documentação)
+  tokens.mjs            Os mesmos tokens, em JS — o que o render de fato usa
+  slide-base.mjs        Template de slide (título + texto de apoio), como árvore Satori
+  fonts/                Arquivos .woff das fontes da marca
 posts/<slug>/
-  brief.md          Conteúdo de um carrossel: um "## Slide N" por slide
+  brief.md              Conteúdo de um carrossel: um "## Slide N" por slide
 scripts/
-  render.mjs         Lê o brief + template, gera um PNG por slide via Playwright
-output/<slug>/       PNGs gerados (1080×1350, pronto pra Instagram)
+  render.mjs             Lê o brief + template, gera um PNG por slide via Satori + resvg
+output/<slug>/           PNGs gerados (1080×1350, pronto pra Instagram)
 ```
 
 ## Fluxo de uso
@@ -35,11 +43,17 @@ output/<slug>/       PNGs gerados (1080×1350, pronto pra Instagram)
 
 ```bash
 npm install
-npx playwright install chromium
 npm run render -- exemplo   # valida o pipeline com o post de exemplo
 ```
 
+Sem passo de instalar navegador — é só `npm install`.
+
+## Posts de teste já gerados
+
+`o-que-e-headless`, `comparativo-vtex`, `chat-ia-painel` — rascunhos pra validar tom de voz e visual, não copy final aprovada.
+
 ## Próximos passos
 
-- Preencher `identidade/marca.md` a partir do PDF de identidade e atualizar `templates/tokens.css`.
-- Depois de validado com uma marca só, considerar suporte a múltiplos templates de slide (ex: slide de dado/estatística, slide de citação) — hoje só existe `slide-base.html`.
+- Validar/corrigir os dois pontos inferidos em `identidade/marca.md` (cor de texto, letter-spacing).
+- Considerar suporte a múltiplos templates de slide (ex: capa escura como as páginas de seção do manual, slide de dado/estatística, slide de citação) — hoje só existe `slide-base.mjs`.
+- Colocar o ícone da marca como marca d'água discreta no canto do slide.

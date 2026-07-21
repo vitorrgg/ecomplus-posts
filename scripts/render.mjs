@@ -1,7 +1,9 @@
-import { chromium } from 'playwright';
+import satori from 'satori';
+import { Resvg } from '@resvg/resvg-js';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { slideBase } from '../templates/slide-base.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
@@ -19,9 +21,6 @@ if (!existsSync(briefPath)) {
 }
 
 const brief = readFileSync(briefPath, 'utf8');
-const template = readFileSync(join(root, 'templates', 'slide-base.html'), 'utf8');
-const tokens = readFileSync(join(root, 'templates', 'tokens.css'), 'utf8');
-
 const slideBlocks = brief.split(/^## Slide \d+\s*$/m).slice(1);
 const slides = slideBlocks.map((block) => {
   const tituloMatch = block.match(/\*\*Título:\*\*\s*(.+)/);
@@ -35,28 +34,34 @@ if (slides.length === 0) {
   process.exit(1);
 }
 
+const fontDisplay = readFileSync(join(root, 'templates', 'fonts', 'FiraSansCondensed-Italic-600.woff'));
+const fontBody = readFileSync(join(root, 'templates', 'fonts', 'RedHatDisplay-Regular-400.woff'));
+
 const outDir = join(root, 'output', slug);
 mkdirSync(outDir, { recursive: true });
 
-function escapeHtml(str) {
-  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-}
-
-const browser = await chromium.launch();
-const page = await browser.newPage({ viewport: { width: 1080, height: 1350 } });
-
 for (let i = 0; i < slides.length; i++) {
   const { titulo, texto } = slides[i];
-  const html = template
-    .replace('{{TOKENS}}', tokens)
-    .replace('{{TITULO}}', escapeHtml(titulo))
-    .replace('{{TEXTO}}', escapeHtml(texto).replace(/\n/g, '<br>'))
-    .replace('{{SLIDE_ATUAL}}', String(i + 1))
-    .replace('{{TOTAL_SLIDES}}', String(slides.length));
-  await page.setContent(html, { waitUntil: 'networkidle' });
+  const tree = slideBase({
+    titulo,
+    texto,
+    slideAtual: i + 1,
+    totalSlides: slides.length,
+  });
+
+  const svg = await satori(tree, {
+    width: 1080,
+    height: 1350,
+    fonts: [
+      { name: 'Fira Sans Condensed', data: fontDisplay, weight: 600, style: 'italic' },
+      { name: 'Red Hat Display', data: fontBody, weight: 400, style: 'normal' },
+    ],
+  });
+
+  const resvg = new Resvg(svg, { fitTo: { mode: 'width', value: 1080 } });
+  const png = resvg.render().asPng();
+
   const outPath = join(outDir, `slide-${i + 1}.png`);
-  await page.screenshot({ path: outPath });
+  writeFileSync(outPath, png);
   console.log(`✓ ${outPath}`);
 }
-
-await browser.close();
