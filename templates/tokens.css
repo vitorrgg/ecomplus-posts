@@ -1,0 +1,18 @@
+:root {
+  /* institucionais — manual-de-identidade-e-com-plus.pdf */
+  --color-bg: #f5f6fa;
+  --color-brand: #570d5d;      /* títulos, blocos em destaque */
+  --color-primary: #ff015b;    /* botões, links, detalhes em destaque */
+  --color-success: #00e679;    /* CTAs de checkout */
+
+  /* não especificada no manual — inferida das páginas do PDF, confirmar */
+  --color-text: #23181f;
+
+  /* utilitárias */
+  --color-info: #03a9b3;
+  --color-warning: #ff5600;
+  --color-danger: #fe0002;
+
+  --font-display: "Fira Sans Condensed", sans-serif;
+  --font-body: "Red Hat Display", sans-serif;
+}
