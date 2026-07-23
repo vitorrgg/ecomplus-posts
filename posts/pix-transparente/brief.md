@@ -20,6 +20,7 @@ paragrafos:
 ## Slide 3
 ```yaml
 tipo: lista
+tema: claro
 titulo: Por que o cliente prefere
 itens:
   - Rapidez e praticidade — 71% dos entrevistados
@@ -33,4 +34,5 @@ tipo: fechamento
 paragrafos:
   - Na e-com.plus, o Pix é nativo no checkout — não depende de app de terceiro no meio.
   - Mais barato pra quem recebe, mais rápido pra quem paga, disponível 24 horas por dia.
+imagem: own-store-checkout.jpg
 ```

@@ -20,6 +20,7 @@ paragrafos:
 ## Slide 3
 ```yaml
 tipo: lista
+tema: claro
 titulo: O que isso libera
 itens:
   - Pedidos centralizados no mesmo painel, com filtro por origem
@@ -33,4 +34,5 @@ tipo: fechamento
 paragrafos:
   - "Dá pra usar isso até pra comparar: montar duas frentes com propostas diferentes e ver qual converte mais."
   - Um back-end, quantas frentes sua operação precisar.
+imagem: cover-warehouse.jpg
 ```

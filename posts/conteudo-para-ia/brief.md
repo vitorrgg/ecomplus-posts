@@ -30,6 +30,7 @@ paragrafos:
 ## Slide 4
 ```yaml
 tipo: lista
+tema: claro
 titulo: O que isso pede na prática
 itens:
   - Conteúdo claro e específico — que responde a uma pergunta direta, não só tenta rankear por palavra-chave
@@ -43,4 +44,5 @@ tipo: fechamento
 paragrafos:
   - É por isso que o blog da e-com.plus é nativo — publicado no mesmo domínio, na mesma frente de loja, sem fricção pra indexar.
   - Conteúdo virou canal de aquisição. Inclusive pra IA.
+imagem: seller-packing.jpg
 ```

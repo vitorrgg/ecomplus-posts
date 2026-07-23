@@ -16,6 +16,7 @@ function toDataUri(path, mime) {
 }
 
 const logoWhite = toDataUri(join(rootDir, 'identidade', 'logos', 'ecomplus-logo-white.png'), 'image/png');
+const logoDark = toDataUri(join(rootDir, 'identidade', 'logos', 'ecomplus-logo.png'), 'image/png');
 const stripes = toDataUri(join(rootDir, 'templates', 'assets', 'stripes.png'), 'image/png');
 
 function photoDataUri(filename) {
@@ -43,7 +44,7 @@ function textBlock(text, style) {
   );
 }
 
-function arrowIcon() {
+function arrowIcon(color = '#ffffff') {
   return {
     type: 'svg',
     props: {
@@ -52,8 +53,8 @@ function arrowIcon() {
       viewBox: '0 0 60 22',
       fill: 'none',
       children: [
-        { type: 'path', props: { d: 'M0 11 H50', stroke: '#ffffff', strokeWidth: 2 } },
-        { type: 'path', props: { d: 'M40 1 L51 11 L40 21', stroke: '#ffffff', strokeWidth: 2, fill: 'none', strokeLinecap: 'round', strokeLinejoin: 'round' } },
+        { type: 'path', props: { d: 'M0 11 H50', stroke: color, strokeWidth: 2 } },
+        { type: 'path', props: { d: 'M40 1 L51 11 L40 21', stroke: color, strokeWidth: 2, fill: 'none', strokeLinecap: 'round', strokeLinejoin: 'round' } },
       ],
     },
   };
@@ -76,7 +77,7 @@ function photoBlock(filename, { height = 460, marginTop = 44 } = {}) {
   );
 }
 
-function bottomRow({ showArrow }) {
+function bottomRow({ showArrow, light }) {
   return flex(
     {
       position: 'absolute',
@@ -87,15 +88,17 @@ function bottomRow({ showArrow }) {
       alignItems: 'center',
     },
     [
-      { type: 'img', props: { src: logoWhite, width: LOGO_W, height: LOGO_H } },
-      ...(showArrow ? [arrowIcon()] : []),
+      { type: 'img', props: { src: light ? logoDark : logoWhite, width: LOGO_W, height: LOGO_H } },
+      ...(showArrow ? [arrowIcon(light ? tokens.colorText : '#ffffff')] : []),
     ],
   );
 }
 
-// fundo padrão (gradiente + textura) ou, se `bgPhoto` for passado, foto full-bleed
-// com um degradê escuro por cima na metade inferior pra manter o texto legível.
-function frame(children, { paddingTop, bgPhoto }) {
+// fundo padrão (gradiente escuro + textura), fundo claro (`light`), ou, se
+// `bgPhoto` for passado, foto full-bleed com um degradê escuro por cima na
+// metade inferior pra manter o texto legível (sempre em tema escuro, já que
+// é a própria foto que ocupa o slide inteiro).
+function frame(children, { paddingTop, bgPhoto, light }) {
   const background = bgPhoto
     ? [
         { type: 'img', props: { src: photoDataUri(bgPhoto), width: 1080, height: 1350, style: { position: 'absolute', top: 0, left: 0, objectFit: 'cover' } } },
@@ -114,7 +117,9 @@ function frame(children, { paddingTop, bgPhoto }) {
           },
         },
       ]
-    : [{ type: 'img', props: { src: stripes, width: 1080, height: 1350, style: { position: 'absolute', top: 0, left: 0 } } }];
+    : light
+      ? []
+      : [{ type: 'img', props: { src: stripes, width: 1080, height: 1350, style: { position: 'absolute', top: 0, left: 0 } } }];
   return {
     type: 'div',
     props: {
@@ -127,8 +132,8 @@ function frame(children, { paddingTop, bgPhoto }) {
         paddingTop: `${paddingTop}px`,
         paddingLeft: '90px',
         paddingRight: '90px',
-        backgroundColor: '#0a0110',
-        ...(bgPhoto ? {} : { backgroundImage: tokens.darkGradient }),
+        backgroundColor: bgPhoto ? '#0a0110' : light ? tokens.colorBg : '#0a0110',
+        ...(bgPhoto || light ? {} : { backgroundImage: tokens.darkGradient }),
         fontFamily: tokens.fontBody,
       },
       children: [...background, ...children],
@@ -136,42 +141,52 @@ function frame(children, { paddingTop, bgPhoto }) {
   };
 }
 
-const titleStyle = {
-  flexDirection: 'column',
-  width: '100%',
-  fontFamily: tokens.fontDisplay,
-  fontStyle: 'italic',
-  fontWeight: 600,
-  textTransform: 'lowercase',
-  lineHeight: 1.08,
-  fontSize: '68px',
-  color: '#ffffff',
-};
+function titleStyle(light) {
+  return {
+    flexDirection: 'column',
+    width: '100%',
+    fontFamily: tokens.fontDisplay,
+    fontStyle: 'italic',
+    fontWeight: 600,
+    textTransform: 'lowercase',
+    lineHeight: 1.08,
+    fontSize: '68px',
+    color: light ? tokens.colorText : '#ffffff',
+  };
+}
 
-export function coverSlide({ eyebrow, titulo, subtitulo, imagem }) {
+export function coverSlide({ eyebrow, titulo, subtitulo, imagem, tema }) {
+  const light = tema === 'claro';
+  // fundo claro não usa foto full-bleed (perderia o contraste que dá legibilidade
+  // ao degradê) — nesse tema a imagem entra como bloco arredondado, como no texto/fechamento.
+  const bgPhoto = light ? undefined : imagem;
+  const textColor = light ? tokens.colorText : '#ffffff';
   return frame(
     [
       eyebrow
-        ? textBlock(eyebrow, { fontSize: 26, color: 'rgba(255,255,255,0.85)', marginBottom: 20 })
+        ? textBlock(eyebrow, { fontSize: 26, color: light ? tokens.colorBrand : 'rgba(255,255,255,0.85)', marginBottom: 20 })
         : null,
-      textBlock(titulo, titleStyle),
+      textBlock(titulo, titleStyle(light)),
       subtitulo
         ? textBlock(subtitulo, {
             flexDirection: 'column',
             width: '100%',
             fontSize: 32,
-            color: 'rgba(255,255,255,0.92)',
+            color: light ? textColor : 'rgba(255,255,255,0.92)',
             lineHeight: 1.35,
             marginTop: 32,
           })
         : null,
-      bottomRow({ showArrow: true }),
+      light && imagem ? photoBlock(imagem, { height: 420, marginTop: 44 }) : null,
+      bottomRow({ showArrow: true, light }),
     ].filter(Boolean),
-    { paddingTop: imagem ? 640 : 470, bgPhoto: imagem },
+    { paddingTop: bgPhoto ? 640 : light && imagem ? 380 : 470, bgPhoto, light },
   );
 }
 
-export function textSlide({ titulo, paragrafos, imagem }) {
+export function textSlide({ titulo, paragrafos, imagem, tema }) {
+  const light = tema === 'claro';
+  const textColor = light ? tokens.colorText : '#ffffff';
   return frame(
     [
       titulo
@@ -181,7 +196,7 @@ export function textSlide({ titulo, paragrafos, imagem }) {
             fontFamily: tokens.fontBody,
             fontWeight: 700,
             fontSize: 46,
-            color: '#ffffff',
+            color: textColor,
             lineHeight: 1.25,
             marginBottom: 40,
           })
@@ -193,7 +208,7 @@ export function textSlide({ titulo, paragrafos, imagem }) {
             flexDirection: 'column',
             width: '100%',
             fontSize: 34,
-            color: '#ffffff',
+            color: textColor,
             lineHeight: 1.4,
             marginBottom: i < paragrafos.length - 1 ? 36 : 0,
           }),
@@ -201,11 +216,13 @@ export function textSlide({ titulo, paragrafos, imagem }) {
       ),
       imagem ? photoBlock(imagem, { height: 460 }) : null,
     ].filter(Boolean),
-    { paddingTop: imagem ? (titulo ? 260 : 250) : titulo ? 300 : 290 },
+    { paddingTop: imagem ? (titulo ? 260 : 250) : titulo ? 300 : 290, light },
   );
 }
 
-export function listSlide({ titulo, itens }) {
+export function listSlide({ titulo, itens, imagem, tema }) {
+  const light = tema === 'claro';
+  const textColor = light ? tokens.colorText : '#ffffff';
   return frame(
     [
       textBlock(titulo, {
@@ -214,7 +231,7 @@ export function listSlide({ titulo, itens }) {
         fontFamily: tokens.fontBody,
         fontWeight: 700,
         fontSize: 46,
-        color: '#ffffff',
+        color: textColor,
         lineHeight: 1.25,
         marginBottom: 44,
       }),
@@ -224,21 +241,24 @@ export function listSlide({ titulo, itens }) {
           flex(
             { marginBottom: i < itens.length - 1 ? 28 : 0, alignItems: 'flex-start', width: '100%' },
             [
-              flex({ fontSize: 32, color: '#ffffff', marginRight: 20 }, '•'),
+              flex({ fontSize: 32, color: textColor, marginRight: 20 }, '•'),
               flex(
-                { flex: 1, flexDirection: 'column', fontSize: 32, color: '#ffffff', lineHeight: 1.35 },
+                { flex: 1, flexDirection: 'column', fontSize: 32, color: textColor, lineHeight: 1.35 },
                 item,
               ),
             ],
           ),
         ),
       ),
-    ],
-    { paddingTop: 300 },
+      imagem ? photoBlock(imagem, { height: 340, marginTop: 40 }) : null,
+    ].filter(Boolean),
+    { paddingTop: imagem ? 260 : 300, light },
   );
 }
 
-export function closingSlide({ paragrafos, imagem }) {
+export function closingSlide({ paragrafos, imagem, tema }) {
+  const light = tema === 'claro';
+  const textColor = light ? tokens.colorText : '#ffffff';
   return frame(
     [
       flex(
@@ -248,15 +268,15 @@ export function closingSlide({ paragrafos, imagem }) {
             flexDirection: 'column',
             width: '100%',
             fontSize: 34,
-            color: '#ffffff',
+            color: textColor,
             lineHeight: 1.4,
             marginBottom: i < paragrafos.length - 1 ? 36 : 0,
           }),
         ),
       ),
       imagem ? photoBlock(imagem, { height: 380, marginTop: 40 }) : null,
-      bottomRow({ showArrow: false }),
+      bottomRow({ showArrow: false, light }),
     ].filter(Boolean),
-    { paddingTop: imagem ? 250 : 290 },
+    { paddingTop: imagem ? 250 : 290, light },
   );
 }

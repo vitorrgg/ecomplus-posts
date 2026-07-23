@@ -63,6 +63,10 @@ if (slides.length === 0) {
   process.exit(1);
 }
 
+if (!slides.some((s) => s.imagem)) {
+  console.warn('⚠ Nenhum slide desse post usa "imagem" — considere adicionar ao menos uma foto ilustrativa (ver templates/assets/photos/).');
+}
+
 const fontDisplay = readFileSync(join(root, 'templates', 'fonts', 'FiraSansCondensed-Italic-600.woff'));
 const fontBody = readFileSync(join(root, 'templates', 'fonts', 'RedHatDisplay-Regular-400.woff'));
 const fontBodyBold = readFileSync(join(root, 'templates', 'fonts', 'RedHatDisplay-Bold-700.woff'));

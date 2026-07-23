@@ -21,6 +21,7 @@ paragrafos:
 ## Slide 3
 ```yaml
 tipo: lista
+tema: claro
 titulo: Onde a e-com.plus ganha pro mercado brasileiro
 itens:
   - Sem comissão sobre vendas, independente do gateway usado
@@ -35,4 +36,5 @@ tipo: fechamento
 paragrafos:
   - A e-com.plus é headless e API-first como a Shopify — mas construída pensando na operação brasileira desde o primeiro dia.
   - Arquitetura de nível global, com a operação certa pro Brasil.
+imagem: own-store-checkout.jpg
 ```
