@@ -8,6 +8,7 @@ titulo: |-
   não pergunta só
   pro google
 subtitulo: 46,5% dos brasileiros já usam IA generativa pra pesquisar
+imagem: writer-laptop.jpg
 ```
 
 ## Slide 2
@@ -25,6 +26,7 @@ titulo: Isso muda o que "estar bem posicionado" significa
 paragrafos:
   - Não basta rankear no Google. O conteúdo da sua loja também precisa ser o tipo de material que uma IA generativa lê, entende e cita quando alguém pergunta "qual o melhor X pra Y".
   - Loja que não produz esse tipo de conteúdo simplesmente não aparece nessa conversa — nem quando é a resposta certa.
+imagem: ai-touch-circuit.jpg
 ```
 
 ## Slide 4
@@ -44,5 +46,5 @@ tipo: fechamento
 paragrafos:
   - É por isso que o blog da e-com.plus é nativo — publicado no mesmo domínio, na mesma frente de loja, sem fricção pra indexar.
   - Conteúdo virou canal de aquisição. Inclusive pra IA.
-imagem: seller-packing.jpg
+imagem: reading-article-phone.jpg
 ```

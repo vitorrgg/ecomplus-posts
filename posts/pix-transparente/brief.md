@@ -7,6 +7,7 @@ titulo: |-
   pix já é o
   novo cartão
 subtitulo: 40% das transações do e-commerce brasileiro já são no Pix
+imagem: payment-terminal-tap.jpg
 ```
 
 ## Slide 2

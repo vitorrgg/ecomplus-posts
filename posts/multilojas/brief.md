@@ -7,6 +7,7 @@ titulo: |-
   uma loja,
   várias frentes
 subtitulo: Mesmo catálogo, mesmo estoque, quantos sites fizerem sentido
+imagem: network-nodes.jpg
 ```
 
 ## Slide 2

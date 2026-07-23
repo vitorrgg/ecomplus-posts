@@ -8,6 +8,7 @@ titulo: |-
   referência
   global. mas...
 subtitulo: Sua operação é no Brasil. Sua plataforma deveria ser pensada pra isso.
+imagem: world-map.jpg
 ```
 
 ## Slide 2
