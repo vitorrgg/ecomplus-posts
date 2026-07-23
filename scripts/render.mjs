@@ -40,6 +40,21 @@ const slides = slideBlocks.map((block, i) => {
   if (!data.tipo || !BUILDERS[data.tipo]) {
     throw new Error(`Slide ${i + 1}: "tipo" precisa ser um de ${Object.keys(BUILDERS).join(', ')} (veio "${data.tipo}")`);
   }
+  // Gotcha comum: um ":" seguido de espaço dentro de um item de lista vira um
+  // mapeamento YAML em vez de string (ex: "- fez isso: e aquilo" → objeto).
+  // Falha aqui com erro claro em vez de deixar o Satori quebrar depois.
+  for (const field of ['paragrafos', 'itens']) {
+    if (Array.isArray(data[field])) {
+      data[field].forEach((item, j) => {
+        if (typeof item !== 'string') {
+          throw new Error(
+            `Slide ${i + 1}: "${field}[${j}]" não é uma string (veio ${JSON.stringify(item)}). ` +
+            `Provavelmente tem um ":" seguido de espaço no meio do texto — envolva a linha em aspas no YAML.`,
+          );
+        }
+      });
+    }
+  }
   return data;
 });
 

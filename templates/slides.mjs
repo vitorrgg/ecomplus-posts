@@ -18,6 +18,10 @@ function toDataUri(path, mime) {
 const logoWhite = toDataUri(join(rootDir, 'identidade', 'logos', 'ecomplus-logo-white.png'), 'image/png');
 const stripes = toDataUri(join(rootDir, 'templates', 'assets', 'stripes.png'), 'image/png');
 
+function photoDataUri(filename) {
+  return toDataUri(join(rootDir, 'templates', 'assets', 'photos', filename), 'image/jpeg');
+}
+
 // logo original: 600x147px
 const LOGO_W = 190;
 const LOGO_H = Math.round((LOGO_W * 147) / 600);
@@ -55,6 +59,23 @@ function arrowIcon() {
   };
 }
 
+function photoBlock(filename, { height = 460, marginTop = 44 } = {}) {
+  return flex(
+    { width: '100%', height: `${height}px`, borderRadius: '24px', overflow: 'hidden', marginTop: `${marginTop}px` },
+    [
+      {
+        type: 'img',
+        props: {
+          src: photoDataUri(filename),
+          width: 900,
+          height,
+          style: { width: '100%', height: '100%', objectFit: 'cover' },
+        },
+      },
+    ],
+  );
+}
+
 function bottomRow({ showArrow }) {
   return flex(
     {
@@ -72,7 +93,28 @@ function bottomRow({ showArrow }) {
   );
 }
 
-function frame(children, { paddingTop }) {
+// fundo padrão (gradiente + textura) ou, se `bgPhoto` for passado, foto full-bleed
+// com um degradê escuro por cima na metade inferior pra manter o texto legível.
+function frame(children, { paddingTop, bgPhoto }) {
+  const background = bgPhoto
+    ? [
+        { type: 'img', props: { src: photoDataUri(bgPhoto), width: 1080, height: 1350, style: { position: 'absolute', top: 0, left: 0, objectFit: 'cover' } } },
+        {
+          type: 'div',
+          props: {
+            style: {
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '1080px',
+              height: '1350px',
+              display: 'flex',
+              backgroundImage: 'linear-gradient(180deg, rgba(10,1,16,0) 0%, rgba(10,1,16,0.55) 52%, rgba(10,1,16,0.95) 78%, rgba(10,1,16,1) 100%)',
+            },
+          },
+        },
+      ]
+    : [{ type: 'img', props: { src: stripes, width: 1080, height: 1350, style: { position: 'absolute', top: 0, left: 0 } } }];
   return {
     type: 'div',
     props: {
@@ -85,13 +127,11 @@ function frame(children, { paddingTop }) {
         paddingTop: `${paddingTop}px`,
         paddingLeft: '90px',
         paddingRight: '90px',
-        backgroundImage: tokens.darkGradient,
+        backgroundColor: '#0a0110',
+        ...(bgPhoto ? {} : { backgroundImage: tokens.darkGradient }),
         fontFamily: tokens.fontBody,
       },
-      children: [
-        { type: 'img', props: { src: stripes, width: 1080, height: 1350, style: { position: 'absolute', top: 0, left: 0 } } },
-        ...children,
-      ],
+      children: [...background, ...children],
     },
   };
 }
@@ -108,7 +148,7 @@ const titleStyle = {
   color: '#ffffff',
 };
 
-export function coverSlide({ eyebrow, titulo, subtitulo }) {
+export function coverSlide({ eyebrow, titulo, subtitulo, imagem }) {
   return frame(
     [
       eyebrow
@@ -127,11 +167,11 @@ export function coverSlide({ eyebrow, titulo, subtitulo }) {
         : null,
       bottomRow({ showArrow: true }),
     ].filter(Boolean),
-    { paddingTop: 470 },
+    { paddingTop: imagem ? 640 : 470, bgPhoto: imagem },
   );
 }
 
-export function textSlide({ titulo, paragrafos }) {
+export function textSlide({ titulo, paragrafos, imagem }) {
   return frame(
     [
       titulo
@@ -159,8 +199,9 @@ export function textSlide({ titulo, paragrafos }) {
           }),
         ),
       ),
+      imagem ? photoBlock(imagem, { height: 460 }) : null,
     ].filter(Boolean),
-    { paddingTop: titulo ? 300 : 290 },
+    { paddingTop: imagem ? (titulo ? 260 : 250) : titulo ? 300 : 290 },
   );
 }
 
@@ -197,7 +238,7 @@ export function listSlide({ titulo, itens }) {
   );
 }
 
-export function closingSlide({ paragrafos }) {
+export function closingSlide({ paragrafos, imagem }) {
   return frame(
     [
       flex(
@@ -213,8 +254,9 @@ export function closingSlide({ paragrafos }) {
           }),
         ),
       ),
+      imagem ? photoBlock(imagem, { height: 380, marginTop: 40 }) : null,
       bottomRow({ showArrow: false }),
-    ],
-    { paddingTop: 290 },
+    ].filter(Boolean),
+    { paddingTop: imagem ? 250 : 290 },
   );
 }
