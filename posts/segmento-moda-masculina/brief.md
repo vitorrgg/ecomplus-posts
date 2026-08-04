@@ -3,11 +3,13 @@
 ## Slide 1
 ```yaml
 tipo: capa
+eyebrow: Tema de loja aberto · Moda masculina
 titulo: |-
-  ele não quer
-  descobrir. quer
-  achar de novo
-subtitulo: Quem achou a camisa que serve compra a mesma em quatro cores.
+  um tema de loja
+  pra quem vive
+  de recompra
+subtitulo: A grade de tamanho fica no card — compra sem abrir a ficha. Código aberto, licença MIT, de graça.
+imagem: tema-prumo-capa.jpg
 ```
 
 ## Slide 2

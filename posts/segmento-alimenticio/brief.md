@@ -3,11 +3,13 @@
 ## Slide 1
 ```yaml
 tipo: capa
+eyebrow: Tema de loja aberto · Alimentos e mercearia
 titulo: |-
-  comida vence.
-  e isso muda
-  a loja inteira
-subtitulo: Validade, alérgeno e cadeia fria não são detalhe de catálogo — são a operação.
+  um tema de loja
+  feito pra quem
+  vende comida
+subtitulo: Selo de restrição antes do preço, validade na primeira dobra. Código aberto, licença MIT, de graça.
+imagem: tema-despensa-capa.jpg
 ```
 
 ## Slide 2

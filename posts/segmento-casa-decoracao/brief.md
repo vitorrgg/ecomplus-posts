@@ -3,11 +3,13 @@
 ## Slide 1
 ```yaml
 tipo: capa
+eyebrow: Tema de loja aberto · Casa e decoração
 titulo: |-
-  ninguém quer
-  uma cadeira.
-  quer resolver a sala
-subtitulo: Compra de consideração longa, com medida, ambiente e frete volumoso no caminho.
+  um tema de loja
+  feito pra quem
+  vende ambiente
+subtitulo: Entrada por cômodo, header sobre a foto, menu de três níveis. Código aberto, licença MIT, de graça.
+imagem: tema-morada-capa.jpg
 ```
 
 ## Slide 2

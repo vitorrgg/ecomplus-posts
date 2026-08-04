@@ -3,11 +3,13 @@
 ## Slide 1
 ```yaml
 tipo: capa
+eyebrow: Tema de loja aberto · Suplementos
 titulo: |-
-  ele não compara
-  potes. compara
-  doses
-subtitulo: Dois potes do mesmo preço podem render 30 ou 60 porções.
+  um tema de loja
+  pra quem vende
+  por dose
+subtitulo: Rendimento e concentração na vitrine, entrada por objetivo. Código aberto, licença MIT, de graça.
+imagem: tema-dose-capa.jpg
 ```
 
 ## Slide 2

@@ -3,11 +3,13 @@
 ## Slide 1
 ```yaml
 tipo: capa
+eyebrow: Tema de loja aberto · Moda feminina
 titulo: |-
-  a grade
-  multiplica tudo.
-  inclusive o erro
-subtitulo: Uma peça em cinco tamanhos e quatro cores são vinte SKUs com estoque próprio.
+  um tema de loja
+  feito pra quem
+  vende moda
+subtitulo: Atalho que cruza ocasião com tamanho e kit que já vem combinado. Código aberto, licença MIT, de graça.
+imagem: tema-alinhavo-capa.jpg
 ```
 
 ## Slide 2

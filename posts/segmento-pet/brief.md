@@ -3,11 +3,13 @@
 ## Slide 1
 ```yaml
 tipo: capa
+eyebrow: Tema de loja aberto · Pet
 titulo: |-
-  a ração acaba
-  no mesmo dia
-  do mês
-subtitulo: O tutor sabe disso. A loja é que costuma ignorar.
+  um tema de loja
+  feito pra quem
+  vive de recompra
+subtitulo: O selo de assinatura vem antes do preço. Código aberto, licença MIT, de graça.
+imagem: tema-focinho-capa.jpg
 ```
 
 ## Slide 2

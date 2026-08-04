@@ -3,11 +3,13 @@
 ## Slide 1
 ```yaml
 tipo: capa
+eyebrow: Tema de loja aberto · Construção e ferramentas
 titulo: |-
-  ele não navega.
-  procura o código
-  e leva cem
-subtitulo: Comprador profissional chega sabendo o item, a bitola e a quantidade.
+  um tema de loja
+  pro comprador
+  profissional
+subtitulo: Card denso com SKU, quantidade na prateleira, busca no centro. Código aberto, licença MIT, de graça.
+imagem: tema-bitola-capa.jpg
 ```
 
 ## Slide 2

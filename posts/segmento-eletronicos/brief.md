@@ -3,11 +3,13 @@
 ## Slide 1
 ```yaml
 tipo: capa
+eyebrow: Tema de loja aberto · Eletrônicos e informática
 titulo: |-
-  voltagem errada
-  é devolução
-  na certa
-subtitulo: E é a informação mais banal do nicho.
+  um tema de loja
+  pra catálogo
+  técnico
+subtitulo: Voltagem no card e preço à vista com destaque. Código aberto, licença MIT, de graça.
+imagem: tema-circuito-capa.jpg
 ```
 
 ## Slide 2

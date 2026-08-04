@@ -3,11 +3,13 @@
 ## Slide 1
 ```yaml
 tipo: capa
+eyebrow: Tema de loja aberto · Cosméticos e skincare
 titulo: |-
-  ninguém acorda
-  querendo comprar
-  um sérum
-subtitulo: A pessoa quer resolver a mancha. O formato do produto vem depois.
+  um tema de loja
+  feito pra quem
+  vende beleza
+subtitulo: Catálogo por problema, régua de tom na home, ritual com cadência. Código aberto, licença MIT, de graça.
+imagem: tema-glow-capa.jpg
 ```
 
 ## Slide 2
