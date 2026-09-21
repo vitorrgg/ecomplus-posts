@@ -5,7 +5,8 @@
 // Uso:
 //   node scripts/ecb/semana.mjs                  # 3 artigos, semana corrente
 //   node scripts/ecb/semana.mjs --limite 2
-//   node scripts/ecb/semana.mjs --exemplo        # sem API da Claude (brief fixo)
+//   node scripts/ecb/semana.mjs --via api        # API da Claude em vez do `claude -p` (padrão)
+//   node scripts/ecb/semana.mjs --exemplo        # sem modelo nenhum (brief fixo)
 import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 import { root, args, segundaDaSemana, lerFila } from './util.mjs';
@@ -19,7 +20,8 @@ console.log(`== Semana ${semana} ==`);
 const antes = new Set(lerFila().pendentes.map((p) => p.slug));
 
 roda(['ecb', 'mais-lidos.mjs'], '--limite', String(opts.limite ?? 3));
-roda(['ecb', 'gerar-briefs.mjs'], '--semana', semana, ...(opts.exemplo ? ['--exemplo'] : []));
+roda(['ecb', 'gerar-briefs.mjs'], '--semana', semana,
+  ...(opts.exemplo ? ['--exemplo'] : []), ...(opts.via ? ['--via', opts.via] : []));
 
 const novos = lerFila().pendentes.map((p) => p.slug).filter((s) => !antes.has(s));
 if (!novos.length) { console.log('Nenhum post novo nesta rodada.'); process.exit(0); }

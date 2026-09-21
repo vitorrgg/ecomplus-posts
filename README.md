@@ -33,15 +33,16 @@ scripts/
   ecb/                     Rotina semanal "mais lidos do E-Commerce Brasil" → posts → Instagram (ver ecb/README.md)
 ecb/                     Estado da rotina semanal: fila, histórico e coletas por semana
 output/<slug>/           PNGs gerados (1080×1350, pronto pra Instagram); posts ecb-* têm também os JPEGs
-.github/workflows/       ecb-semanal.yml (segunda: gerar) e ecb-publicar.yml (seg/qua/sex: publicar)
+.github/workflows/       ecb-publicar.yml (seg/qua/sex: publicar) e ecb-semanal.yml (gerar pela API, manual)
 ```
 
 ## Rotina automática semanal (E-Commerce Brasil → Instagram)
 
-Toda segunda o GitHub Actions coleta os artigos mais lidos do E-Commerce Brasil e,
-usando cada um como pauta, gera com a API da Claude um carrossel de análise
-original cruzando o tema com recursos da e-com.plus, renderiza e comita na fila;
-segunda, quarta e sexta ao meio-dia publica um por vez no @ecomplus.io. Setup (segredos, token
+Toda segunda uma rotina do Claude Code (plano Max, na nuvem ou local) coleta os
+artigos mais lidos do E-Commerce Brasil e, usando cada um como pauta, escreve um
+carrossel de análise original cruzando o tema com recursos da e-com.plus,
+renderiza e comita na fila; o GitHub Actions publica um por vez no @ecomplus.io
+segunda, quarta e sexta ao meio-dia. Setup (segredos, token
 do Instagram, revisão antes de publicar) em [`ecb/README.md`](ecb/README.md).
 
 ## Tipos de slide

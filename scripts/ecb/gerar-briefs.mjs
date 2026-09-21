@@ -6,17 +6,27 @@
 // ecb/historico.json (pra não repetir o artigo em outra semana) e o enfileira
 // em ecb/fila.json pra publicação.
 //
-// Uso:
-//   node scripts/ecb/gerar-briefs.mjs                         # semana corrente
-//   node scripts/ecb/gerar-briefs.mjs --semana 2026-09-21     # outro arquivo em ecb/semanas/
-//   node scripts/ecb/gerar-briefs.mjs --exemplo               # sem API: usa um brief fixo só pra exercitar a escrita
+// Três jeitos de obter a análise (--via):
+//   claude-code  (padrão) chama `claude -p` do Claude Code instalado na máquina, com saída
+//                estruturada — usa a assinatura (Max) de quem está logado, sem chave de API.
+//   api          usa a API da Claude pelo SDK — precisa de ANTHROPIC_API_KEY (cobrança à parte).
+//   --from-json <arquivo-ou-pasta>  não gera nada: lê JSONs já escritos (pela rotina na nuvem
+//                do Claude Code, por exemplo) no formato de ecb/ESQUEMA.json + campo "fonte",
+//                valida e grava.
 //
-// Credenciais: ANTHROPIC_API_KEY no ambiente (ou perfil do `ant auth login`).
+// Uso:
+//   node scripts/ecb/gerar-briefs.mjs                         # semana corrente, via claude-code
+//   node scripts/ecb/gerar-briefs.mjs --via api
+//   node scripts/ecb/gerar-briefs.mjs --semana 2026-09-21     # outro arquivo em ecb/semanas/
+//   node scripts/ecb/gerar-briefs.mjs --from-json ecb/saidas/2026-09-21
+//   node scripts/ecb/gerar-briefs.mjs --esquema               # regrava ecb/ESQUEMA.json a partir do zod
+//   node scripts/ecb/gerar-briefs.mjs --exemplo               # sem modelo: brief fixo só pra exercitar a escrita
 import Anthropic from '@anthropic-ai/sdk';
 import { zodOutputFormat } from '@anthropic-ai/sdk/helpers/zod';
 import { z } from 'zod';
 import yaml from 'js-yaml';
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync, statSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
 import { join } from 'node:path';
 import {
   root, segundaDaSemana, lerJson, gravarJson, args, slugify,
@@ -62,23 +72,11 @@ const Saida = z.object({
   legenda: z.string().describe('Legenda do post no Instagram: 3 a 5 frases curtas com a tese e a conclusão, linha em branco, uma frase de convite (ex.: conhecer a e-com.plus, comentar), linha em branco e 5 a 8 hashtags. Até 1500 caracteres. Sem URL, sem citar fonte ou autor.'),
 });
 
-const SISTEMA = `Você escreve carrosséis pro Instagram da e-com.plus (@ecomplus.io), plataforma brasileira de e-commerce headless e API-first, alternativa à VTEX, feita pra lojas de marca e indústrias que vendem direto (D2C). A audiência é de lojistas, gestores de e-commerce, indústrias e agências.
-
-Toda semana você recebe um artigo que está entre os mais lidos do mercado. Ele é só a PAUTA: o post é uma análise original da e-com.plus sobre o tema, cruzando o que o artigo levanta com a realidade de quem opera uma loja própria e com os recursos da plataforma. Não é resumo do artigo.
-
-Voz da marca: simples, direta, sem jargão de agência, sem exclamações. Frases curtas. Opinião clara. Português do Brasil. O nome da marca é sempre "e-com.plus", em minúsculas.
-
-Regras de conteúdo:
-- Não cite o portal de origem, o autor nem a palavra "fonte". Nunca reproduza frases do artigo.
-- Dados numéricos podem entrar quando sustentam o argumento, sempre com o nome de quem produziu o estudo (ex.: "segundo a NIQ"), nunca do veículo que noticiou.
-- Estrutura: slide 1 é a capa com a tese; slides 2 a 4 desenvolvem a análise (o que está acontecendo, por que importa pra loja própria, onde a conta desanda), alternando "texto" e "lista"; o penúltimo slide de conteúdo mostra como o tema se resolve na e-com.plus, citando 2 a 4 recursos reais da lista abaixo; o último é o "fechamento", com a conclusão e o que o lojista deve fazer.
-- Só use recursos que estão na lista. Se o tema não cruzar bem com nenhum, faça a análise do ponto de vista de quem tem loja própria e feche com a posição da e-com.plus sobre o assunto.
-- Respeite os limites de caracteres descritos em cada campo: o layout é fixo e texto a mais é cortado na imagem.
-- Não use emojis nos slides. Na legenda, no máximo dois.
-- Evite dois-pontos seguidos de espaço no meio de itens de lista.
-
-Recursos da e-com.plus (nome — o que é):
-${RECURSOS}`;
+// O texto do prompt vive em ecb/PROMPT.md pra ser o mesmo aqui, no `claude -p` e na
+// rotina na nuvem (que lê o arquivo direto).
+const SISTEMA = readFileSync(join(root, 'ecb', 'PROMPT.md'), 'utf8').replace('{{RECURSOS}}', RECURSOS);
+export const ESQUEMA_JSON = zodOutputFormat(Saida).schema;
+export function validarSaida(obj) { return Saida.parse(obj); }
 
 function promptUsuario(artigo) {
   return `Pauta da semana (artigo na posição ${artigo.posicao} entre os mais lidos do mercado).
@@ -142,6 +140,37 @@ async function gerarComApi(client, artigo) {
   return resposta.parsed_output;
 }
 
+// `claude -p` com --json-schema devolve `structured_output` já validado pelo próprio
+// Claude Code; revalidamos com o zod por garantia. Sem ferramentas e sem sessão
+// persistida: é uma chamada de modelo, não uma sessão de agente.
+function gerarComClaudeCode(artigo) {
+  const r = spawnSync('claude', [
+    '-p', '--no-session-persistence', '--tools', '', '--output-format', 'json',
+    '--model', MODELO, '--json-schema', JSON.stringify(ESQUEMA_JSON),
+    '--system-prompt', SISTEMA, promptUsuario(artigo),
+  ], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+  if (r.error) throw new Error(`Não consegui rodar o \`claude\` (${r.error.message}). Instale o Claude Code ou use --via api.`);
+  let j;
+  try { j = JSON.parse(r.stdout); } catch { throw new Error(`Saída inesperada do claude -p:\n${r.stdout.slice(0, 500)}\n${r.stderr.slice(0, 500)}`); }
+  if (j.is_error) throw new Error(`claude -p falhou: ${j.result} (se for login, rode \`claude\` e /login)`);
+  const bruto = j.structured_output ?? JSON.parse(j.result);
+  return validarSaida(bruto);
+}
+
+// Lê um JSON (ou todos os .json de uma pasta) no formato do esquema + "fonte" (url do
+// artigo) e devolve pares [artigo, saida] casados com a coleta da semana.
+function lerSaidasJson(caminho, coleta) {
+  const arquivos = statSync(caminho).isDirectory()
+    ? readdirSync(caminho).filter((f) => f.endsWith('.json')).map((f) => join(caminho, f))
+    : [caminho];
+  return arquivos.map((arq) => {
+    const { fonte, ...saida } = JSON.parse(readFileSync(arq, 'utf8'));
+    const artigo = coleta.escolhidos.find((a) => a.url === fonte) ?? coleta.ranking.find((a) => a.url === fonte);
+    if (!artigo) throw new Error(`${arq}: "fonte" ${fonte} não está na coleta da semana.`);
+    return [artigo, validarSaida(saida)];
+  });
+}
+
 function exemploFixo(artigo) {
   return {
     slug: slugify(artigo.titulo, 30),
@@ -159,6 +188,11 @@ function exemploFixo(artigo) {
 const ehMain = process.argv[1] && import.meta.url.endsWith(process.argv[1].split('/').pop());
 if (ehMain) {
   const opts = args();
+  if (opts.esquema) {
+    gravarJson(join(root, 'ecb', 'ESQUEMA.json'), ESQUEMA_JSON);
+    console.log('✓ ecb/ESQUEMA.json');
+    process.exit(0);
+  }
   const semana = opts.semana ?? segundaDaSemana();
   const arq = join(root, 'ecb', 'semanas', `${semana}.json`);
   if (!existsSync(arq)) {
@@ -167,14 +201,22 @@ if (ehMain) {
   }
   const coleta = lerJson(arq);
   const jaGerados = new Set(lerHistorico().gerados.map((g) => g.fonte));
-  const client = opts.exemplo ? null : new Anthropic();
+  const via = opts.exemplo ? 'exemplo' : opts['from-json'] ? 'json' : (opts.via ?? (process.env.ANTHROPIC_API_KEY ? 'api' : 'claude-code'));
+  const client = via === 'api' ? new Anthropic() : null;
   const gerados = [];
 
-  for (const artigo of coleta.escolhidos) {
+  const pendentes = via === 'json'
+    ? lerSaidasJson(opts['from-json'], coleta)
+    : coleta.escolhidos.map((a) => [a, null]);
+
+  for (const [artigo, pronta] of pendentes) {
     if (jaGerados.has(artigo.url)) { console.log(`· já gerado: ${artigo.titulo}`); continue; }
-    if (!artigo.texto) { console.warn(`⚠ sem texto, pulando: ${artigo.titulo}`); continue; }
-    console.log(`→ gerando: ${artigo.titulo}`);
-    const saida = opts.exemplo ? exemploFixo(artigo) : await gerarComApi(client, artigo);
+    if (!artigo.texto && via !== 'json') { console.warn(`⚠ sem texto, pulando: ${artigo.titulo}`); continue; }
+    console.log(`→ ${via === 'json' ? 'gravando' : `gerando (${via})`}: ${artigo.titulo}`);
+    const saida = pronta
+      ?? (via === 'exemplo' ? exemploFixo(artigo)
+        : via === 'api' ? await gerarComApi(client, artigo)
+        : gerarComClaudeCode(artigo));
     const slug = `ecb-${semana}-${slugify(saida.slug || artigo.titulo, 36)}`;
     const dir = gravarPost({ slug, brief: montarBrief(saida, artigo), legenda: saida.legenda, artigo, semana });
     console.log(`✓ ${dir}`);

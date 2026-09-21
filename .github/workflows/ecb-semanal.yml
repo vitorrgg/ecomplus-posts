@@ -1,11 +1,13 @@
-# Toda segunda-feira: coleta os "Mais Lidos" do E-Commerce Brasil, gera os
-# carrosséis com a identidade da e-com.plus e comita briefs + imagens na fila.
+# Geração pela API da Claude (cobrada à parte, precisa do secret ANTHROPIC_API_KEY).
+# Só disparo manual: a geração semanal de verdade roda pelo Claude Code (plano Max),
+# na rotina agendada na nuvem ou em scripts/ecb/semana-local.sh — ver ecb/README.md.
+# Pra voltar a agendar aqui, descomente o bloco `schedule`.
 # A publicação no Instagram é o workflow ecb-publicar.yml.
-name: ECB semanal — gerar posts
+name: ECB — gerar posts pela API (manual)
 
 on:
-  schedule:
-    - cron: '0 12 * * 1'   # segunda 09:00 em São Paulo (12:00 UTC)
+  # schedule:
+  #   - cron: '0 12 * * 1'   # segunda 09:00 em São Paulo (12:00 UTC)
   workflow_dispatch:
     inputs:
       limite:
@@ -32,7 +34,7 @@ jobs:
       - name: Coletar, gerar briefs, renderizar
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: node scripts/ecb/semana.mjs --limite "${{ github.event.inputs.limite || '3' }}"
+        run: node scripts/ecb/semana.mjs --via api --limite "${{ github.event.inputs.limite || '3' }}"
       - name: Commit da fila
         run: |
           git config user.name 'ecb-bot'

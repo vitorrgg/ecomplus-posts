@@ -1,0 +1,160 @@
+{
+  "$defs": {
+    "__schema0": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tipo": {
+              "type": "string",
+              "description": "{const: \"capa\"}"
+            },
+            "eyebrow": {
+              "type": "string",
+              "description": "Chapéu curto acima do título, até 40 caracteres. Ex.: \"análise da semana · pós-compra\""
+            },
+            "titulo": {
+              "type": "string",
+              "description": "Título da capa em 2 ou 3 linhas separadas por \\n, cada linha com no máximo 16 caracteres. É a tese do post, não o título do artigo. Será renderizado em minúsculas."
+            },
+            "subtitulo": {
+              "type": "string",
+              "description": "Uma frase de apoio, até 110 caracteres."
+            },
+            "imagem": {
+              "type": "string",
+              "description": "Foto de fundo, escolhida pelo assunto.\n\n{enum: [\"ai-touch-circuit.jpg\",\"cardboard-box-light.jpg\",\"checkout-ui-mockup.jpg\",\"code-screen-macbook.jpg\",\"cover-warehouse.jpg\",\"dashboard-charts.jpg\",\"factory-industrial.jpg\",\"magnifying-glass-laptop.jpg\",\"mail-icon-phone.jpg\",\"network-nodes.jpg\",\"own-store-checkout.jpg\",\"payment-terminal-tap.jpg\",\"reading-article-phone.jpg\",\"referral-handshake.jpg\",\"sale-tag-rack.jpg\",\"seller-packing.jpg\",\"star-rating.jpg\",\"wireframe-sketch.jpg\",\"world-map.jpg\",\"writer-laptop.jpg\"]}"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "tipo",
+            "eyebrow",
+            "titulo",
+            "subtitulo",
+            "imagem"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tipo": {
+              "type": "string",
+              "description": "{const: \"texto\"}"
+            },
+            "titulo": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/__schema1"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Título opcional em negrito, até 50 caracteres. null quando não houver."
+            },
+            "paragrafos": {
+              "type": "array",
+              "description": "1 a 3 parágrafos, cada um entre 90 e 220 caracteres. Total do slide até 450 caracteres.\n\n{maxItems: 3}",
+              "items": {
+                "$ref": "#/$defs/__schema2"
+              },
+              "minItems": 1
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "tipo",
+            "titulo",
+            "paragrafos"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tipo": {
+              "type": "string",
+              "description": "{const: \"lista\"}"
+            },
+            "titulo": {
+              "type": "string",
+              "description": "Título da lista, até 50 caracteres."
+            },
+            "itens": {
+              "type": "array",
+              "description": "3 a 5 itens, cada um até 110 caracteres, sem ponto final.\n\n{maxItems: 5, minItems: 3}",
+              "items": {
+                "$ref": "#/$defs/__schema3"
+              }
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "tipo",
+            "titulo",
+            "itens"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tipo": {
+              "type": "string",
+              "description": "{const: \"fechamento\"}"
+            },
+            "paragrafos": {
+              "type": "array",
+              "description": "1 ou 2 parágrafos, até 200 caracteres cada: a conclusão da análise e o que o lojista faz com ela. Sem citar fonte, autor ou o portal de origem.\n\n{maxItems: 2}",
+              "items": {
+                "$ref": "#/$defs/__schema4"
+              },
+              "minItems": 1
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "tipo",
+            "paragrafos"
+          ]
+        }
+      ]
+    },
+    "__schema1": {
+      "type": "string"
+    },
+    "__schema2": {
+      "type": "string"
+    },
+    "__schema3": {
+      "type": "string"
+    },
+    "__schema4": {
+      "type": "string"
+    }
+  },
+  "type": "object",
+  "properties": {
+    "slug": {
+      "type": "string",
+      "description": "Slug curto em kebab-case (3 a 5 palavras) que identifica o assunto."
+    },
+    "slides": {
+      "type": "array",
+      "description": "Sequência do carrossel: começa com \"capa\", termina com \"fechamento\", e no meio alterna \"texto\" e \"lista\". O penúltimo slide de conteúdo é o cruzamento com a e-com.plus.\n\n{maxItems: 7, minItems: 5}",
+      "items": {
+        "$ref": "#/$defs/__schema0"
+      }
+    },
+    "legenda": {
+      "type": "string",
+      "description": "Legenda do post no Instagram: 3 a 5 frases curtas com a tese e a conclusão, linha em branco, uma frase de convite (ex.: conhecer a e-com.plus, comentar), linha em branco e 5 a 8 hashtags. Até 1500 caracteres. Sem URL, sem citar fonte ou autor."
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "slug",
+    "slides",
+    "legenda"
+  ],
+  "description": "{$schema: \"https://json-schema.org/draft/2020-12/schema\"}"
+}
