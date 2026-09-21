@@ -4,13 +4,22 @@ import yaml from 'js-yaml';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { coverSlide, textSlide, listSlide, closingSlide } from '../templates/slides.mjs';
+import {
+  coverSlide,
+  coverCaseSlide,
+  coverVitrineSlide,
+  textSlide,
+  listSlide,
+  closingSlide,
+} from '../templates/slides.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
 
 const BUILDERS = {
   capa: coverSlide,
+  'capa-case': coverCaseSlide,
+  'capa-vitrine': coverVitrineSlide,
   texto: textSlide,
   lista: listSlide,
   fechamento: closingSlide,

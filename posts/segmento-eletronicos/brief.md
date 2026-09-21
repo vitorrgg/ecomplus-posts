@@ -2,14 +2,16 @@
 
 ## Slide 1
 ```yaml
-tipo: capa
-eyebrow: Tema de loja aberto · Eletrônicos e informática
+tipo: capa-vitrine
+chapeu: "#temaaberto · MIT, de graça"
 titulo: |-
-  um tema de loja
-  pra catálogo
-  técnico
-subtitulo: Voltagem no card e preço à vista com destaque. Código aberto, licença MIT, de graça.
-imagem: tema-circuito-capa.jpg
+  circuito
+  para eletrônicos
+enderecos:
+  - tema-circuito.web.app
+  - github.com/ecomplus/tema-circuito
+imagem: tema-circuito-mobile.jpg
+imagemSecundaria: tema-circuito-desktop.jpg
 ```
 
 ## Slide 2

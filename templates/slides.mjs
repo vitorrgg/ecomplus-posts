@@ -280,3 +280,214 @@ export function closingSlide({ paragrafos, imagem, tema }) {
     { paddingTop: imagem ? 250 : 290, light },
   );
 }
+
+/* ------------------------------------------------------------------ *
+ * Modelos alternativos de capa.
+ *
+ * O carrossel ficava monótono com uma capa só: nove posts seguidos com o
+ * mesmo enquadramento. Estes dois vieram dos exemplos feitos à mão em
+ * `identidade/exemplos/`, que já usavam layouts que o pipeline não tinha.
+ *
+ *  · `capa-case`    — de "Case BarraDoce 01": tarja de assunto no topo,
+ *                     texto à esquerda, print sangrando pela direita, selo
+ *                     circular sobre o print e rodapé branco com o logo.
+ *                     Serve quando existe um número ou uma decisão única
+ *                     para carregar a capa.
+ *
+ *  · `capa-vitrine` — de "Golive lado fit e lado rosa": chapéu curto, título
+ *                     grande em itálico, endereços sublinhados e dois prints
+ *                     sobrepostos na metade de baixo. Serve quando o assunto
+ *                     é a própria loja no ar.
+ * ------------------------------------------------------------------ */
+
+/* Print em moldura arredondada, com sombra — usado pelos dois modelos. */
+function printBox(filename, style) {
+  return {
+    type: 'div',
+    props: {
+      style: {
+        display: 'flex',
+        overflow: 'hidden',
+        borderRadius: '28px',
+        boxShadow: '0 30px 80px rgba(0,0,0,0.45)',
+        ...style,
+      },
+      children: [
+        {
+          type: 'img',
+          props: {
+            src: photoDataUri(filename),
+            style: { width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' },
+          },
+        },
+      ],
+    },
+  };
+}
+
+function baseEscura(children) {
+  return {
+    type: 'div',
+    props: {
+      style: {
+        width: '1080px',
+        height: '1350px',
+        display: 'flex',
+        flexDirection: 'column',
+        position: 'relative',
+        backgroundColor: '#0a0110',
+        backgroundImage: tokens.darkGradient,
+        fontFamily: tokens.fontBody,
+      },
+      children,
+    },
+  };
+}
+
+export function coverCaseSlide({ tarja, chapeu, destaque, titulo, apoio, imagem, selo, site }) {
+  return baseEscura([
+    { type: 'img', props: { src: stripes, width: 1080, height: 1350, style: { position: 'absolute', top: 0, left: 0 } } },
+
+    /* tarja de assunto, no topo */
+    flex(
+      {
+        position: 'absolute', top: 0, left: 0, width: '1080px', height: '132px',
+        alignItems: 'center', paddingLeft: '90px', paddingRight: '90px',
+        backgroundColor: '#4a0a52',
+      },
+      [textBlock(tarja, { fontSize: 30, color: 'rgba(255,255,255,0.92)' })],
+    ),
+
+    /* print sangrando pela direita */
+    imagem
+      ? printBox(imagem, {
+          position: 'absolute', right: '-70px', top: '250px',
+          width: '520px', height: '860px',
+        })
+      : null,
+
+    /*
+     * Selo circular montado sobre a borda esquerda do print. Fica embaixo, e
+     * não no topo como no exemplo à mão: ali a coluna de texto era curta; aqui
+     * ela desce até uns 760px e o selo bateria no meio dela.
+     */
+    selo
+      ? flex(
+          {
+            position: 'absolute', right: '400px', top: '900px',
+            width: '190px', height: '190px', borderRadius: '95px',
+            backgroundColor: '#ffffff', border: `10px solid ${tokens.colorSuccess}`,
+            alignItems: 'center', justifyContent: 'center',
+            flexDirection: 'column',
+          },
+          [
+            textBlock(String(selo.valor), {
+              fontSize: 62, fontWeight: 700, color: tokens.colorText, lineHeight: 1,
+            }),
+            selo.rotulo
+              ? textBlock(selo.rotulo, {
+                  fontSize: 17, color: tokens.colorText, marginTop: 4, opacity: 0.7,
+                })
+              : null,
+          ].filter(Boolean),
+        )
+      : null,
+
+    /* coluna de texto, à esquerda */
+    flex(
+      {
+        /* 520 e não mais: o print entra por 630px, e texto até ali encostaria */
+        position: 'absolute', left: '90px', top: '300px', width: '520px',
+        flexDirection: 'column',
+      },
+      [
+        chapeu ? textBlock(chapeu, { fontSize: 40, color: 'rgba(255,255,255,0.92)', marginBottom: 18 }) : null,
+        destaque
+          ? textBlock(destaque, {
+              fontFamily: tokens.fontDisplay, fontStyle: 'italic', fontWeight: 600,
+              fontSize: 128, color: '#ffffff', lineHeight: 1, marginBottom: 18,
+            })
+          : null,
+        textBlock(titulo, {
+          flexDirection: 'column', width: '100%',
+          fontSize: 48, fontWeight: 700, color: '#ffffff', lineHeight: 1.15,
+        }),
+        apoio
+          ? textBlock(apoio, {
+              flexDirection: 'column', width: '100%',
+              fontSize: 29, color: 'rgba(255,255,255,0.86)', lineHeight: 1.4, marginTop: 26,
+            })
+          : null,
+      ].filter(Boolean),
+    ),
+
+    /* seta, acima do rodapé */
+    flex({ position: 'absolute', right: '90px', bottom: '210px' }, [arrowIcon('#ffffff')]),
+
+    /* rodapé branco */
+    flex(
+      {
+        position: 'absolute', bottom: 0, left: 0, width: '1080px', height: '150px',
+        alignItems: 'center', justifyContent: 'space-between',
+        paddingLeft: '90px', paddingRight: '90px', backgroundColor: '#ffffff',
+      },
+      [
+        { type: 'img', props: { src: logoDark, width: LOGO_W, height: LOGO_H } },
+        textBlock(site || 'www.e-com.plus', { fontSize: 30, color: tokens.colorText }),
+      ],
+    ),
+  ].filter(Boolean));
+}
+
+export function coverVitrineSlide({ chapeu, titulo, enderecos = [], imagem, imagemSecundaria }) {
+  return baseEscura([
+    { type: 'img', props: { src: stripes, width: 1080, height: 1350, style: { position: 'absolute', top: 0, left: 0 } } },
+
+    flex(
+      /* 600: o print retrato sobe até 520px de altura e entra por 720px */
+      { position: 'absolute', left: '90px', top: '170px', width: '600px', flexDirection: 'column' },
+      [
+        chapeu ? textBlock(chapeu, { fontSize: 42, color: 'rgba(255,255,255,0.88)', marginBottom: 14 }) : null,
+        textBlock(titulo, {
+          flexDirection: 'column', width: '100%',
+          fontFamily: tokens.fontDisplay, fontStyle: 'italic', fontWeight: 600,
+          textTransform: 'lowercase', fontSize: 82, color: '#ffffff', lineHeight: 1.05,
+        }),
+        enderecos.length
+          ? flex(
+              { flexDirection: 'column', marginTop: 34 },
+              enderecos.map((e) => flex(
+                { fontSize: 34, color: '#ffffff', textDecoration: 'underline', marginBottom: 6 },
+                e,
+              )),
+            )
+          : null,
+      ].filter(Boolean),
+    ),
+
+    /* dois prints sobrepostos, sangrando pelas bordas */
+    imagemSecundaria
+      ? printBox(imagemSecundaria, {
+          position: 'absolute', left: '-40px', bottom: '210px',
+          width: '640px', height: '400px',
+        })
+      : null,
+    imagem
+      ? printBox(imagem, {
+          position: 'absolute', right: '-30px', bottom: '150px',
+          width: '390px', height: '680px',
+        })
+      : null,
+
+    flex(
+      {
+        position: 'absolute', left: '90px', right: '90px', bottom: '58px',
+        justifyContent: 'space-between', alignItems: 'center',
+      },
+      [
+        { type: 'img', props: { src: logoWhite, width: LOGO_W, height: LOGO_H } },
+        arrowIcon('#ffffff'),
+      ],
+    ),
+  ].filter(Boolean));
+}

@@ -2,14 +2,18 @@
 
 ## Slide 1
 ```yaml
-tipo: capa
-eyebrow: Tema de loja aberto · Cosméticos e skincare
+tipo: capa-case
+tarja: Tema de loja aberto · Cosméticos e skincare
+chapeu: A régua de tom da home tem
+destaque: "7"
 titulo: |-
-  um tema de loja
-  feito pra quem
-  vende beleza
-subtitulo: Catálogo por problema, régua de tom na home, ritual com cadência. Código aberto, licença MIT, de graça.
-imagem: tema-glow-capa.jpg
+  subtons, com nome
+  e código
+apoio: Porque errar o tom da base é a devolução número um do nicho. E o catálogo entra por problema, não por embalagem.
+imagem: tema-glow-mobile.jpg
+selo:
+  valor: R$ 0
+  rotulo: MIT, aberto
 ```
 
 ## Slide 2

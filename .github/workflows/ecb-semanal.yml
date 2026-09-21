@@ -1,0 +1,44 @@
+# Toda segunda-feira: coleta os "Mais Lidos" do E-Commerce Brasil, gera os
+# carrosséis com a identidade da e-com.plus e comita briefs + imagens na fila.
+# A publicação no Instagram é o workflow ecb-publicar.yml.
+name: ECB semanal — gerar posts
+
+on:
+  schedule:
+    - cron: '0 12 * * 1'   # segunda 09:00 em São Paulo (12:00 UTC)
+  workflow_dispatch:
+    inputs:
+      limite:
+        description: 'Quantos artigos do ranking virar post'
+        default: '3'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ecb
+  cancel-in-progress: false
+
+jobs:
+  gerar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Coletar, gerar briefs, renderizar
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/ecb/semana.mjs --limite "${{ github.event.inputs.limite || '3' }}"
+      - name: Commit da fila
+        run: |
+          git config user.name 'ecb-bot'
+          git config user.email 'ti@e-com.club'
+          git add ecb posts output
+          if git diff --cached --quiet; then echo 'nada novo'; exit 0; fi
+          git commit -m "feat(ecb): posts da semana $(date -u +%Y-%m-%d)"
+          git pull --rebase origin master
+          git push

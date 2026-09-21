@@ -14,22 +14,35 @@ Renderização via [Satori](https://github.com/vercel/satori) (mesma lib que o V
 
 ```
 identidade/
-  marca.md            Guia de marca em markdown (cores, tipografia, logo, voz)
+  marca.md            Guia de marca em markdown (cores, tipografia, logo, voz, formatos —
+                      inclui a regra de 1920×1080 para thumbnail de vídeo do YouTube)
   logos/               Arquivos de logo (svg/png, normal e negativa)
   exemplos/            Posts feitos à mão (PDF/PNG) usados como referência visual — não fazem parte do pipeline
 templates/
   tokens.css           Tokens de marca em CSS (referência/documentação)
   tokens.mjs            Os mesmos tokens em JS, mais o gradiente escuro — o que o render usa
-  slides.mjs             4 construtores de slide (capa, texto, lista, fechamento), como árvore Satori
+  slides.mjs             6 construtores de slide (3 modelos de capa + texto, lista, fechamento), como árvore Satori
   fonts/                Arquivos .woff das fontes da marca (regular, bold, itálico)
   assets/stripes.png     Textura diagonal (gerada uma vez por scripts/gen-texture.mjs)
 posts/<slug>/
   brief.md              Conteúdo de um carrossel: um "## Slide N" por slide, cada um com um bloco \`\`\`yaml
+  legenda.txt           (posts ecb-*) legenda do Instagram
 scripts/
   render.mjs              Lê o brief + templates, gera um PNG por slide via Satori + resvg
   gen-texture.mjs          Gera templates/assets/stripes.png (só precisa rodar de novo se quiser mudar a textura)
-output/<slug>/           PNGs gerados (1080×1350, pronto pra Instagram)
+  ecb/                     Rotina semanal "mais lidos do E-Commerce Brasil" → posts → Instagram (ver ecb/README.md)
+ecb/                     Estado da rotina semanal: fila, histórico e coletas por semana
+output/<slug>/           PNGs gerados (1080×1350, pronto pra Instagram); posts ecb-* têm também os JPEGs
+.github/workflows/       ecb-semanal.yml (segunda: gerar) e ecb-publicar.yml (seg/qua/sex: publicar)
 ```
+
+## Rotina automática semanal (E-Commerce Brasil → Instagram)
+
+Toda segunda o GitHub Actions coleta os artigos mais lidos do E-Commerce Brasil e,
+usando cada um como pauta, gera com a API da Claude um carrossel de análise
+original cruzando o tema com recursos da e-com.plus, renderiza e comita na fila;
+segunda, quarta e sexta ao meio-dia publica um por vez no @ecomplus.io. Setup (segredos, token
+do Instagram, revisão antes de publicar) em [`ecb/README.md`](ecb/README.md).
 
 ## Tipos de slide
 
@@ -37,10 +50,37 @@ Cada slide do `brief.md` é um bloco yaml com `tipo` + os campos daquele tipo:
 
 | tipo | campos | quando usar |
 |---|---|---|
-| `capa` | `titulo`, `subtitulo` | primeiro slide do carrossel |
+| `capa` | `eyebrow`, `titulo`, `subtitulo`, `imagem` | primeiro slide do carrossel |
+| `capa-case` | `tarja`, `chapeu`, `destaque`, `titulo`, `apoio`, `imagem`, `selo` | idem |
+| `capa-vitrine` | `chapeu`, `titulo`, `enderecos`, `imagem`, `imagemSecundaria` | idem |
 | `texto` | `titulo` (opcional), `paragrafos` (lista) | conteúdo corrido, 1-3 parágrafos |
 | `lista` | `titulo`, `itens` (lista) | quando o conteúdo é uma lista de pontos |
 | `fechamento` | `paragrafos` (lista) | último slide, fecha com o logo |
+
+### Os três modelos de capa
+
+São o mesmo slide 1 em três enquadramentos. Existem porque uma série publicada
+em sequência com uma capa só vira o mesmo post repetido — nove carrosséis de
+segmento saíram indistinguíveis no feed antes disso. A regra é alternar entre
+os três dentro de uma mesma série, não escolher um favorito.
+
+- **`capa`** — foto em full-bleed, título em três linhas por cima. O degradê do
+  template escurece a metade de baixo; a foto precisa ser retrato e já vir com
+  o véu (ver `demo-catalog/scripts/prints/prints-para-posts.mjs`). Serve quando
+  o argumento é a frase.
+- **`capa-case`** — tarja de assunto no topo, texto à esquerda com um `destaque`
+  grande, print sangrando pela direita, `selo` circular opcional
+  (`{valor, rotulo}`) e rodapé branco com o logo. Serve quando existe um número
+  ou uma palavra única para carregar a capa. Veio de
+  `identidade/exemplos/Case BarraDoce 01`.
+- **`capa-vitrine`** — chapéu curto, título grande em itálico (renderizado em
+  minúsculas), `enderecos` sublinhados e dois prints sobrepostos sangrando pelo
+  rodapé. Serve quando o assunto é a própria loja no ar. Veio de
+  `identidade/exemplos/Golive lado fit e lado rosa`.
+
+Os dois últimos usam o print **dentro de uma moldura**, então precisam de foto
+sem véu e sem barra branca — `demo-catalog/scripts/prints/prints-capas-modelos.mjs`
+gera os pares `-mobile.jpg` (retrato) e `-desktop.jpg` (paisagem 1.6).
 
 `titulo` aceita quebra de linha manual com o bloco yaml `|-`:
 ```yaml

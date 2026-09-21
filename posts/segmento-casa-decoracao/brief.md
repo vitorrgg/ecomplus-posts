@@ -2,14 +2,18 @@
 
 ## Slide 1
 ```yaml
-tipo: capa
-eyebrow: Tema de loja aberto · Casa e decoração
+tipo: capa-case
+tarja: Tema de loja aberto · Casa e decoração
+chapeu: Mega menu de
+destaque: "3"
 titulo: |-
-  um tema de loja
-  feito pra quem
-  vende ambiente
-subtitulo: Entrada por cômodo, header sobre a foto, menu de três níveis. Código aberto, licença MIT, de graça.
-imagem: tema-morada-capa.jpg
+  níveis, com entrada
+  por cômodo
+apoio: Quem compra decoração procura sala, não "mobiliário". E o header fica transparente sobre a foto do ambiente.
+imagem: tema-morada-mobile.jpg
+selo:
+  valor: R$ 0
+  rotulo: MIT, aberto
 ```
 
 ## Slide 2

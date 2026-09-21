@@ -1,0 +1,56 @@
+# Publica o próximo carrossel da fila no Instagram (@ecomplus.io). Roda três
+# vezes por semana (seg/qua/sex) pra espaçar os 3 posts gerados na segunda de manhã. As imagens são
+# lidas pela API do Instagram direto do raw.githubusercontent.com deste repo,
+# por isso a fila precisa estar comitada e enviada antes (ecb-semanal.yml).
+name: ECB — publicar no Instagram
+
+on:
+  schedule:
+    - cron: '0 15 * * 1,3,5'   # seg/qua/sex 12:00 em São Paulo (15:00 UTC)
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: 'Slug específico (vazio = próximo da fila)'
+        default: ''
+      dry_run:
+        description: 'Só simular (não chama a API)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ecb
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Publicar
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_GRAPH_HOST: ${{ vars.IG_GRAPH_HOST }}
+          ECB_EXIGE_APROVACAO: ${{ vars.ECB_EXIGE_APROVACAO }}
+        run: |
+          args=()
+          [ -n "${{ github.event.inputs.slug }}" ] && args+=(--slug "${{ github.event.inputs.slug }}")
+          [ "${{ github.event.inputs.dry_run }}" = "true" ] && args+=(--dry-run)
+          node scripts/ecb/publicar-instagram.mjs "${args[@]}"
+      - name: Commit do histórico
+        run: |
+          git config user.name 'ecb-bot'
+          git config user.email 'ti@e-com.club'
+          git add ecb
+          if git diff --cached --quiet; then echo 'nada mudou'; exit 0; fi
+          git commit -m "chore(ecb): registra publicação no Instagram"
+          git pull --rebase origin master
+          git push

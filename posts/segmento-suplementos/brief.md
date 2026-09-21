@@ -2,14 +2,17 @@
 
 ## Slide 1
 ```yaml
-tipo: capa
-eyebrow: Tema de loja aberto · Suplementos
+tipo: capa-case
+tarja: Tema de loja aberto · Suplementos
+chapeu: O cliente compara por
+destaque: "dose"
 titulo: |-
-  um tema de loja
-  pra quem vende
-  por dose
-subtitulo: Rendimento e concentração na vitrine, entrada por objetivo. Código aberto, licença MIT, de graça.
-imagem: tema-dose-capa.jpg
+  e não por pote
+apoio: Rendimento e concentração ficam na vitrine, antes da compra. A entrada do catálogo é por objetivo.
+imagem: tema-dose-mobile.jpg
+selo:
+  valor: R$ 0
+  rotulo: MIT, aberto
 ```
 
 ## Slide 2

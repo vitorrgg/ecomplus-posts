@@ -2,14 +2,16 @@
 
 ## Slide 1
 ```yaml
-tipo: capa
-eyebrow: Tema de loja aberto · Moda feminina
+tipo: capa-vitrine
+chapeu: "#temaaberto · MIT, de graça"
 titulo: |-
-  um tema de loja
-  feito pra quem
-  vende moda
-subtitulo: Atalho que cruza ocasião com tamanho e kit que já vem combinado. Código aberto, licença MIT, de graça.
-imagem: tema-alinhavo-capa.jpg
+  alinhavo
+  para moda feminina
+enderecos:
+  - tema-alinhavo.web.app
+  - github.com/ecomplus/tema-alinhavo
+imagem: tema-alinhavo-mobile.jpg
+imagemSecundaria: tema-alinhavo-desktop.jpg
 ```
 
 ## Slide 2

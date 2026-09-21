@@ -3,11 +3,19 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "render": "node scripts/render.mjs"
+    "render": "node scripts/render.mjs",
+    "ecb:semana": "node scripts/ecb/semana.mjs",
+    "ecb:mais-lidos": "node scripts/ecb/mais-lidos.mjs",
+    "ecb:briefs": "node scripts/ecb/gerar-briefs.mjs",
+    "ecb:jpeg": "node scripts/ecb/jpeg.mjs",
+    "ecb:publicar": "node scripts/ecb/publicar-instagram.mjs"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.127.0",
     "@resvg/resvg-js": "^2.6.2",
     "js-yaml": "^4.1.0",
-    "satori": "^0.10.14"
+    "satori": "^0.10.14",
+    "sharp": "^0.34.5",
+    "zod": "^4.6.5"
   }
 }

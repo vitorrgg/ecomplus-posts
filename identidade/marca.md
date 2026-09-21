@@ -54,6 +54,44 @@ Arquivos em `identidade/logos/`:
 - Dimensão do slide: `1080×1350` (proporção 4:5, padrão carrossel Instagram) — não especificado no manual, mantendo o padrão já usado no template.
 - Quantos slides por carrossel, tipicamente: não especificado — os exemplos variam de 3 a 11 slides.
 
+## Thumbnail de vídeo do YouTube
+
+**Sempre `1920×1080`** (16:9). Definido pelo Vitor em 07/08/2026, depois de uma
+thumbnail entregue em 1280×720 ficar com resolução ruim. Não está no manual de
+marca.
+
+1280×720 também é 16:9 e o YouTube aceita — o problema não é o enquadramento, é
+que o player e a pré-visualização em tela grande exibem acima de 1280px de
+largura e a imagem sobe escalada. O mínimo que o YouTube documenta é 1280×720 e
+o limite de arquivo é 2 MB; 1920×1080 é o ponto onde a nitidez para de melhorar
+sem estourar esse limite.
+
+Implicações na hora de gerar:
+
+- **Os prints embutidos precisam ter folga de resolução.** Capturar a página com
+  `--force-device-scale-factor=2` (ex.: janela 1440×1000 → arquivo 2880×2000).
+  Print capturado em 1x fica visivelmente borrado quando ampliado para 1920.
+- **Se a peça for desenhada em CSS a 1280×720**, não basta pedir uma janela
+  1920×1080 ao Chrome headless (o layout se espalha) nem `--force-device-scale-factor`
+  (é ignorado no `--screenshot` do `--headless=new`). O que funciona é manter o
+  layout em 1280×720 e aplicar `zoom: 1.5` no `body`, com `html` em 1920×1080:
+
+  ```css
+  html { width:1920px; height:1080px; overflow:hidden; }
+  body { zoom:1.5; }   /* layout continua descrito em 1280x720 */
+  ```
+
+- **Texto seguro:** o YouTube exibe a thumbnail com cerca de 210px de largura no
+  feed. Uma frase que precisa ser lida antes do clique não deve passar de ~5
+  palavras, e o selo de duração do vídeo cobre o canto inferior direito — não
+  colocar informação ali.
+
+Referência de aplicação: a thumbnail do vídeo dos temas por nicho, gerada em
+07/08/2026 (fundo gradiente escuro + textura, título Fira Sans Condensed itálico
+minúsculo, destaque no verde `#00e679`, logo negativo no rodapé esquerdo). O
+plano de título e descrição está em
+`planning/conteudo/planejamento/video-temas-titulo-descricao.md`.
+
 ## Padrão visual de slide (aprendido de `identidade/exemplos/`)
 
 Não está no manual de marca, mas é consistente em todos os posts feitos à mão que o Vitor passou como referência (`Modelo conteúdo.pdf`, `black friday.pdf`, `melhore SEO/`, `Pontos de Fidelidade/`):

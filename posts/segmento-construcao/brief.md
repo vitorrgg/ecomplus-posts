@@ -2,14 +2,16 @@
 
 ## Slide 1
 ```yaml
-tipo: capa
-eyebrow: Tema de loja aberto · Construção e ferramentas
+tipo: capa-vitrine
+chapeu: "#temaaberto · MIT, de graça"
 titulo: |-
-  um tema de loja
-  pro comprador
-  profissional
-subtitulo: Card denso com SKU, quantidade na prateleira, busca no centro. Código aberto, licença MIT, de graça.
-imagem: tema-bitola-capa.jpg
+  bitola
+  para construção
+enderecos:
+  - tema-bitola.web.app
+  - github.com/ecomplus/tema-bitola
+imagem: tema-bitola-mobile.jpg
+imagemSecundaria: tema-bitola-desktop.jpg
 ```
 
 ## Slide 2
