@@ -44,3 +44,11 @@ jobs:
           git commit -m "feat(ecb): posts da semana $(date -u +%Y-%m-%d)"
           git pull --rebase origin master
           git push
+      - name: Aviso no Slack
+        if: success()
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_CONTEUDO: ${{ vars.SLACK_CHANNEL_CONTEUDO }}
+        run: |
+          novos=$(git diff --name-only HEAD~1 HEAD -- posts | cut -d/ -f2 | sort -u | tr '\n' ' ')
+          [ -n "$novos" ] && node scripts/ecb/notificar-slack.mjs $novos || echo 'nada novo'

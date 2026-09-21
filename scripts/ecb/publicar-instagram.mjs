@@ -21,6 +21,7 @@
 import { readdirSync, existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { root, args, gravarJson, FILA, HISTORICO, lerFila, lerHistorico } from './util.mjs';
+import { spawnSync } from 'node:child_process';
 
 const HOST = process.env.IG_GRAPH_HOST || 'graph.facebook.com';
 const VERSAO = process.env.IG_GRAPH_VERSION || 'v21.0';
@@ -121,4 +122,7 @@ if (ehMain) {
   gravarJson(HISTORICO, historico);
   fila.pendentes = fila.pendentes.filter((p) => p.slug !== item.slug);
   gravarJson(FILA, fila);
+
+  // Aviso no Slack (opcional: sem SLACK_* o script só avisa e sai).
+  spawnSync(process.execPath, [join(root, 'scripts', 'ecb', 'notificar-slack.mjs'), '--publicado', '--link', resultado.permalink ?? '', item.slug], { stdio: 'inherit' });
 }

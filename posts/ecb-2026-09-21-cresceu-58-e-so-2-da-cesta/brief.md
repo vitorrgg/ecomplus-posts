@@ -18,6 +18,8 @@ imagem: cardboard-box-light.jpg
 ## Slide 2
 ```yaml
 tipo: texto
+tema: claro
+imagem: seller-packing.jpg
 paragrafos:
   - O e-commerce de bens de consumo massivo cresceu 58% no Brasil no 2º trimestre de 2026, mas ainda responde por 2% das ocasiões de compra da categoria, segundo a Worldpanel by Numerator.
   - "Quem puxa o crescimento é a compra de abastecimento, que avançou 94%. Ou seja: o consumidor já usa o online pra repor a casa. Ele só não repete o suficiente."
@@ -46,6 +48,7 @@ paragrafos:
 ## Slide 5
 ```yaml
 tipo: texto
+tema: claro
 titulo: Como fica na e-com.plus
 paragrafos:
   - Assinaturas e compra recorrente são nativas. Pix transparente fecha o pedido sem sair da loja. Notificação push e e-mail automático disparam por regra, como dias desde a última compra.

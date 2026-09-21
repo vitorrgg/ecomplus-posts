@@ -26,6 +26,7 @@ paragrafos:
 ## Slide 3
 ```yaml
 tipo: lista
+tema: claro
 titulo: O que cabe na página de confirmação
 itens:
   - Oferta complementar ao que acabou de ser comprado, com um clique
@@ -37,6 +38,7 @@ itens:
 ## Slide 4
 ```yaml
 tipo: texto
+imagem: checkout-ui-mockup.jpg
 titulo: Por que quase ninguém faz isso
 paragrafos:
   - Em plataforma fechada, o checkout e a confirmação são telas do fornecedor. Mudar exige app pago, quando existe, ou pedido ao suporte.
@@ -46,10 +48,11 @@ paragrafos:
 ## Slide 5
 ```yaml
 tipo: texto
+tema: claro
 titulo: Como funciona na e-com.plus
 paragrafos:
   - "Checkout e página de confirmação são código seu: storefront headless, versionado no Git, com construtor visual. Cross-sell, assinatura, cashback e afiliados já são módulos nativos, sem app de terceiro."
-  - "Sem comissão sobre o faturamento: R$ 199/mês + R$ 1 por pedido. O que a tela pós-compra render é seu."
+  - "Sem comissão sobre o faturamento, o que a tela pós-compra render é seu."
 ```
 
 ## Slide 6

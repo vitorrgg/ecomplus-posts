@@ -40,6 +40,8 @@ jobs:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_GRAPH_HOST: ${{ vars.IG_GRAPH_HOST }}
           ECB_EXIGE_APROVACAO: ${{ vars.ECB_EXIGE_APROVACAO }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_CONTEUDO: ${{ vars.SLACK_CHANNEL_CONTEUDO }}
         run: |
           args=()
           [ -n "${{ github.event.inputs.slug }}" ] && args+=(--slug "${{ github.event.inputs.slug }}")

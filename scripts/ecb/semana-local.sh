@@ -19,10 +19,18 @@ echo "== $(date '+%F %T') =="
 command -v claude >/dev/null || { echo "claude não está no PATH"; exit 1; }
 
 git pull --rebase --quiet origin master
+ANTES=$(node -e "console.log(require('./ecb/fila.json').pendentes.map(p=>p.slug).join(' '))")
 node scripts/ecb/semana.mjs --limite "${1:-3}" --via claude-code
+NOVOS=$(node -e "const a=new Set(process.argv[1].split(' '));console.log(require('./ecb/fila.json').pendentes.map(p=>p.slug).filter(s=>!a.has(s)).join(' '))" "$ANTES")
 
 git add ecb posts output
 if git diff --cached --quiet; then echo "nada novo pra comitar"; exit 0; fi
 git commit --quiet -m "feat(ecb): posts da semana $(date +%F)"
 git push --quiet origin master
 echo "✓ enviado"
+
+# Aviso no #conteúdo (precisa de SLACK_BOT_TOKEN e SLACK_CHANNEL_CONTEUDO no ambiente,
+# ex. em ~/.config/ecb.env carregado abaixo). As imagens vêm do raw do GitHub, por
+# isso o aviso vai depois do push.
+[ -f "$HOME/.config/ecb.env" ] && set -a && . "$HOME/.config/ecb.env" && set +a
+[ -n "$NOVOS" ] && node scripts/ecb/notificar-slack.mjs $NOVOS || true

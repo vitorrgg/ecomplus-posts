@@ -26,6 +26,7 @@ paragrafos:
 ## Slide 3
 ```yaml
 tipo: lista
+tema: claro
 titulo: O que isso diz pro e-commerce
 itens:
   - Marketplace traz demanda nova de verdade, não só canibaliza
@@ -37,6 +38,7 @@ itens:
 ## Slide 4
 ```yaml
 tipo: texto
+imagem: sale-tag-rack.jpg
 titulo: Onde a conta desanda
 paragrafos:
   - No varejo o intermediário cobra comissão sobre cada venda, define a vitrine e, no caso do Mercado Livre, já compete com marca própria dentro da mesma plataforma.
@@ -46,9 +48,10 @@ paragrafos:
 ## Slide 5
 ```yaml
 tipo: texto
+tema: claro
 titulo: Como a e-com.plus encaixa
 paragrafos:
-  - Loja própria sem comissão sobre o faturamento (R$ 199/mês + R$ 1 por pedido), com fidelidade e cashback nativos pra segurar quem chegou pelo marketplace.
+  - Loja própria sem comissão sobre o faturamento, com fidelidade e cashback nativos pra segurar quem chegou pelo marketplace.
   - OMS e multi-CD unificam pedidos dos dois canais, e o mesmo catálogo alimenta quantas frentes fizerem sentido.
 ```
 

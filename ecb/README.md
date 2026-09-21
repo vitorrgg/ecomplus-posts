@@ -40,6 +40,7 @@ manual, sem agenda.
 | `ecb/ESQUEMA.json` | Formato de saída (derivado do zod em `gerar-briefs.mjs`; regravar com `npm run ecb:esquema` se mudar os campos). |
 | `ecb/saidas/<segunda>/` | JSONs escritos pela rotina na nuvem antes de virarem brief. |
 | `scripts/ecb/semana-local.sh` | Geração local completa com commit e push, pra agendar na sua máquina. |
+| `scripts/ecb/notificar-slack.mjs` | Avisa no #conteudo que um post foi gerado (título, legenda, slides) ou publicado. Mesmo padrão da notificação de contatos do site: bot token + `chat.postMessage`. |
 | `scripts/render.mjs` | O render de sempre (Satori + resvg) → `output/<slug>/slide-N.png`. |
 | `scripts/ecb/jpeg.mjs` | Converte os PNGs em JPEG — a API do Instagram só aceita JPEG. |
 | `scripts/ecb/publicar-instagram.mjs` | Publica um carrossel pela Content Publishing API do Graph, lendo as imagens do `raw.githubusercontent.com` deste repo (por isso ele precisa continuar público). |
@@ -55,7 +56,13 @@ Slugs seguem `ecb-<segunda>-<assunto>`, ex. `ecb-2026-09-21-a-tela-que-voce-nao-
 
 **Rotina na nuvem** (já criada, desligada):
 https://claude.ai/code/routines/trig_01We3sA7uPD2a3s8o5Cr4oQ5 — confira que o
-repo está acessível e ligue. Ela roda toda segunda 09:00 (São Paulo) e precisa
+repo está acessível e ligue. **Antes, libere o domínio na rede do ambiente:** o
+sandbox da rotina sai por um proxy com allowlist, e o primeiro *Run now*
+(21/09/2026) parou com `403 ao baixar https://www.ecommercebrasil.com.br/`
+("CONNECT tunnel failed, response 403"). Em https://claude.ai/code → ambiente
+*Default* → rede, adicione `ecommercebrasil.com.br` e
+`www.ecommercebrasil.com.br` (ou mude pra acesso total). Sem isso a rotina
+não coleta nada e relata o erro, sem inventar artigos. Ela roda toda segunda 09:00 (São Paulo) e precisa
 que `ecb/PROMPT.md`, `ecb/ESQUEMA.json` e o `gerar-briefs.mjs --from-json` já
 estejam na master (commit e push). Pra testar sem
 esperar, use *Run now* e acompanhe a sessão; o resultado é um commit na master.
@@ -73,6 +80,7 @@ O log fica em `ecb/local.log`.
 | `IG_USER_ID` | ID da conta profissional do Instagram (não é o @). |
 | `IG_ACCESS_TOKEN` | Token com permissão de publicar (ver abaixo). |
 | `ANTHROPIC_API_KEY` | Só se quiser a geração pela API (workflow manual `ecb-semanal.yml`). Cobrada à parte do Max. |
+| `SLACK_BOT_TOKEN` | Aviso no Slack quando um post é gerado ou publicado. O mesmo bot `xoxb-…` do site (`www.e-com.plus/functions/SLACK_SETUP.md`), com o escopo `files:write` adicionado (pra subir os slides como imagem) além de `chat:write`; convide o bot pro #conteudo. |
 
 Variáveis opcionais (aba *Variables*):
 
@@ -80,6 +88,7 @@ Variáveis opcionais (aba *Variables*):
 |---|---|---|
 | `ECB_EXIGE_APROVACAO` | vazio (publica tudo) | `true` → só publica itens com `"aprovado": true` em `ecb/fila.json`. |
 | `IG_GRAPH_HOST` | `graph.facebook.com` | `graph.instagram.com` se a conta usa "Instagram API with Instagram Login" (sem Página do Facebook). |
+| `SLACK_CHANNEL_CONTEUDO` | vazio (sem aviso) | ID do canal #conteudo: `C031BR9HY2K`. |
 
 Sem os `IG_*` o job de publicação falha. Os dois workflows podem ser disparados na mão em *Actions → Run workflow* (o de publicar tem a opção *dry run*).
 
@@ -93,11 +102,41 @@ Caminho recomendado (token que não expira):
    - Alternativa rápida: token de usuário no Graph API Explorer trocado por long-lived — expira em 60 dias e precisa ser renovado.
 4. Descobrir o `IG_USER_ID`: `GET /me/accounts` → id da Página → `GET /{page-id}?fields=instagram_business_account`.
 
+**"Nenhuma permissão disponível — atribua uma função do app ao usuário do sistema"** na
+hora de gerar o token (visto em 21/09/2026): o usuário do sistema ainda não tem o
+app como ativo. Feche o diálogo e, no próprio usuário do sistema, clique em
+*Atribuir ativos* → aba *Apps* → marque o app → *Controle total (Gerenciar app)*.
+Se o app não aparecer nessa lista, ele não está no portfólio: em
+developers.facebook.com → app → *Configurações → Básico*, vincule ao portfólio
+empresarial (campo "Portfólio empresarial / Verificação"). E as permissões só
+aparecem se o app as usa: em *Casos de uso* adicione o do Instagram com
+publicação de conteúdo (ou, no modelo antigo, *Permissões e recursos* →
+`instagram_basic`, `instagram_content_publish`, `pages_show_list`,
+`pages_read_engagement`). Depois disso, *Gerar token* lista as permissões.
+
 Limites da API que o script respeita: só JPEG, 2 a 10 imagens por carrossel, proporção 4:5 ok, no máximo 100 publicações por 24 h, legenda até 2.200 caracteres.
 
 ### 3. Primeira rodada
 
 Com os segredos do Instagram no lugar e a fila já comitada, dispare *ECB — publicar no Instagram* com *dry run* marcado e confira URLs e legenda no log. Se estiver certo, rode sem dry run ou espere o próximo horário (seg/qua/sex 12:00). Depois rode a geração uma vez (*Run now* na rotina da nuvem, ou `semana-local.sh`) e confira `output/ecb-*/` e `posts/ecb-*/legenda.txt` no commit resultante.
+
+## Aviso no Slack (#conteudo)
+
+Toda vez que um post é gerado, cai uma mensagem no #conteudo com título e legenda,
+seguida dos seis slides enviados como imagem (upload, não link); quando é
+publicado, cai outra com o link. É o mesmo padrão da notificação de contatos do
+site, com o escopo `files:write` a mais no bot.
+
+- `notificar-slack.mjs` precisa de `SLACK_BOT_TOKEN` e `SLACK_CHANNEL_CONTEUDO`
+  (ID do canal). Onde configurar: **local** em `~/.config/ecb.env` (formato
+  `CHAVE=valor`, o `semana-local.sh` carrega sozinho); **GitHub Actions** como
+  secret + variable; **rotina na nuvem** nas variáveis de ambiente do ambiente
+  *Default* em https://claude.ai/code (o mesmo lugar da rede) — com elas a rotina
+  roda o script e as imagens vão como arquivo.
+- Sem token no ambiente da rotina na nuvem, ela cai no conector Slack da conta e
+  manda só texto com os links das imagens no GitHub.
+- Sem token no local/Actions o script só avisa e segue; a rotina nunca quebra
+  por causa do Slack.
 
 ## Revisar antes de publicar
 

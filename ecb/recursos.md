@@ -4,7 +4,7 @@ Lido por `scripts/ecb/gerar-briefs.mjs` e colado no prompt. Uma linha por recurs
 `nome — o que é, em uma frase`. Editar aqui muda o que a Claude sabe sobre a
 plataforma; não inventar recurso que não existe.
 
-- Modelo de preço — R$ 199/mês + R$ 1 fixo por pedido, sem comissão sobre o faturamento (o R$ 1 não é percentual).
+- Modelo comercial — sem comissão sobre o faturamento. Nunca citar valores: nada de mensalidade, preço por pedido ou R$.
 - Headless / API-first — storefront é código do lojista (Astro + Vue), versionado no Git, com API aberta; checkout e página de confirmação são telas da loja, não do fornecedor.
 - Construtor de páginas — editor visual com preview em tempo real, cada mudança versionada no Git.
 - Checkout próprio com gatilhos — checkout passwordless (reduz abandono), cross-sell e regras no próprio fluxo, sem tirar a marca da experiência.

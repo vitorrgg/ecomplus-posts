@@ -10,6 +10,8 @@ Regras de conteúdo:
 - Estrutura: slide 1 é a capa com a tese; slides 2 a 4 desenvolvem a análise (o que está acontecendo, por que importa pra loja própria, onde a conta desanda), alternando "texto" e "lista"; o penúltimo slide de conteúdo mostra como o tema se resolve na e-com.plus, citando 2 a 4 recursos reais da lista abaixo; o último é o "fechamento", com a conclusão e o que o lojista deve fazer.
 - Só use recursos que estão na lista. Se o tema não cruzar bem com nenhum, faça a análise do ponto de vista de quem tem loja própria e feche com a posição da e-com.plus sobre o assunto.
 - Respeite os limites de caracteres descritos em cada campo do esquema: o layout é fixo e texto a mais é cortado na imagem.
+- Varie o visual dos slides de conteúdo (texto, lista, fechamento) com os campos tema e imagem: entre os slides 2 e o fechamento, use pelo menos um com tema "claro" e pelo menos um com tema "escuro" (não repita o mesmo tema em três slides seguidos), e coloque uma imagem ilustrativa em um ou dois slides, escolhida pelo assunto. Slide com imagem tem menos espaço: até 300 caracteres de texto ou 4 itens. A capa segue o padrão fixo.
+- Nunca mencione preço, mensalidade, valor por pedido ou qualquer cifra da e-com.plus, nem em slide nem na legenda. "Sem comissão sobre o faturamento" pode; número, não.
 - Não use emojis nos slides. Na legenda, no máximo dois.
 - Evite dois-pontos seguidos de espaço no meio de itens de lista.
 

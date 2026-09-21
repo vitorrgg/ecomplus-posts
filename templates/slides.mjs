@@ -40,8 +40,14 @@ function textBlock(text, style) {
   }
   return flex(
     { flexDirection: 'column', ...style },
-    lines.map((line) => flex({}, line)),
+    lines.map((line) => flex(style.justifyContent ? { justifyContent: style.justifyContent } : {}, line)),
   );
+}
+
+// `alinhamento: direita` nos slides de conteúdo: o bloco vai pra borda direita
+// e o texto alinha pela direita. Só estilo; a largura continua 100%.
+function alinhar(direita) {
+  return direita ? { justifyContent: 'flex-end', textAlign: 'right' } : {};
 }
 
 function arrowIcon(color = '#ffffff') {
@@ -184,8 +190,9 @@ export function coverSlide({ eyebrow, titulo, subtitulo, imagem, tema }) {
   );
 }
 
-export function textSlide({ titulo, paragrafos, imagem, tema }) {
+export function textSlide({ titulo, paragrafos, imagem, tema, alinhamento }) {
   const light = tema === 'claro';
+  const dir = alinhamento === 'direita';
   const textColor = light ? tokens.colorText : '#ffffff';
   return frame(
     [
@@ -199,6 +206,7 @@ export function textSlide({ titulo, paragrafos, imagem, tema }) {
             color: textColor,
             lineHeight: 1.25,
             marginBottom: 40,
+            ...alinhar(dir),
           })
         : null,
       flex(
@@ -211,6 +219,7 @@ export function textSlide({ titulo, paragrafos, imagem, tema }) {
             color: textColor,
             lineHeight: 1.4,
             marginBottom: i < paragrafos.length - 1 ? 36 : 0,
+            ...alinhar(dir),
           }),
         ),
       ),
@@ -220,8 +229,9 @@ export function textSlide({ titulo, paragrafos, imagem, tema }) {
   );
 }
 
-export function listSlide({ titulo, itens, imagem, tema }) {
+export function listSlide({ titulo, itens, imagem, tema, alinhamento }) {
   const light = tema === 'claro';
+  const dir = alinhamento === 'direita';
   const textColor = light ? tokens.colorText : '#ffffff';
   return frame(
     [
@@ -234,16 +244,21 @@ export function listSlide({ titulo, itens, imagem, tema }) {
         color: textColor,
         lineHeight: 1.25,
         marginBottom: 44,
+        ...alinhar(dir),
       }),
       flex(
         { flexDirection: 'column', width: '100%' },
         itens.map((item, i) =>
           flex(
-            { marginBottom: i < itens.length - 1 ? 28 : 0, alignItems: 'flex-start', width: '100%' },
+            {
+              marginBottom: i < itens.length - 1 ? 28 : 0, alignItems: 'flex-start', width: '100%',
+              // à direita: marcador do lado de fora, texto alinhado pela direita
+              ...(dir ? { flexDirection: 'row-reverse' } : {}),
+            },
             [
-              flex({ fontSize: 32, color: textColor, marginRight: 20 }, '•'),
+              flex({ fontSize: 32, color: textColor, ...(dir ? { marginLeft: 20 } : { marginRight: 20 }) }, '•'),
               flex(
-                { flex: 1, flexDirection: 'column', fontSize: 32, color: textColor, lineHeight: 1.35 },
+                { flex: 1, flexDirection: 'column', fontSize: 32, color: textColor, lineHeight: 1.35, ...alinhar(dir) },
                 item,
               ),
             ],
@@ -256,8 +271,9 @@ export function listSlide({ titulo, itens, imagem, tema }) {
   );
 }
 
-export function closingSlide({ paragrafos, imagem, tema }) {
+export function closingSlide({ paragrafos, imagem, tema, alinhamento }) {
   const light = tema === 'claro';
+  const dir = alinhamento === 'direita';
   const textColor = light ? tokens.colorText : '#ffffff';
   return frame(
     [
@@ -271,6 +287,7 @@ export function closingSlide({ paragrafos, imagem, tema }) {
             color: textColor,
             lineHeight: 1.4,
             marginBottom: i < paragrafos.length - 1 ? 36 : 0,
+            ...alinhar(dir),
           }),
         ),
       ),

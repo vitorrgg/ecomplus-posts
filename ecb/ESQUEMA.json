@@ -55,18 +55,26 @@
             },
             "paragrafos": {
               "type": "array",
-              "description": "1 a 3 parágrafos, cada um entre 90 e 220 caracteres. Total do slide até 450 caracteres.\n\n{maxItems: 3}",
+              "description": "1 a 3 parágrafos, cada um entre 90 e 220 caracteres. Total do slide até 450 caracteres (até 300 se tiver imagem).\n\n{maxItems: 3}",
               "items": {
                 "$ref": "#/$defs/__schema2"
               },
               "minItems": 1
+            },
+            "tema": {
+              "$ref": "#/$defs/__schema3"
+            },
+            "imagem": {
+              "$ref": "#/$defs/__schema4"
             }
           },
           "additionalProperties": false,
           "required": [
             "tipo",
             "titulo",
-            "paragrafos"
+            "paragrafos",
+            "tema",
+            "imagem"
           ]
         },
         {
@@ -82,17 +90,25 @@
             },
             "itens": {
               "type": "array",
-              "description": "3 a 5 itens, cada um até 110 caracteres, sem ponto final.\n\n{maxItems: 5, minItems: 3}",
+              "description": "3 a 5 itens, cada um até 110 caracteres, sem ponto final (até 4 itens se tiver imagem).\n\n{maxItems: 5, minItems: 3}",
               "items": {
-                "$ref": "#/$defs/__schema3"
+                "$ref": "#/$defs/__schema6"
               }
+            },
+            "tema": {
+              "$ref": "#/$defs/__schema3"
+            },
+            "imagem": {
+              "$ref": "#/$defs/__schema4"
             }
           },
           "additionalProperties": false,
           "required": [
             "tipo",
             "titulo",
-            "itens"
+            "itens",
+            "tema",
+            "imagem"
           ]
         },
         {
@@ -106,15 +122,23 @@
               "type": "array",
               "description": "1 ou 2 parágrafos, até 200 caracteres cada: a conclusão da análise e o que o lojista faz com ela. Sem citar fonte, autor ou o portal de origem.\n\n{maxItems: 2}",
               "items": {
-                "$ref": "#/$defs/__schema4"
+                "$ref": "#/$defs/__schema7"
               },
               "minItems": 1
+            },
+            "tema": {
+              "$ref": "#/$defs/__schema3"
+            },
+            "imagem": {
+              "$ref": "#/$defs/__schema4"
             }
           },
           "additionalProperties": false,
           "required": [
             "tipo",
-            "paragrafos"
+            "paragrafos",
+            "tema",
+            "imagem"
           ]
         }
       ]
@@ -126,9 +150,28 @@
       "type": "string"
     },
     "__schema3": {
-      "type": "string"
+      "type": "string",
+      "description": "Fundo roxo escuro com texto branco, ou fundo claro com texto escuro.\n\n{enum: [\"escuro\",\"claro\"]}"
     },
     "__schema4": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/__schema5"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Foto ilustrativa abaixo do texto, escolhida pelo assunto, ou null."
+    },
+    "__schema5": {
+      "type": "string",
+      "description": "{enum: [\"ai-touch-circuit.jpg\",\"cardboard-box-light.jpg\",\"checkout-ui-mockup.jpg\",\"code-screen-macbook.jpg\",\"cover-warehouse.jpg\",\"dashboard-charts.jpg\",\"factory-industrial.jpg\",\"magnifying-glass-laptop.jpg\",\"mail-icon-phone.jpg\",\"network-nodes.jpg\",\"own-store-checkout.jpg\",\"payment-terminal-tap.jpg\",\"reading-article-phone.jpg\",\"referral-handshake.jpg\",\"sale-tag-rack.jpg\",\"seller-packing.jpg\",\"star-rating.jpg\",\"wireframe-sketch.jpg\",\"world-map.jpg\",\"writer-laptop.jpg\"]}"
+    },
+    "__schema6": {
+      "type": "string"
+    },
+    "__schema7": {
       "type": "string"
     }
   },

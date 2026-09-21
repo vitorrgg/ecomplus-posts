@@ -9,7 +9,8 @@
     "ecb:briefs": "node scripts/ecb/gerar-briefs.mjs",
     "ecb:jpeg": "node scripts/ecb/jpeg.mjs",
     "ecb:publicar": "node scripts/ecb/publicar-instagram.mjs",
-    "ecb:esquema": "node scripts/ecb/gerar-briefs.mjs --esquema"
+    "ecb:esquema": "node scripts/ecb/gerar-briefs.mjs --esquema",
+    "ecb:slack": "node scripts/ecb/notificar-slack.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.127.0",

@@ -42,6 +42,10 @@ const RECURSOS = readFileSync(join(root, 'ecb', 'recursos.md'), 'utf8')
 const FOTOS = readdirSync(join(root, 'templates', 'assets', 'photos'))
   .filter((f) => f.endsWith('.jpg') && !f.startsWith('tema-'));
 
+// Variações visuais dos slides de conteúdo (texto, lista, fechamento).
+const Tema = z.enum(['escuro', 'claro']).describe('Fundo roxo escuro com texto branco, ou fundo claro com texto escuro.');
+const Ilustracao = z.enum(FOTOS).nullable().describe('Foto ilustrativa abaixo do texto, escolhida pelo assunto, ou null.');
+
 const Slide = z.discriminatedUnion('tipo', [
   z.object({
     tipo: z.literal('capa'),
@@ -53,16 +57,19 @@ const Slide = z.discriminatedUnion('tipo', [
   z.object({
     tipo: z.literal('texto'),
     titulo: z.string().nullable().describe('Título opcional em negrito, até 50 caracteres. null quando não houver.'),
-    paragrafos: z.array(z.string()).min(1).max(3).describe('1 a 3 parágrafos, cada um entre 90 e 220 caracteres. Total do slide até 450 caracteres.'),
+    paragrafos: z.array(z.string()).min(1).max(3).describe('1 a 3 parágrafos, cada um entre 90 e 220 caracteres. Total do slide até 450 caracteres (até 300 se tiver imagem).'),
+    tema: Tema, imagem: Ilustracao,
   }),
   z.object({
     tipo: z.literal('lista'),
     titulo: z.string().describe('Título da lista, até 50 caracteres.'),
-    itens: z.array(z.string()).min(3).max(5).describe('3 a 5 itens, cada um até 110 caracteres, sem ponto final.'),
+    itens: z.array(z.string()).min(3).max(5).describe('3 a 5 itens, cada um até 110 caracteres, sem ponto final (até 4 itens se tiver imagem).'),
+    tema: Tema, imagem: Ilustracao,
   }),
   z.object({
     tipo: z.literal('fechamento'),
     paragrafos: z.array(z.string()).min(1).max(2).describe('1 ou 2 parágrafos, até 200 caracteres cada: a conclusão da análise e o que o lojista faz com ela. Sem citar fonte, autor ou o portal de origem.'),
+    tema: Tema, imagem: Ilustracao,
   }),
 ]);
 
@@ -97,7 +104,9 @@ Escreva a análise da e-com.plus sobre esse tema, em carrossel, e a legenda, seg
 export function montarBrief(saida, artigo) {
   const blocos = saida.slides.map((s, i) => {
     const dados = { ...s };
-    if (dados.tipo === 'texto' && dados.titulo === null) delete dados.titulo;
+    // campos opcionais que vieram vazios ou no valor padrão não vão pro YAML
+    for (const k of Object.keys(dados)) if (dados[k] === null) delete dados[k];
+    if (dados.tema === 'escuro') delete dados.tema;
     const y = yaml.dump(dados, { lineWidth: -1, quotingType: '"', forceQuotes: false });
     return `## Slide ${i + 1}\n\`\`\`yaml\n${y}\`\`\``;
   });
@@ -176,10 +185,10 @@ function exemploFixo(artigo) {
     slug: slugify(artigo.titulo, 30),
     slides: [
       { tipo: 'capa', eyebrow: 'mais lido da semana', titulo: 'exemplo de\ncarrossel\ngerado', subtitulo: artigo.descricao.slice(0, 110), imagem: FOTOS[0] },
-      { tipo: 'texto', titulo: null, paragrafos: ['Primeiro parágrafo de exemplo, com tamanho parecido com o que a API devolve num slide de texto normal.', 'Segundo parágrafo, um pouco mais curto, pra conferir o espaçamento.'] },
-      { tipo: 'lista', titulo: 'Três pontos do artigo', itens: ['Item um da lista de exemplo', 'Item dois, um pouco mais comprido que o primeiro', 'Item três'] },
-      { tipo: 'texto', titulo: 'O que isso muda', paragrafos: ['Parágrafo com título em negrito acima, pra exercitar o outro layout de texto.'] },
-      { tipo: 'fechamento', paragrafos: ['Conclusão da e-com.plus em uma frase, com o que o lojista faz agora.'] },
+      { tipo: 'texto', titulo: null, paragrafos: ['Primeiro parágrafo de exemplo, com tamanho parecido com o que a API devolve num slide de texto normal.', 'Segundo parágrafo, um pouco mais curto, pra conferir o espaçamento.'], tema: 'escuro', imagem: null },
+      { tipo: 'lista', titulo: 'Três pontos do artigo', itens: ['Item um da lista de exemplo', 'Item dois, um pouco mais comprido que o primeiro', 'Item três'], tema: 'claro', imagem: null },
+      { tipo: 'texto', titulo: 'O que isso muda', paragrafos: ['Parágrafo com título em negrito acima, pra exercitar o outro layout de texto.'], tema: 'escuro', imagem: FOTOS[1] },
+      { tipo: 'fechamento', paragrafos: ['Conclusão da e-com.plus em uma frase, com o que o lojista faz agora.'], tema: 'escuro', imagem: null },
     ],
     legenda: 'Exemplo de legenda.\n\nConheça a e-com.plus.\n\n#ecommerce #lojavirtual #ecomplus',
   };
