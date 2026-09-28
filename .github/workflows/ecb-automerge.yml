@@ -1,0 +1,24 @@
+# A rotina na nuvem do Claude Code não consegue dar push direto na master (o app do
+# GitHub recusa), então ela abre um PR a partir de um branch ecb/semana-<segunda>.
+# Este workflow mescla esses PRs sozinho, sem esperar ninguém, pra fila de
+# publicação ficar na master antes das 12:00.
+name: ECB — mesclar PR da rotina
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [master]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  mesclar:
+    if: startsWith(github.head_ref, 'ecb/semana-')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mesclar com rebase e apagar o branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr merge "${{ github.event.pull_request.number }}" --repo "${{ github.repository }}" --rebase --delete-branch

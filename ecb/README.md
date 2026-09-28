@@ -45,6 +45,7 @@ manual, sem agenda.
 | `scripts/ecb/jpeg.mjs` | Converte os PNGs em JPEG — a API do Instagram só aceita JPEG. |
 | `scripts/ecb/publicar-instagram.mjs` | Publica um carrossel pela Content Publishing API do Graph, lendo as imagens do `raw.githubusercontent.com` deste repo (por isso ele precisa continuar público). |
 | `scripts/ecb/semana.mjs` | Encadeia coleta → briefs → render → JPEG. |
+| `.github/workflows/ecb-automerge.yml` | Mescla sozinho os PRs `ecb/semana-*` que a rotina na nuvem abre (o app do Claude no GitHub não dá push direto na master). |
 | `ecb/fila.json` | Posts prontos esperando publicação. |
 | `ecb/historico.json` | Tudo que já foi gerado e publicado (evita repetir artigo). |
 
@@ -54,7 +55,7 @@ Slugs seguem `ecb-<segunda>-<assunto>`, ex. `ecb-2026-09-21-a-tela-que-voce-nao-
 
 ### 0. Geração pelo plano Max
 
-**Rotina na nuvem** (já criada, desligada):
+**Rotina na nuvem** (ligada desde 28/09/2026):
 https://claude.ai/code/routines/trig_01We3sA7uPD2a3s8o5Cr4oQ5 — confira que o
 repo está acessível e ligue. **Antes, libere o domínio na rede do ambiente:** o
 sandbox da rotina sai por um proxy com allowlist, e o primeiro *Run now*
@@ -65,7 +66,9 @@ sandbox da rotina sai por um proxy com allowlist, e o primeiro *Run now*
 não coleta nada e relata o erro, sem inventar artigos. Ela roda toda segunda 09:00 (São Paulo) e precisa
 que `ecb/PROMPT.md`, `ecb/ESQUEMA.json` e o `gerar-briefs.mjs --from-json` já
 estejam na master (commit e push). Pra testar sem
-esperar, use *Run now* e acompanhe a sessão; o resultado é um commit na master.
+esperar, use *Run now* e acompanhe a sessão. O resultado é um PR `ecb/semana-<segunda>`
+que o workflow `ecb-automerge.yml` mescla na master em seguida (o app do Claude no
+GitHub precisa estar instalado no repo: github.com/apps/claude).
 
 **Local** (alternativa ou reserva): rode `claude` uma vez no terminal e faça
 `/login`; depois `bash scripts/ecb/semana-local.sh`. Pra agendar no Windows,
