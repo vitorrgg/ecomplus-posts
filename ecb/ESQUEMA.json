@@ -51,7 +51,7 @@
                   "type": "null"
                 }
               ],
-              "description": "Título opcional em negrito, até 50 caracteres. null quando não houver."
+              "description": "Título opcional em negrito, até 50 caracteres, curto e direto, de preferência em tom de conselho. null quando não houver."
             },
             "paragrafos": {
               "type": "array",
@@ -90,7 +90,7 @@
             },
             "itens": {
               "type": "array",
-              "description": "3 a 5 itens, cada um até 110 caracteres, sem ponto final (até 4 itens se tiver imagem).\n\n{maxItems: 5, minItems: 3}",
+              "description": "3 a 5 itens, cada um uma frase inteira de até 110 caracteres, sem ponto final (até 4 itens se tiver imagem).\n\n{maxItems: 5, minItems: 3}",
               "items": {
                 "$ref": "#/$defs/__schema6"
               }
@@ -120,7 +120,7 @@
             },
             "paragrafos": {
               "type": "array",
-              "description": "1 ou 2 parágrafos, até 200 caracteres cada: a conclusão da análise e o que o lojista faz com ela. Sem citar fonte, autor ou o portal de origem.\n\n{maxItems: 2}",
+              "description": "1 ou 2 parágrafos, até 200 caracteres cada: a conclusão da análise e uma coisa que o lojista pode fazer nesta semana. Sem citar fonte, autor ou o portal de origem.\n\n{maxItems: 2}",
               "items": {
                 "$ref": "#/$defs/__schema7"
               },
@@ -190,7 +190,7 @@
     },
     "legenda": {
       "type": "string",
-      "description": "Legenda do post no Instagram: 3 a 5 frases curtas com a tese e a conclusão, linha em branco, uma frase de convite (ex.: conhecer a e-com.plus, comentar), linha em branco e 5 a 8 hashtags. Até 1500 caracteres. Sem URL, sem citar fonte ou autor."
+      "description": "Legenda do post no Instagram: 3 a 5 frases com a tese e a conclusão, linha em branco, uma frase sobre como a e-com.plus resolve, linha em branco, uma pergunta de convite sobre a operação de quem lê, linha em branco e 5 a 8 hashtags. Até 1500 caracteres. Sem URL, sem citar fonte ou autor."
     }
   },
   "additionalProperties": false,

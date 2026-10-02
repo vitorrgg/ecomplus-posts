@@ -56,19 +56,19 @@ const Slide = z.discriminatedUnion('tipo', [
   }),
   z.object({
     tipo: z.literal('texto'),
-    titulo: z.string().nullable().describe('Título opcional em negrito, até 50 caracteres. null quando não houver.'),
+    titulo: z.string().nullable().describe('Título opcional em negrito, até 50 caracteres, curto e direto, de preferência em tom de conselho. null quando não houver.'),
     paragrafos: z.array(z.string()).min(1).max(3).describe('1 a 3 parágrafos, cada um entre 90 e 220 caracteres. Total do slide até 450 caracteres (até 300 se tiver imagem).'),
     tema: Tema, imagem: Ilustracao,
   }),
   z.object({
     tipo: z.literal('lista'),
     titulo: z.string().describe('Título da lista, até 50 caracteres.'),
-    itens: z.array(z.string()).min(3).max(5).describe('3 a 5 itens, cada um até 110 caracteres, sem ponto final (até 4 itens se tiver imagem).'),
+    itens: z.array(z.string()).min(3).max(5).describe('3 a 5 itens, cada um uma frase inteira de até 110 caracteres, sem ponto final (até 4 itens se tiver imagem).'),
     tema: Tema, imagem: Ilustracao,
   }),
   z.object({
     tipo: z.literal('fechamento'),
-    paragrafos: z.array(z.string()).min(1).max(2).describe('1 ou 2 parágrafos, até 200 caracteres cada: a conclusão da análise e o que o lojista faz com ela. Sem citar fonte, autor ou o portal de origem.'),
+    paragrafos: z.array(z.string()).min(1).max(2).describe('1 ou 2 parágrafos, até 200 caracteres cada: a conclusão da análise e uma coisa que o lojista pode fazer nesta semana. Sem citar fonte, autor ou o portal de origem.'),
     tema: Tema, imagem: Ilustracao,
   }),
 ]);
@@ -76,7 +76,7 @@ const Slide = z.discriminatedUnion('tipo', [
 const Saida = z.object({
   slug: z.string().describe('Slug curto em kebab-case (3 a 5 palavras) que identifica o assunto.'),
   slides: z.array(Slide).min(5).max(7).describe('Sequência do carrossel: começa com "capa", termina com "fechamento", e no meio alterna "texto" e "lista". O penúltimo slide de conteúdo é o cruzamento com a e-com.plus.'),
-  legenda: z.string().describe('Legenda do post no Instagram: 3 a 5 frases curtas com a tese e a conclusão, linha em branco, uma frase de convite (ex.: conhecer a e-com.plus, comentar), linha em branco e 5 a 8 hashtags. Até 1500 caracteres. Sem URL, sem citar fonte ou autor.'),
+  legenda: z.string().describe('Legenda do post no Instagram: 3 a 5 frases com a tese e a conclusão, linha em branco, uma frase sobre como a e-com.plus resolve, linha em branco, uma pergunta de convite sobre a operação de quem lê, linha em branco e 5 a 8 hashtags. Até 1500 caracteres. Sem URL, sem citar fonte ou autor.'),
 });
 
 // O texto do prompt vive em ecb/PROMPT.md pra ser o mesmo aqui, no `claude -p` e na

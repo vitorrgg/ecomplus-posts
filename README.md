@@ -94,7 +94,7 @@ subtitulo: Frase de apoio, uma ou duas linhas.
 
 ## Fluxo de uso
 
-1. Criar `posts/<slug>/brief.md`, um `## Slide N` por slide, cada um com um bloco \`\`\`yaml (ver exemplos em `posts/`).
+1. Criar `posts/<slug>/brief.md`, um `## Slide N` por slide, cada um com um bloco \`\`\`yaml (ver exemplos em `posts/`). O texto segue a seção "Voz" de `identidade/marca.md` (a voz do livro do Vitor); os posts anteriores a 02/10/2026 servem de exemplo de formato, não de tom.
 2. Rodar `npm run render -- <slug>`.
 3. Imagens saem em `output/<slug>/slide-1.png`, `slide-2.png`, etc.
 

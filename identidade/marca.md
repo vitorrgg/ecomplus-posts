@@ -36,6 +36,84 @@ A marca deve transmitir simplicidade, equilíbrio com velocidade e versatilidade
 
 Sempre em minúsculas, em qualquer contexto: **e-com.plus**. Nunca `E-Com.Plus`, `E-Com.plus`, `E-COM.PLUS` ou variações.
 
+## Voz
+
+Não está no manual de marca. Definida pelo Vitor em 02/10/2026: os posts falam como ele
+escreve no livro (*Como escalar seu e-commerce*). O guia de origem, extraído dos capítulos
+que ele escreveu sozinho, fica fora deste repo, em
+`~/Meu livro/rascunhos v2/00 - Guia de estilo do autor.md`; o que segue é a adaptação pra
+post. Vale pra slide, legenda e thumbnail. A rotina ECB carrega as mesmas regras em
+`ecb/PROMPT.md` (o gerador só enxerga aquele arquivo), então mudou aqui, mude lá.
+
+### Quem fala e com quem
+
+- Quem fala é a e-com.plus, na **primeira pessoa do plural**, como quem acompanha muitas
+  lojas de perto: "acreditamos que", "entendemos que", "sugerimos", "na nossa experiência".
+  No livro é "eu"; no perfil da marca vira "nós".
+- Fala com o lojista de **"você", de igual para igual**. Ele já tem um negócio e sabe
+  vender: o post não explica o que é e-commerce e não dá bronca.
+- **Opinião firme quando tem**, sem rodeios: "Você deve ter duas opções de pagamento",
+  "idealmente ofereça apenas duas". Quando não há resposta única, o post diz isso: "não
+  existe uma resposta única certa, mas sim a mais adequada ao seu público".
+
+### Como o raciocínio anda
+
+- **Da loja física para o digital.** A rua onde todo mundo tem ponto, o vendedor, a
+  vitrine, o cliente que sai de mãos vazias. A analogia vem primeiro e a técnica depois.
+  No máximo uma por post, e só quando encaixa.
+- **Pergunta curta, resposta curta, até chegar no princípio:** "O que os motores de busca
+  querem? Entregar uma boa experiência para seus usuários."
+- **Exemplo concreto e cotidiano** em vez de abstração: o anúncio de tênis com 30% de
+  desconto que leva para uma página genérica. Exemplo inventado vem de alimentação
+  saudável (granola, pasta de amendoim, mix de castanhas, kit café da manhã) e a loja não
+  tem nome: "uma loja de alimentação saudável".
+- **O tema volta para uma das três alavancas:** atrair mais visitantes, converter mais
+  visitantes em clientes ou vender mais para quem já é cliente. Dizer em qual delas o
+  assunto mexe ajuda o lojista a saber se aquilo é o gargalo dele.
+- **Ironia leve e uma frase curta de impacto:** "vender notas de R$100 por R$50", "Parece
+  bobo mas não é."
+- **Número só com o nome de quem mediu.** Sem fonte, a afirmação vira opinião assumida
+  ("acreditamos", "na nossa experiência") ou sai. Opinião pode; caso e resultado inventado, não.
+
+### Forma
+
+- **Frases completas, ligadas por "pois", "por isso", "então", "mas"**, que explicam o
+  porquê. A frase curta de impacto aparece uma vez por post; fragmentos em série não são
+  dessa voz.
+- **"para", "para o", "está"**, como no livro, e não "pra", "pro", "tá".
+- **Vírgula e parênteses no lugar do travessão.** Sem exclamações.
+- **Títulos de slide curtos, de preferência em tom de conselho:** "Evite surpresas", "Passe
+  confiança", "Mantenha o cliente no seu site".
+- **Termo técnico explicado em poucas palavras** na primeira vez que aparece.
+- **Item de lista é uma frase inteira**, que se entende sozinha, e não "Rótulo: explicação".
+- **Fecho curto e prático:** uma coisa que o lojista pode fazer nesta semana.
+- **A e-com.plus aparece com sobriedade**, dizendo o que o recurso faz naquela situação. O
+  modelo é a frase do capítulo de busca: "O motor de busca da e-com.plus entrega todos
+  esses pontos."
+
+### O que não fazer
+
+- Vocabulário de texto genérico: "no universo do e-commerce", "é fundamental/essencial/crucial",
+  "jornada", "potencializar", "alavancar", "destravar", "transformar seu negócio",
+  "revolucionar", "o segredo".
+- Contraste de efeito repetido ("não é X, é Y", "X virou Y") e trios de fragmentos.
+- Promessa exagerada ("cresce exponencialmente", "resultados incríveis") e superlativo
+  sobre a plataforma.
+- Nome de loja cliente sem autorização por escrito, e conteúdo de palestra ou de marca de
+  terceiros (casos, números, metáforas de outros).
+
+### Antes e depois
+
+Trechos de posts já publicados, reescritos na voz do livro. São ilustração, não frases
+pra reaproveitar.
+
+| Antes | Depois |
+|---|---|
+| Golpe novo, regra nova. Chargeback subiu, antifraude mais duro. As camadas se acumulam e ninguém volta depois pra tirar nenhuma. | Sempre que aparece um golpe novo a loja cria uma regra nova, e quando o chargeback sobe o antifraude fica mais duro. O problema é que ninguém volta depois para tirar nenhuma dessas camadas. |
+| Merchandising sob seu comando — destaque produto específico, marca parceira ou item em queima de estoque. | Você escolhe o que aparece primeiro na busca, seja um produto específico, uma marca parceira ou um item que precisa sair do estoque. |
+| Se a vitrine, o checkout e os dados moram no fornecedor, sua escolha para de ser estratégia e vira ticket de suporte. | Quando a vitrine, o checkout e os dados ficam com o fornecedor, qualquer mudança que você queira fazer depende de abrir um chamado e esperar. |
+| O que isso destrava | O que muda na sua loja |
+
 ## Logo
 
 4 variações: logomarca, logomarca negativa, ícone, ícone negativo. Nunca alterar cor, diagramação, proporção ou tipografia.

@@ -8,7 +8,7 @@ plataforma; não inventar recurso que não existe.
 - Headless / API-first — storefront é código do lojista (Astro + Vue), versionado no Git, com API aberta; checkout e página de confirmação são telas da loja, não do fornecedor.
 - Construtor de páginas — editor visual com preview em tempo real, cada mudança versionada no Git.
 - Checkout próprio com gatilhos — checkout passwordless (reduz abandono), cross-sell e regras no próprio fluxo, sem tirar a marca da experiência.
-- Pix transparente — pagamento Pix dentro da loja, sem redirecionar; 40% das transações do e-commerce brasileiro já são no Pix.
+- Pix transparente — pagamento Pix dentro da loja, sem redirecionar; segundo a Worldpay, o Pix respondeu por 42% do valor transacionado no e-commerce brasileiro em 2025, à frente do cartão de crédito.
 - Assinaturas e recorrência — clube de assinatura ou compra recorrente nativos, com desconto na recorrência.
 - Fidelidade e cashback — cashback nativo, sem app externo.
 - Afiliados / member get member — link próprio por cliente, rastreio de origem e comissão automática por venda.
