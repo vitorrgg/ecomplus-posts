@@ -11,6 +11,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { root, segundaDaSemana, lerJson, args, decodeHtml } from './util.mjs';
+import { capasLivres } from './capas.mjs';
 
 const HOME = 'https://www.ecommercebrasil.com.br/';
 const UA = 'Mozilla/5.0 (compatible; ecomplus-posts/1.0; +https://www.e-com.plus)';
@@ -104,7 +105,10 @@ if (ehMain) {
   const opts = args();
   const historico = lerJson(join(root, 'ecb', 'historico.json'), { publicados: [], gerados: [] });
   const usados = new Set([...historico.publicados, ...historico.gerados].map((x) => x.fonte));
-  const resultado = await coletar({ limite: Number(opts.limite ?? 3), ignorarUrls: usados });
+  // capasLivres: fotos que ainda não foram capa nos últimos posts da grade (capas.mjs),
+  // pra quem escreve a análise escolher a capa sem repetir.
+  const { ranking, escolhidos, ...meta } = await coletar({ limite: Number(opts.limite ?? 3), ignorarUrls: usados });
+  const resultado = { ...meta, capasLivres: capasLivres(), ranking, escolhidos };
   if (opts.stdout) {
     console.log(JSON.stringify(resultado, null, 2));
   } else {
@@ -122,4 +126,5 @@ if (ehMain) {
     const marca = resultado.escolhidos.includes(it) ? '→' : usados.has(it.url) ? '×' : ' ';
     console.error(`${marca} ${String(it.posicao).padStart(2, '0')} ${it.titulo} (${it.categoria})`);
   }
+  console.error(`capas livres: ${resultado.capasLivres.join(', ')}`);
 }

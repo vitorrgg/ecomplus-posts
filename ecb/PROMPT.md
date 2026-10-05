@@ -46,6 +46,7 @@ Três trechos de posts antigos reescritos nessa voz. São ilustração da difere
 - Só use recursos que estão na lista. Se o tema não cruzar bem com nenhum, faça a análise do ponto de vista de quem tem loja própria e feche com a posição da e-com.plus sobre o assunto.
 - Respeite os limites de caracteres descritos em cada campo do esquema: o layout é fixo e texto a mais é cortado na imagem. A voz pede frases completas, então escreva menos ideias por slide em vez de comprimir as frases.
 - Varie o visual dos slides de conteúdo (texto, lista, fechamento) com os campos tema e imagem: entre os slides 2 e o fechamento, use pelo menos um com tema "claro" e pelo menos um com tema "escuro" (não repita o mesmo tema em três slides seguidos), e coloque uma imagem ilustrativa em um ou dois slides, escolhida pelo assunto. Slide com imagem tem menos espaço: até 300 caracteres de texto ou 4 itens. A capa segue o padrão fixo.
+- A foto da capa não pode repetir a de nenhum dos últimos posts do perfil, pois na grade do Instagram as capas aparecem lado a lado, e os posts da mesma semana também usam capas diferentes entre si. Escolha pelo assunto entre as fotos livres que vêm junto com a pauta (capasLivres).
 - Nunca mencione preço, mensalidade, valor por pedido ou qualquer cifra da e-com.plus, nem em slide nem na legenda. "Sem comissão sobre o faturamento" pode; número, não.
 - Não use emojis nos slides. Na legenda, no máximo dois.
 - Evite dois-pontos seguidos de espaço no meio de itens de lista.

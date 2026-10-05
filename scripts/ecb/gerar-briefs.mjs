@@ -32,27 +32,25 @@ import {
   root, segundaDaSemana, lerJson, gravarJson, args, slugify,
   HISTORICO, FILA, lerHistorico, lerFila,
 } from './util.mjs';
+import { FOTOS, capasRecentes, capasLivres, conferirCapa } from './capas.mjs';
 
 const MODELO = 'claude-opus-5';
 const RECURSOS = readFileSync(join(root, 'ecb', 'recursos.md'), 'utf8')
   .split('\n').filter((l) => l.startsWith('- ')).join('\n');
 
-// Fotos genéricas disponíveis pra capa (as `tema-*` são prints de temas de loja,
-// não servem aqui).
-const FOTOS = readdirSync(join(root, 'templates', 'assets', 'photos'))
-  .filter((f) => f.endsWith('.jpg') && !f.startsWith('tema-'));
-
 // Variações visuais dos slides de conteúdo (texto, lista, fechamento).
 const Tema = z.enum(['escuro', 'claro']).describe('Fundo roxo escuro com texto branco, ou fundo claro com texto escuro.');
 const Ilustracao = z.enum(FOTOS).nullable().describe('Foto ilustrativa abaixo do texto, escolhida pelo assunto, ou null.');
 
-const Slide = z.discriminatedUnion('tipo', [
+// `fotosCapa` restringe a foto da capa às que não se repetem na grade (capas.mjs); o
+// ESQUEMA.json comitado leva todas, e a repetição é barrada na hora de gravar.
+const criarSlide = (fotosCapa) => z.discriminatedUnion('tipo', [
   z.object({
     tipo: z.literal('capa'),
     eyebrow: z.string().describe('Chapéu curto acima do título, até 40 caracteres. Ex.: "análise da semana · pós-compra"'),
     titulo: z.string().describe('Título da capa em 2 ou 3 linhas separadas por \\n, cada linha com no máximo 16 caracteres. É a tese do post, não o título do artigo. Será renderizado em minúsculas.'),
     subtitulo: z.string().describe('Uma frase de apoio, até 110 caracteres.'),
-    imagem: z.enum(FOTOS).describe('Foto de fundo, escolhida pelo assunto.'),
+    imagem: z.enum(fotosCapa).describe('Foto de fundo, escolhida pelo assunto. Não pode repetir a capa de nenhum dos posts recentes do perfil.'),
   }),
   z.object({
     tipo: z.literal('texto'),
@@ -73,11 +71,12 @@ const Slide = z.discriminatedUnion('tipo', [
   }),
 ]);
 
-const Saida = z.object({
+const criarSaida = (fotosCapa = FOTOS) => z.object({
   slug: z.string().describe('Slug curto em kebab-case (3 a 5 palavras) que identifica o assunto.'),
-  slides: z.array(Slide).min(5).max(7).describe('Sequência do carrossel: começa com "capa", termina com "fechamento", e no meio alterna "texto" e "lista". O penúltimo slide de conteúdo é o cruzamento com a e-com.plus.'),
+  slides: z.array(criarSlide(fotosCapa)).min(5).max(7).describe('Sequência do carrossel: começa com "capa", termina com "fechamento", e no meio alterna "texto" e "lista". O penúltimo slide de conteúdo é o cruzamento com a e-com.plus.'),
   legenda: z.string().describe('Legenda do post no Instagram: 3 a 5 frases com a tese e a conclusão, linha em branco, uma frase sobre como a e-com.plus resolve, linha em branco, uma pergunta de convite sobre a operação de quem lê, linha em branco e 5 a 8 hashtags. Até 1500 caracteres. Sem URL, sem citar fonte ou autor.'),
 });
+const Saida = criarSaida();
 
 // O texto do prompt vive em ecb/PROMPT.md pra ser o mesmo aqui, no `claude -p` e na
 // rotina na nuvem (que lê o arquivo direto).
@@ -85,7 +84,7 @@ const SISTEMA = readFileSync(join(root, 'ecb', 'PROMPT.md'), 'utf8').replace('{{
 export const ESQUEMA_JSON = zodOutputFormat(Saida).schema;
 export function validarSaida(obj) { return Saida.parse(obj); }
 
-function promptUsuario(artigo) {
+function promptUsuario(artigo, livres) {
   return `Pauta da semana (artigo na posição ${artigo.posicao} entre os mais lidos do mercado).
 
 Título: ${artigo.titulo}
@@ -96,6 +95,8 @@ URL: ${artigo.url}
 
 Texto do artigo:
 ${artigo.texto}
+
+Fotos livres para a capa (as outras já foram capa de posts recentes do perfil): ${livres.join(', ')}.
 
 Escreva a análise da e-com.plus sobre esse tema, em carrossel, e a legenda, seguindo o esquema pedido.`;
 }
@@ -132,13 +133,13 @@ export function gravarPost({ slug, brief, legenda, artigo, semana }) {
   return dir;
 }
 
-async function gerarComApi(client, artigo) {
+async function gerarComApi(client, artigo, livres) {
   const resposta = await client.messages.parse({
     model: MODELO,
     max_tokens: 16000,
     system: SISTEMA,
-    messages: [{ role: 'user', content: promptUsuario(artigo) }],
-    output_config: { format: zodOutputFormat(Saida), effort: 'medium' },
+    messages: [{ role: 'user', content: promptUsuario(artigo, livres) }],
+    output_config: { format: zodOutputFormat(criarSaida(livres)), effort: 'medium' },
   });
   if (resposta.stop_reason === 'refusal') {
     throw new Error(`A API recusou gerar o post de "${artigo.titulo}" (${resposta.stop_details?.category ?? 'sem categoria'}).`);
@@ -152,11 +153,11 @@ async function gerarComApi(client, artigo) {
 // `claude -p` com --json-schema devolve `structured_output` já validado pelo próprio
 // Claude Code; revalidamos com o zod por garantia. Sem ferramentas e sem sessão
 // persistida: é uma chamada de modelo, não uma sessão de agente.
-function gerarComClaudeCode(artigo) {
+function gerarComClaudeCode(artigo, livres) {
   const r = spawnSync('claude', [
     '-p', '--no-session-persistence', '--tools', '', '--output-format', 'json',
-    '--model', MODELO, '--json-schema', JSON.stringify(ESQUEMA_JSON),
-    '--system-prompt', SISTEMA, promptUsuario(artigo),
+    '--model', MODELO, '--json-schema', JSON.stringify(zodOutputFormat(criarSaida(livres)).schema),
+    '--system-prompt', SISTEMA, promptUsuario(artigo, livres),
   ], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
   if (r.error) throw new Error(`Não consegui rodar o \`claude\` (${r.error.message}). Instale o Claude Code ou use --via api.`);
   let j;
@@ -170,21 +171,34 @@ function gerarComClaudeCode(artigo) {
 // artigo) e devolve pares [artigo, saida] casados com a coleta da semana.
 function lerSaidasJson(caminho, coleta) {
   const arquivos = statSync(caminho).isDirectory()
-    ? readdirSync(caminho).filter((f) => f.endsWith('.json')).map((f) => join(caminho, f))
+    ? readdirSync(caminho).filter((f) => f.endsWith('.json')).sort().map((f) => join(caminho, f))
     : [caminho];
   return arquivos.map((arq) => {
     const { fonte, ...saida } = JSON.parse(readFileSync(arq, 'utf8'));
     const artigo = coleta.escolhidos.find((a) => a.url === fonte) ?? coleta.ranking.find((a) => a.url === fonte);
     if (!artigo) throw new Error(`${arq}: "fonte" ${fonte} não está na coleta da semana.`);
-    return [artigo, validarSaida(saida)];
+    return [artigo, validarSaida(saida), arq];
   });
 }
 
-function exemploFixo(artigo) {
+// Confere o lote inteiro antes de gravar qualquer post: cada capa contra as recentes da
+// grade e contra as dos outros posts do mesmo lote.
+function conferirCapasDoLote(lote) {
+  const recentes = capasRecentes();
+  const extras = new Map();
+  for (const [, saida, arq] of lote) {
+    const capa = saida.slides.find((s) => s.tipo === 'capa')?.imagem;
+    if (!capa) continue;
+    conferirCapa(capa, { recentes, extras, rotulo: arq });
+    extras.set(capa, `${arq} (mesmo lote)`);
+  }
+}
+
+function exemploFixo(artigo, livres) {
   return {
     slug: slugify(artigo.titulo, 30),
     slides: [
-      { tipo: 'capa', eyebrow: 'mais lido da semana', titulo: 'exemplo de\ncarrossel\ngerado', subtitulo: artigo.descricao.slice(0, 110), imagem: FOTOS[0] },
+      { tipo: 'capa', eyebrow: 'mais lido da semana', titulo: 'exemplo de\ncarrossel\ngerado', subtitulo: artigo.descricao.slice(0, 110), imagem: livres[0] },
       { tipo: 'texto', titulo: null, paragrafos: ['Primeiro parágrafo de exemplo, com tamanho parecido com o que a API devolve num slide de texto normal.', 'Segundo parágrafo, um pouco mais curto, pra conferir o espaçamento.'], tema: 'escuro', imagem: null },
       { tipo: 'lista', titulo: 'Três pontos do artigo', itens: ['Item um da lista de exemplo', 'Item dois, um pouco mais comprido que o primeiro', 'Item três'], tema: 'claro', imagem: null },
       { tipo: 'texto', titulo: 'O que isso muda', paragrafos: ['Parágrafo com título em negrito acima, pra exercitar o outro layout de texto.'], tema: 'escuro', imagem: FOTOS[1] },
@@ -217,15 +231,21 @@ if (ehMain) {
   const pendentes = via === 'json'
     ? lerSaidasJson(opts['from-json'], coleta)
     : coleta.escolhidos.map((a) => [a, null]);
+  if (via === 'json') {
+    try { conferirCapasDoLote(pendentes.filter(([a]) => !jaGerados.has(a.url))); }
+    catch (e) { console.error(`✗ ${e.message}`); process.exit(1); }
+  }
 
   for (const [artigo, pronta] of pendentes) {
     if (jaGerados.has(artigo.url)) { console.log(`· já gerado: ${artigo.titulo}`); continue; }
     if (!artigo.texto && via !== 'json') { console.warn(`⚠ sem texto, pulando: ${artigo.titulo}`); continue; }
     console.log(`→ ${via === 'json' ? 'gravando' : `gerando (${via})`}: ${artigo.titulo}`);
+    // A fila já inclui os posts gravados antes neste lote, então as livres mudam a cada um.
+    const livres = capasLivres();
     const saida = pronta
-      ?? (via === 'exemplo' ? exemploFixo(artigo)
-        : via === 'api' ? await gerarComApi(client, artigo)
-        : gerarComClaudeCode(artigo));
+      ?? (via === 'exemplo' ? exemploFixo(artigo, livres)
+        : via === 'api' ? await gerarComApi(client, artigo, livres)
+        : gerarComClaudeCode(artigo, livres));
     const slug = `ecb-${semana}-${slugify(saida.slug || artigo.titulo, 36)}`;
     const dir = gravarPost({ slug, brief: montarBrief(saida, artigo), legenda: saida.legenda, artigo, semana });
     console.log(`✓ ${dir}`);

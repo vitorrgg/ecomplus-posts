@@ -23,7 +23,7 @@
             },
             "imagem": {
               "type": "string",
-              "description": "Foto de fundo, escolhida pelo assunto.\n\n{enum: [\"ai-touch-circuit.jpg\",\"cardboard-box-light.jpg\",\"checkout-ui-mockup.jpg\",\"code-screen-macbook.jpg\",\"cover-warehouse.jpg\",\"dashboard-charts.jpg\",\"factory-industrial.jpg\",\"magnifying-glass-laptop.jpg\",\"mail-icon-phone.jpg\",\"network-nodes.jpg\",\"own-store-checkout.jpg\",\"payment-terminal-tap.jpg\",\"reading-article-phone.jpg\",\"referral-handshake.jpg\",\"sale-tag-rack.jpg\",\"seller-packing.jpg\",\"star-rating.jpg\",\"wireframe-sketch.jpg\",\"world-map.jpg\",\"writer-laptop.jpg\"]}"
+              "description": "Foto de fundo, escolhida pelo assunto. Não pode repetir a capa de nenhum dos posts recentes do perfil.\n\n{enum: [\"ai-touch-circuit.jpg\",\"cardboard-box-light.jpg\",\"checkout-ui-mockup.jpg\",\"code-screen-macbook.jpg\",\"cover-warehouse.jpg\",\"dashboard-charts.jpg\",\"factory-industrial.jpg\",\"magnifying-glass-laptop.jpg\",\"mail-icon-phone.jpg\",\"network-nodes.jpg\",\"own-store-checkout.jpg\",\"payment-terminal-tap.jpg\",\"reading-article-phone.jpg\",\"referral-handshake.jpg\",\"sale-tag-rack.jpg\",\"seller-packing.jpg\",\"star-rating.jpg\",\"wireframe-sketch.jpg\",\"world-map.jpg\",\"writer-laptop.jpg\"]}"
             }
           },
           "additionalProperties": false,
