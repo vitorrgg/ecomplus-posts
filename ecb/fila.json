@@ -1,3 +1,25 @@
 {
-  "pendentes": []
+  "pendentes": [
+    {
+      "slug": "ecb-2026-10-05-crescer-consome-caixa",
+      "fonte": "https://www.ecommercebrasil.com.br/artigos/e-commerce-em-crescimento-como-financiar-a-expansao-sem-travar-a-operacao",
+      "titulo": "E-commerce em crescimento: como financiar a expansão sem travar a operação",
+      "semana": "2026-10-05",
+      "aprovado": null
+    },
+    {
+      "slug": "ecb-2026-10-05-expansao-comeca-no-dado",
+      "fonte": "https://www.ecommercebrasil.com.br/noticias/beleza-na-web-abre-primeira-loja-no-nordeste-e-avanca-no-varejo-fisico",
+      "titulo": "Beleza na Web abre primeira loja no Nordeste e avança no varejo físico",
+      "semana": "2026-10-05",
+      "aprovado": null
+    },
+    {
+      "slug": "ecb-2026-10-05-sua-propria-data-promocional",
+      "fonte": "https://www.ecommercebrasil.com.br/noticias/mega-oferta-amazon-prime-outubro-2026",
+      "titulo": "Amazon realiza Mega Oferta Prime com descontos de até 80%",
+      "semana": "2026-10-05",
+      "aprovado": null
+    }
+  ]
 }
