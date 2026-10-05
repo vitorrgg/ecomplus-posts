@@ -9,7 +9,9 @@ identidade visual da marca no Instagram [@ecomplus.io](https://www.instagram.com
 
 ```
 segunda 09:00        geração          coleta "Mais Lidos" → análises (Claude Code, plano Max) → PNG + JPEG → commit na fila
-seg/qua/sex 12:00    ecb-publicar.yml publica o próximo da fila no Instagram (GitHub Actions) → registra no histórico
+                                      + 1 post da série do livro (pauta de ecb/livro/pautas.json)
+seg/qua/sex 12:00    ecb-publicar.yml publica a próxima análise da fila no Instagram → registra no histórico
+quinta 12:00         ecb-publicar.yml publica o próximo post da série do livro
 ```
 
 Na segunda, o post gerado às 09:00 já sai às 12:00 do mesmo dia; os outros dois
@@ -123,6 +125,23 @@ Limites da API que o script respeita: só JPEG, 2 a 10 imagens por carrossel, pr
 ### 3. Primeira rodada
 
 Com os segredos do Instagram no lugar e a fila já comitada, dispare *ECB — publicar no Instagram* com *dry run* marcado e confira URLs e legenda no log. Se estiver certo, rode sem dry run ou espere o próximo horário (seg/qua/sex 12:00). Depois rode a geração uma vez (*Run now* na rotina da nuvem, ou `semana-local.sh`) e confira `output/ecb-*/` e `posts/ecb-*/legenda.txt` no commit resultante.
+
+## Série do livro
+
+Um post por semana (quinta 12:00) com um trecho do livro *Como escalar seu e-commerce*, do Vitor.
+O texto do livro fica no repo **privado** `vitorrgg/meu-livro` e nunca entra neste, que é público.
+
+| Arquivo | O que faz |
+|---|---|
+| `ecb/livro/pautas.json` | Banco de pautas: capítulo, seções do manuscrito, ângulo do post e alavanca (visitas, conversão, LTV ou base). Só referências, sem texto do livro. `liberada: false` = ainda não vai ao ar; hoje estão bloqueados os capítulos que são rascunho de IA, até passarem para a voz do autor. |
+| `ecb/livro/config.json` | Título do livro, autor, onde está o manuscrito e a chamada que vai na legenda. **Quando o livro for publicado, preencha `link`**: os posts novos passam a usar `chamadaComLink`. |
+| `ecb/livro/PROMPT.md` | O que muda na série em relação a `ecb/PROMPT.md`: o post é uma versão do trecho, números só da ficha de dados verificados, chapéu "do livro · …". |
+| `scripts/ecb/livro.mjs` | Escolhe a próxima pauta (alternando alavanca e capítulo) e grava o trecho do manuscrito em `ecb/livro/rascunho/<segunda>.json`, que fica fora do git. `--listar` mostra o banco; `--pauta <id>` força uma. |
+| `ecb/ROTINA.md` | O prompt da rotina na nuvem, com o passo do livro. A rotina precisa ter os dois repos. |
+
+O manuscrito usado é o `Manuscrito/… manuscrito v<versão>.md` mais novo do repo do livro. Se uma
+seção mudar de nome numa versão nova, `livro.mjs` avisa qual pauta ajustar. Na fila, cada item tem
+`serie` (`ecb` ou `livro`), e o workflow de publicação escolhe a série pelo dia.
 
 ## Aviso no Slack (#conteudo)
 

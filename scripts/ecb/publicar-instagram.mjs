@@ -8,6 +8,8 @@
 //   node scripts/ecb/publicar-instagram.mjs                # próximo pendente da fila
 //   node scripts/ecb/publicar-instagram.mjs --slug <slug>  # um post específico
 //   node scripts/ecb/publicar-instagram.mjs --dry-run      # monta tudo, não chama a API
+//   node scripts/ecb/publicar-instagram.mjs --serie livro  # próximo pendente da série do livro
+//                                                          # (padrão: ecb, as análises dos mais lidos)
 //
 // Variáveis de ambiente:
 //   IG_USER_ID        id da conta profissional do Instagram
@@ -101,17 +103,19 @@ export async function publicar({ slug, dryRun = false }) {
   return { id: publicado, permalink };
 }
 
-function proximoDaFila(fila) {
+function proximoDaFila(fila, serie = 'ecb') {
   const exige = String(process.env.ECB_EXIGE_APROVACAO).toLowerCase() === 'true';
-  return fila.pendentes.find((p) => (exige ? p.aprovado === true : p.aprovado !== false));
+  return fila.pendentes.find((p) => (p.serie ?? 'ecb') === serie
+    && (exige ? p.aprovado === true : p.aprovado !== false));
 }
 
 const ehMain = process.argv[1] && import.meta.url.endsWith(process.argv[1].split('/').pop());
 if (ehMain) {
   const opts = args();
   const fila = lerFila();
-  const item = opts.slug ? { slug: opts.slug } : proximoDaFila(fila);
-  if (!item) { console.log('Fila vazia (ou nada aprovado) — nada a publicar.'); process.exit(0); }
+  const serie = typeof opts.serie === 'string' ? opts.serie : 'ecb';
+  const item = opts.slug ? { slug: opts.slug } : proximoDaFila(fila, serie);
+  if (!item) { console.log(`Fila vazia na série ${serie} (ou nada aprovado) — nada a publicar.`); process.exit(0); }
 
   const resultado = await publicar({ slug: item.slug, dryRun: Boolean(opts['dry-run']) });
   if (resultado.dryRun) process.exit(0);
