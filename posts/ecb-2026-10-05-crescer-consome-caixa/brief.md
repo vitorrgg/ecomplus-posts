@@ -12,7 +12,7 @@ titulo: |-
   antes de
   dar retorno
 subtitulo: O dinheiro sai antes de o faturamento entrar, e é aí que a maioria dos planos de expansão trava.
-imagem: dashboard-charts.jpg
+imagem: cover-warehouse.jpg
 ```
 
 ## Slide 2
