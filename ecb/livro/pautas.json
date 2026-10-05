@@ -1,0 +1,675 @@
+{
+  "_sobre": "Banco de pautas da série do livro. Só referências (capítulo e seções do manuscrito em vitorrgg/meu-livro) e o ângulo do post; o texto do livro nunca entra neste repo, que é público. liberada: false = ainda não vai ao ar. Para liberar um capítulo, mude para true. A ordem da lista é a ordem de preferência; scripts/ecb/livro.mjs alterna alavanca e capítulo.",
+  "pautas": [
+    {
+      "id": "15-paginas-alinhadas-aos-anuncios",
+      "capitulo": 15,
+      "secoes": [
+        "Crie páginas alinhadas aos anúncios"
+      ],
+      "alavanca": "conversao",
+      "assunto": "O anúncio promete uma coisa e a página entrega outra: a página de destino tem que continuar a conversa do anúncio",
+      "liberada": true
+    },
+    {
+      "id": "21-taxa-e-tempo-de-retorno",
+      "capitulo": 21,
+      "secoes": [
+        "A importância da taxa e do tempo de retorno"
+      ],
+      "alavanca": "ltv",
+      "assunto": "Quantos clientes voltam e em quanto tempo: os dois números que dizem se a loja vende para a mesma pessoa de novo",
+      "liberada": true
+    },
+    {
+      "id": "08-winner-takes-it-all",
+      "capitulo": 8,
+      "secoes": [
+        "The Winner Takes It All"
+      ],
+      "alavanca": "visitas",
+      "assunto": "No Google quase todo o clique fica com os primeiros resultados, então vale escolher onde disputar o topo",
+      "liberada": true
+    },
+    {
+      "id": "16-busca-que-entende-o-cliente",
+      "capitulo": 16,
+      "secoes": [
+        "(abertura)",
+        "Incluir um motor de busca",
+        "Ter a busca sempre visível",
+        "Usar sugestões automáticas (autocomplete)",
+        "Implementar correção gramatical"
+      ],
+      "alavanca": "conversao",
+      "assunto": "Quem usa a busca já sabe o que quer: a busca precisa estar à vista, sugerir e corrigir",
+      "liberada": true
+    },
+    {
+      "id": "04-quatro-caminhos-para-se-diferenciar",
+      "capitulo": 4,
+      "secoes": [
+        "(abertura)",
+        "Diferenciação por produto exclusivo",
+        "Diferenciação emocional: quando a marca vale mais que o produto",
+        "Diferenciação por preço",
+        "Diferenciação por execução e experiência"
+      ],
+      "alavanca": "base",
+      "assunto": "Produto, emoção, preço e execução: quatro caminhos para não ser só mais uma loja na rua",
+      "liberada": true
+    },
+    {
+      "id": "22-frete-gratis-com-valor-minimo",
+      "capitulo": 22,
+      "secoes": [
+        "Frete grátis com valor mínimo"
+      ],
+      "alavanca": "ltv",
+      "assunto": "Frete grátis a partir de um valor mínimo aumenta o pedido, desde que o mínimo seja calculado e não chutado",
+      "liberada": true
+    },
+    {
+      "id": "07-funil-aida",
+      "capitulo": 7,
+      "secoes": [
+        "(abertura)"
+      ],
+      "alavanca": "visitas",
+      "assunto": "Atenção, interesse, desejo e ação: cada etapa pede um conteúdo e um canal diferentes",
+      "liberada": true
+    },
+    {
+      "id": "17-passe-confianca",
+      "capitulo": 17,
+      "secoes": [
+        "Passe confiança",
+        "Perguntas frequentes na própria página"
+      ],
+      "alavanca": "conversao",
+      "assunto": "Na loja física o cliente vê o vendedor; no site, a confiança precisa estar escrita na página",
+      "liberada": true
+    },
+    {
+      "id": "21-programa-de-fidelidade",
+      "capitulo": 21,
+      "secoes": [
+        "Programa de fidelidade"
+      ],
+      "alavanca": "ltv",
+      "assunto": "Fidelidade que funciona dá motivo para a próxima compra, e não só desconto na atual",
+      "liberada": true
+    },
+    {
+      "id": "09-dois-trafegos-pagos",
+      "capitulo": 9,
+      "secoes": [
+        "Os dois tráfegos pagos"
+      ],
+      "alavanca": "visitas",
+      "assunto": "Anúncio de busca atende quem já procura; anúncio de descoberta cria a vontade. Misturar os dois confunde a conta",
+      "liberada": true
+    },
+    {
+      "id": "18-evite-surpresas-no-checkout",
+      "capitulo": 18,
+      "secoes": [
+        "Autopreenchimento sempre que possível",
+        "Evite surpresas",
+        "Opções de Pagamento"
+      ],
+      "alavanca": "conversao",
+      "assunto": "No checkout qualquer surpresa vira desistência: custo novo, campo a mais, pagamento demais",
+      "liberada": true
+    },
+    {
+      "id": "19-ltv-e-uma-estimativa",
+      "capitulo": 19,
+      "secoes": [
+        "(abertura)",
+        "Como estimar",
+        "O LTV não é um dado imutável"
+      ],
+      "alavanca": "ltv",
+      "assunto": "LTV é uma estimativa de quanto o cliente vai deixar, e muda com o que a loja faz",
+      "liberada": true
+    },
+    {
+      "id": "05-crescer-ou-escalar",
+      "capitulo": 5,
+      "secoes": [
+        "(abertura)"
+      ],
+      "alavanca": "base",
+      "assunto": "Crescer é vender mais gastando proporcionalmente mais; escalar é vender mais sem que o custo acompanhe",
+      "liberada": true
+    },
+    {
+      "id": "15-dilema-do-menu",
+      "capitulo": 15,
+      "secoes": [
+        "Evite o dilema do menu"
+      ],
+      "alavanca": "conversao",
+      "assunto": "Opções demais travam a decisão: menos escolhas, mais vendas",
+      "liberada": true
+    },
+    {
+      "id": "08-tres-pilares-do-seo",
+      "capitulo": 8,
+      "secoes": [
+        "SEO"
+      ],
+      "alavanca": "visitas",
+      "assunto": "Conteúdo, formatação e performance: os três pilares de SEO para loja virtual",
+      "liberada": true
+    },
+    {
+      "id": "22-upsell-premium",
+      "capitulo": 22,
+      "secoes": [
+        "Upselling: ofertas de produtos premium"
+      ],
+      "alavanca": "ltv",
+      "assunto": "Oferecer a versão melhor no momento certo aumenta o ticket sem forçar a venda",
+      "liberada": true
+    },
+    {
+      "id": "16-busca-nunca-vazia",
+      "capitulo": 16,
+      "secoes": [
+        "Sempre retornar algum resultado",
+        "Incluir histórico buscas ou mais buscados",
+        "Resposta instantânea",
+        "Infinitas possibilidades de filtros"
+      ],
+      "alavanca": "conversao",
+      "assunto": "Uma busca sem resultado é um cliente indo embora: sempre mostre um caminho",
+      "liberada": true
+    },
+    {
+      "id": "12-plataformas-nao-sao-iguais",
+      "capitulo": 12,
+      "secoes": [
+        "Plataformas não são todas iguais",
+        "Comunidade gera cliques"
+      ],
+      "alavanca": "visitas",
+      "assunto": "Cada rede social tem seu jeito de levar gente para a loja, e copiar o mesmo post em todas desperdiça as duas",
+      "liberada": true
+    },
+    {
+      "id": "21-programa-de-assinaturas",
+      "capitulo": 21,
+      "secoes": [
+        "Programa de assinaturas"
+      ],
+      "alavanca": "ltv",
+      "assunto": "Assinatura transforma a recompra em rotina para o cliente e em previsibilidade para a loja",
+      "liberada": true
+    },
+    {
+      "id": "09-lucratividade-das-campanhas",
+      "capitulo": 9,
+      "secoes": [
+        "Analisando lucratividade de campanhas de tráfego pago",
+        "Principais métricas a acompanhar"
+      ],
+      "alavanca": "visitas",
+      "assunto": "Campanha que vende muito pode estar dando prejuízo: olhe a margem, não só o retorno da plataforma",
+      "liberada": true
+    },
+    {
+      "id": "17-fotos-e-beneficios",
+      "capitulo": 17,
+      "secoes": [
+        "Clareza nas informações do produto",
+        "Fotos e vídeo fazem o papel da mão",
+        "Descreva benefícios, não só características"
+      ],
+      "alavanca": "conversao",
+      "assunto": "O cliente não pode pegar o produto na mão, então foto, vídeo e descrição fazem esse papel",
+      "liberada": true
+    },
+    {
+      "id": "24-com-quem-sua-marca-fala",
+      "capitulo": 24,
+      "secoes": [
+        "Saiba com quem sua marca fala",
+        "Defina com clareza sua missão",
+        "Defina como vai se diferenciar"
+      ],
+      "alavanca": "ltv",
+      "assunto": "Marca começa por saber com quem fala e por que existe, antes do logotipo",
+      "liberada": true
+    },
+    {
+      "id": "08-funil-de-conteudo",
+      "capitulo": 8,
+      "secoes": [
+        "Funil de Conteúdo"
+      ],
+      "alavanca": "visitas",
+      "assunto": "Conteúdo para cada nível do funil, ligado entre si, leva o leitor do blog até o produto",
+      "liberada": true
+    },
+    {
+      "id": "22-cross-sell-e-kits",
+      "capitulo": 22,
+      "secoes": [
+        "Cross-selling: ofertas de produtos relacionados",
+        "Combos e kits especiais"
+      ],
+      "alavanca": "ltv",
+      "assunto": "Produto relacionado e kit bem montado aumentam o pedido porque resolvem mais do problema do cliente",
+      "liberada": true
+    },
+    {
+      "id": "29-por-que-migrar",
+      "capitulo": 29,
+      "secoes": [
+        "Por que migrar?",
+        "2. Vale a pena migrar?"
+      ],
+      "alavanca": "base",
+      "assunto": "Os sinais de que a plataforma virou o gargalo, e as contas para saber se vale migrar",
+      "liberada": true
+    },
+    {
+      "id": "17-frete-competitivo-e-visivel",
+      "capitulo": 17,
+      "secoes": [
+        "Frete competitivo e visível"
+      ],
+      "alavanca": "conversao",
+      "assunto": "Frete escondido até o checkout é a surpresa que mais derruba a venda",
+      "liberada": true
+    },
+    {
+      "id": "21-comunicacao-segmentada",
+      "capitulo": 21,
+      "secoes": [
+        "Crie conteúdo relevante",
+        "Comunicação frequente e segmentada"
+      ],
+      "alavanca": "ltv",
+      "assunto": "Falar com o cliente entre uma compra e outra, com a mensagem certa para cada perfil",
+      "liberada": true
+    },
+    {
+      "id": "07-niveis-de-consciencia",
+      "capitulo": 7,
+      "secoes": [
+        "Níveis de consciência de Eugene Schwartz"
+      ],
+      "alavanca": "visitas",
+      "assunto": "O cliente que nem sabe que tem o problema precisa de uma mensagem diferente de quem já compara marcas",
+      "liberada": true
+    },
+    {
+      "id": "18-uma-pagina-ou-em-passos",
+      "capitulo": 18,
+      "secoes": [
+        "Checkout em uma página ou em passos"
+      ],
+      "alavanca": "conversao",
+      "assunto": "Checkout em uma página ou em etapas: não existe resposta única, mas existe a mais adequada ao seu público",
+      "liberada": true
+    },
+    {
+      "id": "22-progressivo-e-brindes",
+      "capitulo": 22,
+      "secoes": [
+        "Descontos progressivos",
+        "Brindes"
+      ],
+      "alavanca": "ltv",
+      "assunto": "Desconto progressivo e brinde aumentam o pedido sem baixar o preço de tudo",
+      "liberada": true
+    },
+    {
+      "id": "09-segmente-teste-e-delimite",
+      "capitulo": 9,
+      "secoes": [
+        "Segmente suas campanhas",
+        "Teste e valide",
+        "Delimite o orçamento"
+      ],
+      "alavanca": "visitas",
+      "assunto": "Segmentar, testar pequeno e só depois escalar: a ordem que protege o orçamento de mídia",
+      "liberada": true
+    },
+    {
+      "id": "20-comunicacao-pos-venda",
+      "capitulo": 20,
+      "secoes": [
+        "Comunicação de pós-venda"
+      ],
+      "alavanca": "ltv",
+      "assunto": "Do pedido pago à entrega, cada aviso reduz ansiedade e chamado no atendimento",
+      "liberada": true
+    },
+    {
+      "id": "15-taxa-de-rejeicao",
+      "capitulo": 15,
+      "secoes": [
+        "Compreendendo a Taxa de Rejeição",
+        "Mantenha o cliente no seu site"
+      ],
+      "alavanca": "conversao",
+      "assunto": "Quem entra e sai sem clicar está dizendo algo sobre a página, não sobre o produto",
+      "liberada": true
+    },
+    {
+      "id": "24-identidade-consistente",
+      "capitulo": 24,
+      "secoes": [
+        "Crie uma identidade",
+        "Aplique a marca de forma consistente"
+      ],
+      "alavanca": "ltv",
+      "assunto": "Identidade aplicada do mesmo jeito em todos os pontos faz a marca ser lembrada na próxima compra",
+      "liberada": true
+    },
+    {
+      "id": "08-seo-para-ecommerce",
+      "capitulo": 8,
+      "secoes": [
+        "Estratégias de SEO específicas para e-commerce",
+        "Link Building e Promoção de Conteúdo"
+      ],
+      "alavanca": "visitas",
+      "assunto": "SEO de loja virtual: páginas de categoria, produto e links de fora",
+      "liberada": true
+    },
+    {
+      "id": "17-botao-e-incentivos",
+      "capitulo": 17,
+      "secoes": [
+        "Botão de adição ao carrinho destacado e acessível",
+        "Incentivos no momento certo"
+      ],
+      "alavanca": "conversao",
+      "assunto": "O botão de comprar tem que ser a coisa mais fácil de achar na página",
+      "liberada": true
+    },
+    {
+      "id": "21-feedback-e-testes",
+      "capitulo": 21,
+      "secoes": [
+        "Colha feedbacks, faça testes e meça os resultados"
+      ],
+      "alavanca": "ltv",
+      "assunto": "Perguntar, testar e medir: o ciclo que mostra por que o cliente volta ou não volta",
+      "liberada": true
+    },
+    {
+      "id": "20-embalagem",
+      "capitulo": 20,
+      "secoes": [
+        "Embalagem segura e apresentável"
+      ],
+      "alavanca": "ltv",
+      "assunto": "A embalagem é o primeiro contato físico com a marca: precisa proteger e apresentar",
+      "liberada": true
+    },
+    {
+      "id": "13-black-friday",
+      "capitulo": 13,
+      "secoes": [
+        "E a Black Friday?"
+      ],
+      "alavanca": "conversao",
+      "assunto": "Black Friday sem plano vira só margem perdida: o que preparar antes da data",
+      "liberada": true
+    },
+    {
+      "id": "09-remarketing",
+      "capitulo": 9,
+      "secoes": [
+        "Faça campanhas de remarketing"
+      ],
+      "alavanca": "visitas",
+      "assunto": "Remarketing lembra quem já demonstrou interesse, e é o anúncio que costuma converter mais",
+      "liberada": true
+    },
+    {
+      "id": "12-links-e-constancia",
+      "capitulo": 12,
+      "secoes": [
+        "Links visíveis, mas com propósito",
+        "Cases virais e o efeito multiplicador",
+        "Presença se constrói com constância"
+      ],
+      "alavanca": "visitas",
+      "assunto": "Presença nas redes se constrói com constância, e não esperando o post viral",
+      "liberada": true
+    },
+    {
+      "id": "29-como-migrar",
+      "capitulo": 29,
+      "secoes": [
+        "3. O que fazer na migração?",
+        "4. Redirecionar o domínio"
+      ],
+      "alavanca": "base",
+      "assunto": "Migrar sem perder o que a loja conquistou: dados, SEO e redirecionamentos",
+      "liberada": true
+    },
+    {
+      "id": "22-comece-por-poucas",
+      "capitulo": 22,
+      "secoes": [
+        "Comece por poucas"
+      ],
+      "alavanca": "ltv",
+      "assunto": "Para aumentar o ticket, comece por poucas estratégias e meça cada uma",
+      "liberada": true
+    },
+    {
+      "id": "21-experiencia-que-traz-de-volta",
+      "capitulo": 21,
+      "secoes": [
+        "Entregue uma boa experiência ao seu cliente"
+      ],
+      "alavanca": "ltv",
+      "assunto": "A recompra começa na primeira compra: a experiência é o que traz o cliente de volta",
+      "liberada": true
+    },
+    {
+      "id": "08-organico-vs-ia",
+      "capitulo": 8,
+      "secoes": [
+        "Tráfego orgânico vs IA"
+      ],
+      "alavanca": "visitas",
+      "assunto": "Com respostas de IA no topo do Google, o clique orgânico encolhe, mas não some",
+      "liberada": true
+    },
+    {
+      "id": "06-margem-de-contribuicao",
+      "capitulo": 6,
+      "secoes": [
+        "Faturamento engana",
+        "Margem de contribuição"
+      ],
+      "alavanca": "base",
+      "assunto": "Faturamento engana: a margem de contribuição diz quanto sobra de cada venda",
+      "liberada": false,
+      "motivo": "rascunho de IA: libere quando o capítulo estiver na sua voz"
+    },
+    {
+      "id": "06-roas-de-equilibrio",
+      "capitulo": 6,
+      "secoes": [
+        "ROAS e o ROAS de equilíbrio"
+      ],
+      "alavanca": "visitas",
+      "assunto": "ROAS de equilíbrio = 1 ÷ margem: abaixo dele, o anúncio dá prejuízo",
+      "liberada": false,
+      "motivo": "rascunho de IA: libere quando o capítulo estiver na sua voz"
+    },
+    {
+      "id": "06-mer",
+      "capitulo": 6,
+      "secoes": [
+        "MER: a visão do dono da loja"
+      ],
+      "alavanca": "base",
+      "assunto": "MER: a receita total dividida pela mídia total, a métrica do dono da loja",
+      "liberada": false,
+      "motivo": "rascunho de IA: libere quando o capítulo estiver na sua voz"
+    },
+    {
+      "id": "06-ltv-de-margem-e-payback",
+      "capitulo": 6,
+      "secoes": [
+        "LTV de margem e payback"
+      ],
+      "alavanca": "ltv",
+      "assunto": "LTV calculado sobre margem, e em quanto tempo o cliente se paga",
+      "liberada": false,
+      "motivo": "rascunho de IA: libere quando o capítulo estiver na sua voz"
+    },
+    {
+      "id": "06-painel-minimo",
+      "capitulo": 6,
+      "secoes": [
+        "Da fórmula para um painel"
+      ],
+      "alavanca": "base",
+      "assunto": "Visitas × conversão × ticket × frequência num painel simples",
+      "liberada": false,
+      "motivo": "rascunho de IA: libere quando o capítulo estiver na sua voz"
+    },
+    {
+      "id": "03-loja-propria-ou-marketplace",
+      "capitulo": 3,
+      "secoes": [
+        "Loja própria ou marketplace?",
+        "Os dois juntos"
+      ],
+      "alavanca": "base",
+      "assunto": "O marketplace aluga visitas, mas fica com o LTV",
+      "liberada": false,
+      "motivo": "rascunho de IA: libere quando o capítulo estiver na sua voz"
+    },
+    {
+      "id": "10-fluxos-de-email",
+      "capitulo": 10,
+      "secoes": [
+        "Os fluxos que toda loja deveria ter"
+      ],
+      "alavanca": "ltv",
+      "assunto": "Os fluxos automáticos de e-mail que toda loja deveria ter",
+      "liberada": false,
+      "motivo": "rascunho de IA: libere quando o capítulo estiver na sua voz"
+    },
+    {
+      "id": "10-whatsapp-api-oficial",
+      "capitulo": 10,
+      "secoes": [
+        "Número comum ou API oficial?",
+        "Peça permissão de verdade"
+      ],
+      "alavanca": "ltv",
+      "assunto": "WhatsApp com número comum ou API oficial, e permissão de verdade",
+      "liberada": false,
+      "motivo": "rascunho de IA: libere quando o capítulo estiver na sua voz"
+    },
+    {
+      "id": "11-autoridade-emprestada",
+      "capitulo": 11,
+      "secoes": [
+        "Autoridade emprestada",
+        "Creators e influenciadores"
+      ],
+      "alavanca": "visitas",
+      "assunto": "Afiliados, parceiros e creators emprestam autoridade para a sua marca",
+      "liberada": false,
+      "motivo": "rascunho de IA: libere quando o capítulo estiver na sua voz"
+    },
+    {
+      "id": "13-o-buraco-na-parede",
+      "capitulo": 13,
+      "secoes": [
+        "O que faz uma oferta ter valor",
+        "O produto e o buraco na parede"
+      ],
+      "alavanca": "conversao",
+      "assunto": "O cliente quer o buraco na parede, não a furadeira",
+      "liberada": false,
+      "motivo": "rascunho de IA: libere quando o capítulo estiver na sua voz"
+    },
+    {
+      "id": "14-matriz-de-objecoes",
+      "capitulo": 14,
+      "secoes": [
+        "Como descobrir as objeções da sua loja",
+        "A matriz de objeções"
+      ],
+      "alavanca": "conversao",
+      "assunto": "Liste as objeções do cliente e responda cada uma na página",
+      "liberada": false,
+      "motivo": "rascunho de IA: libere quando o capítulo estiver na sua voz"
+    },
+    {
+      "id": "20-troca-que-fideliza",
+      "capitulo": 20,
+      "secoes": [
+        "Troca bem feita fideliza"
+      ],
+      "alavanca": "ltv",
+      "assunto": "Uma troca bem resolvida fideliza mais que uma compra sem problema",
+      "liberada": false,
+      "motivo": "rascunho de IA: libere quando o capítulo estiver na sua voz"
+    },
+    {
+      "id": "23-escada-de-produtos",
+      "capitulo": 23,
+      "secoes": [
+        "Os três tipos de produto",
+        "A escada de produtos"
+      ],
+      "alavanca": "ltv",
+      "assunto": "Produto de entrada, principal e premium: a escada que leva o cliente adiante",
+      "liberada": false,
+      "motivo": "rascunho de IA: libere quando o capítulo estiver na sua voz"
+    },
+    {
+      "id": "25-indique-e-ganhe",
+      "capitulo": 25,
+      "secoes": [
+        "Por que indicação mexe no CAC e no LTV",
+        "Indique e ganhe: recompensa dos dois lados"
+      ],
+      "alavanca": "visitas",
+      "assunto": "Indicação com recompensa para os dois lados baixa o CAC e aumenta o LTV",
+      "liberada": false,
+      "motivo": "rascunho de IA: libere quando o capítulo estiver na sua voz"
+    },
+    {
+      "id": "26-de-onde-vem-o-3-para-1",
+      "capitulo": 26,
+      "secoes": [
+        "De onde vem o tal 3:1",
+        "Payback: em quanto tempo o cliente se paga"
+      ],
+      "alavanca": "base",
+      "assunto": "De onde vem a regra do LTV/CAC de 3 para 1 e quando ela não vale",
+      "liberada": false,
+      "motivo": "rascunho de IA: libere quando o capítulo estiver na sua voz"
+    },
+    {
+      "id": "28-diagnostico-do-gargalo",
+      "capitulo": 28,
+      "secoes": [
+        "Diagnóstico: onde está o seu gargalo"
+      ],
+      "alavanca": "base",
+      "assunto": "Descubra qual das três alavancas é o gargalo da sua loja",
+      "liberada": false,
+      "motivo": "rascunho de IA: libere quando o capítulo estiver na sua voz"
+    }
+  ]
+}

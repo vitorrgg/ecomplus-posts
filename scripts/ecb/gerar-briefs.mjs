@@ -33,6 +33,7 @@ import {
   HISTORICO, FILA, lerHistorico, lerFila,
 } from './util.mjs';
 import { FOTOS, capasRecentes, capasLivres, conferirCapa } from './capas.mjs';
+import { PREFIXO as PREFIXO_LIVRO, pautaPorFonte, chamadaDoLivro, CONFIG as LIVRO } from './livro.mjs';
 
 const MODELO = 'claude-opus-5';
 const RECURSOS = readFileSync(join(root, 'ecb', 'recursos.md'), 'utf8')
@@ -115,6 +116,20 @@ export function montarBrief(saida, artigo) {
   return `${cabecalho}\n${blocos.join('\n\n')}\n`;
 }
 
+// Posts da série do livro (fonte "livro:<id>"): chapéu fixo "do livro · …" na capa e a
+// chamada do livro (ecb/livro/config.json) antes das hashtags da legenda.
+function ajustarSerieLivro(saida, rotulo) {
+  const capa = saida.slides.find((s) => s.tipo === 'capa');
+  if (!/^do livro\b/i.test(capa?.eyebrow ?? '')) {
+    throw new Error(`${rotulo}: na série do livro o chapéu da capa começa com "do livro · " (veio "${capa?.eyebrow}").`);
+  }
+  if (saida.legenda.includes(LIVRO.titulo)) return saida;
+  const blocos = saida.legenda.trim().split(/\n\s*\n/);
+  const i = /^#/.test(blocos.at(-1)) ? blocos.length - 1 : blocos.length;
+  blocos.splice(i, 0, chamadaDoLivro());
+  return { ...saida, legenda: blocos.join('\n\n') };
+}
+
 export function gravarPost({ slug, brief, legenda, artigo, semana }) {
   const dir = join(root, 'posts', slug);
   mkdirSync(dir, { recursive: true });
@@ -122,12 +137,13 @@ export function gravarPost({ slug, brief, legenda, artigo, semana }) {
   writeFileSync(join(dir, 'legenda.txt'), legenda.trim() + '\n');
 
   const historico = lerHistorico();
-  historico.gerados.push({ slug, fonte: artigo.url, titulo: artigo.titulo, semana, geradoEm: new Date().toISOString() });
+  const serie = artigo.serie ?? 'ecb';
+  historico.gerados.push({ slug, serie, fonte: artigo.url, titulo: artigo.titulo, semana, geradoEm: new Date().toISOString() });
   gravarJson(HISTORICO, historico);
 
   const fila = lerFila();
   if (!fila.pendentes.some((p) => p.slug === slug)) {
-    fila.pendentes.push({ slug, fonte: artigo.url, titulo: artigo.titulo, semana, aprovado: null });
+    fila.pendentes.push({ slug, serie, fonte: artigo.url, titulo: artigo.titulo, semana, aprovado: null });
   }
   gravarJson(FILA, fila);
   return dir;
@@ -175,6 +191,12 @@ function lerSaidasJson(caminho, coleta) {
     : [caminho];
   return arquivos.map((arq) => {
     const { fonte, ...saida } = JSON.parse(readFileSync(arq, 'utf8'));
+    if (fonte?.startsWith(PREFIXO_LIVRO)) {
+      const pauta = pautaPorFonte(fonte);
+      if (!pauta) throw new Error(`${arq}: "fonte" ${fonte} não está em ecb/livro/pautas.json.`);
+      const artigo = { url: fonte, titulo: `Livro, cap. ${pauta.capitulo}: ${pauta.assunto}`, serie: 'livro' };
+      return [artigo, ajustarSerieLivro(validarSaida(saida), arq), arq];
+    }
     const artigo = coleta.escolhidos.find((a) => a.url === fonte) ?? coleta.ranking.find((a) => a.url === fonte);
     if (!artigo) throw new Error(`${arq}: "fonte" ${fonte} não está na coleta da semana.`);
     return [artigo, validarSaida(saida), arq];
@@ -246,7 +268,7 @@ if (ehMain) {
       ?? (via === 'exemplo' ? exemploFixo(artigo, livres)
         : via === 'api' ? await gerarComApi(client, artigo, livres)
         : gerarComClaudeCode(artigo, livres));
-    const slug = `ecb-${semana}-${slugify(saida.slug || artigo.titulo, 36)}`;
+    const slug = `${artigo.serie === 'livro' ? 'livro' : 'ecb'}-${semana}-${slugify(saida.slug || artigo.titulo, 36)}`;
     const dir = gravarPost({ slug, brief: montarBrief(saida, artigo), legenda: saida.legenda, artigo, semana });
     console.log(`✓ ${dir}`);
     gerados.push(slug);
