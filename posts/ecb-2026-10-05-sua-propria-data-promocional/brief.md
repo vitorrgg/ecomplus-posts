@@ -1,0 +1,66 @@
+# Amazon realiza Mega Oferta Prime com descontos de até 80%
+
+Análise original a partir da pauta https://www.ecommercebrasil.com.br/noticias/mega-oferta-amazon-prime-outubro-2026 (referência interna, não vai pro post).
+Gerado em 2026-10-05 por scripts/ecb/gerar-briefs.mjs.
+
+## Slide 1
+```yaml
+tipo: capa
+eyebrow: análise da semana · calendário
+titulo: |-
+  a data
+  promocional
+  pode ser sua
+subtitulo: Quem depende do calendário dos outros compete em desconto, e desconto você controla pouco.
+imagem: sale-tag-rack.jpg
+```
+
+## Slide 2
+```yaml
+tipo: texto
+titulo: Quem cria a data escolhe a regra
+paragrafos:
+  - Uma loja grande inventa a própria data, fecha a oferta para quem é assinante e antecipa parte das compras de fim de ano. O desconto aparece no anúncio, mas o que sustenta tudo é a base de membros.
+  - Você não ganha essa disputa cobrindo preço, pois a estrutura que bancou aquele desconto é maior que a sua margem.
+tema: claro
+```
+
+## Slide 3
+```yaml
+tipo: lista
+titulo: O que faz uma data funcionar sem preço
+itens:
+  - Um motivo claro para a oferta existir, que o cliente entenda em uma frase
+  - Uma lista própria de clientes que você alcança sem pagar mídia outra vez
+  - Benefício que só quem compra com recorrência recebe, e que ele perde se sair
+  - Estoque e prazo combinados antes, para a promessa caber na operação
+```
+
+## Slide 4
+```yaml
+tipo: texto
+titulo: Desconto é o que o concorrente copia hoje
+paragrafos:
+  - Muita loja entra na data com desconto e sai dela com margem menor e o mesmo cliente de antes, pois nada depois da compra deu motivo para ele voltar.
+  - Vale mais usar a data para aumentar a recompra do que para bater um recorde de faturamento num fim de semana.
+tema: claro
+imagem: payment-terminal-tap.jpg
+```
+
+## Slide 5
+```yaml
+tipo: texto
+titulo: Como fica na e-com.plus
+paragrafos:
+  - Os descontos aceitam regras granulares, por kit, por cliente ou progressivo, então você protege a margem em vez de só baixar o preço de tudo.
+  - As assinaturas e o cashback são nativos, e o e-mail marketing dispara a sua data para a sua lista sem depender do alcance de rede social.
+```
+
+## Slide 6
+```yaml
+tipo: fechamento
+paragrafos:
+  - A data dos outros move o mercado por uma semana, e a sua data, quando existe, move a sua base todo mês.
+  - Esta semana, escolha uma data própria para os próximos sessenta dias e defina o benefício que só quem já é seu cliente recebe.
+tema: claro
+```
