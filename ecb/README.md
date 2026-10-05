@@ -35,6 +35,7 @@ manual, sem agenda.
 |---|---|
 | `scripts/ecb/mais-lidos.mjs` | Lê o bloco "Mais Lidos" da home (5 itens) e o texto de cada artigo. Grava `ecb/semanas/<segunda>.json`. Pula artigos já usados em semanas anteriores. |
 | `scripts/ecb/gerar-briefs.mjs` | Pra cada artigo, obtém uma análise original em 5 a 7 slides + legenda (saída estruturada, `claude-opus-5`), com o penúltimo slide cruzando o tema com recursos da e-com.plus. Três vias: `--via claude-code` (padrão, `claude -p` local), `--via api` (SDK, precisa de `ANTHROPIC_API_KEY`) ou `--from-json` (JSONs já escritos, é o que a rotina na nuvem usa). Escreve `posts/<slug>/brief.md` e `legenda.txt`, registra em `ecb/historico.json` e enfileira em `ecb/fila.json`. |
+| `scripts/ecb/capas.mjs` | Impede foto de capa repetida na grade do perfil: a capa nova não pode repetir nenhuma das últimas 12 (publicados + fila), nem a de outro post do mesmo lote. `gerar-briefs.mjs` recusa o lote com a lista de fotos livres, e `mais-lidos.mjs` já grava essa lista em `capasLivres`. `node scripts/ecb/capas.mjs` mostra a grade e aponta repetições. |
 | `ecb/PROMPT.md` | As regras editoriais. É o mesmo texto pro `claude -p`, pra API e pra rotina na nuvem — editar aqui muda o tom e a estrutura dos posts. |
 | `ecb/recursos.md` | Lista de recursos da e-com.plus que a Claude pode citar. Editar aqui muda o que ela sabe da plataforma. |
 | `ecb/ESQUEMA.json` | Formato de saída (derivado do zod em `gerar-briefs.mjs`; regravar com `npm run ecb:esquema` se mudar os campos). |
@@ -178,4 +179,6 @@ A publicação de verdade só funciona com a fila comitada e enviada ao GitHub, 
 - **Layout do site**: a coleta depende do HTML da home (classe `mais-lidos`, `data-datalayer` nos cards, `article-content` no artigo). Se o site mudar, `mais-lidos.mjs` falha com mensagem clara e o job de segunda quebra — nada é publicado errado.
 - **Workflows agendados** em repo sem atividade por 60 dias são desativados pelo GitHub; os commits semanais do bot mantêm o repo ativo, mas vale conferir em *Actions* se algum mês passar em branco.
 - **Login do Claude Code local**: o token OAuth da máquina expira de tempos em tempos; se `semana-local.sh` falhar com "Not logged in" ou "OAuth session expired", rode `claude` e `/login`. A rotina na nuvem não tem esse problema.
+- **Capa repetida**: a trava de `capas.mjs` só enxerga os posts da rotina (histórico e fila). Post feito à mão fora dela só entra na conta se tiver `posts/<slug>/brief.md` e for registrado em `historico.json → publicados` com esse slug.
+- **Curtidas ocultas**: a API de publicação do Instagram não tem opção para ocultar o número de curtidas, nem ao publicar nem depois. Só dá pelo app, em cada post: *⋯ → Ocultar número de curtidas*.
 - **Token de 60 dias**: se usar token de usuário em vez de usuário do sistema, o job de publicar começa a falhar com erro 190 quando ele expirar.
