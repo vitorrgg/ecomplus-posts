@@ -45,6 +45,10 @@ renderiza e comita na fila; o GitHub Actions publica um por vez no @ecomplus.io
 segunda, quarta e sexta ao meio-dia. Setup (segredos, token
 do Instagram, revisão antes de publicar) em [`ecb/README.md`](ecb/README.md).
 
+## Vídeos: Reels e Shorts automáticos
+
+Fila separada para vídeos orgânicos. Você põe o vídeo, a legenda e o horário em `videos/`, e o workflow `videos-publicar.yml` publica como Reel no Instagram e como Short no YouTube, avisando no #conteudo. Como usar e o que falta para o YouTube: [`videos/README.md`](videos/README.md).
+
 ## Tipos de slide
 
 Cada slide do `brief.md` é um bloco yaml com `tipo` + os campos daquele tipo:
