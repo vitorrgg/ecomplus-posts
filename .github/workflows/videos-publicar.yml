@@ -1,0 +1,75 @@
+# Publica o próximo vídeo da fila (videos/fila.json) como Reel no Instagram e Short no
+# YouTube. Roda de hora em hora e só publica o que já chegou no horário marcado em
+# "quando". O Instagram lê o vídeo do raw.githubusercontent.com, então a pasta
+# videos/<slug>/ precisa estar na master antes do horário.
+name: Vídeos — publicar Reels e Shorts
+
+on:
+  schedule:
+    - cron: '7 * * * *'
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: 'Slug específico (vazio = próximo da fila que já está na hora)'
+        default: ''
+      dry_run:
+        description: 'Só simular (não publica)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: videos
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Algo na hora?
+        id: hora
+        run: |
+          node -e "
+            const f = require('./videos/fila.json');
+            const agora = new Date();
+            const tem = f.pendentes.some((p) => p.aprovado !== false && (!p.quando || new Date(p.quando) <= agora));
+            console.log('tem=' + (tem || '${{ github.event.inputs.slug }}' !== ''));
+          " >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-node@v4
+        if: steps.hora.outputs.tem == 'true'
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+        if: steps.hora.outputs.tem == 'true'
+      - name: Publicar
+        if: steps.hora.outputs.tem == 'true'
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_GRAPH_HOST: ${{ vars.IG_GRAPH_HOST }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          YT_PRIVACIDADE: ${{ vars.YT_PRIVACIDADE }}
+          VIDEOS_EXIGE_APROVACAO: ${{ vars.VIDEOS_EXIGE_APROVACAO }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_CONTEUDO: ${{ vars.SLACK_CHANNEL_CONTEUDO }}
+        run: |
+          args=()
+          [ -n "${{ github.event.inputs.slug }}" ] && args+=(--slug "${{ github.event.inputs.slug }}")
+          [ "${{ github.event.inputs.dry_run }}" = "true" ] && args+=(--dry-run)
+          node scripts/videos/publicar.mjs "${args[@]}"
+      - name: Commit da fila
+        if: steps.hora.outputs.tem == 'true' && always()
+        run: |
+          git config user.name 'ecb-bot'
+          git config user.email 'ti@e-com.club'
+          git add videos/fila.json videos/historico.json
+          if git diff --cached --quiet; then echo 'nada mudou'; exit 0; fi
+          git commit -m "chore(videos): registra publicação"
+          git pull --rebase origin master
+          git push
