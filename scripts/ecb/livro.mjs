@@ -20,6 +20,8 @@ const DIR = join(root, 'ecb', 'livro');
 export const CONFIG = lerJson(join(DIR, 'config.json'));
 export const PAUTAS = lerJson(join(DIR, 'pautas.json')).pautas;
 export const PREFIXO = 'livro:';
+export const PAUSADA = CONFIG.ativa === false;
+export const AVISO_PAUSA = 'Série do livro pausada (ecb/livro/config.json → "ativa": false): pule o passo do livro.';
 
 export const pautaPorFonte = (fonte) => PAUTAS.find((p) => `${PREFIXO}${p.id}` === fonte);
 
@@ -117,6 +119,7 @@ if (ehMain) {
     process.exit(0);
   }
 
+  if (PAUSADA && !opts.pauta) { console.log(AVISO_PAUSA); process.exit(0); }
   const semana = segundaDaSemana();
   const jaNaSemana = lerHistorico().gerados.find((g) => g.semana === semana && g.fonte?.startsWith(PREFIXO));
   if (jaNaSemana && !opts.pauta) { console.log(`· a série do livro já tem post nesta semana: ${jaNaSemana.slug}`); process.exit(0); }
