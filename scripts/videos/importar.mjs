@@ -14,12 +14,16 @@
 //   --dia       dom seg ter qua qui sex sab (um vídeo por semana nesse dia)
 //   --hora      HH:MM no horário de São Paulo
 //   --inicio    AAAA-MM-DD a partir de quando agendar (padrão: hoje)
+//   --comprimir reencoda cada vídeo com o ffmpeg num tamanho bom para Reels (H.264 até 1080 px
+//               de largura, ~3,5 Mbps, AAC 128k, faststart). Um corte de 1 min fica com uns 25 MB,
+//               e o repo, que é público, não incha. Precisa do ffmpeg (sudo apt install ffmpeg).
 //
 // Se houver transcrição ao lado do vídeo (mesmo nome, .srt/.vtt/.txt), ela vem junto como
 // transcricao.<ext>, para a legenda ser escrita a partir dela. Sem legenda.txt, o item entra
 // com "aprovado": false e só publica depois que a legenda existir e o aprovado sair.
 import { readdirSync, copyFileSync, mkdirSync, existsSync, statSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, basename, extname, resolve } from 'node:path';
+import { spawnSync } from 'node:child_process';
 import { root, args, lerJson, gravarJson, slugify } from '../ecb/util.mjs';
 
 const LIMITE_MB = 95; // o GitHub recusa arquivo acima de 100 MB
@@ -58,6 +62,25 @@ const proximaData = () => {
   return `${d}T${hh.padStart(2, '0')}:${mm}:00-03:00`;
 };
 
+// Reencoda para Reels: largura até 1080, CRF (qualidade) com teto de bitrate, áudio AAC e o
+// índice no começo do arquivo (o Instagram baixa o vídeo pela URL). Se ainda passar do limite,
+// tenta de novo com mais compressão.
+function comprimir(entrada, saida) {
+  for (const [crf, teto] of [[23, '3500k'], [28, '2500k']]) {
+    const r = spawnSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', entrada,
+      '-vf', "scale='min(1080,iw)':-2", '-c:v', 'libx264', '-preset', 'medium', '-crf', String(crf),
+      '-maxrate', teto, '-bufsize', String(parseInt(teto, 10) * 2) + 'k', '-pix_fmt', 'yuv420p', '-profile:v', 'high',
+      '-c:a', 'aac', '-b:a', '128k', '-ar', '48000', '-movflags', '+faststart', saida], { stdio: ['ignore', 'inherit', 'inherit'] });
+    if (r.status !== 0) throw new Error(`ffmpeg falhou em ${basename(entrada)}`);
+    if (statSync(saida).size / 1048576 <= LIMITE_MB) return;
+  }
+  throw new Error(`${basename(entrada)} continua acima de ${LIMITE_MB} MB mesmo comprimido: corte o vídeo em partes menores.`);
+}
+if (opts.comprimir && spawnSync('ffmpeg', ['-version'], { stdio: 'ignore' }).status !== 0) {
+  console.error('--comprimir precisa do ffmpeg. No WSL: sudo apt install ffmpeg');
+  process.exit(1);
+}
+
 const videos = readdirSync(origem).filter((f) => /\.mp4$/i.test(f)).sort();
 if (!videos.length) { console.error(`Nenhum .mp4 em ${origem}.`); process.exit(1); }
 
@@ -70,14 +93,20 @@ for (const [i, arquivo] of videos.entries()) {
     console.log(`· já existe: ${slug}`);
     continue;
   }
-  const mb = statSync(join(origem, arquivo)).size / 1048576;
-  if (mb > LIMITE_MB) {
-    console.error(`✗ ${arquivo}: ${mb.toFixed(0)} MB passa do limite do GitHub. Reduza antes, por exemplo:\n  ffmpeg -i "${arquivo}" -c:v libx264 -crf 26 -preset slow -c:a aac -b:a 128k menor.mp4`);
+  const mbOriginal = statSync(join(origem, arquivo)).size / 1048576;
+  if (mbOriginal > LIMITE_MB && !opts.comprimir) {
+    console.error(`✗ ${arquivo}: ${mbOriginal.toFixed(0)} MB passa do limite do GitHub. Rode de novo com --comprimir.`);
     continue;
   }
   const dir = join(root, 'videos', slug);
   mkdirSync(dir, { recursive: true });
-  copyFileSync(join(origem, arquivo), join(dir, 'video.mp4'));
+  if (opts.comprimir) {
+    process.stdout.write(`… comprimindo ${arquivo} (${mbOriginal.toFixed(1)} MB)\r`);
+    try { comprimir(join(origem, arquivo), join(dir, 'video.mp4')); } catch (e) { console.error(`✗ ${e.message}`); continue; }
+  } else {
+    copyFileSync(join(origem, arquivo), join(dir, 'video.mp4'));
+  }
+  const mb = statSync(join(dir, 'video.mp4')).size / 1048576;
   const citados = new Set();
   for (const ext of ['.srt', '.vtt', '.txt']) {
     const t = join(origem, nome + ext);
@@ -92,7 +121,7 @@ for (const [i, arquivo] of videos.entries()) {
   if (citados.size) console.warn(`⚠ ${slug}: a transcrição cita ${[...citados].join(', ')}. O corte fica travado até você conferir o vídeo.`);
   fila.pendentes.push(item);
   novos.push(item);
-  console.log(`✓ ${slug} (${mb.toFixed(1)} MB) → ${item.quando}${temLegenda ? '' : ' (falta legenda)'}`);
+  console.log(`✓ ${slug} (${opts.comprimir ? `${mbOriginal.toFixed(1)} → ` : ''}${mb.toFixed(1)} MB) → ${item.quando}${temLegenda ? '' : ' (falta legenda)'}`);
 }
 
 fila.pendentes.sort((a, b) => String(a.quando ?? '').localeCompare(String(b.quando ?? '')));
