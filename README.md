@@ -65,6 +65,7 @@ O que sai no @vitorrgg:
 
 - **Série do livro:** o mesmo carrossel que sai no @ecomplus.io às quintas, logo em seguida,
   com a legenda em primeira pessoa (`scripts/ecb/publicar-vitorrgg.mjs`, passo do `ecb-publicar.yml`).
+  Hoje a série está **pausada** até o livro ficar pronto (`"ativa": false` em `ecb/livro/config.json`).
 - **Vídeos:** qualquer item de `videos/fila.json` com o destino `vitorrgg`, como os cortes da
   consultoria (`scripts/videos/importar.mjs`; ver [`videos/README.md`](videos/README.md)).
 
