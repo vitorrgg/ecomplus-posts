@@ -31,8 +31,8 @@ const BASE_URL = (process.env.ECB_BASE_URL || 'https://raw.githubusercontent.com
 
 const dormir = (ms) => new Promise((r) => setTimeout(r, ms));
 
-async function graph(caminho, { method = 'GET', params = {}, token }) {
-  const url = new URL(`https://${HOST}/${VERSAO}/${caminho}`);
+async function graph(caminho, { method = 'GET', params = {}, token, host = HOST }) {
+  const url = new URL(`https://${host}/${VERSAO}/${caminho}`);
   const corpo = new URLSearchParams({ ...params, access_token: token });
   const res = method === 'GET'
     ? await fetch(`${url}?${corpo}`)
@@ -47,9 +47,9 @@ async function graph(caminho, { method = 'GET', params = {}, token }) {
 
 // Containers de imagem processam de forma assíncrona; publicar antes de FINISHED
 // dá erro 9007 "Media ID is not available".
-async function esperarPronto(id, token, tentativas = 20) {
+async function esperarPronto(id, token, { tentativas = 20, host } = {}) {
   for (let i = 0; i < tentativas; i++) {
-    const { status_code: status, status: detalhe } = await graph(id, { params: { fields: 'status_code,status' }, token });
+    const { status_code: status, status: detalhe } = await graph(id, { params: { fields: 'status_code,status' }, token, host });
     if (status === 'FINISHED') return;
     if (status === 'ERROR' || status === 'EXPIRED') throw new Error(`Container ${id} em ${status}: ${detalhe ?? ''}`);
     await dormir(3000);
@@ -66,16 +66,17 @@ export function imagensDoPost(slug) {
   return jpgs.slice(0, 10).map((f) => `${BASE_URL}/output/${slug}/${f}`);
 }
 
-export async function publicar({ slug, dryRun = false }) {
+// `conta` troca a conta de destino ({ host, usuario, token }; padrão: o @ecomplus.io pelas
+// variáveis IG_*) e `legenda` troca a legenda (padrão: posts/<slug>/legenda.txt).
+export async function publicar({ slug, dryRun = false, conta, legenda: legendaFixa }) {
   const legendaArq = join(root, 'posts', slug, 'legenda.txt');
-  const legenda = existsSync(legendaArq) ? readFileSync(legendaArq, 'utf8').trim() : '';
+  const legenda = legendaFixa ?? (existsSync(legendaArq) ? readFileSync(legendaArq, 'utf8').trim() : '');
   const urls = imagensDoPost(slug);
 
   console.log(`Post: ${slug}\nImagens (${urls.length}):\n  ${urls.join('\n  ')}\nLegenda (${legenda.length} chars):\n${legenda.replace(/^/gm, '  ')}`);
   if (dryRun) { console.log('\n[dry-run] nada foi enviado ao Instagram.'); return { id: null, dryRun: true }; }
 
-  const token = process.env.IG_ACCESS_TOKEN;
-  const usuario = process.env.IG_USER_ID;
+  const { token, usuario, host } = conta ?? { token: process.env.IG_ACCESS_TOKEN, usuario: process.env.IG_USER_ID, host: HOST };
   if (!token || !usuario) throw new Error('Defina IG_USER_ID e IG_ACCESS_TOKEN.');
 
   // Confere que as URLs respondem antes de gastar chamadas na API.
@@ -86,19 +87,19 @@ export async function publicar({ slug, dryRun = false }) {
 
   const filhos = [];
   for (const image_url of urls) {
-    const { id } = await graph(`${usuario}/media`, { method: 'POST', params: { image_url, is_carousel_item: 'true' }, token });
-    await esperarPronto(id, token);
+    const { id } = await graph(`${usuario}/media`, { method: 'POST', params: { image_url, is_carousel_item: 'true' }, token, host });
+    await esperarPronto(id, token, { host });
     filhos.push(id);
   }
   const { id: carrossel } = await graph(`${usuario}/media`, {
-    method: 'POST', token,
+    method: 'POST', token, host,
     params: { media_type: 'CAROUSEL', children: filhos.join(','), caption: legenda },
   });
-  await esperarPronto(carrossel, token);
-  const { id: publicado } = await graph(`${usuario}/media_publish`, { method: 'POST', params: { creation_id: carrossel }, token });
+  await esperarPronto(carrossel, token, { host });
+  const { id: publicado } = await graph(`${usuario}/media_publish`, { method: 'POST', params: { creation_id: carrossel }, token, host });
 
   let permalink = null;
-  try { ({ permalink } = await graph(publicado, { params: { fields: 'permalink' }, token })); } catch { /* opcional */ }
+  try { ({ permalink } = await graph(publicado, { params: { fields: 'permalink' }, token, host })); } catch { /* opcional */ }
   console.log(`\n✓ publicado: ${permalink ?? publicado}`);
   return { id: publicado, permalink };
 }
