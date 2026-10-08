@@ -1,0 +1,9 @@
+Se você ainda cola planilha no ChatGPT, sua loja não está pronta pra IA.
+
+A maioria das plataformas foi feita pra gente clicar em painel. Quando a IA entra nisso, entra como visitante: lê tela e adivinha o que cada campo quer dizer. Aí erra.
+
+Na e-com.plus, pedidos, produtos e clientes saem da API num formato feito pra IA ler. E o conector MCP liga a IA que você já usa direto na loja.
+
+Veja funcionando em e-com.plus/ecommerce-com-ia
+
+#ecommerce #inteligenciaartificial #chatgpt #lojavirtual #ecomplus
