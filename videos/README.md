@@ -38,6 +38,7 @@ node scripts/videos/publicar.mjs --slug <slug> --dry-run
 
 - **Deu certo nos dois destinos:** o item sai da fila e vai para `videos/historico.json`, com os links.
 - **Deu certo só num destino:** o item fica na fila com o destino que já saiu marcado em `feito`, e a próxima rodada tenta só o que falta. O erro fica em `ultimoErro`.
+- **Destino sem credencial (o YouTube, até os segredos `YT_*` existirem):** fica pendente no item, sem travar a fila. Os próximos vídeos seguem saindo, e quando a credencial chegar, ele é publicado.
 
 ## YouTube: o que falta para ligar
 

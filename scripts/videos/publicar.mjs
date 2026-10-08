@@ -13,6 +13,9 @@
 //   node scripts/videos/publicar.mjs                 # próximo item da fila que já está na hora
 //   node scripts/videos/publicar.mjs --slug <slug>   # um item específico, ignorando o horário
 //   node scripts/videos/publicar.mjs --dry-run       # confere tudo, não publica nada
+//   node scripts/videos/publicar.mjs --tem-algo      # só diz se há o que publicar agora (para o workflow)
+//
+// Só usa módulos do Node: o workflow roda de hora em hora sem `npm ci`.
 //
 // Variáveis de ambiente:
 //   IG_USER_ID, IG_ACCESS_TOKEN  as mesmas da rotina de carrosséis (instagram_content_publish)
@@ -26,7 +29,6 @@
 import { existsSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { root, args, lerJson, gravarJson } from '../ecb/util.mjs';
-import { enviar as enviarSlack } from '../ecb/notificar-slack.mjs';
 
 const FILA = join(root, 'videos', 'fila.json');
 const HISTORICO = join(root, 'videos', 'historico.json');
@@ -127,27 +129,54 @@ async function publicarYoutube(a) {
 
 const DESTINOS = { instagram: publicarInstagram, youtube: publicarYoutube };
 
+// destino sem credencial fica pendente e não trava a fila: o item espera só por ele
+const temCredencial = {
+  instagram: () => Boolean(process.env.IG_ACCESS_TOKEN && process.env.IG_USER_ID),
+  youtube: () => Boolean(process.env.YT_CLIENT_ID && process.env.YT_CLIENT_SECRET && process.env.YT_REFRESH_TOKEN),
+};
+const destinosDo = (item) => item.destinos ?? ['instagram', 'youtube'];
+const acionaveis = (item) => destinosDo(item).filter((d) => !item.feito?.[d] && temCredencial[d]?.());
+
 function proximo(fila, agora = new Date()) {
   const exige = String(process.env.VIDEOS_EXIGE_APROVACAO).toLowerCase() === 'true';
   return fila.pendentes.find((p) => (exige ? p.aprovado === true : p.aprovado !== false)
-    && (!p.quando || new Date(p.quando) <= agora));
+    && (!p.quando || new Date(p.quando) <= agora) && acionaveis(p).length);
+}
+
+async function avisarSlack(texto) {
+  const { SLACK_BOT_TOKEN: token, SLACK_CHANNEL_CONTEUDO: channel } = process.env;
+  if (!token || !channel) return;
+  const r = await fetch('https://slack.com/api/chat.postMessage', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json; charset=utf-8' },
+    body: JSON.stringify({ channel, text: texto, unfurl_links: false }),
+  }).then((x) => x.json()).catch((e) => ({ ok: false, error: e.message }));
+  if (!r.ok) console.log(`(Slack: ${r.error})`);
 }
 
 const ehMain = process.argv[1] && import.meta.url.endsWith(process.argv[1].split('/').pop());
 if (ehMain) {
   const opts = args();
   const fila = lerJson(FILA, { pendentes: [] });
+  if (opts['tem-algo']) {
+    console.log(`tem=${Boolean(opts.slug || proximo(fila))}`);
+    process.exit(0);
+  }
   const item = opts.slug ? fila.pendentes.find((p) => p.slug === opts.slug) : proximo(fila);
   if (!item) { console.log('Nada na hora de publicar.'); process.exit(0); }
 
   const a = arquivosDo(item.slug);
-  const destinos = item.destinos ?? ['instagram', 'youtube'];
+  const destinos = destinosDo(item);
   item.feito = item.feito ?? {};
   console.log(`Vídeo: ${item.slug} (${(a.tamanho / 1048576).toFixed(1)} MB)\nDestinos: ${destinos.join(', ')}\nTítulo: ${a.titulo}\nLegenda:\n${a.legenda.replace(/^/gm, '  ')}`);
   if (opts['dry-run']) { console.log(`\n[dry-run] nada foi publicado. URL do Instagram: ${a.videoUrl}`); process.exit(0); }
 
   for (const destino of destinos) {
     if (item.feito[destino]) continue;
+    if (!temCredencial[destino]?.()) {
+      console.log(`${destino}: pendente (sem credenciais)`);
+      continue;
+    }
     try {
       const r = await DESTINOS[destino](a);
       if (r.pendente) { console.log(`${destino}: pendente (${r.pendente})`); continue; }
@@ -169,10 +198,6 @@ if (ehMain) {
   gravarJson(FILA, fila);
 
   const links = Object.entries(item.feito).map(([d, r]) => `${d}: ${r.link ?? r.id}`).join(' · ');
-  if (links) {
-    try {
-      await enviarSlack({ text: `:clapper: Vídeo publicado: *${item.slug}*\n${links}` });
-    } catch (e) { console.log(`(Slack: ${e.message})`); }
-  }
+  if (links) await avisarSlack(`:clapper: Vídeo publicado: *${item.slug}*\n${links}`);
   if (!Object.keys(item.feito).length) process.exit(1);
 }

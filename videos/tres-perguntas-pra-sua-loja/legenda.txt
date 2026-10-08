@@ -1,0 +1,10 @@
+Isso aqui custava uma tarde inteira de planilha. Agora eu só pergunto.
+
+Três perguntas pra fazer pra sua loja toda segunda, direto na IA que você já usa:
+1. Quais pedidos pagos estão parados sem rastreio?
+2. O que vai faltar no estoque?
+3. Quais dos meus melhores clientes pararam de comprar?
+
+A e-com.plus entrega pedido, produto e cliente por API, num formato feito pra IA ler. A demo está em e-com.plus/ecommerce-com-ia
+
+#ecommerce #inteligenciaartificial #lojavirtual #gestao #ecomplus
