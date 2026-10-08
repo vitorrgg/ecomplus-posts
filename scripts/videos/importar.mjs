@@ -8,8 +8,8 @@
 //
 //   --prefixo   começo do slug de cada vídeo (consultoria → consultoria-01-<nome-do-arquivo>)
 //   --ocultar   nomes que não podem aparecer (separados por vírgula): saem do slug, que vira
-//               caminho público no GitHub, e o corte cuja transcrição cita algum deles fica
-//               travado com um aviso para conferir o vídeo
+//               caminho público no GitHub; na cópia da transcrição viram "[cliente]"; e o
+//               corte cuja transcrição cita algum deles fica travado para você conferir o vídeo
 //   --destinos  vitorrgg, instagram (@ecomplus.io) e/ou youtube, separados por vírgula
 //   --dia       dom seg ter qua qui sex sab (um vídeo por semana nesse dia)
 //   --hora      HH:MM no horário de São Paulo
@@ -18,7 +18,7 @@
 // Se houver transcrição ao lado do vídeo (mesmo nome, .srt/.vtt/.txt), ela vem junto como
 // transcricao.<ext>, para a legenda ser escrita a partir dela. Sem legenda.txt, o item entra
 // com "aprovado": false e só publica depois que a legenda existir e o aprovado sair.
-import { readdirSync, copyFileSync, mkdirSync, existsSync, statSync, readFileSync } from 'node:fs';
+import { readdirSync, copyFileSync, mkdirSync, existsSync, statSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, basename, extname, resolve } from 'node:path';
 import { root, args, lerJson, gravarJson, slugify } from '../ecb/util.mjs';
 
@@ -34,7 +34,11 @@ if (!origem || !existsSync(origem) || typeof opts.prefixo !== 'string') {
 const destinos = String(opts.destinos ?? 'vitorrgg').split(',').map((d) => d.trim());
 const ocultar = typeof opts.ocultar === 'string' ? opts.ocultar.split(',').map((t) => slugify(t)).filter(Boolean) : [];
 const semNomes = (slug) => ocultar.reduce((s, t) => s.split('-').join('~').replace(new RegExp(`(^|~)${t.replace(/-/g, '~')}(?=~|$)`, 'g'), '').split('~').filter(Boolean).join('-'), slug);
-const citaNome = (texto) => ocultar.filter((t) => slugify(texto, 1e9).split('-').join(' ').includes(t.split('-').join(' ')));
+// Na cópia da transcrição, cada nome do --ocultar vira "[cliente]" (com ou sem acento e caixa).
+const VARIANTES = { a: 'aàáâãä', e: 'eèéêë', i: 'iìíîï', o: 'oòóôõö', u: 'uùúûü', c: 'cç' };
+const padrao = (t) => new RegExp([...t.replace(/-/g, '')].map((ch) => (VARIANTES[ch] ? `[${VARIANTES[ch]}]` : ch.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))).join('[\\s_-]?'), 'giu');
+const tarjar = (texto) => ocultar.reduce((s, t) => s.replace(padrao(t), '[cliente]'), texto);
+const citaNome = (texto) => ocultar.filter((t) => padrao(t).test(texto));
 const dia = DIAS[String(opts.dia ?? 'ter').slice(0, 3).toLowerCase()];
 const [hh, mm] = String(opts.hora ?? '18:00').split(':');
 if (dia === undefined || !/^\d{1,2}$/.test(hh) || !/^\d{2}$/.test(mm ?? '')) { console.error('--dia ou --hora inválido.'); process.exit(1); }
@@ -78,8 +82,9 @@ for (const [i, arquivo] of videos.entries()) {
   for (const ext of ['.srt', '.vtt', '.txt']) {
     const t = join(origem, nome + ext);
     if (!existsSync(t)) continue;
-    copyFileSync(t, join(dir, `transcricao${ext}`));
-    for (const n of citaNome(readFileSync(t, 'utf8'))) citados.add(n);
+    const texto = readFileSync(t, 'utf8');
+    for (const n of citaNome(texto)) citados.add(n);
+    writeFileSync(join(dir, `transcricao${ext}`), tarjar(texto));
   }
   const temLegenda = existsSync(join(dir, 'legenda.txt'));
   const obs = [temLegenda ? null : 'falta legenda.txt', citados.size ? 'a transcrição cita um nome do --ocultar: confira o vídeo' : null].filter(Boolean);
