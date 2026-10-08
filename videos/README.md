@@ -40,14 +40,15 @@ Para trazer uma pasta inteira de uma vez, no WSL, dentro do clone deste repo:
 
 ```bash
 cd ~/ecomplus-posts && git checkout master && git pull
-node scripts/videos/importar.mjs ~/video-chapfer/saida/cortes --prefixo chapfer \
-  --destinos vitorrgg --dia ter --hora 18:00 --inicio 2026-10-13
+node scripts/videos/importar.mjs ~/<pasta>/saida/cortes --prefixo consultoria \
+  --ocultar <nome-do-cliente> --destinos vitorrgg --dia ter --hora 18:00 --inicio 2026-10-13
 ```
 
-Cada `.mp4` vira `videos/chapfer-NN-<nome>/video.mp4` e entra na fila, um por semana no dia e
+Cada `.mp4` vira `videos/consultoria-NN-<nome>/video.mp4` e entra na fila, um por semana no dia e
 hora pedidos, sem colidir com outros vídeos dos mesmos destinos. Se houver transcrição com o
 mesmo nome (`.srt`, `.vtt` ou `.txt`), ela vem junto como `transcricao.*`, para a legenda ser
-escrita a partir dela. Sem `legenda.txt`, o item entra com `"aprovado": false` e só publica
+escrita a partir dela. O repo é público: o `--ocultar` tira do slug (e da URL) o nome de quem
+pediu para não aparecer e trava o corte cuja transcrição cita esse nome. Sem `legenda.txt`, o item entra com `"aprovado": false` e só publica
 depois que a legenda existir e esse campo sair. Vídeo acima de 95 MB é recusado (limite do
 GitHub), com o comando do `ffmpeg` para reduzir.
 
