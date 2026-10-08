@@ -1,5 +1,5 @@
 {
-  "_sobre": "Série semanal com conteúdo do livro. repo/manuscrito/ficha apontam para o clone privado de vitorrgg/meu-livro (pasta irmã deste repo, ou LIVRO_DIR). manuscrito vazio = o 'manuscrito v*.md' de versão mais alta. A chamada entra no fim da legenda, antes das hashtags; com link preenchido, passa a usar chamadaComLink.",
+  "_sobre": "Série semanal com conteúdo do livro. repo/manuscrito/ficha apontam para o clone privado de vitorrgg/meu-livro (pasta irmã deste repo, ou LIVRO_DIR). manuscrito vazio = o 'manuscrito v*.md' de versão mais alta. A chamada entra no fim da legenda, antes das hashtags; com link preenchido, passa a usar chamadaComLink. As chamadas em primeira pessoa valem para o @vitorrgg.",
   "repo": "../meu-livro",
   "manuscrito": "",
   "ficha": "rascunhos v2/00 - Ficha de dados verificados.md",
@@ -7,5 +7,7 @@
   "autor": "Vitor",
   "link": null,
   "chamadaSemLink": "Este post é um trecho adaptado de \"{titulo}\", o livro que o {autor}, da e-com.plus, está escrevendo.",
-  "chamadaComLink": "Este post é um trecho adaptado de \"{titulo}\", o livro do {autor}, da e-com.plus. Para ler o livro completo: {link}"
+  "chamadaComLink": "Este post é um trecho adaptado de \"{titulo}\", o livro do {autor}, da e-com.plus. Para ler o livro completo: {link}",
+  "chamadaPrimeiraPessoaSemLink": "Este post é um trecho adaptado de \"{titulo}\", o livro que estou escrevendo.",
+  "chamadaPrimeiraPessoaComLink": "Este post é um trecho adaptado do meu livro, \"{titulo}\". Para ler o livro completo: {link}"
 }

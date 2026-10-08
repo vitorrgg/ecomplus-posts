@@ -24,7 +24,7 @@ A fila de vídeos orgânicos. Cada vídeo sai como **Reel no Instagram** (@ecomp
    ```
 
    - `quando` é opcional: sem ele, sai na próxima hora cheia.
-   - `destinos` também é opcional: sem ele, vai para os dois. Até a auditoria do YouTube, use `["instagram"]`.
+   - `destinos` também é opcional: sem ele, vai para `instagram` (@ecomplus.io) e `youtube`. O `vitorrgg` publica o Reel no seu Instagram pessoal; para ele, um `legenda-vitorrgg.txt` na pasta troca a legenda (em primeira pessoa), e sem ele vale a `legenda.txt`. Até a auditoria do YouTube, use `["instagram"]`.
    - Com `"aprovado": false`, o item fica parado.
 3. Faça o commit e o push na `master`. O workflow `videos-publicar.yml` roda de hora em hora e publica um vídeo por vez.
 
@@ -33,6 +33,23 @@ Para testar sem publicar: Actions → *Vídeos — publicar Reels e Shorts* → 
 ```bash
 node scripts/videos/publicar.mjs --slug <slug> --dry-run
 ```
+
+## Cortes da consultoria (ou qualquer pasta de vídeos)
+
+Para trazer uma pasta inteira de uma vez, no WSL, dentro do clone deste repo:
+
+```bash
+cd ~/ecomplus-posts && git checkout master && git pull
+node scripts/videos/importar.mjs ~/video-chapfer/saida/cortes --prefixo chapfer \
+  --destinos vitorrgg --dia ter --hora 18:00 --inicio 2026-10-13
+```
+
+Cada `.mp4` vira `videos/chapfer-NN-<nome>/video.mp4` e entra na fila, um por semana no dia e
+hora pedidos, sem colidir com outros vídeos dos mesmos destinos. Se houver transcrição com o
+mesmo nome (`.srt`, `.vtt` ou `.txt`), ela vem junto como `transcricao.*`, para a legenda ser
+escrita a partir dela. Sem `legenda.txt`, o item entra com `"aprovado": false` e só publica
+depois que a legenda existir e esse campo sair. Vídeo acima de 95 MB é recusado (limite do
+GitHub), com o comando do `ffmpeg` para reduzir.
 
 ## O que acontece com cada item
 

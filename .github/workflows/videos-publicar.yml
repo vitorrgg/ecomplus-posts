@@ -1,5 +1,5 @@
-# Publica o próximo vídeo da fila (videos/fila.json) como Reel no Instagram e Short no
-# YouTube. Roda de hora em hora e só publica o que já chegou no horário marcado em
+# Publica o próximo vídeo da fila (videos/fila.json) como Reel no Instagram (@ecomplus.io
+# e/ou @vitorrgg, conforme os destinos do item) e Short no YouTube. Roda de hora em hora e só publica o que já chegou no horário marcado em
 # "quando". O Instagram lê o vídeo do raw.githubusercontent.com, então a pasta
 # videos/<slug>/ precisa estar na master antes do horário.
 name: Vídeos — publicar Reels e Shorts
@@ -31,6 +31,8 @@ jobs:
       IG_USER_ID: ${{ secrets.IG_USER_ID }}
       IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
       IG_GRAPH_HOST: ${{ vars.IG_GRAPH_HOST }}
+      IG_VITORRGG_USER_ID: ${{ secrets.IG_VITORRGG_USER_ID }}
+      IG_VITORRGG_ACCESS_TOKEN: ${{ secrets.IG_VITORRGG_ACCESS_TOKEN }}
       YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
       YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
       YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}

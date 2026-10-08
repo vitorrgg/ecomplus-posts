@@ -1,7 +1,8 @@
-// Publica o próximo vídeo da fila (videos/fila.json) como Reel no Instagram e
-// como Short no YouTube. Cada item da fila é uma pasta em videos/<slug>/ com:
+// Publica o próximo vídeo da fila (videos/fila.json) como Reel no Instagram (@ecomplus.io
+// e/ou @vitorrgg) e como Short no YouTube. Cada item da fila é uma pasta em videos/<slug>/ com:
 //   video.mp4            9:16, H.264 e AAC (o que sai do montador de anúncios serve)
 //   legenda.txt          legenda do Reel e descrição do Short
+//   legenda-vitorrgg.txt opcional; legenda do Reel no @vitorrgg (sem ela, vale a legenda.txt)
 //   titulo-youtube.txt   opcional; sem ele, o título é a primeira linha da legenda
 //   capa.jpg             opcional; capa do Reel (sem ela, o Instagram escolhe um quadro)
 //
@@ -20,6 +21,8 @@
 // Variáveis de ambiente:
 //   IG_USER_ID, IG_ACCESS_TOKEN  as mesmas da rotina de carrosséis (instagram_content_publish)
 //   IG_GRAPH_HOST, IG_GRAPH_VERSION  graph.facebook.com e v21.0 por padrão
+//   IG_VITORRGG_USER_ID, IG_VITORRGG_ACCESS_TOKEN  o @vitorrgg, pelo login do Instagram
+//                (graph.instagram.com); destino "vitorrgg" na fila
 //   YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN  OAuth do canal (escopo youtube.upload).
 //                Sem elas, o YouTube fica pendente no item e o Instagram segue sozinho.
 //   YT_PRIVACIDADE  public, unlisted ou private (padrão private). Sem a auditoria da API do
@@ -33,7 +36,6 @@ import { root, args, lerJson, gravarJson } from '../ecb/util.mjs';
 
 const FILA = join(root, 'videos', 'fila.json');
 const HISTORICO = join(root, 'videos', 'historico.json');
-const HOST = process.env.IG_GRAPH_HOST || 'graph.facebook.com';
 const VERSAO = process.env.IG_GRAPH_VERSION || 'v21.0';
 const BASE_URL = (process.env.ECB_BASE_URL || 'https://raw.githubusercontent.com/vitorrgg/ecomplus-posts/master').replace(/\/$/, '');
 
@@ -46,20 +48,28 @@ function arquivosDo(slug) {
   const ler = (nome) => (existsSync(join(dir, nome)) ? readFileSync(join(dir, nome), 'utf8').trim() : '');
   const legenda = ler('legenda.txt');
   if (!legenda) throw new Error(`Sem videos/${slug}/legenda.txt.`);
+  const legendaVitorrgg = ler('legenda-vitorrgg.txt') || legenda;
   const titulo = (ler('titulo-youtube.txt') || legenda.split('\n')[0]).slice(0, 100);
   return {
     video,
     tamanho: statSync(video).size,
     legenda,
+    legendaVitorrgg,
     titulo,
     videoUrl: `${BASE_URL}/videos/${slug}/video.mp4`,
     capaUrl: existsSync(join(dir, 'capa.jpg')) ? `${BASE_URL}/videos/${slug}/capa.jpg` : null,
   };
 }
 
-// --- Instagram: container REELS → espera processar → media_publish
-async function graph(caminho, { method = 'GET', params = {}, token }) {
-  const url = new URL(`https://${HOST}/${VERSAO}/${caminho}`);
+// --- Instagram: container REELS → espera processar → media_publish. Duas contas: o
+// @ecomplus.io pelo login do Facebook e o @vitorrgg pelo login do Instagram.
+const CONTAS = {
+  instagram: () => ({ host: process.env.IG_GRAPH_HOST || 'graph.facebook.com', usuario: process.env.IG_USER_ID, token: process.env.IG_ACCESS_TOKEN, legenda: 'legenda' }),
+  vitorrgg: () => ({ host: 'graph.instagram.com', usuario: process.env.IG_VITORRGG_USER_ID, token: process.env.IG_VITORRGG_ACCESS_TOKEN, legenda: 'legendaVitorrgg' }),
+};
+
+async function graph(caminho, { method = 'GET', params = {}, token, host }) {
+  const url = new URL(`https://${host}/${VERSAO}/${caminho}`);
   const corpo = new URLSearchParams({ ...params, access_token: token });
   const res = method === 'GET' ? await fetch(`${url}?${corpo}`) : await fetch(url, { method, body: corpo });
   const json = await res.json().catch(() => ({}));
@@ -70,26 +80,25 @@ async function graph(caminho, { method = 'GET', params = {}, token }) {
   return json;
 }
 
-async function publicarInstagram(a) {
-  const token = process.env.IG_ACCESS_TOKEN;
-  const usuario = process.env.IG_USER_ID;
-  if (!token || !usuario) throw new Error('Defina IG_USER_ID e IG_ACCESS_TOKEN.');
+async function publicarReel(a, conta) {
+  const { host, usuario, token, legenda } = CONTAS[conta]();
+  if (!token || !usuario) throw new Error(`Sem credenciais do Instagram para o destino ${conta}.`);
   const r = await fetch(a.videoUrl, { method: 'HEAD' });
   if (!r.ok) throw new Error(`Vídeo não acessível publicamente (${r.status}): ${a.videoUrl}. A pasta já foi enviada para a master?`);
-  const params = { media_type: 'REELS', video_url: a.videoUrl, caption: a.legenda, share_to_feed: 'true' };
+  const params = { media_type: 'REELS', video_url: a.videoUrl, caption: a[legenda], share_to_feed: 'true' };
   if (a.capaUrl) params.cover_url = a.capaUrl;
-  const { id } = await graph(`${usuario}/media`, { method: 'POST', params, token });
+  const { id } = await graph(`${usuario}/media`, { method: 'POST', params, token, host });
   // vídeo demora mais que imagem: até 10 min
   for (let i = 0; i < 60; i++) {
-    const { status_code: st, status } = await graph(id, { params: { fields: 'status_code,status' }, token });
+    const { status_code: st, status } = await graph(id, { params: { fields: 'status_code,status' }, token, host });
     if (st === 'FINISHED') break;
     if (st === 'ERROR' || st === 'EXPIRED') throw new Error(`Container ${id} em ${st}: ${status ?? ''}`);
     if (i === 59) throw new Error(`Container ${id} não ficou pronto em 10 min.`);
     await dormir(10000);
   }
-  const { id: midia } = await graph(`${usuario}/media_publish`, { method: 'POST', params: { creation_id: id }, token });
+  const { id: midia } = await graph(`${usuario}/media_publish`, { method: 'POST', params: { creation_id: id }, token, host });
   let permalink = null;
-  try { ({ permalink } = await graph(midia, { params: { fields: 'permalink' }, token })); } catch { /* opcional */ }
+  try { ({ permalink } = await graph(midia, { params: { fields: 'permalink' }, token, host })); } catch { /* opcional */ }
   return { id: midia, link: permalink };
 }
 
@@ -128,11 +137,16 @@ async function publicarYoutube(a) {
   return { id: json.id, link: `https://youtube.com/shorts/${json.id}`, privacidade: json.status?.privacyStatus };
 }
 
-const DESTINOS = { instagram: publicarInstagram, youtube: publicarYoutube };
+const DESTINOS = {
+  instagram: (a) => publicarReel(a, 'instagram'),
+  vitorrgg: (a) => publicarReel(a, 'vitorrgg'),
+  youtube: publicarYoutube,
+};
 
 // destino sem credencial fica pendente e não trava a fila: o item espera só por ele
 const temCredencial = {
   instagram: () => Boolean(process.env.IG_ACCESS_TOKEN && process.env.IG_USER_ID),
+  vitorrgg: () => Boolean(process.env.IG_VITORRGG_ACCESS_TOKEN && process.env.IG_VITORRGG_USER_ID),
   youtube: () => Boolean(process.env.YT_CLIENT_ID && process.env.YT_CLIENT_SECRET && process.env.YT_REFRESH_TOKEN),
 };
 const destinosDo = (item) => item.destinos ?? ['instagram', 'youtube'];

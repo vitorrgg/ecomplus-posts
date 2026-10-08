@@ -61,6 +61,13 @@ confere se o token é mesmo do @vitorrgg e renova, gravando o token novo no secr
 (`scripts/instagram/token.mjs`). Se falhar, avisa no #conteudo com os passos para gerar outro
 token na mão.
 
+O que sai no @vitorrgg:
+
+- **Série do livro:** o mesmo carrossel que sai no @ecomplus.io às quintas, logo em seguida,
+  com a legenda em primeira pessoa (`scripts/ecb/publicar-vitorrgg.mjs`, passo do `ecb-publicar.yml`).
+- **Vídeos:** qualquer item de `videos/fila.json` com o destino `vitorrgg`, como os cortes da
+  consultoria (`scripts/videos/importar.mjs`; ver [`videos/README.md`](videos/README.md)).
+
 Para a renovação gravar o secret, o workflow precisa de um token do GitHub com essa permissão
 (o `GITHUB_TOKEN` padrão não escreve secrets). Crie uma vez:
 
