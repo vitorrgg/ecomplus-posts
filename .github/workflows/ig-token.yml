@@ -1,0 +1,39 @@
+# Contas do Instagram ligadas pelo "login do Instagram" (hoje o @vitorrgg) têm token de 60
+# dias, renovável pela API. Toda segunda este workflow confere o token e renova, gravando o
+# novo no secret. Se algo falhar, avisa no #conteudo. Também dá para rodar na mão
+# (Actions → Run workflow), só para conferir ou para renovar.
+name: Instagram — conferir e renovar token
+
+on:
+  schedule:
+    - cron: '0 11 * * 1'   # segunda 08:00 em São Paulo
+  workflow_dispatch:
+    inputs:
+      acao:
+        description: 'verificar (só confere) ou renovar'
+        type: choice
+        options: [renovar, verificar]
+        default: verificar
+
+permissions:
+  contents: read
+
+jobs:
+  vitorrgg:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Token do @vitorrgg
+        env:
+          IG_VITORRGG_ACCESS_TOKEN: ${{ secrets.IG_VITORRGG_ACCESS_TOKEN }}
+          IG_VITORRGG_USER_ID: ${{ secrets.IG_VITORRGG_USER_ID }}
+          IG_VITORRGG_TOKEN_GERADO_EM: ${{ vars.IG_VITORRGG_TOKEN_GERADO_EM }}
+          GH_SECRETS_TOKEN: ${{ secrets.GH_SECRETS_TOKEN }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_CONTEUDO: ${{ vars.SLACK_CHANNEL_CONTEUDO }}
+        run: node scripts/instagram/token.mjs "${{ github.event.inputs.acao || 'renovar' }}" --conta vitorrgg

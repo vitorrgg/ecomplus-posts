@@ -49,6 +49,30 @@ do Instagram, revisão antes de publicar) em [`ecb/README.md`](ecb/README.md).
 
 Fila separada para vídeos orgânicos. Você põe o vídeo, a legenda e o horário em `videos/`, e o workflow `videos-publicar.yml` publica como Reel no Instagram e como Short no YouTube, avisando no #conteudo. Como usar e o que falta para o YouTube: [`videos/README.md`](videos/README.md).
 
+## Instagram pessoal (@vitorrgg)
+
+O @vitorrgg usa o mesmo app da Meta do @ecomplus.io (*ecomplus-posts*, ID 1712440173840170),
+mas pelo **login do Instagram**: sem Página do Facebook e sem portfólio empresarial. Secrets
+`IG_VITORRGG_ACCESS_TOKEN` e `IG_VITORRGG_USER_ID` (17841400214997076); variable
+`IG_VITORRGG_TOKEN_GERADO_EM`.
+
+Esse token vale 60 dias, mas a API deixa renovar. O workflow `ig-token.yml` roda toda segunda:
+confere se o token é mesmo do @vitorrgg e renova, gravando o token novo no secret
+(`scripts/instagram/token.mjs`). Se falhar, avisa no #conteudo com os passos para gerar outro
+token na mão.
+
+Para a renovação gravar o secret, o workflow precisa de um token do GitHub com essa permissão
+(o `GITHUB_TOKEN` padrão não escreve secrets). Crie uma vez:
+
+1. https://github.com/settings/personal-access-tokens/new → *Fine-grained token*, validade de 1 ano.
+2. *Repository access* → *Only select repositories* → `vitorrgg/ecomplus-posts`.
+3. *Permissions* → *Repository permissions*: **Secrets** e **Variables** em *Read and write*.
+4. Grave como secret `GH_SECRETS_TOKEN` neste repo.
+
+Sem o `GH_SECRETS_TOKEN`, o workflow só confere o token e avisa no #conteudo quando ele passar
+de 45 dias. Quando o próprio `GH_SECRETS_TOKEN` vencer (1 ano), a renovação começa a falhar
+e o aviso cai no #conteudo.
+
 ## Tipos de slide
 
 Cada slide do `brief.md` é um bloco yaml com `tipo` + os campos daquele tipo:
