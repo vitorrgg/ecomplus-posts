@@ -1,6 +1,6 @@
 # Vídeos: Reels e Shorts automáticos
 
-A fila de vídeos orgânicos. Cada vídeo sai como **Reel no Instagram** (@ecomplus.io) e **Short no YouTube** no horário marcado, e o aviso cai no #conteudo do Slack. É separada da rotina de carrosséis (`ecb/`).
+A fila de vídeos orgânicos. Cada vídeo sai como **Reel no Instagram** (@ecomplus.io) e **Short no YouTube** no horário marcado, e o aviso cai no #conteudo do Slack. O YouTube só entra depois da auditoria da API ([veja abaixo](#youtube-depois-da-auditoria-da-api)). É separada da rotina de carrosséis (`ecb/`).
 
 ## Como pôr um vídeo na fila
 
@@ -17,14 +17,14 @@ A fila de vídeos orgânicos. Cada vídeo sai como **Reel no Instagram** (@ecomp
        {
          "slug": "ia-seletor-de-quantidade",
          "quando": "2026-10-09T12:00:00-03:00",
-         "destinos": ["instagram", "youtube"]
+         "destinos": ["instagram"]
        }
      ]
    }
    ```
 
    - `quando` é opcional: sem ele, sai na próxima hora cheia.
-   - `destinos` também é opcional: sem ele, vai para os dois.
+   - `destinos` também é opcional: sem ele, vai para os dois. Até a auditoria do YouTube, use `["instagram"]`.
    - Com `"aprovado": false`, o item fica parado.
 3. Faça o commit e o push na `master`. O workflow `videos-publicar.yml` roda de hora em hora e publica um vídeo por vez.
 
@@ -38,13 +38,19 @@ node scripts/videos/publicar.mjs --slug <slug> --dry-run
 
 - **Deu certo nos dois destinos:** o item sai da fila e vai para `videos/historico.json`, com os links.
 - **Deu certo só num destino:** o item fica na fila com o destino que já saiu marcado em `feito`, e a próxima rodada tenta só o que falta. O erro fica em `ultimoErro`.
-- **Destino sem credencial (o YouTube, até os segredos `YT_*` existirem):** fica pendente no item, sem travar a fila. Os próximos vídeos seguem saindo, e quando a credencial chegar, ele é publicado.
+- **Destino sem credencial:** fica pendente no item, sem travar a fila. Os próximos vídeos seguem saindo, e o destino que faltou sai quando a credencial chegar.
 
-## YouTube: o que falta para ligar
+## YouTube: depois da auditoria da API
 
-O Instagram já funciona com os segredos da rotina de carrosséis (`IG_USER_ID` e `IG_ACCESS_TOKEN`). Para o YouTube faltam:
+O Instagram já funciona com os segredos da rotina de carrosséis (`IG_USER_ID` e `IG_ACCESS_TOKEN`).
 
-- **Segredos `YT_CLIENT_ID`, `YT_CLIENT_SECRET` e `YT_REFRESH_TOKEN`:** o OAuth de um projeto do Google Cloud com a YouTube Data API ativada, autorizado uma vez pela conta dona do canal, com o escopo `youtube.upload`.
-- **A variável `YT_PRIVACIDADE`:** `public`, `unlisted` ou `private`, que é o padrão. Enquanto o projeto do Google não passar pela auditoria da API do YouTube, todo vídeo enviado pela API fica privado, e é preciso publicar no YouTube Studio. Depois da auditoria, ponha `public`.
+O YouTube fica desligado até o projeto `ecomplus-site` do Google Cloud passar pela auditoria da YouTube API. Vídeo enviado pela API de um projeto sem a auditoria fica **travado como privado**: não dá para publicar depois no YouTube Studio, só subindo de novo ([ajuda do YouTube](https://support.google.com/youtube/answer/7300965)). Até lá:
 
-Sem os segredos do YouTube, o item publica no Instagram e fica com o YouTube pendente na fila.
+- Os itens da fila vão com `"destinos": ["instagram"]`.
+- Para ter o Short, suba à mão pelo Studio ou pelo app, com o `video.mp4`, o `titulo-youtube.txt` (mais `#shorts`) e a `legenda.txt` da pasta do vídeo.
+
+O token do canal "e-com plus" (@e-comclub5705) já foi gerado em 08/10/2026 e fica fora do repositório (`~/.config/google/token-youtube.json`, do `autorizar_google.py youtube` do montador de anúncios). Quando a auditoria for aprovada:
+
+1. Cadastre os segredos `YT_CLIENT_ID`, `YT_CLIENT_SECRET` e `YT_REFRESH_TOKEN`: o cliente OAuth do projeto `ecomplus-site` e o refresh token, com o escopo `youtube.upload`.
+2. Crie a variável `YT_PRIVACIDADE` com `public`. Sem ela, o vídeo sobe como `private`.
+3. Volte a pôr `"youtube"` nos `destinos`, ou omita o campo, que vale para os dois.

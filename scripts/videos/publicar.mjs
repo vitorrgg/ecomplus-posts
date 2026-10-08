@@ -22,8 +22,9 @@
 //   IG_GRAPH_HOST, IG_GRAPH_VERSION  graph.facebook.com e v21.0 por padrão
 //   YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN  OAuth do canal (escopo youtube.upload).
 //                Sem elas, o YouTube fica pendente no item e o Instagram segue sozinho.
-//   YT_PRIVACIDADE  public, unlisted ou private (padrão private). Projeto do Google sem a
-//                auditoria da API do YouTube só consegue subir como privado.
+//   YT_PRIVACIDADE  public, unlisted ou private (padrão private). Sem a auditoria da API do
+//                YouTube, o vídeo fica travado como privado e não dá para publicar depois: só
+//                cadastre os segredos YT_* quando o projeto do Google for aprovado.
 //   VIDEOS_EXIGE_APROVACAO  "true" → só publica itens com aprovado: true
 //   ECB_BASE_URL  base pública do repo (padrão: raw do GitHub em master)
 import { existsSync, readFileSync, statSync } from 'node:fs';
