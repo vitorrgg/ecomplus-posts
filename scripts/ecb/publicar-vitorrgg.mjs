@@ -15,7 +15,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { root, args, gravarJson, HISTORICO, lerHistorico } from './util.mjs';
-import { CONFIG as LIVRO } from './livro.mjs';
+import { CONFIG as LIVRO, PAUSADA, AVISO_PAUSA } from './livro.mjs';
 import { publicar } from './publicar-instagram.mjs';
 import { enviar } from './notificar-slack.mjs';
 
@@ -44,6 +44,7 @@ function proximo(historico) {
 const ehMain = process.argv[1] && import.meta.url.endsWith(process.argv[1].split('/').pop());
 if (ehMain) {
   const opts = args();
+  if (PAUSADA && typeof opts.slug !== 'string') { console.log(AVISO_PAUSA.replace(': pule o passo do livro', '')); process.exit(0); }
   const historico = lerHistorico();
   const slug = typeof opts.slug === 'string' ? opts.slug : proximo(historico);
   if (!slug) { console.log('Nenhum post do livro novo para o @vitorrgg.'); process.exit(0); }

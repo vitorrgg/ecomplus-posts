@@ -134,7 +134,7 @@ O texto do livro fica no repo **privado** `vitorrgg/meu-livro` e nunca entra nes
 | Arquivo | O que faz |
 |---|---|
 | `ecb/livro/pautas.json` | Banco de pautas: capítulo, seções do manuscrito, ângulo do post e alavanca (visitas, conversão, LTV ou base). Só referências, sem texto do livro. `liberada: false` = ainda não vai ao ar; hoje estão bloqueados os capítulos que são rascunho de IA, até passarem para a voz do autor. |
-| `ecb/livro/config.json` | Título do livro, autor, onde está o manuscrito e a chamada que vai na legenda. **Quando o livro for publicado, preencha `link`**: os posts novos passam a usar `chamadaComLink`. |
+| `ecb/livro/config.json` | **`ativa`**: `false` pausa a série inteira (geração na segunda, publicação de quinta no @ecomplus.io e no @vitorrgg) até o livro ficar pronto; `true` volta. Também guarda título do livro, autor, onde está o manuscrito e a chamada que vai na legenda. **Quando o livro for publicado, preencha `link`**: os posts novos passam a usar `chamadaComLink`. |
 | `ecb/livro/PROMPT.md` | O que muda na série em relação a `ecb/PROMPT.md`: o post é uma versão do trecho, números só da ficha de dados verificados, chapéu "do livro · …". |
 | `scripts/ecb/livro.mjs` | Escolhe a próxima pauta (alternando alavanca e capítulo) e grava o trecho do manuscrito em `ecb/livro/rascunho/<segunda>.json`, que fica fora do git. `--listar` mostra o banco; `--pauta <id>` força uma. |
 | `ecb/ROTINA.md` | O prompt da rotina na nuvem, com o passo do livro. A rotina precisa ter os dois repos. |

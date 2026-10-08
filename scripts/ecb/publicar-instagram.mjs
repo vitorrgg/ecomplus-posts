@@ -22,7 +22,7 @@
 //   ECB_EXIGE_APROVACAO  "true" → só publica itens com aprovado: true na fila
 import { readdirSync, existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { root, args, gravarJson, FILA, HISTORICO, lerFila, lerHistorico } from './util.mjs';
+import { root, args, gravarJson, lerJson, FILA, HISTORICO, lerFila, lerHistorico } from './util.mjs';
 import { spawnSync } from 'node:child_process';
 
 const HOST = process.env.IG_GRAPH_HOST || 'graph.facebook.com';
@@ -115,6 +115,10 @@ if (ehMain) {
   const opts = args();
   const fila = lerFila();
   const serie = typeof opts.serie === 'string' ? opts.serie : 'ecb';
+  if (serie === 'livro' && !opts.slug && lerJson(join(root, 'ecb', 'livro', 'config.json'), {}).ativa === false) {
+    console.log('Série do livro pausada (ecb/livro/config.json → "ativa": false) — nada a publicar.');
+    process.exit(0);
+  }
   const item = opts.slug ? { slug: opts.slug } : proximoDaFila(fila, serie);
   if (!item) { console.log(`Fila vazia na série ${serie} (ou nada aprovado) — nada a publicar.`); process.exit(0); }
 
