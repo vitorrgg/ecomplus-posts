@@ -2,3 +2,7 @@ node_modules
 *:Zone.Identifier
 ecb/local.log
 ecb/livro/rascunho/
+
+# Fotos originais do Vitor: ficam no repo privado vitorrgg/meu-livro (fotos/). Este repo é
+# público e foto de celular costuma levar localização nos metadados.
+identidade/fotos/
