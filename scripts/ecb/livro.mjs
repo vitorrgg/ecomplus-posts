@@ -22,6 +22,9 @@ export const PAUTAS = lerJson(join(DIR, 'pautas.json')).pautas;
 export const PREFIXO = 'livro:';
 export const PAUSADA = CONFIG.ativa === false;
 export const AVISO_PAUSA = 'Série do livro pausada (ecb/livro/config.json → "ativa": false): pule o passo do livro.';
+// Contas do Instagram em que a série sai: "ecomplus" (@ecomplus.io) e/ou "vitorrgg". Sem o
+// @ecomplus.io, o post vai da fila direto para o @vitorrgg (publicar-instagram.mjs).
+export const CONTAS = CONFIG.contas ?? ['ecomplus', 'vitorrgg'];
 
 export const pautaPorFonte = (fonte) => PAUTAS.find((p) => `${PREFIXO}${p.id}` === fonte);
 
@@ -31,6 +34,24 @@ export function chamadaDoLivro({ rede = 'instagram', cfg = CONFIG } = {}) {
   const sufixo = cfg.link ? 'ComLink' : 'SemLink';
   const modelo = (rede === 'linkedin' && cfg[`chamadaPrimeiraPessoa${sufixo}`]) || cfg[`chamada${sufixo}`];
   return modelo.replace(/\{(\w+)\}/g, (_, k) => cfg[k] ?? '');
+}
+
+const preencher = (modelo) => modelo.replace(/\{(\w+)\}/g, (_, k) => CONFIG[k] ?? '');
+
+// Legenda do @vitorrgg, em primeira pessoa: o texto do LinkedIn quando o post tem um;
+// senão, a legenda do @ecomplus.io com a chamada do livro trocada pela versão em primeira pessoa.
+export function legendaPessoal(slug) {
+  const ler = (nome) => {
+    const arq = join(root, 'posts', slug, nome);
+    return existsSync(arq) ? readFileSync(arq, 'utf8').trim() : '';
+  };
+  const linkedin = ler('linkedin.txt');
+  if (linkedin) return linkedin;
+  const legenda = ler('legenda.txt');
+  const sufixo = CONFIG.link ? 'ComLink' : 'SemLink';
+  return legenda
+    .replace(preencher(CONFIG[`chamada${sufixo}`]), preencher(CONFIG[`chamadaPrimeiraPessoa${sufixo}`]))
+    .replace(/Conta para nós nos comentários/g, 'Me conta nos comentários');
 }
 
 function pastaDoLivro() {

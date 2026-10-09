@@ -11,7 +11,7 @@ identidade visual da marca no Instagram [@ecomplus.io](https://www.instagram.com
 segunda 09:00        geração          coleta "Mais Lidos" → análises (Claude Code, plano Max) → PNG + JPEG → commit na fila
                                       + 1 post da série do livro (pauta de ecb/livro/pautas.json)
 seg/qua/sex 12:00    ecb-publicar.yml publica a próxima análise da fila no Instagram → registra no histórico
-quinta 12:00         ecb-publicar.yml publica o próximo post da série do livro
+quinta 12:00         ecb-publicar.yml publica o próximo post da série do livro (só no @vitorrgg)
 ```
 
 Na segunda, o post gerado às 09:00 já sai às 12:00 do mesmo dia; os outros dois
@@ -131,13 +131,14 @@ Com os segredos do Instagram no lugar e a fila já comitada, dispare *ECB — pu
 
 ## Série do livro
 
-Um post por semana (quinta 12:00) com um trecho do livro *Como escalar seu e-commerce*, do Vitor.
+Um post por semana (quinta 12:00, no Instagram pessoal @vitorrgg) com um trecho do livro
+*Como escalar seu e-commerce*, do Vitor.
 O texto do livro fica no repo **privado** `vitorrgg/meu-livro` e nunca entra neste, que é público.
 
 | Arquivo | O que faz |
 |---|---|
 | `ecb/livro/pautas.json` | Banco de pautas: capítulo, seções do manuscrito, ângulo do post e alavanca (visitas, conversão, LTV ou base). Só referências, sem texto do livro. `liberada: false` = ainda não vai ao ar; hoje estão bloqueados os capítulos que são rascunho de IA, até passarem para a voz do autor. |
-| `ecb/livro/config.json` | **`ativa`**: `false` pausa a série inteira (geração na segunda, publicação de quinta no @ecomplus.io e no @vitorrgg) até o livro ficar pronto; `true` volta. Também guarda título do livro, autor, onde está o manuscrito e a chamada que vai na legenda. **Quando o livro for publicado, preencha `link`**: os posts novos passam a usar `chamadaComLink`. |
+| `ecb/livro/config.json` | **`ativa`**: `false` pausa a série inteira (geração na segunda e publicação de quinta); `true` volta. **`contas`**: em que Instagram a série sai, `"vitorrgg"` e/ou `"ecomplus"`. Hoje é só `["vitorrgg"]`: o post vai da fila direto para o @vitorrgg, com a legenda em primeira pessoa (o texto do LinkedIn), e entra no LinkedIn em seguida. Também guarda título do livro, autor, onde está o manuscrito e a chamada que vai na legenda. **Quando o livro for publicado, preencha `link`**: os posts novos passam a usar `chamadaComLink`. |
 | `ecb/livro/PROMPT.md` | O que muda na série em relação a `ecb/PROMPT.md`: o post é uma versão do trecho, números só da ficha de dados verificados, chapéu "do livro · …". |
 | `scripts/ecb/livro.mjs` | Escolhe a próxima pauta (alternando alavanca e capítulo) e grava o trecho do manuscrito em `ecb/livro/rascunho/<segunda>.json`, que fica fora do git. `--listar` mostra o banco; `--pauta <id>` força uma. |
 | `ecb/ROTINA.md` | O prompt da rotina na nuvem, com o passo do livro. A rotina precisa ter os dois repos. |
@@ -145,6 +146,9 @@ O texto do livro fica no repo **privado** `vitorrgg/meu-livro` e nunca entra nes
 O manuscrito usado é o `Manuscrito/… manuscrito v<versão>.md` mais novo do repo do livro. Se uma
 seção mudar de nome numa versão nova, `livro.mjs` avisa qual pauta ajustar. Na fila, cada item tem
 `serie` (`ecb` ou `livro`), e o workflow de publicação escolhe a série pelo dia.
+
+Pautas livres no banco em 09/10/2026: 44 (cerca de 10 meses de série), mais 16 bloqueadas à espera
+dos capítulos reescritos na voz do autor. `node scripts/ecb/livro.mjs --listar` mostra a conta atualizada.
 
 ## LinkedIn
 

@@ -23,6 +23,7 @@ import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import yaml from 'js-yaml';
 import { root, args, lerFila, lerHistorico } from './util.mjs';
+import { CONTAS as CONTAS_LIVRO, legendaPessoal } from './livro.mjs';
 
 const REPO_URL = 'https://github.com/vitorrgg/ecomplus-posts';
 
@@ -67,12 +68,21 @@ export function montarMensagemGerado(post) {
     post.fonte?.startsWith('http') ? `Pauta: <${post.fonte}|artigo no E-Commerce Brasil>` : null,
     post.serie === 'livro' ? `Série do livro · pauta \`${post.fonte}\`` : null,
     '',
-    '*Legenda:*',
-    post.legenda.slice(0, 2900),
+    ...legendaDoAviso(post),
     '',
-    `_Entra na fila de publicação (${post.serie === 'livro' ? 'quinta' : 'seg/qua/sex'} 12:00). Pra vetar, \`"aprovado": false\` em \`ecb/fila.json\`._`,
+    `_Entra na fila de publicação (${post.serie === 'livro' ? `quinta 12:00, ${ondeSaiOLivro()}` : 'seg/qua/sex 12:00'}). Pra vetar, \`"aprovado": false\` em \`ecb/fila.json\`._`,
   ].filter((l) => l !== null).join('\n');
   return { text: texto };
+}
+
+const ondeSaiOLivro = () => CONTAS_LIVRO.map((c) => (c === 'ecomplus' ? '@ecomplus.io' : `@${c}`)).join(' e ');
+
+// A série do livro só no @vitorrgg sai com a legenda em primeira pessoa, que é o texto do
+// LinkedIn quando o post tem um (aí ela já vem na mensagem de baixo).
+function legendaDoAviso(post) {
+  if (post.serie !== 'livro' || CONTAS_LIVRO.includes('ecomplus')) return ['*Legenda:*', post.legenda.slice(0, 2900)];
+  if (post.linkedin) return ['*Legenda no @vitorrgg:* a mesma do texto do LinkedIn, na mensagem logo abaixo.'];
+  return ['*Legenda no @vitorrgg:*', legendaPessoal(post.slug).slice(0, 2900)];
 }
 
 // Texto do LinkedIn numa mensagem à parte, logo abaixo do aviso do post, num bloco de
@@ -83,7 +93,7 @@ export function montarMensagemLinkedin(post) {
 }
 
 export function montarMensagemPublicado(post, link, rede = 'instagram') {
-  const nome = rede === 'linkedin' ? 'LinkedIn' : 'Instagram';
+  const nome = { linkedin: 'LinkedIn', vitorrgg: 'Instagram @vitorrgg' }[rede] ?? 'Instagram';
   return {
     text: `Publicado no ${nome}: ${post.titulo}`,
     blocks: [

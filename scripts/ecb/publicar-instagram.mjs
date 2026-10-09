@@ -11,6 +11,10 @@
 //   node scripts/ecb/publicar-instagram.mjs --serie livro  # próximo pendente da série do livro
 //                                                          # (padrão: ecb, as análises dos mais lidos)
 //
+// A série do livro sai no @ecomplus.io e/ou no @vitorrgg (ecb/livro/config.json → contas). Sem
+// o @ecomplus.io, o post da fila vai direto para o @vitorrgg, com a legenda em primeira pessoa
+// (IG_VITORRGG_USER_ID e IG_VITORRGG_ACCESS_TOKEN).
+//
 // Variáveis de ambiente:
 //   IG_USER_ID        id da conta profissional do Instagram
 //   IG_ACCESS_TOKEN   token de longa duração (ou de usuário do sistema) com
@@ -24,10 +28,14 @@ import { readdirSync, existsSync, readFileSync, appendFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { root, args, gravarJson, lerJson, FILA, HISTORICO, lerFila, lerHistorico } from './util.mjs';
 import { spawnSync } from 'node:child_process';
+import { CONTAS as CONTAS_LIVRO, legendaPessoal } from './livro.mjs';
 
 const HOST = process.env.IG_GRAPH_HOST || 'graph.facebook.com';
 const VERSAO = process.env.IG_GRAPH_VERSION || 'v21.0';
 const BASE_URL = (process.env.ECB_BASE_URL || 'https://raw.githubusercontent.com/vitorrgg/ecomplus-posts/master').replace(/\/$/, '');
+
+// Instagram pessoal @vitorrgg (login do Instagram, token de 60 dias renovado pelo ig-token.yml).
+export const contaVitorrgg = () => ({ host: 'graph.instagram.com', usuario: process.env.IG_VITORRGG_USER_ID, token: process.env.IG_VITORRGG_ACCESS_TOKEN });
 
 const dormir = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -122,12 +130,31 @@ if (ehMain) {
   const item = opts.slug ? { slug: opts.slug } : proximoDaFila(fila, serie);
   if (!item) { console.log(`Fila vazia na série ${serie} (ou nada aprovado) — nada a publicar.`); process.exit(0); }
 
-  const resultado = await publicar({ slug: item.slug, dryRun: Boolean(opts['dry-run']) });
+  const historico = lerHistorico();
+  const jaPublicado = historico.publicados.find((p) => p.slug === item.slug);
+  const meta = fila.pendentes.find((p) => p.slug === item.slug) ?? jaPublicado
+    ?? historico.gerados.find((g) => g.slug === item.slug) ?? item;
+  const daSerie = meta.serie ?? (item.slug.startsWith('livro-') ? 'livro' : 'ecb');
+  const soVitorrgg = daSerie === 'livro' && !CONTAS_LIVRO.includes('ecomplus');
+  let destino = {};
+  if (soVitorrgg) {
+    if (jaPublicado?.vitorrgg) { console.log(`${item.slug} já está no @vitorrgg: ${jaPublicado.vitorrgg.permalink ?? jaPublicado.vitorrgg.id}`); process.exit(0); }
+    destino = { conta: contaVitorrgg(), legenda: legendaPessoal(item.slug) };
+    if (!opts['dry-run'] && (!destino.conta.usuario || !destino.conta.token)) throw new Error('Defina IG_VITORRGG_USER_ID e IG_VITORRGG_ACCESS_TOKEN.');
+    console.log('@vitorrgg (a série do livro sai só lá)');
+  }
+
+  const resultado = await publicar({ slug: item.slug, dryRun: Boolean(opts['dry-run']), ...destino });
   if (resultado.dryRun) process.exit(0);
 
-  const historico = lerHistorico();
-  const meta = fila.pendentes.find((p) => p.slug === item.slug) ?? item;
-  historico.publicados.push({ ...meta, instagramId: resultado.id, permalink: resultado.permalink, publicadoEm: new Date().toISOString() });
+  const agora = new Date().toISOString();
+  if (soVitorrgg) {
+    const vitorrgg = { id: resultado.id, permalink: resultado.permalink, publicadoEm: agora };
+    if (jaPublicado) jaPublicado.vitorrgg = vitorrgg;
+    else historico.publicados.push({ ...meta, vitorrgg, publicadoEm: agora });
+  } else {
+    historico.publicados.push({ ...meta, instagramId: resultado.id, permalink: resultado.permalink, publicadoEm: agora });
+  }
   gravarJson(HISTORICO, historico);
   fila.pendentes = fila.pendentes.filter((p) => p.slug !== item.slug);
   gravarJson(FILA, fila);
@@ -135,5 +162,6 @@ if (ehMain) {
   if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, `slug=${item.slug}\n`);
 
   // Aviso no Slack (opcional: sem SLACK_* o script só avisa e sai).
-  spawnSync(process.execPath, [join(root, 'scripts', 'ecb', 'notificar-slack.mjs'), '--publicado', '--link', resultado.permalink ?? '', item.slug], { stdio: 'inherit' });
+  spawnSync(process.execPath, [join(root, 'scripts', 'ecb', 'notificar-slack.mjs'), '--publicado', '--link', resultado.permalink ?? '',
+    ...(soVitorrgg ? ['--rede', 'vitorrgg'] : []), item.slug], { stdio: 'inherit' });
 }

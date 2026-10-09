@@ -1,9 +1,10 @@
-# Publica o próximo carrossel da fila no Instagram (@ecomplus.io). Seg/qua/sex sai a
-# série ecb (os 3 posts dos mais lidos gerados na segunda de manhã) e quinta a série
-# do livro (ecb/livro/), que em seguida sai também no Instagram pessoal @vitorrgg com a
-# legenda em primeira pessoa (publicar-vitorrgg.mjs). Logo depois de cada post, o texto
-# dele (posts/<slug>/linkedin.txt) sai no perfil pessoal do Vitor no LinkedIn; se o
-# LinkedIn ou o @vitorrgg falharem, o @ecomplus.io já foi e o histórico é comitado do
+# Publica o próximo carrossel da fila no Instagram. Seg/qua/sex sai a série ecb no
+# @ecomplus.io (os 3 posts dos mais lidos gerados na segunda de manhã) e quinta a série
+# do livro (ecb/livro/), nas contas de ecb/livro/config.json → contas: hoje só o
+# Instagram pessoal @vitorrgg, com a legenda em primeira pessoa. Se a série voltar a sair
+# também no @ecomplus.io, o passo "Livro também no @vitorrgg" repete o post lá. Logo
+# depois de cada post, o texto dele (posts/<slug>/linkedin.txt) sai no perfil pessoal do
+# Vitor no LinkedIn; se o LinkedIn falhar, o Instagram já foi e o histórico é comitado do
 # mesmo jeito. As imagens são
 # lidas pela API do Instagram direto do raw.githubusercontent.com deste repo,
 # por isso a fila precisa estar comitada e enviada antes (ecb-semanal.yml).
@@ -51,6 +52,8 @@ jobs:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_GRAPH_HOST: ${{ vars.IG_GRAPH_HOST }}
+          IG_VITORRGG_USER_ID: ${{ secrets.IG_VITORRGG_USER_ID }}
+          IG_VITORRGG_ACCESS_TOKEN: ${{ secrets.IG_VITORRGG_ACCESS_TOKEN }}
           ECB_EXIGE_APROVACAO: ${{ vars.ECB_EXIGE_APROVACAO }}
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
           SLACK_CHANNEL_CONTEUDO: ${{ vars.SLACK_CHANNEL_CONTEUDO }}

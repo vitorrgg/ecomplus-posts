@@ -1,6 +1,7 @@
 {
-  "_sobre": "Série semanal com conteúdo do livro. repo/manuscrito/ficha apontam para o clone privado de vitorrgg/meu-livro (pasta irmã deste repo, ou LIVRO_DIR). manuscrito vazio = o 'manuscrito v*.md' de versão mais alta. A chamada entra no fim da legenda, antes das hashtags; com link preenchido, passa a usar chamadaComLink. As chamadas em primeira pessoa valem para o @vitorrgg e o LinkedIn. ativa: false pausa a série inteira (geração, @ecomplus.io e @vitorrgg) até o livro ficar pronto; true volta a publicar.",
-  "ativa": false,
+  "_sobre": "Série semanal com conteúdo do livro. repo/manuscrito/ficha apontam para o clone privado de vitorrgg/meu-livro (pasta irmã deste repo, ou LIVRO_DIR). manuscrito vazio = o 'manuscrito v*.md' de versão mais alta. A chamada entra no fim da legenda, antes das hashtags; com link preenchido, passa a usar chamadaComLink. As chamadas em primeira pessoa valem para o @vitorrgg e o LinkedIn. contas: em que Instagram a série sai, \"ecomplus\" (@ecomplus.io) e/ou \"vitorrgg\"; só com \"vitorrgg\", o post vai da fila direto para o @vitorrgg, com a legenda em primeira pessoa. ativa: false pausa a série inteira (geração e publicação); true publica.",
+  "ativa": true,
+  "contas": ["vitorrgg"],
   "repo": "../meu-livro",
   "manuscrito": "",
   "ficha": "rascunhos v2/00 - Ficha de dados verificados.md",
