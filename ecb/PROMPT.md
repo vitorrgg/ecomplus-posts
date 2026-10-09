@@ -52,5 +52,18 @@ Três trechos de posts antigos reescritos nessa voz. São ilustração da difere
 - Evite dois-pontos seguidos de espaço no meio de itens de lista.
 - A legenda segue a mesma voz dos slides e termina o convite com uma pergunta sobre a operação de quem lê.
 
+# Versão para o LinkedIn (campo linkedin)
+
+O mesmo post sai no perfil pessoal do Vitor no LinkedIn, só como texto, sem imagem. Não é a legenda do Instagram esticada: é o raciocínio dos slides escrito por extenso, e precisa se sustentar sozinho para quem nunca viu o carrossel.
+
+- Quem fala é o Vitor, na primeira pessoa do singular: "acredito que", "sugiro", "o que eu faria". A e-com.plus aparece como a empresa dele ("aqui na e-com.plus"). Opinião em primeira pessoa pode; experiência pessoal, caso ou número que o Vitor não contou ("já vi muita loja…", "um cliente nosso…") não pode, porque seria inventar por ele.
+
+- A primeira frase é a tese e cabe numa linha, pois o LinkedIn corta o texto depois de duas ou três linhas e só mostra o resto em "ver mais".
+- Depois, o raciocínio na ordem dos slides, em parágrafos curtos de duas a quatro frases. Quando um slide for lista, use uma lista com "•" no início de cada item, um por linha.
+- Fora a pessoa do verbo, é a mesma voz dos slides ("você" para o leitor, frases completas, sem travessão, sem exclamação). Pode desenvolver um pouco mais o que o slide teve que cortar, sem inventar dado.
+- Uma frase sobre como a e-com.plus resolve, dita sem tom de anúncio, uma ação para esta semana e, no fim, uma pergunta sobre a operação de quem lê.
+- Última linha: 3 hashtags. Sem emojis, sem URL e sem pedir para "deslizar" ou "salvar".
+- Entre 1200 e 2000 caracteres.
+
 Recursos da e-com.plus (nome — o que é):
 {{RECURSOS}}

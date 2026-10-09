@@ -1,5 +1,5 @@
 {
-  "_sobre": "Série semanal com conteúdo do livro. repo/manuscrito/ficha apontam para o clone privado de vitorrgg/meu-livro (pasta irmã deste repo, ou LIVRO_DIR). manuscrito vazio = o 'manuscrito v*.md' de versão mais alta. A chamada entra no fim da legenda, antes das hashtags; com link preenchido, passa a usar chamadaComLink. As chamadas em primeira pessoa valem para o @vitorrgg. ativa: false pausa a série inteira (geração, @ecomplus.io e @vitorrgg) até o livro ficar pronto; true volta a publicar.",
+  "_sobre": "Série semanal com conteúdo do livro. repo/manuscrito/ficha apontam para o clone privado de vitorrgg/meu-livro (pasta irmã deste repo, ou LIVRO_DIR). manuscrito vazio = o 'manuscrito v*.md' de versão mais alta. A chamada entra no fim da legenda, antes das hashtags; com link preenchido, passa a usar chamadaComLink. As chamadas em primeira pessoa valem para o @vitorrgg e o LinkedIn. ativa: false pausa a série inteira (geração, @ecomplus.io e @vitorrgg) até o livro ficar pronto; true volta a publicar.",
   "ativa": false,
   "repo": "../meu-livro",
   "manuscrito": "",

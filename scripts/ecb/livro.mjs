@@ -25,9 +25,11 @@ export const AVISO_PAUSA = 'Série do livro pausada (ecb/livro/config.json → "
 
 export const pautaPorFonte = (fonte) => PAUTAS.find((p) => `${PREFIXO}${p.id}` === fonte);
 
-// Chamada do livro que vai no fim da legenda, antes das hashtags.
-export function chamadaDoLivro(cfg = CONFIG) {
-  const modelo = cfg.link ? cfg.chamadaComLink : cfg.chamadaSemLink;
+// Chamada do livro que vai no fim da legenda (ou do texto do LinkedIn, que fala em primeira
+// pessoa), antes das hashtags.
+export function chamadaDoLivro({ rede = 'instagram', cfg = CONFIG } = {}) {
+  const sufixo = cfg.link ? 'ComLink' : 'SemLink';
+  const modelo = (rede === 'linkedin' && cfg[`chamadaPrimeiraPessoa${sufixo}`]) || cfg[`chamada${sufixo}`];
   return modelo.replace(/\{(\w+)\}/g, (_, k) => cfg[k] ?? '');
 }
 

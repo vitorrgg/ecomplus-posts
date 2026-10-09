@@ -46,6 +46,8 @@ manual, sem agenda.
 | `scripts/ecb/notificar-slack.mjs` | Avisa no #conteudo que um post foi gerado (título, legenda, slides) ou publicado. Mesmo padrão da notificação de contatos do site: bot token + `chat.postMessage`. |
 | `scripts/render.mjs` | O render de sempre (Satori + resvg) → `output/<slug>/slide-N.png`. |
 | `scripts/ecb/jpeg.mjs` | Converte os PNGs em JPEG — a API do Instagram só aceita JPEG. |
+| `scripts/ecb/publicar-linkedin.mjs` | Publica o texto do LinkedIn (`posts/<slug>/linkedin.txt`) no perfil do Vitor; roda logo depois do Instagram. |
+| `scripts/ecb/linkedin-token.mjs` | Gera o token do LinkedIn (login no navegador) e confere o vencimento; `ecb-linkedin-token.yml` avisa no Slack 10 dias antes. |
 | `scripts/ecb/publicar-instagram.mjs` | Publica um carrossel pela Content Publishing API do Graph, lendo as imagens do `raw.githubusercontent.com` deste repo (por isso ele precisa continuar público). |
 | `scripts/ecb/semana.mjs` | Encadeia coleta → briefs → render → JPEG. |
 | `.github/workflows/ecb-automerge.yml` | Mescla sozinho os PRs `ecb/semana-*` que a rotina na nuvem abre (o app do Claude no GitHub não dá push direto na master). |
@@ -86,6 +88,7 @@ O log fica em `ecb/local.log`.
 | `IG_USER_ID` | ID da conta profissional do Instagram (não é o @). |
 | `IG_ACCESS_TOKEN` | Token com permissão de publicar (ver abaixo). |
 | `ANTHROPIC_API_KEY` | Só se quiser a geração pela API (workflow manual `ecb-semanal.yml`). Cobrada à parte do Max. |
+| `LINKEDIN_CLIENT_ID`, `LINKEDIN_CLIENT_SECRET`, `LINKEDIN_ACCESS_TOKEN` | Publicação no LinkedIn e aviso de vencimento do token (seção LinkedIn). |
 | `SLACK_BOT_TOKEN` | Aviso no Slack quando um post é gerado ou publicado. O mesmo bot `xoxb-…` do site (`www.e-com.plus/functions/SLACK_SETUP.md`), com o escopo `files:write` adicionado (pra subir os slides como imagem) além de `chat:write`; convide o bot pro #conteudo. |
 
 Variáveis opcionais (aba *Variables*):
@@ -143,10 +146,49 @@ O manuscrito usado é o `Manuscrito/… manuscrito v<versão>.md` mais novo do r
 seção mudar de nome numa versão nova, `livro.mjs` avisa qual pauta ajustar. Na fila, cada item tem
 `serie` (`ecb` ou `livro`), e o workflow de publicação escolhe a série pelo dia.
 
+## LinkedIn
+
+Cada post também tem uma versão só em texto, sem imagem, para o perfil pessoal do Vitor no
+LinkedIn: `posts/<slug>/linkedin.txt`, em primeira pessoa (regras no fim de `ecb/PROMPT.md`). Ela
+chega no #conteudo logo abaixo do aviso do post, e o `ecb-publicar.yml` publica no LinkedIn logo
+depois de publicar o mesmo post no Instagram (`scripts/ecb/publicar-linkedin.mjs`). Se o LinkedIn
+falhar, o Instagram não é afetado.
+
+### Configurar (uma vez)
+
+1. Em [developers.linkedin.com](https://developers.linkedin.com/) → *Create app*: nome, a página da
+   e-com.plus no LinkedIn (é obrigatório associar a uma página) e o logo. Um admin da página
+   confirma a associação.
+2. Aba *Products*: adicione **Share on LinkedIn** e **Sign In with LinkedIn using OpenID Connect**.
+   Os dois são liberados na hora, sem análise.
+3. Aba *Auth*: em *Authorized redirect URLs*, adicione `http://localhost:8765/callback`. Copie o
+   *Client ID* e o *Client Secret*.
+4. No GitHub (*Settings → Secrets and variables → Actions*), crie os secrets `LINKEDIN_CLIENT_ID` e
+   `LINKEDIN_CLIENT_SECRET` (o workflow usa os dois para perguntar ao LinkedIn quando o token vence).
+5. Na máquina do Vitor (WSL), ponha os dois em `~/.config/ecb.env` e gere o token:
+   ```bash
+   set -a; . ~/.config/ecb.env; set +a
+   node scripts/ecb/linkedin-token.mjs gerar --salvar   # precisa do gh logado (gh auth login)
+   ```
+   Abre o LinkedIn no navegador; depois de autorizar, o script grava no GitHub o secret
+   `LINKEDIN_ACCESS_TOKEN` e as variables `LINKEDIN_AUTHOR` e `LINKEDIN_TOKEN_EXPIRA_EM`. Sem o
+   `--salvar`, ele imprime os valores para você colar.
+
+### Renovar (a cada 60 dias)
+
+O token de membro vale 60 dias e o LinkedIn só libera renovação automática para parceiros
+aprovados. O workflow `ecb-linkedin-token.yml` confere toda segunda e, com 10 dias ou menos (ou
+vencido), manda no #conteudo os passos para renovar: é o mesmo comando do passo 5. Se um post
+falhar por token vencido, também cai um aviso.
+
+Para publicar no LinkedIn um post que já saiu no Instagram antes disso (como o de 05/10):
+`LINKEDIN_ACCESS_TOKEN=… node scripts/ecb/publicar-linkedin.mjs --slug <slug>`.
+
 ## Aviso no Slack (#conteudo)
 
 Toda vez que um post é gerado, cai uma mensagem no #conteudo com título e legenda,
-seguida dos seis slides enviados como imagem (upload, não link); quando é
+seguida dos seis slides enviados como imagem (upload, não link), e logo abaixo outra com
+o texto do LinkedIn; quando é
 publicado, cai outra com o link. É o mesmo padrão da notificação de contatos do
 site, com o escopo `files:write` a mais no bot.
 

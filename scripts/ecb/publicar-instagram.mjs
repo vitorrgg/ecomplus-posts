@@ -20,7 +20,7 @@
 //   IG_GRAPH_VERSION  v21.0 (padrão)
 //   ECB_BASE_URL      base pública das imagens; padrão raw do GitHub em master
 //   ECB_EXIGE_APROVACAO  "true" → só publica itens com aprovado: true na fila
-import { readdirSync, existsSync, readFileSync } from 'node:fs';
+import { readdirSync, existsSync, readFileSync, appendFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { root, args, gravarJson, lerJson, FILA, HISTORICO, lerFila, lerHistorico } from './util.mjs';
 import { spawnSync } from 'node:child_process';
@@ -131,6 +131,8 @@ if (ehMain) {
   gravarJson(HISTORICO, historico);
   fila.pendentes = fila.pendentes.filter((p) => p.slug !== item.slug);
   gravarJson(FILA, fila);
+  // No GitHub Actions, o slug publicado vai para o passo seguinte (o do LinkedIn).
+  if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, `slug=${item.slug}\n`);
 
   // Aviso no Slack (opcional: sem SLACK_* o script só avisa e sai).
   spawnSync(process.execPath, [join(root, 'scripts', 'ecb', 'notificar-slack.mjs'), '--publicado', '--link', resultado.permalink ?? '', item.slug], { stdio: 'inherit' });

@@ -76,6 +76,7 @@ const criarSaida = (fotosCapa = FOTOS) => z.object({
   slug: z.string().describe('Slug curto em kebab-case (3 a 5 palavras) que identifica o assunto.'),
   slides: z.array(criarSlide(fotosCapa)).min(5).max(7).describe('Sequência do carrossel: começa com "capa", termina com "fechamento", e no meio alterna "texto" e "lista". O penúltimo slide de conteúdo é o cruzamento com a e-com.plus.'),
   legenda: z.string().describe('Legenda do post no Instagram: 3 a 5 frases com a tese e a conclusão, linha em branco, uma frase sobre como a e-com.plus resolve, linha em branco, uma pergunta de convite sobre a operação de quem lê, linha em branco e 5 a 8 hashtags. Até 1500 caracteres. Sem URL, sem citar fonte ou autor.'),
+  linkedin: z.string().optional().describe('Versão do post para o perfil pessoal do Vitor no LinkedIn, na primeira pessoa do singular, só texto e sem imagem, então precisa se sustentar sozinha: a primeira frase é a tese e cabe em uma linha; depois o raciocínio dos slides em parágrafos curtos (uma lista com "•" quando o slide for lista), a frase sobre a e-com.plus, uma ação para esta semana, uma pergunta sobre a operação de quem lê e, na última linha, 3 hashtags. Entre 1200 e 2000 caracteres. Sem URL e sem emojis.'),
 });
 const Saida = criarSaida();
 
@@ -123,18 +124,27 @@ function ajustarSerieLivro(saida, rotulo) {
   if (!/^do livro\b/i.test(capa?.eyebrow ?? '')) {
     throw new Error(`${rotulo}: na série do livro o chapéu da capa começa com "do livro · " (veio "${capa?.eyebrow}").`);
   }
-  if (saida.legenda.includes(LIVRO.titulo)) return saida;
-  const blocos = saida.legenda.trim().split(/\n\s*\n/);
-  const i = /^#/.test(blocos.at(-1)) ? blocos.length - 1 : blocos.length;
-  blocos.splice(i, 0, chamadaDoLivro());
-  return { ...saida, legenda: blocos.join('\n\n') };
+  const comChamada = (texto, chamada) => {
+    if (!texto || texto.includes(LIVRO.titulo)) return texto;
+    const blocos = texto.trim().split(/\n\s*\n/);
+    const i = /^#/.test(blocos.at(-1)) ? blocos.length - 1 : blocos.length;
+    blocos.splice(i, 0, chamada);
+    return blocos.join('\n\n');
+  };
+  return {
+    ...saida,
+    legenda: comChamada(saida.legenda, chamadaDoLivro()),
+    linkedin: comChamada(saida.linkedin, chamadaDoLivro({ rede: 'linkedin' })),
+  };
 }
 
-export function gravarPost({ slug, brief, legenda, artigo, semana }) {
+export function gravarPost({ slug, brief, legenda, linkedin, artigo, semana }) {
   const dir = join(root, 'posts', slug);
   mkdirSync(dir, { recursive: true });
   writeFileSync(join(dir, 'brief.md'), brief);
   writeFileSync(join(dir, 'legenda.txt'), legenda.trim() + '\n');
+  if (linkedin) writeFileSync(join(dir, 'linkedin.txt'), linkedin.trim() + '\n');
+  else console.warn(`⚠ ${slug}: sem versão para o LinkedIn (campo "linkedin").`);
 
   const historico = lerHistorico();
   const serie = artigo.serie ?? 'ecb';
@@ -269,7 +279,7 @@ if (ehMain) {
         : via === 'api' ? await gerarComApi(client, artigo, livres)
         : gerarComClaudeCode(artigo, livres));
     const slug = `${artigo.serie === 'livro' ? 'livro' : 'ecb'}-${semana}-${slugify(saida.slug || artigo.titulo, 36)}`;
-    const dir = gravarPost({ slug, brief: montarBrief(saida, artigo), legenda: saida.legenda, artigo, semana });
+    const dir = gravarPost({ slug, brief: montarBrief(saida, artigo), legenda: saida.legenda, linkedin: saida.linkedin, artigo, semana });
     console.log(`✓ ${dir}`);
     gerados.push(slug);
   }

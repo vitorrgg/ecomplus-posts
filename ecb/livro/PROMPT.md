@@ -10,5 +10,5 @@ A pauta da semana é um trecho do livro "Como escalar seu e-commerce", que o Vit
 - **Capa:** o chapéu (`eyebrow`) começa com "do livro · " seguido do tema em uma ou duas palavras, como "do livro · busca interna". O `gerar-briefs.mjs` recusa a capa sem esse chapéu. O título é a tese do trecho.
 - **Mais técnico:** pode usar até 7 slides. Prefira listas de passos e critérios concretos a parágrafos de contexto. O fechamento traz um teste que o lojista pode fazer na própria loja nesta semana.
 - **Slide da e-com.plus:** entra só se o tema cruzar naturalmente com um recurso da lista. Se não cruzar, use o espaço para mais um passo prático, e a legenda troca a frase sobre a e-com.plus por uma frase com a ideia central do trecho.
-- **Legenda:** não cite o livro. A chamada do livro (`ecb/livro/config.json`) é colocada automaticamente antes das hashtags.
+- **Legenda e LinkedIn:** não cite o livro. A chamada do livro (`ecb/livro/config.json`) é colocada automaticamente antes das hashtags, nos dois textos.
 - **Saída:** `ecb/saidas/<segunda>/livro.json`, com o campo extra `"fonte"` igual ao `url` do rascunho (`livro:<id da pauta>`).
