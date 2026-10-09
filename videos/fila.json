@@ -1,6 +1,14 @@
 {
   "pendentes": [
     {
+      "slug": "consultoria-01-01-quanto-sobra-produto-59-90",
+      "quando": "2026-10-09T15:00:00-03:00",
+      "destinos": [
+        "vitorrgg"
+      ],
+      "obs": "teste do @vitorrgg"
+    },
+    {
       "slug": "planilha-no-chatgpt",
       "quando": "2026-10-09T18:00:00-03:00",
       "destinos": [
@@ -8,13 +16,11 @@
       ]
     },
     {
-      "slug": "consultoria-01-01-quanto-sobra-produto-59-90",
+      "slug": "consultoria-02-02-margem-ou-volume",
       "quando": "2026-10-13T18:00:00-03:00",
       "destinos": [
         "vitorrgg"
-      ],
-      "aprovado": false,
-      "obs": "falta legenda.txt"
+      ]
     },
     {
       "slug": "tres-perguntas-pra-sua-loja",
@@ -31,166 +37,123 @@
       ]
     },
     {
-      "slug": "consultoria-02-02-margem-ou-volume",
+      "slug": "consultoria-03-03-kit-de-2-ou-kit-de-4",
       "quando": "2026-10-20T18:00:00-03:00",
       "destinos": [
         "vitorrgg"
-      ],
-      "aprovado": false,
-      "obs": "falta legenda.txt"
-    },
-    {
-      "slug": "consultoria-03-03-kit-de-2-ou-kit-de-4",
-      "quando": "2026-10-27T18:00:00-03:00",
-      "destinos": [
-        "vitorrgg"
-      ],
-      "aprovado": false,
-      "obs": "falta legenda.txt"
+      ]
     },
     {
       "slug": "consultoria-04-04-catalogo-atalho-e-armadilha",
-      "quando": "2026-11-03T18:00:00-03:00",
+      "quando": "2026-10-27T18:00:00-03:00",
       "destinos": [
         "vitorrgg"
-      ],
-      "aprovado": false,
-      "obs": "falta legenda.txt"
+      ]
     },
     {
       "slug": "consultoria-05-05-embalagem-de-10-centavos",
-      "quando": "2026-11-10T18:00:00-03:00",
+      "quando": "2026-11-03T18:00:00-03:00",
       "destinos": [
         "vitorrgg"
-      ],
-      "aprovado": false,
-      "obs": "falta legenda.txt"
+      ]
     },
     {
       "slug": "consultoria-06-06-sistema-na-nuvem",
-      "quando": "2026-11-17T18:00:00-03:00",
+      "quando": "2026-11-10T18:00:00-03:00",
       "destinos": [
         "vitorrgg"
-      ],
-      "aprovado": false,
-      "obs": "falta legenda.txt"
+      ]
     },
     {
       "slug": "consultoria-07-07-foto-titulo-e-descricao",
-      "quando": "2026-11-24T18:00:00-03:00",
+      "quando": "2026-11-17T18:00:00-03:00",
       "destinos": [
         "vitorrgg"
-      ],
-      "aprovado": false,
-      "obs": "falta legenda.txt"
+      ]
     },
     {
       "slug": "consultoria-08-08-ia-para-foto-de-produto",
-      "quando": "2026-12-01T18:00:00-03:00",
+      "quando": "2026-11-24T18:00:00-03:00",
       "destinos": [
         "vitorrgg"
-      ],
-      "aprovado": false,
-      "obs": "falta legenda.txt"
+      ]
     },
     {
       "slug": "consultoria-09-09-mercado-livre-gosta-de-agilidade",
-      "quando": "2026-12-08T18:00:00-03:00",
+      "quando": "2026-12-01T18:00:00-03:00",
       "destinos": [
         "vitorrgg"
-      ],
-      "aprovado": false,
-      "obs": "falta legenda.txt"
+      ]
     },
     {
       "slug": "consultoria-10-10-capacidade-de-carga-no-anuncio",
-      "quando": "2026-12-15T18:00:00-03:00",
+      "quando": "2026-12-08T18:00:00-03:00",
       "destinos": [
         "vitorrgg"
-      ],
-      "aprovado": false,
-      "obs": "falta legenda.txt"
+      ]
     },
     {
       "slug": "consultoria-11-11-quanto-o-mercado-livre-cobra",
-      "quando": "2026-12-22T18:00:00-03:00",
+      "quando": "2026-12-15T18:00:00-03:00",
       "destinos": [
         "vitorrgg"
-      ],
-      "aprovado": false,
-      "obs": "falta legenda.txt"
+      ]
     },
     {
       "slug": "consultoria-12-12-reputacao-e-frete-gratis",
-      "quando": "2026-12-29T18:00:00-03:00",
+      "quando": "2026-12-22T18:00:00-03:00",
       "destinos": [
         "vitorrgg"
-      ],
-      "aprovado": false,
-      "obs": "falta legenda.txt"
+      ]
     },
     {
       "slug": "consultoria-13-13-cuidado-com-as-sugestoes-do-ml",
-      "quando": "2027-01-05T18:00:00-03:00",
+      "quando": "2026-12-29T18:00:00-03:00",
       "destinos": [
         "vitorrgg"
-      ],
-      "aprovado": false,
-      "obs": "falta legenda.txt"
+      ]
     },
     {
       "slug": "consultoria-14-14-mercado-livre-flex",
-      "quando": "2027-01-12T18:00:00-03:00",
+      "quando": "2027-01-05T18:00:00-03:00",
       "destinos": [
         "vitorrgg"
-      ],
-      "aprovado": false,
-      "obs": "falta legenda.txt"
+      ]
     },
     {
       "slug": "consultoria-15-15-programa-decola",
-      "quando": "2027-01-19T18:00:00-03:00",
+      "quando": "2027-01-12T18:00:00-03:00",
       "destinos": [
         "vitorrgg"
-      ],
-      "aprovado": false,
-      "obs": "falta legenda.txt"
+      ]
     },
     {
       "slug": "consultoria-16-16-atrasar-ou-cancelar",
-      "quando": "2027-01-26T18:00:00-03:00",
+      "quando": "2027-01-19T18:00:00-03:00",
       "destinos": [
         "vitorrgg"
-      ],
-      "aprovado": false,
-      "obs": "falta legenda.txt"
+      ]
     },
     {
       "slug": "consultoria-17-17-panfleto-na-caixa",
-      "quando": "2027-02-02T18:00:00-03:00",
+      "quando": "2027-01-26T18:00:00-03:00",
       "destinos": [
         "vitorrgg"
-      ],
-      "aprovado": false,
-      "obs": "falta legenda.txt"
+      ]
     },
     {
       "slug": "consultoria-18-18-vendi-e-agora-expedicao",
-      "quando": "2027-02-09T18:00:00-03:00",
+      "quando": "2027-02-02T18:00:00-03:00",
       "destinos": [
         "vitorrgg"
-      ],
-      "aprovado": false,
-      "obs": "falta legenda.txt"
+      ]
     },
     {
       "slug": "consultoria-19-19-compra-no-quilo-vende-na-unidade",
-      "quando": "2027-02-16T18:00:00-03:00",
+      "quando": "2027-02-09T18:00:00-03:00",
       "destinos": [
         "vitorrgg"
-      ],
-      "aprovado": false,
-      "obs": "falta legenda.txt"
+      ]
     }
   ]
 }
