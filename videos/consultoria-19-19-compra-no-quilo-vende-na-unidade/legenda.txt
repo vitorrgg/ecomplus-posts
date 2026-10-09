@@ -1,0 +1,9 @@
+Compra no quilo e vende na unidade? O sistema de gestão pode fazer essa conta por você.
+
+Na loja, compro prego no quilo e vendo por unidade. Cadastrei uma vez a conversão, quantos pregos tem em um quilo, e agora, a cada venda, o sistema baixa do estoque a quantidade certa em quilos, sem eu fazer conta.
+
+Para quem produz, é diferente: você compra em quilo e usa a matéria-prima por medida para compor o preço. Aí vale perguntar ao fornecedor do sistema se ele tem módulo de produção antes de contratar.
+
+Seu estoque bate com o que você vende?
+
+#ecommerce #gestao #estoque #varejo
