@@ -1,8 +1,9 @@
 // Publica no Instagram pessoal @vitorrgg o post da série do livro que acabou de sair no
 // @ecomplus.io: o mesmo carrossel, com a legenda em primeira pessoa. Roda no ecb-publicar.yml
-// logo depois do @ecomplus.io; quando não há post do livro novo, não faz nada. Quando a série
-// sai só no @vitorrgg (ecb/livro/config.json → contas sem "ecomplus"), quem publica é o
-// publicar-instagram.mjs, direto da fila; este passo não faz nada.
+// logo depois do @ecomplus.io; quando não há post do livro novo, não faz nada. Só age quando
+// ecb/livro/config.json → contas tem "ecomplus" e "vitorrgg". Com só um dos dois (direto no
+// @vitorrgg, ou no @ecomplus.io com o @vitorrgg como colaborador), quem publica é o
+// publicar-instagram.mjs e este passo não faz nada.
 //
 // A legenda é a versão do LinkedIn (posts/<slug>/linkedin.txt, já em primeira pessoa) quando
 // existe; senão, a legenda do @ecomplus.io com a chamada do livro trocada pela versão em
@@ -29,7 +30,7 @@ const ehMain = process.argv[1] && import.meta.url.endsWith(process.argv[1].split
 if (ehMain) {
   const opts = args();
   if (PAUSADA && typeof opts.slug !== 'string') { console.log(AVISO_PAUSA.replace(': pule o passo do livro', '')); process.exit(0); }
-  if (!CONTAS.includes('ecomplus') && typeof opts.slug !== 'string') { console.log('A série do livro sai só no @vitorrgg, direto da fila: nada a espelhar aqui.'); process.exit(0); }
+  if (!(CONTAS.includes('ecomplus') && CONTAS.includes('vitorrgg')) && typeof opts.slug !== 'string') { console.log('A série do livro não sai em dois posts separados (ecb/livro/config.json → contas): nada a espelhar aqui.'); process.exit(0); }
   const historico = lerHistorico();
   const slug = typeof opts.slug === 'string' ? opts.slug : proximo(historico);
   if (!slug) { console.log('Nenhum post do livro novo para o @vitorrgg.'); process.exit(0); }

@@ -1,8 +1,9 @@
 # Publica o próximo carrossel da fila no Instagram. Seg/qua/sex sai a série ecb no
 # @ecomplus.io (os 3 posts dos mais lidos gerados na segunda de manhã) e quinta a série
-# do livro (ecb/livro/), nas contas de ecb/livro/config.json → contas: hoje só o
-# Instagram pessoal @vitorrgg, com a legenda em primeira pessoa. Se a série voltar a sair
-# também no @ecomplus.io, o passo "Livro também no @vitorrgg" repete o post lá. Logo
+# do livro (ecb/livro/), como diz ecb/livro/config.json: hoje no @ecomplus.io com o
+# @vitorrgg como colaborador (convite aceito pela API com o token dele, por isso os
+# segredos IG_VITORRGG_* no passo de publicar). Com "ecomplus" e "vitorrgg" em contas, o
+# passo "Livro também no @vitorrgg" faz um segundo post no perfil pessoal. Logo
 # depois de cada post, o texto dele (posts/<slug>/linkedin.txt) sai no perfil pessoal do
 # Vitor no LinkedIn; se o LinkedIn falhar, o Instagram já foi e o histórico é comitado do
 # mesmo jeito. As imagens são

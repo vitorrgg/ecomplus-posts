@@ -63,10 +63,10 @@ token na mão.
 
 O que sai no @vitorrgg:
 
-- **Série do livro:** um carrossel por semana, às quintas 12:00, só no @vitorrgg, com a legenda
-  em primeira pessoa (`"contas": ["vitorrgg"]` em `ecb/livro/config.json`; o `ecb-publicar.yml`
-  publica direto da fila). Com `"ecomplus"` na lista, sai também no @ecomplus.io e o passo
-  "Livro também no @vitorrgg" repete lá.
+- **Série do livro:** um carrossel por semana, às quintas 12:00, publicado no @ecomplus.io com o
+  @vitorrgg como colaborador, então o mesmo post aparece nos dois perfis (`"contas": ["ecomplus"]`
+  e `"colaboradores": ["vitorrgg"]` em `ecb/livro/config.json`). O convite é aceito na hora pela
+  API, com o token do @vitorrgg; se a API recusar, o #conteudo recebe um aviso para aceitar no app.
 - **Vídeos:** qualquer item de `videos/fila.json` com o destino `vitorrgg`, como os cortes da
   consultoria (`scripts/videos/importar.mjs`; ver [`videos/README.md`](videos/README.md)).
 

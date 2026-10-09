@@ -23,7 +23,7 @@ import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import yaml from 'js-yaml';
 import { root, args, lerFila, lerHistorico } from './util.mjs';
-import { CONTAS as CONTAS_LIVRO, legendaPessoal } from './livro.mjs';
+import { CONTAS as CONTAS_LIVRO, COLABORADORES as COLABORADORES_LIVRO, legendaPessoal } from './livro.mjs';
 
 const REPO_URL = 'https://github.com/vitorrgg/ecomplus-posts';
 
@@ -75,7 +75,8 @@ export function montarMensagemGerado(post) {
   return { text: texto };
 }
 
-const ondeSaiOLivro = () => CONTAS_LIVRO.map((c) => (c === 'ecomplus' ? '@ecomplus.io' : `@${c}`)).join(' e ');
+const ondeSaiOLivro = () => CONTAS_LIVRO.map((c) => (c === 'ecomplus' ? '@ecomplus.io' : `@${c}`)).join(' e ')
+  + (CONTAS_LIVRO.includes('ecomplus') && COLABORADORES_LIVRO.length ? ` com ${COLABORADORES_LIVRO.map((u) => `@${u}`).join(' e ')} de colaborador` : '');
 
 // A série do livro só no @vitorrgg sai com a legenda em primeira pessoa, que é o texto do
 // LinkedIn quando o post tem um (aí ela já vem na mensagem de baixo).

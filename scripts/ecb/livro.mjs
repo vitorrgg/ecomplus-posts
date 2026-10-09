@@ -25,6 +25,9 @@ export const AVISO_PAUSA = 'Série do livro pausada (ecb/livro/config.json → "
 // Contas do Instagram em que a série sai: "ecomplus" (@ecomplus.io) e/ou "vitorrgg". Sem o
 // @ecomplus.io, o post vai da fila direto para o @vitorrgg (publicar-instagram.mjs).
 export const CONTAS = CONFIG.contas ?? ['ecomplus', 'vitorrgg'];
+// Usuários convidados como colaboradores do post no @ecomplus.io: o mesmo post aparece no
+// perfil deles, sem publicar duas vezes.
+export const COLABORADORES = CONFIG.colaboradores ?? [];
 
 export const pautaPorFonte = (fonte) => PAUTAS.find((p) => `${PREFIXO}${p.id}` === fonte);
 
