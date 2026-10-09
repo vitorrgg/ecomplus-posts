@@ -1,3 +1,20 @@
 {
-  "publicados": []
+  "publicados": [
+    {
+      "slug": "consultoria-01-01-quanto-sobra-produto-59-90",
+      "quando": "2026-10-09T15:00:00-03:00",
+      "destinos": [
+        "vitorrgg"
+      ],
+      "obs": "teste do @vitorrgg",
+      "feito": {
+        "vitorrgg": {
+          "id": "18120250069746830",
+          "link": "https://www.instagram.com/reel/DeSIwPPia8m/",
+          "em": "2026-10-09T18:20:16.341Z"
+        }
+      },
+      "publicadoEm": "2026-10-09T18:20:16.342Z"
+    }
+  ]
 }
