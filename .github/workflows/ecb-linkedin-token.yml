@@ -1,0 +1,32 @@
+# O token do LinkedIn do perfil do Vitor vale 60 dias e não renova sozinho. Toda segunda
+# este workflow confere quanto falta e, com 10 dias ou menos (ou já vencido), avisa no
+# #conteudo com os passos para renovar (scripts/ecb/linkedin-token.mjs gerar --salvar).
+name: ECB — conferir token do LinkedIn
+
+on:
+  schedule:
+    - cron: '0 12 * * 1'   # segunda 09:00 em São Paulo
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  conferir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Conferir vencimento
+        env:
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_CLIENT_ID: ${{ secrets.LINKEDIN_CLIENT_ID }}
+          LINKEDIN_CLIENT_SECRET: ${{ secrets.LINKEDIN_CLIENT_SECRET }}
+          LINKEDIN_TOKEN_EXPIRA_EM: ${{ vars.LINKEDIN_TOKEN_EXPIRA_EM }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_CONTEUDO: ${{ vars.SLACK_CHANNEL_CONTEUDO }}
+        run: node scripts/ecb/linkedin-token.mjs verificar

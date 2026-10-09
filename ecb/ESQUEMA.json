@@ -173,6 +173,9 @@
     },
     "__schema7": {
       "type": "string"
+    },
+    "__schema8": {
+      "type": "string"
     }
   },
   "type": "object",
@@ -191,6 +194,9 @@
     "legenda": {
       "type": "string",
       "description": "Legenda do post no Instagram: 3 a 5 frases com a tese e a conclusão, linha em branco, uma frase sobre como a e-com.plus resolve, linha em branco, uma pergunta de convite sobre a operação de quem lê, linha em branco e 5 a 8 hashtags. Até 1500 caracteres. Sem URL, sem citar fonte ou autor."
+    },
+    "linkedin": {
+      "$ref": "#/$defs/__schema8"
     }
   },
   "additionalProperties": false,

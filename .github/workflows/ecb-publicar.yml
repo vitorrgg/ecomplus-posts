@@ -1,7 +1,10 @@
 # Publica o próximo carrossel da fila no Instagram (@ecomplus.io). Seg/qua/sex sai a
 # série ecb (os 3 posts dos mais lidos gerados na segunda de manhã) e quinta a série
 # do livro (ecb/livro/), que em seguida sai também no Instagram pessoal @vitorrgg com a
-# legenda em primeira pessoa (publicar-vitorrgg.mjs). As imagens são
+# legenda em primeira pessoa (publicar-vitorrgg.mjs). Logo depois de cada post, o texto
+# dele (posts/<slug>/linkedin.txt) sai no perfil pessoal do Vitor no LinkedIn; se o
+# LinkedIn ou o @vitorrgg falharem, o @ecomplus.io já foi e o histórico é comitado do
+# mesmo jeito. As imagens são
 # lidas pela API do Instagram direto do raw.githubusercontent.com deste repo,
 # por isso a fila precisa estar comitada e enviada antes (ecb-semanal.yml).
 name: ECB — publicar no Instagram
@@ -43,6 +46,7 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Publicar
+        id: publicar
         env:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
@@ -60,6 +64,16 @@ jobs:
           args+=(--serie "$serie")
           [ "${{ github.event.inputs.dry_run }}" = "true" ] && args+=(--dry-run)
           node scripts/ecb/publicar-instagram.mjs "${args[@]}"
+      - name: Publicar no LinkedIn
+        if: steps.publicar.outputs.slug != ''
+        continue-on-error: true
+        env:
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_AUTHOR: ${{ vars.LINKEDIN_AUTHOR }}
+          LINKEDIN_VERSION: ${{ vars.LINKEDIN_VERSION }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_CONTEUDO: ${{ vars.SLACK_CHANNEL_CONTEUDO }}
+        run: node scripts/ecb/publicar-linkedin.mjs --slug "${{ steps.publicar.outputs.slug }}"
       - name: Livro também no @vitorrgg
         if: github.event.inputs.dry_run != 'true'
         continue-on-error: true
@@ -70,6 +84,7 @@ jobs:
           SLACK_CHANNEL_CONTEUDO: ${{ vars.SLACK_CHANNEL_CONTEUDO }}
         run: node scripts/ecb/publicar-vitorrgg.mjs
       - name: Commit do histórico
+        if: always()
         run: |
           git config user.name 'ecb-bot'
           git config user.email 'ti@e-com.club'

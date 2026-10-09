@@ -4,8 +4,11 @@
 // direto com fetch.
 //
 // Uso:
-//   node scripts/ecb/notificar-slack.mjs <slug> [<slug>...]           # "post gerado" (padrão)
+//   node scripts/ecb/notificar-slack.mjs <slug> [<slug>...]           # "post gerado" (padrão),
+//                                                                     # seguido do texto do LinkedIn
 //   node scripts/ecb/notificar-slack.mjs --publicado <slug> --link <permalink>
+//   node scripts/ecb/notificar-slack.mjs --publicado --rede linkedin --link <url> <slug>
+//   node scripts/ecb/notificar-slack.mjs --token-linkedin <dias|vencido>  # renovar o token
 //   node scripts/ecb/notificar-slack.mjs --dry-run <slug>              # imprime o payload, não envia
 //
 // As imagens são enviadas como arquivos (files.getUploadURLExternal →
@@ -28,6 +31,8 @@ function lerPost(slug) {
   const brief = readFileSync(join(dir, 'brief.md'), 'utf8');
   const legendaArq = join(dir, 'legenda.txt');
   const legenda = existsSync(legendaArq) ? readFileSync(legendaArq, 'utf8').trim() : '';
+  const linkedinArq = join(dir, 'linkedin.txt');
+  const linkedin = existsSync(linkedinArq) ? readFileSync(linkedinArq, 'utf8').trim() : '';
   const slides = brief.split(/^## Slide \d+\s*$/m).slice(1).map((b) => {
     const m = b.match(/```yaml\n([\s\S]*?)```/);
     return m ? yaml.load(m[1]) : {};
@@ -45,6 +50,8 @@ function lerPost(slug) {
     titulo: String(capa.titulo ?? slug).replace(/\n/g, ' '),
     subtitulo: capa.subtitulo ?? '',
     legenda,
+    linkedin,
+    serie: meta?.serie ?? 'ecb',
     fonte,
     nSlides: slides.length,
     imagens: jpgs.map((f) => join(outDir, f)),
@@ -57,22 +64,48 @@ export function montarMensagemGerado(post) {
   const texto = [
     `🆕 *Post gerado: ${post.titulo}*`,
     `_${post.subtitulo}_ · ${post.nSlides} slides · \`${post.slug}\``,
-    post.fonte ? `Pauta: <${post.fonte}|artigo no E-Commerce Brasil>` : null,
+    post.fonte?.startsWith('http') ? `Pauta: <${post.fonte}|artigo no E-Commerce Brasil>` : null,
+    post.serie === 'livro' ? `Série do livro · pauta \`${post.fonte}\`` : null,
     '',
     '*Legenda:*',
     post.legenda.slice(0, 2900),
     '',
-    `_Entra na fila de publicação (seg/qua/sex 12:00). Pra vetar, \`"aprovado": false\` em \`ecb/fila.json\`._`,
+    `_Entra na fila de publicação (${post.serie === 'livro' ? 'quinta' : 'seg/qua/sex'} 12:00). Pra vetar, \`"aprovado": false\` em \`ecb/fila.json\`._`,
   ].filter((l) => l !== null).join('\n');
   return { text: texto };
 }
 
-export function montarMensagemPublicado(post, link) {
+// Texto do LinkedIn numa mensagem à parte, logo abaixo do aviso do post, num bloco de
+// código: preserva as quebras de linha e os "•" e tem botão de copiar no Slack.
+export function montarMensagemLinkedin(post) {
+  if (!post.linkedin) return null;
+  return { text: `💼 *LinkedIn: ${post.titulo}* (só texto, sem imagem)\n\`\`\`\n${post.linkedin.slice(0, 3800)}\n\`\`\`` };
+}
+
+export function montarMensagemPublicado(post, link, rede = 'instagram') {
+  const nome = rede === 'linkedin' ? 'LinkedIn' : 'Instagram';
   return {
-    text: `Publicado no Instagram: ${post.titulo}`,
+    text: `Publicado no ${nome}: ${post.titulo}`,
     blocks: [
-      { type: 'section', text: { type: 'mrkdwn', text: `✅ *Publicado no Instagram:* ${post.titulo}${link ? `\n<${link}|abrir post>` : ''}` } },
+      { type: 'section', text: { type: 'mrkdwn', text: `✅ *Publicado no ${nome}:* ${post.titulo}${link ? `\n<${link}|abrir post>` : ''}` } },
     ],
+  };
+}
+
+// Token do LinkedIn perto de vencer (ou vencido): os passos para renovar.
+export function montarMensagemTokenLinkedin(dias) {
+  const quando = dias === 'vencido' ? '*venceu*: os posts não estão saindo no LinkedIn' : `vence em *${dias} dia(s)*`;
+  return {
+    text: [
+      `🔑 O token do LinkedIn do Vitor ${quando}.`,
+      'Para renovar (uns 2 minutos, na máquina do Vitor, no WSL):',
+      '```',
+      'cd ~/ecomplus-posts && git pull',
+      'set -a; . ~/.config/ecb.env; set +a   # LINKEDIN_CLIENT_ID e LINKEDIN_CLIENT_SECRET',
+      'node scripts/ecb/linkedin-token.mjs gerar --salvar',
+      '```',
+      '_Abre o LinkedIn no navegador, você autoriza, e o script grava o token novo no GitHub. Vale por mais 60 dias._',
+    ].join('\n'),
   };
 }
 
@@ -122,12 +155,22 @@ export async function enviar(mensagem, { dryRun = false, arquivos = [] } = {}) {
 const ehMain = process.argv[1] && import.meta.url.endsWith(process.argv[1].split('/').pop());
 if (ehMain) {
   const opts = args();
-  const slugs = process.argv.slice(2).filter((a, i, all) => !a.startsWith('--') && all[i - 1] !== '--link');
+  if (opts['token-linkedin']) {
+    const r = await enviar(montarMensagemTokenLinkedin(opts['token-linkedin']), { dryRun: Boolean(opts['dry-run']) });
+    if (r.ok && !r.dryRun) console.log('✓ Slack: aviso do token do LinkedIn');
+    process.exit(0);
+  }
+  const slugs = process.argv.slice(2).filter((a, i, all) => !a.startsWith('--') && !['--link', '--rede'].includes(all[i - 1]));
   if (!slugs.length) { console.error('Uso: node scripts/ecb/notificar-slack.mjs [--publicado --link <url>] [--dry-run] <slug>...'); process.exit(1); }
   for (const slug of slugs) {
     const post = lerPost(slug);
-    const msg = opts.publicado ? montarMensagemPublicado(post, opts.link) : montarMensagemGerado(post);
+    const msg = opts.publicado ? montarMensagemPublicado(post, opts.link, opts.rede) : montarMensagemGerado(post);
     const r = await enviar(msg, { dryRun: Boolean(opts['dry-run']), arquivos: opts.publicado ? [] : post.imagens });
     if (r.ok && !r.dryRun) console.log(`✓ Slack: ${post.titulo}`);
+    const linkedin = opts.publicado ? null : montarMensagemLinkedin(post);
+    if (linkedin && r.ok) {
+      const rl = await enviar(linkedin, { dryRun: Boolean(opts['dry-run']) });
+      if (rl.ok && !rl.dryRun) console.log(`✓ Slack: LinkedIn de ${post.titulo}`);
+    }
   }
 }
