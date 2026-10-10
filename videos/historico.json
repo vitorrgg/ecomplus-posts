@@ -15,6 +15,21 @@
         }
       },
       "publicadoEm": "2026-10-09T18:20:16.342Z"
+    },
+    {
+      "slug": "planilha-no-chatgpt",
+      "quando": "2026-10-09T18:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "feito": {
+        "instagram": {
+          "id": "18118413836056028",
+          "link": "https://www.instagram.com/reel/DeS0yMBj5VG/",
+          "em": "2026-10-10T00:45:01.943Z"
+        }
+      },
+      "publicadoEm": "2026-10-10T00:45:01.944Z"
     }
   ]
 }
