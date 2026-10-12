@@ -1,0 +1,7 @@
+Durante anos a discussão foi como levar o cliente até o seu site. Hoje parte dele pergunta dentro de um assistente de IA e espera resolver ali mesmo, do produto ao atendimento, sem abrir nenhum aplicativo. Acreditamos que isso não acaba com a loja própria, mas cria uma porta nova, e quem não está legível para a máquina simplesmente não aparece na resposta. O cuidado é não repetir ali o erro do marketplace, que é deixar cadastro, pagamento e dado do cliente do lado de fora.
+
+Na e-com.plus o blog nativo e as fichas estruturadas existem para que ChatGPT, Gemini e afins consigam ler e citar as suas páginas, e como o storefront é código da sua loja o login e o checkout continuam no seu domínio.
+
+Você já perguntou a um assistente de IA sobre um produto que vende, para ver quem ele cita? Conta para nós nos comentários.
+
+#ecommerce #inteligenciaartificial #chatgpt #lojavirtual #d2c #seo #ecomplus
