@@ -1,0 +1,7 @@
+Na pesquisa da McKinsey publicada em 2025, 88% das empresas disseram usar IA em pelo menos uma função de negócio, e só 7% afirmaram ter a IA totalmente escalada. A distância entre esses dois números é onde está quase toda loja hoje. A descrição do produto sai de um assistente, o chatbot responde bem, o relatório vem bonito, mas o catálogo continua desatualizado e o dado de margem ainda é exportado na mão. Acreditamos que o problema raramente é o modelo, e sim a operação em volta dele, pois cada ferramenta vê só um pedaço e nenhuma consegue agir.
+
+Na e-com.plus a IA do painel responde sobre a operação, o conector MCP liga o Claude direto à API, sem export, e a API de analytics agrega e atualiza em massa na própria base da loja.
+
+Qual decisão da sua operação a IA já conseguiria tomar com os dados que você tem hoje? Conta para nós nos comentários.
+
+#ecommerce #inteligenciaartificial #gestao #dados #lojavirtual #automacao #ecomplus

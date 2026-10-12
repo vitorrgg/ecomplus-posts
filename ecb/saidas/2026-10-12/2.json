@@ -1,0 +1,66 @@
+{
+  "fonte": "https://www.ecommercebrasil.com.br/noticias/gol-lanca-check-in-pelo-chatgpt-e-testa-assistente-de-ia-como-canal",
+  "slug": "a-vitrine-agora-e-uma-conversa",
+  "slides": [
+    {
+      "tipo": "capa",
+      "eyebrow": "análise da semana · canais",
+      "titulo": "a vitrine\nagora é uma\nconversa",
+      "subtitulo": "Quando o cliente resolve tudo dentro de um assistente de IA, a sua loja precisa estar legível para ele.",
+      "imagem": "network-nodes.jpg"
+    },
+    {
+      "tipo": "texto",
+      "titulo": "O balcão mudou de lugar",
+      "paragrafos": [
+        "Durante anos a discussão era levar o cliente até o seu site, mas hoje parte dele pergunta dentro de um assistente de IA e espera resolver ali mesmo.",
+        "Já existe empresa concluindo atendimento dentro do ChatGPT, com a autenticação numa aba da própria marca, e o assistente passa a funcionar como mais um canal."
+      ],
+      "tema": "claro",
+      "imagem": null
+    },
+    {
+      "tipo": "lista",
+      "titulo": "O que o assistente precisa achar",
+      "itens": [
+        "Ficha de produto estruturada, com especificação técnica que uma máquina consiga ler",
+        "Prazo e frete claros, pois o assistente responde o que encontra escrito na página",
+        "Política de troca e dúvida frequente publicadas, e não guardadas no atendimento",
+        "Conteúdo seu no seu domínio, pois é dele que a resposta vai ser citada"
+      ],
+      "tema": "escuro",
+      "imagem": null
+    },
+    {
+      "tipo": "texto",
+      "titulo": "Não entregue o login",
+      "paragrafos": [
+        "O cuidado é não repetir no assistente o erro do marketplace, que é deixar cadastro, pagamento e dado do cliente do lado de fora da sua operação.",
+        "Autenticação e compra devem acontecer no seu ambiente, pois o assistente pode trazer a conversa, mas o cliente precisa continuar seu."
+      ],
+      "tema": "claro",
+      "imagem": "ai-touch-circuit.jpg"
+    },
+    {
+      "tipo": "texto",
+      "titulo": "Como fica na e-com.plus",
+      "paragrafos": [
+        "O blog nativo e as fichas estruturadas existem para que ChatGPT, Gemini e afins consigam ler e citar as suas páginas, e não as de um intermediário.",
+        "Como o storefront é código da sua loja, com API aberta, o login e o checkout ficam no seu domínio, e o motor de busca trata especificação técnica como filtro."
+      ],
+      "tema": "escuro",
+      "imagem": null
+    },
+    {
+      "tipo": "fechamento",
+      "paragrafos": [
+        "O assistente de IA não substitui a sua loja, mas vira uma porta nova, e quem não está legível para ele simplesmente não aparece na resposta.",
+        "Esta semana, pergunte a um assistente sobre um produto que você vende e veja se ele cita a sua loja, um marketplace ou ninguém."
+      ],
+      "tema": "claro",
+      "imagem": null
+    }
+  ],
+  "legenda": "Durante anos a discussão foi como levar o cliente até o seu site. Hoje parte dele pergunta dentro de um assistente de IA e espera resolver ali mesmo, do produto ao atendimento, sem abrir nenhum aplicativo. Acreditamos que isso não acaba com a loja própria, mas cria uma porta nova, e quem não está legível para a máquina simplesmente não aparece na resposta. O cuidado é não repetir ali o erro do marketplace, que é deixar cadastro, pagamento e dado do cliente do lado de fora.\n\nNa e-com.plus o blog nativo e as fichas estruturadas existem para que ChatGPT, Gemini e afins consigam ler e citar as suas páginas, e como o storefront é código da sua loja o login e o checkout continuam no seu domínio.\n\nVocê já perguntou a um assistente de IA sobre um produto que vende, para ver quem ele cita? Conta para nós nos comentários.\n\n#ecommerce #inteligenciaartificial #chatgpt #lojavirtual #d2c #seo #ecomplus",
+  "linkedin": "O cliente começou a resolver dentro do assistente de IA, e isso muda onde a sua loja precisa estar visível.\n\nDurante anos a discussão foi como levar a pessoa até o seu site. Agora já existe empresa concluindo atendimento dentro do ChatGPT, com a autenticação acontecendo numa aba da própria marca, e o assistente funcionando como mais um canal ao lado do site e do aplicativo.\n\nAcredito que isso não acaba com a loja própria. Cria uma porta nova, e por enquanto uma porta que quase ninguém arrumou.\n\nPara aparecer numa resposta de assistente, o que ele precisa encontrar é bem parecido com o que um cliente exigente procura:\n• ficha de produto estruturada, com especificação técnica que uma máquina consiga ler;\n• prazo e frete claros, pois o assistente responde o que está escrito na página;\n• política de troca e dúvidas frequentes publicadas, e não guardadas no atendimento;\n• conteúdo seu, no seu domínio, pois é dele que a resposta vai ser citada.\n\nO cuidado que eu teria é não repetir no assistente o erro que muita loja cometeu no marketplace, que é ganhar alcance e perder a relação. Autenticação e compra devem acontecer no seu ambiente, pois o assistente pode trazer a conversa, mas o cliente precisa continuar seu.\n\nAqui na e-com.plus trabalhamos com blog nativo e fichas estruturadas para que ChatGPT, Gemini e afins consigam ler e citar as páginas da loja, e como o storefront é código do lojista o login e o checkout ficam no domínio dele.\n\nUma sugestão para esta semana: pergunte a um assistente sobre um produto que você vende e veja se ele cita a sua loja, um marketplace ou ninguém.\n\nNa sua operação, quem responderia hoje por essa porta de entrada?\n\n#ecommerce #inteligenciaartificial #varejodigital"
+}

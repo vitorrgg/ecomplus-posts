@@ -1,0 +1,21 @@
+O cliente começou a resolver dentro do assistente de IA, e isso muda onde a sua loja precisa estar visível.
+
+Durante anos a discussão foi como levar a pessoa até o seu site. Agora já existe empresa concluindo atendimento dentro do ChatGPT, com a autenticação acontecendo numa aba da própria marca, e o assistente funcionando como mais um canal ao lado do site e do aplicativo.
+
+Acredito que isso não acaba com a loja própria. Cria uma porta nova, e por enquanto uma porta que quase ninguém arrumou.
+
+Para aparecer numa resposta de assistente, o que ele precisa encontrar é bem parecido com o que um cliente exigente procura:
+• ficha de produto estruturada, com especificação técnica que uma máquina consiga ler;
+• prazo e frete claros, pois o assistente responde o que está escrito na página;
+• política de troca e dúvidas frequentes publicadas, e não guardadas no atendimento;
+• conteúdo seu, no seu domínio, pois é dele que a resposta vai ser citada.
+
+O cuidado que eu teria é não repetir no assistente o erro que muita loja cometeu no marketplace, que é ganhar alcance e perder a relação. Autenticação e compra devem acontecer no seu ambiente, pois o assistente pode trazer a conversa, mas o cliente precisa continuar seu.
+
+Aqui na e-com.plus trabalhamos com blog nativo e fichas estruturadas para que ChatGPT, Gemini e afins consigam ler e citar as páginas da loja, e como o storefront é código do lojista o login e o checkout ficam no domínio dele.
+
+Uma sugestão para esta semana: pergunte a um assistente sobre um produto que você vende e veja se ele cita a sua loja, um marketplace ou ninguém.
+
+Na sua operação, quem responderia hoje por essa porta de entrada?
+
+#ecommerce #inteligenciaartificial #varejodigital

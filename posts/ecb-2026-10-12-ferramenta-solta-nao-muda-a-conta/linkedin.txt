@@ -1,0 +1,21 @@
+Ter várias ferramentas de IA na loja não é o mesmo que ter a operação funcionando de outro jeito.
+
+Na pesquisa da McKinsey publicada em 2025, 88% das empresas disseram usar IA em pelo menos uma função de negócio. No mesmo levantamento, apenas 7% afirmaram ter a IA totalmente escalada. A distância entre esses dois números é onde está quase toda operação de e-commerce hoje, e o problema não é falta de tecnologia, é excesso de tecnologia solta.
+
+Numa loja isso aparece de um jeito bem concreto:
+• a descrição do produto sai de um assistente, mas o catálogo continua desatualizado;
+• o chatbot responde bem, porém não sabe onde está o pedido de quem pergunta;
+• o relatório vem bonito, só que o dado de margem precisa ser exportado na mão;
+• cada ferramenta vê um pedaço da operação, então nenhuma consegue agir sobre ela.
+
+Por isso acredito que a pergunta útil não é qual ferramenta de IA contratar, mas qual parte da sua operação funcionaria diferente se a IA tivesse acesso a ela. Parece uma troca pequena de palavras e muda o projeto inteiro, porque ela obriga a arrumar processo e dado antes de assinar qualquer contrato.
+
+Na pesquisa da Deloitte publicada em 2026, apenas 34% das empresas disseram usar IA para transformar o negócio de verdade, e suspeito que a diferença esteja menos no modelo escolhido e mais na arquitetura em volta dele. Um modelo excelente que não consulta o estoque, não conhece a regra de frete e não registra o que fez continua sendo um ajudante de texto.
+
+Aqui na e-com.plus a IA do painel responde sobre a operação da loja, o conector MCP liga o Claude direto à API, sem export, e a API de analytics agrega e atualiza em massa na própria base.
+
+Uma sugestão para esta semana: escolha uma decisão que você toma na mão toda semana e veja se a IA conseguiria tomá-la com os dados que a sua loja já tem.
+
+Na sua operação, a IA já executa algum processo ou ainda só ajuda a escrever?
+
+#ecommerce #inteligenciaartificial #dados
