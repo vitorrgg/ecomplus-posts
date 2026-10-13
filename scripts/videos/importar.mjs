@@ -4,13 +4,15 @@
 //
 // Uso:
 //   node scripts/videos/importar.mjs ~/<pasta>/saida/cortes --prefixo consultoria \
-//     --ocultar <nome-do-cliente> --destinos vitorrgg --dia ter --hora 18:00 --inicio 2026-10-13
+//     --ocultar <nome-do-cliente> --dia ter --hora 18:00 --inicio 2026-10-13
 //
 //   --prefixo   começo do slug de cada vídeo (consultoria → consultoria-01-<nome-do-arquivo>)
 //   --ocultar   nomes que não podem aparecer (separados por vírgula): saem do slug, que vira
 //               caminho público no GitHub; na cópia da transcrição viram "[cliente]"; e o
 //               corte cuja transcrição cita algum deles fica travado para você conferir o vídeo
-//   --destinos  vitorrgg, instagram (@ecomplus.io) e/ou youtube, separados por vírgula
+//   --destinos  vitorrgg (Instagram pessoal), youtube-vitorrgg (canal pessoal), instagram
+//               (@ecomplus.io) e/ou youtube (canal da e-com.plus), separados por vírgula
+//               (padrão: vitorrgg,youtube-vitorrgg)
 //   --dia       dom seg ter qua qui sex sab (um vídeo por semana nesse dia)
 //   --hora      HH:MM no horário de São Paulo
 //   --inicio    AAAA-MM-DD a partir de quando agendar (padrão: hoje)
@@ -32,10 +34,10 @@ const DIAS = { dom: 0, seg: 1, ter: 2, qua: 3, qui: 4, sex: 5, sab: 6 };
 const opts = args();
 const origem = process.argv[2] && !process.argv[2].startsWith('--') ? resolve(process.argv[2]) : null;
 if (!origem || !existsSync(origem) || typeof opts.prefixo !== 'string') {
-  console.error('Uso: node scripts/videos/importar.mjs <pasta> --prefixo <prefixo> [--destinos vitorrgg] [--dia ter] [--hora 18:00] [--inicio AAAA-MM-DD]');
+  console.error('Uso: node scripts/videos/importar.mjs <pasta> --prefixo <prefixo> [--destinos vitorrgg,youtube-vitorrgg] [--dia ter] [--hora 18:00] [--inicio AAAA-MM-DD]');
   process.exit(1);
 }
-const destinos = String(opts.destinos ?? 'vitorrgg').split(',').map((d) => d.trim());
+const destinos = String(opts.destinos ?? 'vitorrgg,youtube-vitorrgg').split(',').map((d) => d.trim());
 const ocultar = typeof opts.ocultar === 'string' ? opts.ocultar.split(',').map((t) => slugify(t)).filter(Boolean) : [];
 const semNomes = (slug) => ocultar.reduce((s, t) => s.split('-').join('~').replace(new RegExp(`(^|~)${t.replace(/-/g, '~')}(?=~|$)`, 'g'), '').split('~').filter(Boolean).join('-'), slug);
 // Na cópia da transcrição, cada nome do --ocultar vira "[cliente]" (com ou sem acento e caixa).

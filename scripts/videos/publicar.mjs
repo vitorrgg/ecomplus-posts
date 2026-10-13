@@ -1,8 +1,10 @@
 // Publica o próximo vídeo da fila (videos/fila.json) como Reel no Instagram (@ecomplus.io
-// e/ou @vitorrgg) e como Short no YouTube. Cada item da fila é uma pasta em videos/<slug>/ com:
+// e/ou @vitorrgg) e como Short no YouTube (canal da e-com.plus e/ou canal pessoal do Vitor).
+// Cada item da fila é uma pasta em videos/<slug>/ com:
 //   video.mp4            9:16, H.264 e AAC (o que sai do montador de anúncios serve)
 //   legenda.txt          legenda do Reel e descrição do Short
-//   legenda-vitorrgg.txt opcional; legenda do Reel no @vitorrgg (sem ela, vale a legenda.txt)
+//   legenda-vitorrgg.txt opcional; legenda do Reel no @vitorrgg e descrição do Short no canal
+//                        pessoal (sem ela, vale a legenda.txt)
 //   titulo-youtube.txt   opcional; sem ele, o título é a primeira linha da legenda
 //   capa.jpg             opcional; capa do Reel (sem ela, o Instagram escolhe um quadro)
 //
@@ -23,11 +25,12 @@
 //   IG_GRAPH_HOST, IG_GRAPH_VERSION  graph.facebook.com e v21.0 por padrão
 //   IG_VITORRGG_USER_ID, IG_VITORRGG_ACCESS_TOKEN  o @vitorrgg, pelo login do Instagram
 //                (graph.instagram.com); destino "vitorrgg" na fila
-//   YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN  OAuth do canal (escopo youtube.upload).
-//                Sem elas, o YouTube fica pendente no item e o Instagram segue sozinho.
-//   YT_PRIVACIDADE  public, unlisted ou private (padrão private). Sem a auditoria da API do
-//                YouTube, o vídeo fica travado como privado e não dá para publicar depois: só
-//                cadastre os segredos YT_* quando o projeto do Google for aprovado.
+//   YT_CLIENT_ID, YT_CLIENT_SECRET  cliente OAuth do projeto ecomplus-site, comum aos dois canais
+//   YT_REFRESH_TOKEN  canal da e-com.plus (escopo youtube.upload); destino "youtube" na fila
+//   YT_VITORRGG_REFRESH_TOKEN  canal pessoal do Vitor; destino "youtube-vitorrgg" na fila.
+//                Sem o refresh token, aquele canal fica pendente no item e os outros destinos seguem.
+//   YT_PRIVACIDADE  public, unlisted ou private (padrão private). Upload público pela API
+//                funcionou sem auditoria do projeto (teste de 13/10/2026).
 //   VIDEOS_EXIGE_APROVACAO  "true" → só publica itens com aprovado: true
 //   ECB_BASE_URL  base pública do repo (padrão: raw do GitHub em master)
 import { existsSync, readFileSync, statSync } from 'node:fs';
@@ -102,10 +105,17 @@ async function publicarReel(a, conta) {
   return { id: midia, link: permalink };
 }
 
-// --- YouTube: token pelo refresh token → sessão de upload resumível → envia o arquivo
-async function publicarYoutube(a) {
-  const { YT_CLIENT_ID: cid, YT_CLIENT_SECRET: seg, YT_REFRESH_TOKEN: rt } = process.env;
-  if (!cid || !seg || !rt) return { pendente: 'sem credenciais do YouTube (YT_*)' };
+// --- YouTube: token pelo refresh token → sessão de upload resumível → envia o arquivo. Dois
+// canais com o mesmo cliente OAuth; o pessoal usa a legenda do @vitorrgg.
+const CANAIS = {
+  youtube: () => ({ refresh: process.env.YT_REFRESH_TOKEN, legenda: 'legenda' }),
+  'youtube-vitorrgg': () => ({ refresh: process.env.YT_VITORRGG_REFRESH_TOKEN, legenda: 'legendaVitorrgg' }),
+};
+
+async function publicarYoutube(a, canal) {
+  const { YT_CLIENT_ID: cid, YT_CLIENT_SECRET: seg } = process.env;
+  const { refresh: rt, legenda } = CANAIS[canal]();
+  if (!cid || !seg || !rt) return { pendente: `sem credenciais do YouTube para o destino ${canal}` };
   const tok = await fetch('https://oauth2.googleapis.com/token', {
     method: 'POST',
     body: new URLSearchParams({ client_id: cid, client_secret: seg, refresh_token: rt, grant_type: 'refresh_token' }),
@@ -121,7 +131,7 @@ async function publicarYoutube(a) {
       'X-Upload-Content-Length': String(a.tamanho),
     },
     body: JSON.stringify({
-      snippet: { title: titulo, description: a.legenda, categoryId: '28', defaultLanguage: 'pt-BR' },
+      snippet: { title: titulo, description: a[legenda], categoryId: '27', defaultLanguage: 'pt-BR' },
       status: { privacyStatus: process.env.YT_PRIVACIDADE || 'private', selfDeclaredMadeForKids: false },
     }),
   });
@@ -140,14 +150,17 @@ async function publicarYoutube(a) {
 const DESTINOS = {
   instagram: (a) => publicarReel(a, 'instagram'),
   vitorrgg: (a) => publicarReel(a, 'vitorrgg'),
-  youtube: publicarYoutube,
+  youtube: (a) => publicarYoutube(a, 'youtube'),
+  'youtube-vitorrgg': (a) => publicarYoutube(a, 'youtube-vitorrgg'),
 };
 
 // destino sem credencial fica pendente e não trava a fila: o item espera só por ele
+const temYoutube = (canal) => Boolean(process.env.YT_CLIENT_ID && process.env.YT_CLIENT_SECRET && CANAIS[canal]().refresh);
 const temCredencial = {
   instagram: () => Boolean(process.env.IG_ACCESS_TOKEN && process.env.IG_USER_ID),
   vitorrgg: () => Boolean(process.env.IG_VITORRGG_ACCESS_TOKEN && process.env.IG_VITORRGG_USER_ID),
-  youtube: () => Boolean(process.env.YT_CLIENT_ID && process.env.YT_CLIENT_SECRET && process.env.YT_REFRESH_TOKEN),
+  youtube: () => temYoutube('youtube'),
+  'youtube-vitorrgg': () => temYoutube('youtube-vitorrgg'),
 };
 const destinosDo = (item) => item.destinos ?? ['instagram', 'youtube'];
 const acionaveis = (item) => destinosDo(item).filter((d) => !item.feito?.[d] && temCredencial[d]?.());
@@ -186,6 +199,8 @@ if (ehMain) {
   console.log(`Vídeo: ${item.slug} (${(a.tamanho / 1048576).toFixed(1)} MB)\nDestinos: ${destinos.join(', ')}\nTítulo: ${a.titulo}\nLegenda:\n${a.legenda.replace(/^/gm, '  ')}`);
   if (opts['dry-run']) { console.log(`\n[dry-run] nada foi publicado. URL do Instagram: ${a.videoUrl}`); process.exit(0); }
 
+  const novos = [];
+  let falhou = false;
   for (const destino of destinos) {
     if (item.feito[destino]) continue;
     if (!temCredencial[destino]?.()) {
@@ -196,10 +211,12 @@ if (ehMain) {
       const r = await DESTINOS[destino](a);
       if (r.pendente) { console.log(`${destino}: pendente (${r.pendente})`); continue; }
       item.feito[destino] = { ...r, em: new Date().toISOString() };
+      novos.push(destino);
       console.log(`✓ ${destino}: ${r.link ?? r.id}`);
     } catch (e) {
       console.error(`✗ ${destino}: ${e.message}`);
       item.ultimoErro = { destino, mensagem: e.message, em: new Date().toISOString() };
+      falhou = true;
     }
   }
 
@@ -212,7 +229,9 @@ if (ehMain) {
   }
   gravarJson(FILA, fila);
 
-  const links = Object.entries(item.feito).map(([d, r]) => `${d}: ${r.link ?? r.id}`).join(' · ');
+  // só o que saiu nesta rodada: um destino que falhou é tentado de novo a cada hora, e os que
+  // já tinham saído não devem ser anunciados outra vez no #conteudo
+  const links = novos.map((d) => `${d}: ${item.feito[d].link ?? item.feito[d].id}`).join(' · ');
   if (links) await avisarSlack(`:clapper: Vídeo publicado: *${item.slug}*\n${links}`);
-  if (!Object.keys(item.feito).length) process.exit(1);
+  if (falhou || !Object.keys(item.feito).length) process.exit(1);
 }
