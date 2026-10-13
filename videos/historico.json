@@ -38,6 +38,28 @@
         }
       },
       "publicadoEm": "2026-10-10T00:45:01.944Z"
+    },
+    {
+      "slug": "consultoria-02-02-margem-ou-volume",
+      "quando": "2026-10-13T18:00:00-03:00",
+      "destinos": [
+        "vitorrgg",
+        "youtube-vitorrgg"
+      ],
+      "feito": {
+        "vitorrgg": {
+          "id": "18118326242070274",
+          "link": "https://www.instagram.com/reel/DecvpkHkVw2/",
+          "em": "2026-10-13T21:12:13.955Z"
+        },
+        "youtube-vitorrgg": {
+          "id": "IqLLtUilJK4",
+          "link": "https://youtube.com/shorts/IqLLtUilJK4",
+          "privacidade": "public",
+          "em": "2026-10-13T21:12:16.607Z"
+        }
+      },
+      "publicadoEm": "2026-10-13T21:12:16.607Z"
     }
   ]
 }
