@@ -60,6 +60,21 @@
         }
       },
       "publicadoEm": "2026-10-13T21:12:16.607Z"
+    },
+    {
+      "slug": "tres-perguntas-pra-sua-loja",
+      "quando": "2026-10-14T18:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "feito": {
+        "instagram": {
+          "id": "18123113314937632",
+          "link": "https://www.instagram.com/reel/DefbsmMktL_/",
+          "em": "2026-10-14T22:15:38.245Z"
+        }
+      },
+      "publicadoEm": "2026-10-14T22:15:38.246Z"
     }
   ]
 }
