@@ -34,6 +34,36 @@ Para testar sem publicar: Actions → *Vídeos — publicar Reels e Shorts* → 
 node scripts/videos/publicar.mjs --slug <slug> --dry-run
 ```
 
+## Link da bio (e-com.plus/ig)
+
+A página https://www.e-com.plus/ig é o link da bio do @ecomplus.io. Ela lê `videos/historico.json`
+direto deste repo e lista os Reels publicados no `instagram`, o mais novo primeiro, cada um com a
+capa e o link da página que o vídeo mostra (com UTM `utm_medium=bio&utm_content=<slug>`). Não
+precisa de deploy do site a cada publicação. Para um vídeo aparecer lá, o item da fila leva:
+
+```json
+{
+  "slug": "motion-segmentos-pet",
+  "titulo": "A ração acaba todo mês",
+  "resumo": "Pet shop: demo do tema Focinho",
+  "pagina": "/segmentos/pet"
+}
+```
+
+Os campos passam para o histórico quando o Reel sai. Sem `titulo` e `pagina`, o vídeo não entra na lista.
+
+## Vídeos em motion (anúncios em versão orgânica)
+
+As pastas `motion-*` são os anúncios em motion de `~/video-treatment/anuncios/motion`, na versão do
+Reel: sem o "Toca em Saiba mais" da narração e com "link na bio" no selo e no cartão final. Elas saem
+do `reels_instagram.py` de lá, que também escreve a legenda, escolhe a capa e põe o item na fila (uma
+terça por semana, ao meio-dia). Os itens com `"aprovado": false` esperam: as demos de seis temas estão
+com páginas quebradas e o vídeo da VTEX depende de aprovação das menções.
+
+A música de cada Reel é uma faixa da Biblioteca de Áudio do YouTube (`TRILHA` no `reels_instagram.py`):
+são 11 faixas, cada uma no máximo duas vezes, com 9 semanas ou mais entre elas. O de IA fica com a
+"High Beams" do anúncio. Faixa que pedir crédito (Creative Commons) precisa dele na `legenda.txt`.
+
 ## Cortes da consultoria (ou qualquer pasta de vídeos)
 
 Para trazer uma pasta inteira de uma vez, no WSL, dentro do clone deste repo:

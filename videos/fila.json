@@ -142,6 +142,243 @@
         "vitorrgg",
         "youtube-vitorrgg"
       ]
+    },
+    {
+      "slug": "motion-segmentos-alimenticio",
+      "quando": "2026-10-21T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "Comida tem prazo",
+      "resumo": "Alimentos e mercearia: demo do tema Despensa",
+      "pagina": "/segmentos/alimenticio"
+    },
+    {
+      "slug": "motion-ecommerce-com-checkout-transparente",
+      "quando": "2026-10-28T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "A venda cai na última tela",
+      "resumo": "Teste o carrinho com meta de frete grátis e Pix",
+      "pagina": "/ecommerce-com-checkout-transparente"
+    },
+    {
+      "slug": "motion-segmentos-beleza",
+      "quando": "2026-11-04T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "Quem vende beleza não vende um pedido",
+      "resumo": "Beleza e skincare: demo do tema Glow Commerce",
+      "pagina": "/segmentos/beleza"
+    },
+    {
+      "slug": "motion-ecommerce-com-busca-inteligente",
+      "quando": "2026-11-11T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "Seu cliente digita errado",
+      "resumo": "Teste a busca que entende erro de digitação",
+      "pagina": "/ecommerce-com-busca-inteligente"
+    },
+    {
+      "slug": "motion-segmentos-moda-feminina",
+      "quando": "2026-11-18T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "A grade multiplica tudo",
+      "resumo": "Moda feminina: demo do tema Alinhavo",
+      "pagina": "/segmentos/moda-feminina"
+    },
+    {
+      "slug": "motion-ecommerce-b2b",
+      "quando": "2026-11-25T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "Cada pedido passa por uma pessoa",
+      "resumo": "Monte um pedido de atacado de exemplo",
+      "pagina": "/ecommerce-b2b"
+    },
+    {
+      "slug": "motion-segmentos-casa-e-decoracao",
+      "quando": "2026-12-02T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "Ninguém quer uma cadeira",
+      "resumo": "Casa e decoração: demo do tema Morada",
+      "pagina": "/segmentos/casa-e-decoracao"
+    },
+    {
+      "slug": "motion-ecommerce-com-assinatura",
+      "quando": "2026-12-09T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "Seu cliente já ia comprar de novo",
+      "resumo": "Simule a receita de clube de assinatura",
+      "pagina": "/ecommerce-com-assinatura"
+    },
+    {
+      "slug": "motion-segmentos-pet",
+      "quando": "2026-12-16T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "A ração acaba todo mês",
+      "resumo": "Pet shop: demo do tema Focinho",
+      "pagina": "/segmentos/pet"
+    },
+    {
+      "slug": "motion-ecommerce-para-industria",
+      "quando": "2026-12-23T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "O consumidor final é de outro",
+      "resumo": "Indústria vendendo direto sem brigar com o canal",
+      "pagina": "/ecommerce-para-industria#canais"
+    },
+    {
+      "slug": "motion-segmentos-suplementos",
+      "quando": "2026-12-30T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "O cliente não compara potes",
+      "resumo": "Suplementos: demo do tema Dose",
+      "pagina": "/segmentos/suplementos"
+    },
+    {
+      "slug": "motion-migrar-da-vtex",
+      "quando": "2027-01-06T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "Tudo passa pela agência",
+      "resumo": "Veja quem resolve cada coisa na operação",
+      "pagina": "/migrar-da-vtex",
+      "aprovado": false
+    },
+    {
+      "slug": "motion-segmentos-eletronicos",
+      "quando": "2027-01-13T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "A especificação decide",
+      "resumo": "Eletrônicos: demo do tema Circuito",
+      "pagina": "/segmentos/eletronicos"
+    },
+    {
+      "slug": "motion-ecommerce-com-ia",
+      "quando": "2027-01-20T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "Pare de exportar planilha",
+      "resumo": "Sua loja respondendo em português, na IA que você já usa",
+      "pagina": "/ecommerce-com-ia"
+    },
+    {
+      "slug": "motion-segmentos-moda-masculina",
+      "quando": "2027-01-27T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "Ele não quer descobrir",
+      "resumo": "Moda masculina: demo do tema Prumo",
+      "pagina": "/segmentos/moda-masculina"
+    },
+    {
+      "slug": "motion-ecommerce-sem-comissao",
+      "quando": "2027-02-03T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "Quanto da sua venda fica com a plataforma?",
+      "resumo": "Calculadora: a comissão de hoje contra o plano",
+      "pagina": "/ecommerce-sem-comissao"
+    },
+    {
+      "slug": "motion-segmentos-construcao-e-ferramentas",
+      "quando": "2027-02-10T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "Ele não navega",
+      "resumo": "Construção e ferramentas: demo do tema Bitola",
+      "pagina": "/segmentos/construcao-e-ferramentas"
+    },
+    {
+      "slug": "motion-segmentos-autopecas",
+      "quando": "2027-02-17T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "A pergunta não é qual peça",
+      "resumo": "Autopeças: demo do tema Cardan",
+      "pagina": "/segmentos/autopecas",
+      "aprovado": false
+    },
+    {
+      "slug": "motion-segmentos-joias-e-semijoias",
+      "quando": "2027-02-24T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "Aqui o vazio é argumento de venda",
+      "resumo": "Joias e semijoias: demo do tema Lapidar",
+      "pagina": "/segmentos/joias-e-semijoias",
+      "aprovado": false
+    },
+    {
+      "slug": "motion-segmentos-bebe-e-infantil",
+      "quando": "2027-03-03T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "A compra é por fase",
+      "resumo": "Bebê e infantil: demo do tema Ninho",
+      "pagina": "/segmentos/bebe-e-infantil",
+      "aprovado": false
+    },
+    {
+      "slug": "motion-segmentos-papelaria-e-escritorio",
+      "quando": "2027-03-10T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "Ele não quer navegar",
+      "resumo": "Papelaria e escritório: demo do tema Pauta",
+      "pagina": "/segmentos/papelaria-e-escritorio",
+      "aprovado": false
+    },
+    {
+      "slug": "motion-segmentos-artigos-esportivos",
+      "quando": "2027-03-17T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "Especificação só decide lado a lado",
+      "resumo": "Artigos esportivos: demo do tema Cadência",
+      "pagina": "/segmentos/artigos-esportivos",
+      "aprovado": false
+    },
+    {
+      "slug": "motion-segmentos-farmacia",
+      "quando": "2027-03-24T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "O cliente pede a marca",
+      "resumo": "Farmácia: demo do tema Bula",
+      "pagina": "/segmentos/farmacia",
+      "aprovado": false
     }
   ]
 }
