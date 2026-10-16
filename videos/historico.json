@@ -75,6 +75,21 @@
         }
       },
       "publicadoEm": "2026-10-14T22:15:38.246Z"
+    },
+    {
+      "slug": "comissao-sobre-o-faturamento",
+      "quando": "2026-10-16T18:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "feito": {
+        "instagram": {
+          "id": "18640821739018831",
+          "link": "https://www.instagram.com/reel/Dekt3H9CaGC/",
+          "em": "2026-10-16T23:30:41.874Z"
+        }
+      },
+      "publicadoEm": "2026-10-16T23:30:41.874Z"
     }
   ]
 }
