@@ -57,12 +57,22 @@ Os campos passam para o histórico quando o Reel sai. Sem `titulo` e `pagina`, o
 As pastas `motion-*` são os anúncios em motion de `~/video-treatment/anuncios/motion`, na versão do
 Reel: sem o "Toca em Saiba mais" da narração e com "link na bio" no selo e no cartão final. Elas saem
 do `reels_instagram.py` de lá, que também escreve a legenda, escolhe a capa e põe o item na fila (uma
-terça por semana, ao meio-dia). Os itens com `"aprovado": false` esperam: as demos de seis temas estão
-com páginas quebradas e o vídeo da VTEX depende de aprovação das menções.
+terça por semana, ao meio-dia).
 
-A música de cada Reel é uma faixa da Biblioteca de Áudio do YouTube (`TRILHA` no `reels_instagram.py`):
-são 11 faixas, cada uma no máximo duas vezes, com 9 semanas ou mais entre elas. O de IA fica com a
-"High Beams" do anúncio. Faixa que pedir crédito (Creative Commons) precisa dele na `legenda.txt`.
+**Itens travados (`"aprovado": false`):**
+- **Demos de seis temas:** as páginas estão quebradas.
+- **VTEX:** depende da aprovação das menções.
+- **Afiliados:** a página promete "só na primeira compra" e autoindicação por e-mail, e o app não faz nem uma coisa nem outra.
+
+**Os 5 de 17/10:** trocar-de-plataforma, afiliados, devs, corp e why.
+- **Na fila:** entram entre os segmentos travados do fim, de 24/02 a 28/04/2027.
+- **Áudio:** por enquanto saem só com música. Quando a narração chegar, o `video.mp4` deles será trocado.
+- **Páginas:** precisam estar no ar antes da data de cada Reel.
+
+A música de cada Reel é uma faixa da Biblioteca de Áudio do YouTube (`TRILHA` no `reels_instagram.py`).
+- **Faixas:** são 11, cada uma usada até três vezes, com 7 semanas ou mais entre um uso e outro.
+- **IA:** fica com a "High Beams" do anúncio.
+- **Crédito:** se a faixa pedir crédito (Creative Commons), ele precisa estar na `legenda.txt`.
 
 ## Cortes da consultoria (ou qualquer pasta de vídeos)
 

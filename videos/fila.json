@@ -320,7 +320,7 @@
     },
     {
       "slug": "motion-segmentos-joias-e-semijoias",
-      "quando": "2027-02-24T12:00:00-03:00",
+      "quando": "2027-03-03T12:00:00-03:00",
       "destinos": [
         "instagram"
       ],
@@ -331,7 +331,7 @@
     },
     {
       "slug": "motion-segmentos-bebe-e-infantil",
-      "quando": "2027-03-03T12:00:00-03:00",
+      "quando": "2027-03-17T12:00:00-03:00",
       "destinos": [
         "instagram"
       ],
@@ -342,7 +342,7 @@
     },
     {
       "slug": "motion-segmentos-papelaria-e-escritorio",
-      "quando": "2027-03-10T12:00:00-03:00",
+      "quando": "2027-03-31T12:00:00-03:00",
       "destinos": [
         "instagram"
       ],
@@ -353,7 +353,7 @@
     },
     {
       "slug": "motion-segmentos-artigos-esportivos",
-      "quando": "2027-03-17T12:00:00-03:00",
+      "quando": "2027-04-14T12:00:00-03:00",
       "destinos": [
         "instagram"
       ],
@@ -364,7 +364,7 @@
     },
     {
       "slug": "motion-segmentos-farmacia",
-      "quando": "2027-03-24T12:00:00-03:00",
+      "quando": "2027-04-28T12:00:00-03:00",
       "destinos": [
         "instagram"
       ],
@@ -372,6 +372,57 @@
       "resumo": "Farmácia: demo do tema Bula",
       "pagina": "/segmentos/farmacia",
       "aprovado": false
+    },
+    {
+      "slug": "motion-trocar-de-plataforma",
+      "quando": "2027-02-24T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "Sua loja cresceu além da plataforma?",
+      "resumo": "Compare a sua plataforma de hoje, ponto a ponto",
+      "pagina": "/trocar-de-plataforma"
+    },
+    {
+      "slug": "motion-ecommerce-com-afiliados",
+      "quando": "2027-03-10T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "Não dependa só de anúncio",
+      "resumo": "Simule um programa de indicação com crédito na loja",
+      "pagina": "/ecommerce-com-afiliados",
+      "aprovado": false
+    },
+    {
+      "slug": "motion-ecommerce-para-devs",
+      "quando": "2027-03-24T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "Integração remendada",
+      "resumo": "Headless e API-first: veja o código",
+      "pagina": "/ecommerce-para-devs"
+    },
+    {
+      "slug": "motion-corp",
+      "quando": "2027-04-07T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "Sua operação já passou do limite da plataforma?",
+      "resumo": "Multilojas: várias marcas e CDs com um acesso",
+      "pagina": "/corp#multiloja"
+    },
+    {
+      "slug": "motion-why",
+      "quando": "2027-04-21T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "Minha plataforma ficou pequena",
+      "resumo": "Escolha o momento da sua loja e veja o que serve",
+      "pagina": "/why"
     }
   ]
 }

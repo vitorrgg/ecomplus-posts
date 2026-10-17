@@ -1,0 +1,7 @@
+Integração remendada? Fluxo burocrático? Aqui não.
+
+Catálogo, pedidos, clientes, busca e OMS na mesma API REST, a mesma que alimenta o painel e o checkout, com leitura em menos de 70 ms no Brasil, em média. Frente de loja em código aberto, CI/CD no GitHub e suporte direto com quem desenvolve a plataforma.
+
+Veja o código pelo link na bio: e-com.plus/ecommerce-para-devs
+
+#ecommerce #lojavirtual #empreendedorismo #ecomplus #headless
