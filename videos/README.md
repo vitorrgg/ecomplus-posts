@@ -66,7 +66,7 @@ terça por semana, ao meio-dia).
 
 **Os 5 de 17/10:** trocar-de-plataforma, afiliados, devs, corp e why.
 - **Na fila:** entram entre os segmentos travados do fim, de 24/02 a 28/04/2027.
-- **Áudio:** por enquanto saem só com música. Quando a narração chegar, o `video.mp4` deles será trocado.
+- **Áudio:** narração (ElevenLabs, 17/10) e música, como os outros.
 - **Páginas:** precisam estar no ar antes da data de cada Reel.
 
 A música de cada Reel é uma faixa da Biblioteca de Áudio do YouTube (`TRILHA` no `reels_instagram.py`).
