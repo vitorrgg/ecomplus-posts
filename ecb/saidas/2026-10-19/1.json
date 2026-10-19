@@ -1,0 +1,66 @@
+{
+  "fonte": "https://www.ecommercebrasil.com.br/noticias/renner-ve-sinais-de-alta-na-conversao-com-ia-mas-ainda-nao-avanca-na-compra-agentica",
+  "slug": "assistente-vende-com-seu-dado",
+  "slides": [
+    {
+      "tipo": "capa",
+      "eyebrow": "análise da semana · IA na loja",
+      "titulo": "o assistente\nvende com o\nseu dado",
+      "subtitulo": "Uma conversa com IA só recomenda bem quando o catálogo e o estoque estão organizados por trás.",
+      "imagem": "magnifying-glass-laptop.jpg"
+    },
+    {
+      "tipo": "texto",
+      "titulo": "Comece pelo que a IA vai ler",
+      "paragrafos": [
+        "As grandes redes estão colocando assistentes de compra dentro dos próprios aplicativos, treinados no histórico do cliente e no estoque da casa.",
+        "O que faz a recomendação acertar não é o modelo de linguagem, e sim a ficha de produto com especificação, a disponibilidade correta e o histórico de quem está do outro lado."
+      ],
+      "tema": "claro",
+      "imagem": null
+    },
+    {
+      "tipo": "lista",
+      "titulo": "Onde isso mexe na sua conta",
+      "itens": [
+        "A recomendação certa aumenta a conversão de quem já está dentro da sua loja",
+        "A peça sugerida junto eleva o número de itens por pedido sem custo de mídia nova",
+        "O cliente que encontra sozinho volta mais, pois a loja resolveu a dúvida dele",
+        "Nada disso depende de comprar visitante novo, e sim de aproveitar melhor quem chega"
+      ],
+      "tema": "escuro",
+      "imagem": null
+    },
+    {
+      "tipo": "texto",
+      "titulo": "O erro é começar pelo chat",
+      "paragrafos": [
+        "Colocar um chat na frente de um catálogo sem especificação técnica e com estoque atrasado só muda o lugar onde o cliente se frustra.",
+        "Primeiro a sua loja precisa ser legível, pois o assistente só responde com aquilo que existe na base de produtos."
+      ],
+      "tema": "claro",
+      "imagem": "code-screen-macbook.jpg"
+    },
+    {
+      "tipo": "texto",
+      "titulo": "Como fica na e-com.plus",
+      "paragrafos": [
+        "O motor de busca com correção ortográfica, autocomplete e filtro por especificação técnica já resolve a maior parte das perguntas que o cliente faria a um assistente.",
+        "O blog nativo e as fichas estruturadas deixam a loja legível para o ChatGPT e o Gemini, e o chat de IA no painel responde sobre a operação sem exportar nada."
+      ],
+      "tema": "escuro",
+      "imagem": null
+    },
+    {
+      "tipo": "fechamento",
+      "paragrafos": [
+        "A conversa com IA é a camada de cima, e ela só funciona quando o dado embaixo está certo, pois sem isso o assistente erra com mais eloquência.",
+        "Esta semana, pegue os dez produtos que mais vendem na sua loja e veja quantos têm especificação completa e estoque confiável."
+      ],
+      "tema": "claro",
+      "imagem": null
+    }
+  ],
+  "legenda": "As grandes redes estão colocando assistente de IA dentro do próprio aplicativo, treinado no histórico do cliente e no estoque da casa, e os primeiros sinais aparecem na conversão e no número de itens por pedido. Na nossa experiência, o que faz a recomendação acertar não é o modelo de linguagem, e sim a ficha de produto com especificação, a disponibilidade correta e o histórico de quem está do outro lado. Por isso colocar um chat na frente de um catálogo incompleto só muda o lugar onde o cliente se frustra. Primeiro a loja precisa ser legível, pois o assistente responde apenas com aquilo que existe na base.\n\nNa e-com.plus o motor de busca já resolve correção ortográfica, autocomplete e filtro por especificação técnica, e as fichas estruturadas e o blog nativo deixam a loja legível também para o ChatGPT e o Gemini.\n\nQuantos dos seus produtos que mais vendem têm especificação completa e estoque confiável hoje? Conta para nós nos comentários.\n\n#ecommerce #inteligenciaartificial #lojavirtual #conversao #buscainterna #d2c #ecomplus",
+  "linkedin": "O assistente de IA que vende bem não é o que conversa melhor, é o que foi ligado num dado organizado.\n\nAs grandes redes estão colocando assistentes de compra dentro dos próprios aplicativos, treinados no histórico do cliente e no estoque da casa, e os primeiros sinais aparecem na conversão e na quantidade de itens por pedido. Acredito que a parte interessante dessa história não é o chat, e sim o que existe atrás dele.\n\nO que faz uma recomendação acertar é a ficha de produto com especificação, a disponibilidade correta e o histórico de quem está do outro lado. O modelo de linguagem é a camada de cima.\n\nPensando em quem tem loja própria, é aí que a conta fecha:\n• a recomendação certa aumenta a conversão de quem já está dentro da sua loja;\n• a peça sugerida junto eleva o número de itens por pedido sem custo de mídia nova;\n• o cliente que encontra sozinho volta mais, pois a loja resolveu a dúvida dele.\n\nNada disso depende de comprar visitante novo, e sim de aproveitar melhor quem já chega.\n\nO erro que eu evitaria é começar pelo chat. Colocar uma conversa na frente de um catálogo sem especificação técnica e com estoque atrasado só muda o lugar onde o cliente se frustra, pois o assistente responde apenas com aquilo que existe na base.\n\nAqui na e-com.plus o caminho é o contrário. O motor de busca já trata correção ortográfica, autocomplete e filtro por especificação, e as fichas estruturadas deixam a loja legível para o ChatGPT e o Gemini antes de qualquer assistente entrar em cena.\n\nUma sugestão para esta semana: pegue os dez produtos que mais vendem na sua loja e veja quantos têm especificação completa e estoque confiável.\n\nNa sua operação, o que trava mais hoje, a falta de um assistente ou a qualidade do catálogo?\n\n#ecommerce #inteligenciaartificial #d2c"
+}

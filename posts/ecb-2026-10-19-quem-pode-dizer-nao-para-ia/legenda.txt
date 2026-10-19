@@ -1,0 +1,7 @@
+Segundo o Global AI Pulse da KPMG, 80% das empresas brasileiras ouvidas dizem caminhar para um time que trabalha junto com a IA, mas só 46% têm regra clara de quando um profissional deve revisar o que a tecnologia produz. Entendemos que essa diferença é o ponto em que a automação começa a custar dinheiro, pois sem regra a revisão vira um clique de aprovação feito por quem não tem tempo nem informação para discordar. O modelo projeta venda com o dado que recebeu, então estoque desatualizado e frete fora da conta aparecem como lucro na tela. Quem responde pela margem precisa ver a mesma informação e poder interromper a ação.
+
+Na e-com.plus os descontos complexos deixam a faixa aprovada dentro do sistema, com regra por cliente, por kit e progressiva, e a API de analytics e o chat de IA no painel mostram o número da operação na hora.
+
+Na sua loja, qual faixa de preço e de desconto já pode rodar sozinha hoje? Conta para nós nos comentários.
+
+#ecommerce #inteligenciaartificial #gestao #margem #precificacao #lojavirtual #ecomplus
