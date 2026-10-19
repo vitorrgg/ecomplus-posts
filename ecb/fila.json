@@ -1,3 +1,28 @@
 {
-  "pendentes": []
+  "pendentes": [
+    {
+      "slug": "ecb-2026-10-19-assistente-vende-com-seu-dado",
+      "serie": "ecb",
+      "fonte": "https://www.ecommercebrasil.com.br/noticias/renner-ve-sinais-de-alta-na-conversao-com-ia-mas-ainda-nao-avanca-na-compra-agentica",
+      "titulo": "Renner vê sinais de alta na conversão com IA, mas ainda não avança na compra agêntica",
+      "semana": "2026-10-19",
+      "aprovado": null
+    },
+    {
+      "slug": "ecb-2026-10-19-a-cesta-que-repete-todo-mes",
+      "serie": "ecb",
+      "fonte": "https://www.ecommercebrasil.com.br/noticias/ifood-projeta-alta-de-60-na-black-friday-com-aposta-em-outras-categorias",
+      "titulo": "iFood projeta alta de 60% na Black Friday com aposta em outras categorias",
+      "semana": "2026-10-19",
+      "aprovado": null
+    },
+    {
+      "slug": "ecb-2026-10-19-quem-pode-dizer-nao-para-ia",
+      "serie": "ecb",
+      "fonte": "https://www.ecommercebrasil.com.br/artigos/o-varejo-precisa-de-gente-que-possa-discordar-da-ia",
+      "titulo": "O varejo precisa de gente que possa discordar da IA",
+      "semana": "2026-10-19",
+      "aprovado": null
+    }
+  ]
 }

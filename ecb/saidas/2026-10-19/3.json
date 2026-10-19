@@ -1,0 +1,66 @@
+{
+  "fonte": "https://www.ecommercebrasil.com.br/artigos/o-varejo-precisa-de-gente-que-possa-discordar-da-ia",
+  "slug": "quem-pode-dizer-nao-para-ia",
+  "slides": [
+    {
+      "tipo": "capa",
+      "eyebrow": "análise da semana · IA e decisão",
+      "titulo": "quem pode\ndiscordar da\nautomação",
+      "subtitulo": "Automatizar decisão de preço e de compra sem definir quem pode interromper sai caro.",
+      "imagem": "writer-laptop.jpg"
+    },
+    {
+      "tipo": "texto",
+      "titulo": "Aprovar não é revisar",
+      "paragrafos": [
+        "Segundo o Global AI Pulse da KPMG, 80% das empresas brasileiras ouvidas dizem caminhar para um time que trabalha junto com a IA, mas só 46% têm regra clara de quando revisar.",
+        "Sem essa regra, a revisão vira um clique de aprovação no fim do processo, feito por quem não tem tempo nem informação para discordar."
+      ],
+      "tema": "claro",
+      "imagem": null
+    },
+    {
+      "tipo": "lista",
+      "titulo": "Defina os limites antes de ligar",
+      "itens": [
+        "Mudança de preço dentro de uma faixa já aprovada pode seguir sozinha, com acompanhamento",
+        "Promoção que mexe na rentabilidade da categoria exige um segundo olhar antes de ir ao ar",
+        "Compra que concentra capital em um item só precisa de alguém que possa segurar o pedido",
+        "Toda discordância registrada deve ser confrontada depois com o resultado que apareceu"
+      ],
+      "tema": "escuro",
+      "imagem": null
+    },
+    {
+      "tipo": "texto",
+      "titulo": "A recomendação não vê tudo",
+      "paragrafos": [
+        "O modelo projeta venda com o dado que recebeu, então estoque desatualizado e custo de frete fora da conta aparecem como lucro na tela.",
+        "Quem responde pela margem precisa ver a mesma informação, pois contestar sem dado é só opinião contra gráfico."
+      ],
+      "tema": "claro",
+      "imagem": "dashboard-charts.jpg"
+    },
+    {
+      "tipo": "texto",
+      "titulo": "Como fica na e-com.plus",
+      "paragrafos": [
+        "Os descontos complexos permitem regra granular por cliente, por kit e progressiva, então a faixa aprovada fica dentro do sistema e não na memória de alguém.",
+        "A API de analytics e o chat de IA no painel mostram o número da operação na hora, e o OMS nativo junta os pedidos de todos os canais para a conta fechar na categoria."
+      ],
+      "tema": "escuro",
+      "imagem": null
+    },
+    {
+      "tipo": "fechamento",
+      "paragrafos": [
+        "Acreditamos que automação sem autonomia para interromper não economiza trabalho, pois ela apenas transfere o prejuízo para quem assinou embaixo.",
+        "Esta semana, escreva a faixa de preço e de desconto que pode rodar sozinha na sua loja e o que precisa passar por você antes."
+      ],
+      "tema": "claro",
+      "imagem": null
+    }
+  ],
+  "legenda": "Segundo o Global AI Pulse da KPMG, 80% das empresas brasileiras ouvidas dizem caminhar para um time que trabalha junto com a IA, mas só 46% têm regra clara de quando um profissional deve revisar o que a tecnologia produz. Entendemos que essa diferença é o ponto em que a automação começa a custar dinheiro, pois sem regra a revisão vira um clique de aprovação feito por quem não tem tempo nem informação para discordar. O modelo projeta venda com o dado que recebeu, então estoque desatualizado e frete fora da conta aparecem como lucro na tela. Quem responde pela margem precisa ver a mesma informação e poder interromper a ação.\n\nNa e-com.plus os descontos complexos deixam a faixa aprovada dentro do sistema, com regra por cliente, por kit e progressiva, e a API de analytics e o chat de IA no painel mostram o número da operação na hora.\n\nNa sua loja, qual faixa de preço e de desconto já pode rodar sozinha hoje? Conta para nós nos comentários.\n\n#ecommerce #inteligenciaartificial #gestao #margem #precificacao #lojavirtual #ecomplus",
+  "linkedin": "Antes de automatizar uma decisão de preço, eu definiria quem tem autoridade para interromper a ação.\n\nSegundo o Global AI Pulse da KPMG, 80% das empresas brasileiras ouvidas dizem caminhar para um time que trabalha junto com a IA, mas só 46% têm regra clara de quando um profissional deve revisar o que a tecnologia produz. Essa diferença me parece o ponto exato em que a automação começa a custar dinheiro.\n\nColocar alguém para clicar em aprovar no fim do processo não resolve. Sob pressão de tempo, sem acesso ao dado e com receio de contrariar uma ferramenta que a direção patrocinou, a revisão vira formalidade.\n\nSe eu fosse ligar automação de preço e de compra, começaria pelos limites:\n• mudança de preço dentro de uma faixa já aprovada pode seguir sozinha, com acompanhamento;\n• promoção que mexe na rentabilidade da categoria exige um segundo olhar antes de ir ao ar;\n• compra que concentra capital em um item só precisa de alguém que possa segurar o pedido;\n• toda discordância registrada deve ser confrontada depois com o resultado que apareceu.\n\nO último item vale nos dois sentidos, porque a experiência de quem decide também erra, e o registro é o que permite comparar as duas apostas depois.\n\nVale lembrar que o modelo projeta venda com o dado que recebeu. Estoque desatualizado e custo logístico fora da conta aparecem como lucro na tela, e quem responde pela margem precisa ver a mesma informação, pois contestar sem dado é só opinião contra gráfico.\n\nAqui na e-com.plus os descontos complexos deixam essa faixa aprovada dentro do sistema, com regra por cliente, por kit e progressiva, em vez de combinada de boca.\n\nUma sugestão para esta semana: escreva qual faixa de preço e de desconto pode rodar sozinha na sua loja e o que precisa passar por você antes.\n\nNa sua empresa, quem responde pela margem tem autoridade para interromper uma ação recomendada pela IA?\n\n#ecommerce #inteligenciaartificial #gestao"
+}

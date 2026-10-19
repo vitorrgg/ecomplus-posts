@@ -1,0 +1,22 @@
+O assistente de IA que vende bem não é o que conversa melhor, é o que foi ligado num dado organizado.
+
+As grandes redes estão colocando assistentes de compra dentro dos próprios aplicativos, treinados no histórico do cliente e no estoque da casa, e os primeiros sinais aparecem na conversão e na quantidade de itens por pedido. Acredito que a parte interessante dessa história não é o chat, e sim o que existe atrás dele.
+
+O que faz uma recomendação acertar é a ficha de produto com especificação, a disponibilidade correta e o histórico de quem está do outro lado. O modelo de linguagem é a camada de cima.
+
+Pensando em quem tem loja própria, é aí que a conta fecha:
+• a recomendação certa aumenta a conversão de quem já está dentro da sua loja;
+• a peça sugerida junto eleva o número de itens por pedido sem custo de mídia nova;
+• o cliente que encontra sozinho volta mais, pois a loja resolveu a dúvida dele.
+
+Nada disso depende de comprar visitante novo, e sim de aproveitar melhor quem já chega.
+
+O erro que eu evitaria é começar pelo chat. Colocar uma conversa na frente de um catálogo sem especificação técnica e com estoque atrasado só muda o lugar onde o cliente se frustra, pois o assistente responde apenas com aquilo que existe na base.
+
+Aqui na e-com.plus o caminho é o contrário. O motor de busca já trata correção ortográfica, autocomplete e filtro por especificação, e as fichas estruturadas deixam a loja legível para o ChatGPT e o Gemini antes de qualquer assistente entrar em cena.
+
+Uma sugestão para esta semana: pegue os dez produtos que mais vendem na sua loja e veja quantos têm especificação completa e estoque confiável.
+
+Na sua operação, o que trava mais hoje, a falta de um assistente ou a qualidade do catálogo?
+
+#ecommerce #inteligenciaartificial #d2c

@@ -1,0 +1,23 @@
+Antes de automatizar uma decisão de preço, eu definiria quem tem autoridade para interromper a ação.
+
+Segundo o Global AI Pulse da KPMG, 80% das empresas brasileiras ouvidas dizem caminhar para um time que trabalha junto com a IA, mas só 46% têm regra clara de quando um profissional deve revisar o que a tecnologia produz. Essa diferença me parece o ponto exato em que a automação começa a custar dinheiro.
+
+Colocar alguém para clicar em aprovar no fim do processo não resolve. Sob pressão de tempo, sem acesso ao dado e com receio de contrariar uma ferramenta que a direção patrocinou, a revisão vira formalidade.
+
+Se eu fosse ligar automação de preço e de compra, começaria pelos limites:
+• mudança de preço dentro de uma faixa já aprovada pode seguir sozinha, com acompanhamento;
+• promoção que mexe na rentabilidade da categoria exige um segundo olhar antes de ir ao ar;
+• compra que concentra capital em um item só precisa de alguém que possa segurar o pedido;
+• toda discordância registrada deve ser confrontada depois com o resultado que apareceu.
+
+O último item vale nos dois sentidos, porque a experiência de quem decide também erra, e o registro é o que permite comparar as duas apostas depois.
+
+Vale lembrar que o modelo projeta venda com o dado que recebeu. Estoque desatualizado e custo logístico fora da conta aparecem como lucro na tela, e quem responde pela margem precisa ver a mesma informação, pois contestar sem dado é só opinião contra gráfico.
+
+Aqui na e-com.plus os descontos complexos deixam essa faixa aprovada dentro do sistema, com regra por cliente, por kit e progressiva, em vez de combinada de boca.
+
+Uma sugestão para esta semana: escreva qual faixa de preço e de desconto pode rodar sozinha na sua loja e o que precisa passar por você antes.
+
+Na sua empresa, quem responde pela margem tem autoridade para interromper uma ação recomendada pela IA?
+
+#ecommerce #inteligenciaartificial #gestao
