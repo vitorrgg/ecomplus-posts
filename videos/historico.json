@@ -90,6 +90,28 @@
         }
       },
       "publicadoEm": "2026-10-16T23:30:41.874Z"
+    },
+    {
+      "slug": "consultoria-03-03-kit-de-2-ou-kit-de-4",
+      "quando": "2026-10-20T18:00:00-03:00",
+      "destinos": [
+        "vitorrgg",
+        "youtube-vitorrgg"
+      ],
+      "feito": {
+        "vitorrgg": {
+          "id": "18111547883351158",
+          "link": "https://www.instagram.com/reel/DevDLT6giyW/",
+          "em": "2026-10-20T23:49:06.185Z"
+        },
+        "youtube-vitorrgg": {
+          "id": "W97EJajqGl4",
+          "link": "https://youtube.com/shorts/W97EJajqGl4",
+          "privacidade": "public",
+          "em": "2026-10-20T23:49:08.547Z"
+        }
+      },
+      "publicadoEm": "2026-10-20T23:49:08.548Z"
     }
   ]
 }
