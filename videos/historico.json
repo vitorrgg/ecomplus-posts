@@ -112,6 +112,24 @@
         }
       },
       "publicadoEm": "2026-10-20T23:49:08.548Z"
+    },
+    {
+      "slug": "motion-segmentos-alimenticio",
+      "quando": "2026-10-21T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "Comida tem prazo",
+      "resumo": "Alimentos e mercearia: demo do tema Despensa",
+      "pagina": "/segmentos/alimenticio",
+      "feito": {
+        "instagram": {
+          "id": "17893042035614033",
+          "link": "https://www.instagram.com/reel/DewsbB9E-x5/",
+          "em": "2026-10-21T15:08:55.866Z"
+        }
+      },
+      "publicadoEm": "2026-10-21T15:08:55.866Z"
     }
   ]
 }
