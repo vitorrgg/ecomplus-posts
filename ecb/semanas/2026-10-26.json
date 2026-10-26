@@ -1,0 +1,112 @@
+{
+  "coletadoEm": "2026-10-26T12:22:31.673Z",
+  "fonte": "https://www.ecommercebrasil.com.br/",
+  "capasLivres": [
+    "ai-touch-circuit.jpg",
+    "cardboard-box-light.jpg",
+    "checkout-ui-mockup.jpg",
+    "dashboard-charts.jpg",
+    "mail-icon-phone.jpg",
+    "own-store-checkout.jpg",
+    "referral-handshake.jpg",
+    "star-rating.jpg"
+  ],
+  "ranking": [
+    {
+      "posicao": 1,
+      "url": "https://www.ecommercebrasil.com.br/noticias/assai-leva-fiscal-remoto-a-todas-as-lojas-e-prepara-uso-de-ia-nos-caixas",
+      "titulo": "Assaí leva fiscal remoto a todas as lojas e prepara uso de IA nos caixas",
+      "descricao": "Sistema fez 175 mil atendimentos em julho, e empresa testa reconhecimento de imagem com IA para identificar ocorrências",
+      "categoria": "Alimentos e Bebidas",
+      "autor": "Amanda Lucio",
+      "tempoLeitura": "3 min",
+      "imagem": "https://static.ecommercebrasil.com.br/wp-content/uploads/2026/10/21-assai-atacadista-fachada.jpeg.webp",
+      "publicadoEm": "2026-10-23T18:00:55-03:00",
+      "texto": "O Assaí Atacadista levou para todas as suas 313 lojas o Fiscal Remoto, sistema que resolve à distância as ocorrências dos caixas. Com ele, o operador aciona uma equipe remota para cancelar um item ou corrigir um preço. Assim, não precisa esperar o fiscal ir até o checkout. O próximo passo é usar inteligência artificial (IA) para identificar essas situações por imagem.\n\nEm julho, o sistema fez 175 mil atendimentos, segundo a empresa. Do total, 59% dos chamados foram resolvidos em uma média de 20 segundos. No mesmo mês, os acionamentos caíram 43% em relação a junho.\n\nEntre as situações atendidas estão cancelamento de itens, engano de produto, divergências de preço, troca de operador e vouchers de troca. Com isso, o cliente espera menos para concluir a compra, e o fiscal não precisa sair do posto a cada chamado.\n\n“Ao digitalizar e agilizar processos da operação, conseguimos otimizar o atendimento nas lojas, dar mais fluidez à jornada do cliente e apoiar nossos colaboradores no dia a dia”, afirma Denis Paiotti, diretor de TI do Assaí.\n\nDo piloto às 313 lojas\n\nO projeto começou em 2025, com uma prova de conceito e um piloto em 13 lojas. Depois, chegou a 18 unidades e passou por ajustes de software, processos e automações no sistema de frente de caixa. A expansão para o restante da rede aconteceu entre março e agosto de 2026.\n\nAgora, a empresa testa o uso de reconhecimento de imagem nos caixas. Hoje, é o operador quem chama a equipe remota. Com a nova etapa, as câmeras também poderão identificar ocorrências, como o cancelamento de produtos. Dessa forma, a equipe recebe mais informações para analisar cada caso. Segundo o Assaí, novas aplicações devem ser incorporadas aos poucos, conforme os testes avançarem.\n\n“A tecnologia precisa estar a serviço do negócio e das pessoas. Por isso, nosso trabalho é identificar oportunidades em que soluções digitais, automação e inteligência artificial possam tornar o varejo mais eficiente e a experiência do cliente mais simples e ágil”, afirma Paiotti.\n\nTecnologia na loja e no digital\n\nA loja física também vira fonte de dados para o varejo. Sensores, câmeras e IA já ajudam as redes a acompanhar estoque, reposição e preços em tempo real. No varejo alimentar, o ganho de eficiência pesa. Segundo a Associação Brasileira de Supermercados (Abras), o setor faturou cerca de R$ 1,14 trilhão em 2025.\n\nAlém da operação das lojas, o Assaí amplia os canais digitais. Neste ano, por exemplo, a rede levou o delivery pelo iFood a 104 lojas, cerca de um terço da rede. A empresa também estreou no marketplace do Mercado Livre e lançou um projeto de farmácias dentro das lojas."
+    },
+    {
+      "posicao": 2,
+      "url": "https://www.ecommercebrasil.com.br/noticias/decolar-lanca-agente-de-ia-no-whatsapp-para-orientar-vendas-de-hoteis",
+      "titulo": "Decolar lança agente de IA no WhatsApp para orientar vendas de hotéis",
+      "descricao": "Agente analisa reservas, diária média e demanda por destino e sugere ações comerciais a hotéis e pousadas parceiros",
+      "categoria": "Inteligência Artificial",
+      "autor": "Amanda Lucio",
+      "tempoLeitura": "3 min",
+      "imagem": "https://static.ecommercebrasil.com.br/wp-content/uploads/2026/10/4-decolar-agencia-ia-viagens.webp",
+      "publicadoEm": "2026-10-23T16:03:58-03:00",
+      "texto": "A Decolar lançou um agente de inteligência artificial (IA) para atender hotéis e pousadas parceiros. Batizada de Mariana, a ferramenta funciona pelo WhatsApp, 24 horas por dia. Ela reúne dados de desempenho, informações de mercado e recomendações comerciais para cada propriedade.\n\nA solução está em testes com meios de hospedagem que têm contrato direto com a empresa, em mercados selecionados. Segundo a Decolar, a ideia é levar o serviço a hotéis de todo o Brasil. Depois, deve chegar ao México e a outros países da região. Datas e número de parceiros atendidos não foram divulgados.\n\nO agente não substitui os executivos de contas, segundo a empresa. A IA cuida das demandas do dia a dia. Os profissionais seguem com o relacionamento e as análises estratégicas. “Com a tecnologia, conseguimos levar dados e inteligência comercial a mais meios de hospedagem, a qualquer momento”, afirma Roberto Rizo-Patrón, diretor Comercial de Produtos em Destino da Decolar.\n\nDo dado à recomendação\n\nA Mariana usa IA agêntica. Ou seja, consulta diferentes fontes, cruza informações e sugere ações, em vez de só responder perguntas. Entre os indicadores analisados estão reservas, receita, diária média, noites vendidas, cancelamentos, antecedência de compra e estadia média. Também entra na conta o RevPAR, a receita por quarto disponível.\n\nAlém disso, o agente acompanha a disponibilidade e mostra o ritmo de buscas e reservas de cada destino. Com isso, pode apontar períodos críticos e oportunidades ligadas a eventos e feriados. A ferramenta também sugere ajustes na página do hotel, como fotos, descrição e avaliações. O agente ainda orienta sobre promoções, planos tarifários, comissões e uso da extranet.\n\n“O objetivo é transformar dados em informações que possam apoiar as decisões comerciais dos parceiros”, afirma Rizo-Patrón. Segundo ele, a experiência da equipe comercial foi usada para ensinar à tecnologia quais dados observar e como interpretá-los. O desenvolvimento foi liderado por Jessica Moraes, gerente executiva da área.\n\nIA também para o lado da oferta\n\nNos testes, os hotéis buscaram sobretudo apoio para vender mais, melhorar a apresentação e ganhar visibilidade. Nas próximas etapas, a empresa planeja incluir dados de tráfego aéreo, novos sinais de demanda, relatórios mensais e recomendações mais proativas.\n\nPara o consumidor, a empresa já usa IA generativa. Em junho, por exemplo, a Decolar integrou a assistente Sofia a um carrinho. Com ele, o cliente reúne voos, hotéis, passeios e carros numa só compra. Agora, a tecnologia chega também aos parceiros que vendem na plataforma.\n\nO movimento acompanha o uso de agentes de IA nas operações comerciais do e-commerce, não só no atendimento ao cliente. No varejo, o WhatsApp concentra boa parte dessas iniciativas. A Veste, por exemplo, ampliou em 40% a capacidade de atendimento com um agente de IA no aplicativo. Já a Riachuelo afirma que sua IA agêntica resolve 84% das demandas dos clientes no WhatsApp.\n\nNo turismo, a disputa pelas reservas online também cresce. Segundo a Criteo, as reservas feitas por agências online subiram 19% nas Américas no primeiro trimestre de 2025."
+    },
+    {
+      "posicao": 3,
+      "url": "https://www.ecommercebrasil.com.br/noticias/shopee-14-mil-vagas-fim-do-ano-2026",
+      "titulo": "Shopee abre mais de 14 mil vagas para reforçar operação no fim do ano",
+      "descricao": "Contratações efetivas e temporárias estão distribuídas por 19 estados e pelo Distrito Federal, com foco no aumento da demanda do 11.11, Black Friday e Natal",
+      "categoria": "Mercado",
+      "autor": "Alice Lopes",
+      "tempoLeitura": "2 min",
+      "imagem": "https://static.ecommercebrasil.com.br/wp-content/uploads/2026/05/67-shopee-logistica.png.webp",
+      "publicadoEm": "2026-10-23T13:10:00-03:00",
+      "texto": "A Shopee abriu mais de 14 mil vagas efetivas e temporárias para reforçar suas operações até o fim de 2026. As oportunidades estão concentradas principalmente na área logística e acompanham a preparação da empresa para o aumento de pedidos durante o 11.11, a Black Friday e o Natal.\n\nAs contratações estão distribuídas por 19 estados e pelo Distrito Federal. A empresa também mantém vagas para áreas corporativas em seus escritórios em São Paulo.\n\nEntre as funções operacionais estão auxiliar de logística e representante I. As posições são presenciais, incluem oportunidades para pessoas com deficiência (PCDs) e não exigem experiência prévia, segundo a companhia.\n\nAs vagas temporárias também poderão resultar em efetivação, de acordo com a necessidade da operação.\n\nExpansão logística acompanha contratações\n\nO aumento das equipes ocorre em um ano de expansão da estrutura logística da Shopee no Brasil.\n\nEm 2026, a companhia abriu dez centros de distribuição e chegou a 26 unidades no país. Desse total, 21 funcionam no modelo de cross-docking e cinco são centros de fulfillment, nos quais os produtos ficam armazenados antes da venda.\n\nA rede também reúne mais de 200 hubs de primeira e última milha e mais de cinco mil Agências Shopee.\n\n“As datas duplas ao longo do ano se tornaram momentos importantes para consumidores e vendedores brasileiros, e o fim de ano traz uma demanda particularmente alta”, afirma Karina Hartung, head de Pessoas da Shopee.\n\nSegundo a executiva, a ampliação das equipes busca sustentar a operação durante o aumento de volume previsto para os próximos meses.\n\nVagas estão espalhadas pelo país\n\nAs oportunidades estão disponíveis em Alagoas, Amazonas, Bahia, Ceará, Espírito Santo, Goiás, Maranhão, Mato Grosso, Mato Grosso do Sul, Minas Gerais, Pará, Paraíba, Paraná, Pernambuco, Rio de Janeiro, Rio Grande do Sul, Santa Catarina, Sergipe e São Paulo, além do Distrito Federal.\n\nA empresa também mantém processos seletivos para posições corporativas em São Paulo, com requisitos definidos de acordo com cada área."
+    },
+    {
+      "posicao": 4,
+      "url": "https://www.ecommercebrasil.com.br/noticias/anuncios-falsos-golpes-black-friday-serasa-experian",
+      "titulo": "Anúncios falsos crescem 147% na semana da Black Friday",
+      "descricao": "Levantamento da Serasa Experian identificou 1.339 ameaças digitais entre 23 e 29 de novembro de 2025, quase o dobro da média das semanas anteriores",
+      "categoria": "Segurança",
+      "autor": "Alice Lopes",
+      "tempoLeitura": "2 min",
+      "imagem": "https://static.ecommercebrasil.com.br/wp-content/uploads/2026/05/92-Fraudes-digitais-crescem-mas-ticket-medio-recua-41.jpg.webp",
+      "publicadoEm": "2026-10-23T10:25:00-03:00"
+    },
+    {
+      "posicao": 5,
+      "url": "https://www.ecommercebrasil.com.br/artigos/a-proxima-era-do-e-commerce-ja-comecou-e-muita-gente-ainda-nao-percebeu",
+      "titulo": "A próxima era do e-commerce já começou e muita gente ainda não percebeu",
+      "descricao": "Aos 32 anos, o e-commerce entra na era dos ativos digitais e, com a IA comprando por nós, marca, audiência e dados definem quem continuará sendo escolhido.",
+      "categoria": "Inteligência Artificial",
+      "autor": "Jean Makdissi",
+      "tempoLeitura": "14 min",
+      "imagem": "https://static.ecommercebrasil.com.br/wp-content/uploads/2026/10/29-e-commerce-IA.jpg.webp",
+      "publicadoEm": "2026-10-23T10:00:00-03:00"
+    }
+  ],
+  "escolhidos": [
+    {
+      "posicao": 1,
+      "url": "https://www.ecommercebrasil.com.br/noticias/assai-leva-fiscal-remoto-a-todas-as-lojas-e-prepara-uso-de-ia-nos-caixas",
+      "titulo": "Assaí leva fiscal remoto a todas as lojas e prepara uso de IA nos caixas",
+      "descricao": "Sistema fez 175 mil atendimentos em julho, e empresa testa reconhecimento de imagem com IA para identificar ocorrências",
+      "categoria": "Alimentos e Bebidas",
+      "autor": "Amanda Lucio",
+      "tempoLeitura": "3 min",
+      "imagem": "https://static.ecommercebrasil.com.br/wp-content/uploads/2026/10/21-assai-atacadista-fachada.jpeg.webp",
+      "publicadoEm": "2026-10-23T18:00:55-03:00",
+      "texto": "O Assaí Atacadista levou para todas as suas 313 lojas o Fiscal Remoto, sistema que resolve à distância as ocorrências dos caixas. Com ele, o operador aciona uma equipe remota para cancelar um item ou corrigir um preço. Assim, não precisa esperar o fiscal ir até o checkout. O próximo passo é usar inteligência artificial (IA) para identificar essas situações por imagem.\n\nEm julho, o sistema fez 175 mil atendimentos, segundo a empresa. Do total, 59% dos chamados foram resolvidos em uma média de 20 segundos. No mesmo mês, os acionamentos caíram 43% em relação a junho.\n\nEntre as situações atendidas estão cancelamento de itens, engano de produto, divergências de preço, troca de operador e vouchers de troca. Com isso, o cliente espera menos para concluir a compra, e o fiscal não precisa sair do posto a cada chamado.\n\n“Ao digitalizar e agilizar processos da operação, conseguimos otimizar o atendimento nas lojas, dar mais fluidez à jornada do cliente e apoiar nossos colaboradores no dia a dia”, afirma Denis Paiotti, diretor de TI do Assaí.\n\nDo piloto às 313 lojas\n\nO projeto começou em 2025, com uma prova de conceito e um piloto em 13 lojas. Depois, chegou a 18 unidades e passou por ajustes de software, processos e automações no sistema de frente de caixa. A expansão para o restante da rede aconteceu entre março e agosto de 2026.\n\nAgora, a empresa testa o uso de reconhecimento de imagem nos caixas. Hoje, é o operador quem chama a equipe remota. Com a nova etapa, as câmeras também poderão identificar ocorrências, como o cancelamento de produtos. Dessa forma, a equipe recebe mais informações para analisar cada caso. Segundo o Assaí, novas aplicações devem ser incorporadas aos poucos, conforme os testes avançarem.\n\n“A tecnologia precisa estar a serviço do negócio e das pessoas. Por isso, nosso trabalho é identificar oportunidades em que soluções digitais, automação e inteligência artificial possam tornar o varejo mais eficiente e a experiência do cliente mais simples e ágil”, afirma Paiotti.\n\nTecnologia na loja e no digital\n\nA loja física também vira fonte de dados para o varejo. Sensores, câmeras e IA já ajudam as redes a acompanhar estoque, reposição e preços em tempo real. No varejo alimentar, o ganho de eficiência pesa. Segundo a Associação Brasileira de Supermercados (Abras), o setor faturou cerca de R$ 1,14 trilhão em 2025.\n\nAlém da operação das lojas, o Assaí amplia os canais digitais. Neste ano, por exemplo, a rede levou o delivery pelo iFood a 104 lojas, cerca de um terço da rede. A empresa também estreou no marketplace do Mercado Livre e lançou um projeto de farmácias dentro das lojas."
+    },
+    {
+      "posicao": 2,
+      "url": "https://www.ecommercebrasil.com.br/noticias/decolar-lanca-agente-de-ia-no-whatsapp-para-orientar-vendas-de-hoteis",
+      "titulo": "Decolar lança agente de IA no WhatsApp para orientar vendas de hotéis",
+      "descricao": "Agente analisa reservas, diária média e demanda por destino e sugere ações comerciais a hotéis e pousadas parceiros",
+      "categoria": "Inteligência Artificial",
+      "autor": "Amanda Lucio",
+      "tempoLeitura": "3 min",
+      "imagem": "https://static.ecommercebrasil.com.br/wp-content/uploads/2026/10/4-decolar-agencia-ia-viagens.webp",
+      "publicadoEm": "2026-10-23T16:03:58-03:00",
+      "texto": "A Decolar lançou um agente de inteligência artificial (IA) para atender hotéis e pousadas parceiros. Batizada de Mariana, a ferramenta funciona pelo WhatsApp, 24 horas por dia. Ela reúne dados de desempenho, informações de mercado e recomendações comerciais para cada propriedade.\n\nA solução está em testes com meios de hospedagem que têm contrato direto com a empresa, em mercados selecionados. Segundo a Decolar, a ideia é levar o serviço a hotéis de todo o Brasil. Depois, deve chegar ao México e a outros países da região. Datas e número de parceiros atendidos não foram divulgados.\n\nO agente não substitui os executivos de contas, segundo a empresa. A IA cuida das demandas do dia a dia. Os profissionais seguem com o relacionamento e as análises estratégicas. “Com a tecnologia, conseguimos levar dados e inteligência comercial a mais meios de hospedagem, a qualquer momento”, afirma Roberto Rizo-Patrón, diretor Comercial de Produtos em Destino da Decolar.\n\nDo dado à recomendação\n\nA Mariana usa IA agêntica. Ou seja, consulta diferentes fontes, cruza informações e sugere ações, em vez de só responder perguntas. Entre os indicadores analisados estão reservas, receita, diária média, noites vendidas, cancelamentos, antecedência de compra e estadia média. Também entra na conta o RevPAR, a receita por quarto disponível.\n\nAlém disso, o agente acompanha a disponibilidade e mostra o ritmo de buscas e reservas de cada destino. Com isso, pode apontar períodos críticos e oportunidades ligadas a eventos e feriados. A ferramenta também sugere ajustes na página do hotel, como fotos, descrição e avaliações. O agente ainda orienta sobre promoções, planos tarifários, comissões e uso da extranet.\n\n“O objetivo é transformar dados em informações que possam apoiar as decisões comerciais dos parceiros”, afirma Rizo-Patrón. Segundo ele, a experiência da equipe comercial foi usada para ensinar à tecnologia quais dados observar e como interpretá-los. O desenvolvimento foi liderado por Jessica Moraes, gerente executiva da área.\n\nIA também para o lado da oferta\n\nNos testes, os hotéis buscaram sobretudo apoio para vender mais, melhorar a apresentação e ganhar visibilidade. Nas próximas etapas, a empresa planeja incluir dados de tráfego aéreo, novos sinais de demanda, relatórios mensais e recomendações mais proativas.\n\nPara o consumidor, a empresa já usa IA generativa. Em junho, por exemplo, a Decolar integrou a assistente Sofia a um carrinho. Com ele, o cliente reúne voos, hotéis, passeios e carros numa só compra. Agora, a tecnologia chega também aos parceiros que vendem na plataforma.\n\nO movimento acompanha o uso de agentes de IA nas operações comerciais do e-commerce, não só no atendimento ao cliente. No varejo, o WhatsApp concentra boa parte dessas iniciativas. A Veste, por exemplo, ampliou em 40% a capacidade de atendimento com um agente de IA no aplicativo. Já a Riachuelo afirma que sua IA agêntica resolve 84% das demandas dos clientes no WhatsApp.\n\nNo turismo, a disputa pelas reservas online também cresce. Segundo a Criteo, as reservas feitas por agências online subiram 19% nas Américas no primeiro trimestre de 2025."
+    },
+    {
+      "posicao": 3,
+      "url": "https://www.ecommercebrasil.com.br/noticias/shopee-14-mil-vagas-fim-do-ano-2026",
+      "titulo": "Shopee abre mais de 14 mil vagas para reforçar operação no fim do ano",
+      "descricao": "Contratações efetivas e temporárias estão distribuídas por 19 estados e pelo Distrito Federal, com foco no aumento da demanda do 11.11, Black Friday e Natal",
+      "categoria": "Mercado",
+      "autor": "Alice Lopes",
+      "tempoLeitura": "2 min",
+      "imagem": "https://static.ecommercebrasil.com.br/wp-content/uploads/2026/05/67-shopee-logistica.png.webp",
+      "publicadoEm": "2026-10-23T13:10:00-03:00",
+      "texto": "A Shopee abriu mais de 14 mil vagas efetivas e temporárias para reforçar suas operações até o fim de 2026. As oportunidades estão concentradas principalmente na área logística e acompanham a preparação da empresa para o aumento de pedidos durante o 11.11, a Black Friday e o Natal.\n\nAs contratações estão distribuídas por 19 estados e pelo Distrito Federal. A empresa também mantém vagas para áreas corporativas em seus escritórios em São Paulo.\n\nEntre as funções operacionais estão auxiliar de logística e representante I. As posições são presenciais, incluem oportunidades para pessoas com deficiência (PCDs) e não exigem experiência prévia, segundo a companhia.\n\nAs vagas temporárias também poderão resultar em efetivação, de acordo com a necessidade da operação.\n\nExpansão logística acompanha contratações\n\nO aumento das equipes ocorre em um ano de expansão da estrutura logística da Shopee no Brasil.\n\nEm 2026, a companhia abriu dez centros de distribuição e chegou a 26 unidades no país. Desse total, 21 funcionam no modelo de cross-docking e cinco são centros de fulfillment, nos quais os produtos ficam armazenados antes da venda.\n\nA rede também reúne mais de 200 hubs de primeira e última milha e mais de cinco mil Agências Shopee.\n\n“As datas duplas ao longo do ano se tornaram momentos importantes para consumidores e vendedores brasileiros, e o fim de ano traz uma demanda particularmente alta”, afirma Karina Hartung, head de Pessoas da Shopee.\n\nSegundo a executiva, a ampliação das equipes busca sustentar a operação durante o aumento de volume previsto para os próximos meses.\n\nVagas estão espalhadas pelo país\n\nAs oportunidades estão disponíveis em Alagoas, Amazonas, Bahia, Ceará, Espírito Santo, Goiás, Maranhão, Mato Grosso, Mato Grosso do Sul, Minas Gerais, Pará, Paraíba, Paraná, Pernambuco, Rio de Janeiro, Rio Grande do Sul, Santa Catarina, Sergipe e São Paulo, além do Distrito Federal.\n\nA empresa também mantém processos seletivos para posições corporativas em São Paulo, com requisitos definidos de acordo com cada área."
+    }
+  ]
+}

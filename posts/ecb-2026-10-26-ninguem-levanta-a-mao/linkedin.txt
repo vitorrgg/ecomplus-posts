@@ -1,0 +1,22 @@
+No caixa da loja física alguém resolve o travamento na hora, e na loja online o cliente apenas desiste.
+
+Quando um preço sai errado ou um item precisa ser cancelado no caixa de uma loja, o operador chama alguém e a fila volta a andar em poucos segundos. É um problema resolvido antes de virar uma venda perdida.
+
+Na sua loja online não existe essa mão levantada. O cliente encontra o mesmo tipo de travamento no checkout, fecha a aba e você fica sabendo apenas que houve mais um abandono, sem saber em qual passo ele estava.
+
+Acredito que é aí que a conta dói mais, e por três motivos:
+• cada travamento no checkout atinge quem já escolheu o produto e já decidiu comprar;
+• trazer esse cliente de volta custa mais do que consertar a tela onde ele parou;
+• o mesmo erro repetido por uma semana vira um prejuízo silencioso no fim do mês.
+
+A conversão que você ganha aqui não depende de comprar visitante novo, pois essa pessoa já estava dentro da sua loja.
+
+O que eu evitaria é tratar o checkout como uma caixa fechada. Quando ele é uma tela do fornecedor, você não vê onde o cliente parou e qualquer ajuste depende de abrir um chamado e esperar, então o problema raramente é o erro em si, e sim o tempo que ele fica no ar.
+
+Aqui na e-com.plus o checkout é uma tela da própria loja, com código do lojista, o que permite acompanhar cada etapa, manter o Pix dentro do site e corrigir no mesmo dia o que estiver atrapalhando a compra.
+
+Uma sugestão para esta semana: faça uma compra na sua própria loja, do carrinho ao pagamento, e anote cada passo em que você mesmo hesitaria.
+
+Na sua operação, você sabe em qual etapa do checkout o cliente desiste com mais frequência?
+
+#ecommerce #checkout #conversao
