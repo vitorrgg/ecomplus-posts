@@ -1,0 +1,7 @@
+Imagine o vendedor mais experiente da sua loja sentando com você no fim do dia, não para atender mais um cliente, e sim para olhar o que saiu e o que ficou parado. É isso que as plataformas começaram a fazer com IA, apontando o agente para quem vende, com sugestão de preço, de foto e de descrição. O incômodo é que, quando você vende pela plataforma de outro, a inteligência sobre o seu próprio negócio chega como um favor, no formato e na hora que ele decidir. Na loja própria o dado nasce seu, então a pergunta deixa de ser se alguém vai te contar e passa a ser se você consegue perguntar.
+
+Na e-com.plus o chat de IA no painel responde sobre a operação da loja, o conector MCP liga o Claude direto na API e a API de analytics faz as agregações na própria base, sem exportar planilha.
+
+Qual pergunta sobre a sua loja você gostaria de fazer e hoje não tem como responder? Conta para nós nos comentários.
+
+#ecommerce #inteligenciaartificial #lojavirtual #dados #conversao #d2c #ecomplus
