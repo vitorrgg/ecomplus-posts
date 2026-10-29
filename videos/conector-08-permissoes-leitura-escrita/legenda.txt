@@ -1,0 +1,9 @@
+O que a IA pode e o que ela não pode fazer na sua loja
+
+As ferramentas vêm separadas em dois grupos, e você decide um por um.
+
+Só leitura pode ficar liberado: ele lê pedido, produto e cliente, e não altera nada. As que escrevem — rastreio, preço, estoque, cadastro — podem exigir sua aprovação a cada vez.
+
+Veja a demo em e-com.plus/ecommerce-com-ia
+
+#ecommerce #inteligenciaartificial #lojavirtual #gestao #ecomplus

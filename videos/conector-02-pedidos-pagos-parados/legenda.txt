@@ -1,0 +1,9 @@
+Tem pedido pago parado no seu estoque agora
+
+O cliente pagou e não recebeu. É o pior lugar para perder a confiança de quem já comprou.
+
+Nesta loja eram 627 pedidos pagos, criados há mais de 5 dias, ainda sem código de rastreio. A IA achou, agrupou por data e ainda explicou o padrão. Menos de um minuto.
+
+Veja a demo em e-com.plus/ecommerce-com-ia
+
+#ecommerce #inteligenciaartificial #lojavirtual #gestao #ecomplus

@@ -1,0 +1,9 @@
+Conectar sua loja ao Claude leva dois minutos
+
+Sem instalar nada no computador, sem terminal e sem token.
+
+Tudo acontece dentro do próprio Claude: adicionar conector, colar o endereço, entrar com a loja e autorizar. Funciona igual no navegador, no aplicativo e no celular. No ChatGPT o caminho é praticamente o mesmo.
+
+Veja a demo em e-com.plus/ecommerce-com-ia
+
+#ecommerce #inteligenciaartificial #lojavirtual #gestao #ecomplus

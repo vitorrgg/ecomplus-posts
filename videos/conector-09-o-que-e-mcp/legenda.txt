@@ -1,0 +1,9 @@
+Copiar da loja e colar na IA é o que te faz perder tempo
+
+O quanto a IA te entrega não depende só do modelo. Depende do que ela consegue ler.
+
+MCP é o protocolo que deixa a IA falar direto com a API da sua loja, com contexto, para ler e também editar. Para isso a plataforma precisa ter API aberta e um conector bem feito.
+
+Veja a demo em e-com.plus/ecommerce-com-ia
+
+#ecommerce #inteligenciaartificial #lojavirtual #gestao #ecomplus
