@@ -19,16 +19,6 @@
       "obs": "vetado: o token do Instagram @vitorrgg foi invalidado pela troca de senha. O Short já saiu no YouTube pessoal (feito.youtube-vitorrgg). Tire este aprovado quando o token novo estiver no segredo IG_VITORRGG_ACCESS_TOKEN."
     },
     {
-      "slug": "motion-ecommerce-com-checkout-transparente",
-      "quando": "2026-10-28T12:00:00-03:00",
-      "destinos": [
-        "instagram"
-      ],
-      "titulo": "A venda cai na última tela",
-      "resumo": "Teste o carrinho com meta de frete grátis e Pix",
-      "pagina": "/ecommerce-com-checkout-transparente"
-    },
-    {
       "slug": "conector-01-risco-de-ruptura",
       "quando": "2026-10-30T12:00:00-03:00",
       "destinos": [

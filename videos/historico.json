@@ -130,6 +130,24 @@
         }
       },
       "publicadoEm": "2026-10-21T15:08:55.866Z"
+    },
+    {
+      "slug": "motion-ecommerce-com-checkout-transparente",
+      "quando": "2026-10-28T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "A venda cai na última tela",
+      "resumo": "Teste o carrinho com meta de frete grátis e Pix",
+      "pagina": "/ecommerce-com-checkout-transparente",
+      "feito": {
+        "instagram": {
+          "id": "18153573718550556",
+          "link": "https://www.instagram.com/reel/DfHqtBsjKkz/",
+          "em": "2026-10-30T13:16:22.288Z"
+        }
+      },
+      "publicadoEm": "2026-10-30T13:16:22.289Z"
     }
   ]
 }
