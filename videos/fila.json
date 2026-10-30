@@ -15,11 +15,8 @@
           "em": "2026-10-27T21:14:55.254Z"
         }
       },
-      "ultimoErro": {
-        "destino": "vitorrgg",
-        "mensagem": "Graph POST 17841400214997076/media → 400 190: Error validating access token: The session has been invalidated because the user changed their password or Facebook has changed the session for security reasons.",
-        "em": "2026-10-30T07:01:13.041Z"
-      }
+      "aprovado": false,
+      "obs": "vetado: o token do Instagram @vitorrgg foi invalidado pela troca de senha. O Short já saiu no YouTube pessoal (feito.youtube-vitorrgg). Tire este aprovado quando o token novo estiver no segredo IG_VITORRGG_ACCESS_TOKEN."
     },
     {
       "slug": "motion-ecommerce-com-checkout-transparente",
@@ -37,9 +34,7 @@
       "destinos": [
         "instagram",
         "youtube"
-      ],
-      "aprovado": false,
-      "obs": "revisar legenda e liberar"
+      ]
     },
     {
       "slug": "consultoria-05-05-embalagem-de-10-centavos",
@@ -65,9 +60,7 @@
       "destinos": [
         "instagram",
         "youtube"
-      ],
-      "aprovado": false,
-      "obs": "revisar legenda e liberar"
+      ]
     },
     {
       "slug": "consultoria-06-06-sistema-na-nuvem",
@@ -93,9 +86,7 @@
       "destinos": [
         "instagram",
         "youtube"
-      ],
-      "aprovado": false,
-      "obs": "revisar legenda e liberar"
+      ]
     },
     {
       "slug": "consultoria-07-07-foto-titulo-e-descricao",
@@ -121,9 +112,7 @@
       "destinos": [
         "instagram",
         "youtube"
-      ],
-      "aprovado": false,
-      "obs": "revisar legenda e liberar"
+      ]
     },
     {
       "slug": "consultoria-08-08-ia-para-foto-de-produto",
@@ -149,9 +138,7 @@
       "destinos": [
         "instagram",
         "youtube"
-      ],
-      "aprovado": false,
-      "obs": "revisar legenda e liberar"
+      ]
     },
     {
       "slug": "consultoria-09-09-mercado-livre-gosta-de-agilidade",
@@ -177,9 +164,7 @@
       "destinos": [
         "instagram",
         "youtube"
-      ],
-      "aprovado": false,
-      "obs": "revisar legenda e liberar"
+      ]
     },
     {
       "slug": "consultoria-10-10-capacidade-de-carga-no-anuncio",
@@ -205,9 +190,7 @@
       "destinos": [
         "instagram",
         "youtube"
-      ],
-      "aprovado": false,
-      "obs": "revisar legenda e liberar"
+      ]
     },
     {
       "slug": "consultoria-11-11-quanto-o-mercado-livre-cobra",
@@ -233,9 +216,7 @@
       "destinos": [
         "instagram",
         "youtube"
-      ],
-      "aprovado": false,
-      "obs": "revisar legenda e liberar"
+      ]
     },
     {
       "slug": "consultoria-12-12-reputacao-e-frete-gratis",
@@ -298,9 +279,7 @@
       "destinos": [
         "instagram",
         "youtube"
-      ],
-      "aprovado": false,
-      "obs": "revisar legenda e liberar"
+      ]
     },
     {
       "slug": "consultoria-15-15-programa-decola",
@@ -326,9 +305,7 @@
       "destinos": [
         "instagram",
         "youtube"
-      ],
-      "aprovado": false,
-      "obs": "revisar legenda e liberar"
+      ]
     },
     {
       "slug": "consultoria-16-16-atrasar-ou-cancelar",
@@ -354,9 +331,7 @@
       "destinos": [
         "instagram",
         "youtube"
-      ],
-      "aprovado": false,
-      "obs": "revisar legenda e liberar"
+      ]
     },
     {
       "slug": "consultoria-17-17-panfleto-na-caixa",
