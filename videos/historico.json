@@ -148,6 +148,28 @@
         }
       },
       "publicadoEm": "2026-10-30T13:16:22.289Z"
+    },
+    {
+      "slug": "consultoria-04-04-catalogo-atalho-e-armadilha",
+      "quando": "2026-10-27T18:00:00-03:00",
+      "destinos": [
+        "vitorrgg",
+        "youtube-vitorrgg"
+      ],
+      "feito": {
+        "youtube-vitorrgg": {
+          "id": "46JnYYGEDVs",
+          "link": "https://youtube.com/shorts/46JnYYGEDVs",
+          "privacidade": "public",
+          "em": "2026-10-27T21:14:55.254Z"
+        },
+        "vitorrgg": {
+          "id": "18132678817866372",
+          "link": "https://www.instagram.com/reel/DfH1NnLiSKS/",
+          "em": "2026-10-30T14:48:36.754Z"
+        }
+      },
+      "publicadoEm": "2026-10-30T14:48:36.754Z"
     }
   ]
 }
