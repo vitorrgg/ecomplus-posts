@@ -1,0 +1,21 @@
+A venda que você perde na hora do pagamento costuma ser a mais cara do mês.
+
+Na loja física, quando o cartão do cliente é recusado na maquininha, o vendedor oferece outra forma de pagar e a compra acontece de qualquer jeito. É um problema que morre ali, antes de virar venda perdida.
+
+Na sua loja online ninguém faz essa oferta. O cliente vê um aviso genérico, entende que o problema é com ele e fecha a aba sem tentar de novo.
+
+Acredito que essa é a parte mais cara do funil, por alguns motivos:
+• quem é recusado já passou por toda a vitrine e já estava com o cartão na mão;
+• a conversão que você ganha aqui não pede visitante novo, pois a pessoa já está dentro da loja;
+• uma parte dessas recusas acontece com cliente legítimo, que leva a culpa para a sua marca;
+• esse cliente costuma comprar o mesmo produto em outro lugar no mesmo dia.
+
+O que eu evitaria é confundir mais opções com mais vendas. O reflexo comum é empilhar meio de pagamento novo, e cada um deles leva uma parte do checkout para fora, onde você não vê em que etapa a compra parou. Antes de somar mais uma tela, sugiro descobrir quanto você já perde nas que existem hoje.
+
+Aqui na e-com.plus o checkout é uma tela da própria loja, então o pagamento não troca de endereço. O Pix transparente resolve dentro do site, o checkout passwordless (sem senha) encurta o caminho e a recuperação de carrinho chama de volta quem parou. Segundo a Worldpay, o Pix respondeu por 42% do valor transacionado no e-commerce brasileiro em 2025, então é muita venda dependendo de uma tela só.
+
+Uma sugestão para esta semana: peça o número de pedidos recusados no pagamento no último mês e multiplique pelo seu ticket médio.
+
+Na sua operação, você consegue ver em qual etapa do pagamento o pedido cai?
+
+#ecommerce #pagamentos #conversao
