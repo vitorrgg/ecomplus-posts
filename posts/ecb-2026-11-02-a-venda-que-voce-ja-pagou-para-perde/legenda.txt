@@ -1,0 +1,7 @@
+Na loja física, quando o cartão do cliente é recusado na maquininha, o vendedor oferece outra forma de pagar e a compra acontece de qualquer jeito. Na sua loja online ninguém faz essa oferta, pois o cliente vê um aviso genérico, entende que o problema é com ele e fecha a aba sem tentar de novo. Na nossa experiência, a aprovação no pagamento é a parte do funil que quase ninguém olha, porque a venda perdida ali não aparece como visita nem como carrinho abandonado. E o reflexo de empilhar meio de pagamento novo leva uma parte do seu checkout para fora, onde você não consegue ver onde a compra parou.
+
+Na e-com.plus o checkout é uma tela da sua loja, com o Pix transparente resolvendo dentro do site e a recuperação de carrinho nativa chamando de volta quem parou no meio.
+
+Você sabe quantos pedidos foram recusados no pagamento da sua loja no último mês? Conta para nós nos comentários.
+
+#ecommerce #pagamentos #checkout #conversao #pix #lojavirtual #d2c
