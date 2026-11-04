@@ -192,6 +192,28 @@
         }
       },
       "publicadoEm": "2026-11-04T01:16:54.086Z"
+    },
+    {
+      "slug": "conector-01-risco-de-ruptura",
+      "quando": "2026-10-30T12:00:00-03:00",
+      "destinos": [
+        "instagram",
+        "youtube"
+      ],
+      "feito": {
+        "instagram": {
+          "id": "17879056746567784",
+          "link": "https://www.instagram.com/reel/DfIT0Vhgtsa/",
+          "em": "2026-10-30T19:15:55.271Z"
+        },
+        "youtube": {
+          "id": "Wtg-5y-JNiY",
+          "link": "https://youtube.com/shorts/Wtg-5y-JNiY",
+          "privacidade": "public",
+          "em": "2026-11-04T13:31:58.676Z"
+        }
+      },
+      "publicadoEm": "2026-11-04T13:31:58.676Z"
     }
   ]
 }
