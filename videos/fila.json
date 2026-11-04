@@ -1,16 +1,6 @@
 {
   "pendentes": [
     {
-      "slug": "motion-segmentos-beleza",
-      "quando": "2026-11-04T12:00:00-03:00",
-      "destinos": [
-        "instagram"
-      ],
-      "titulo": "Quem vende beleza não vende um pedido",
-      "resumo": "Beleza e skincare: demo do tema Glow Commerce",
-      "pagina": "/segmentos/beleza"
-    },
-    {
       "slug": "conector-02-pedidos-pagos-parados",
       "quando": "2026-11-06T12:00:00-03:00",
       "destinos": [

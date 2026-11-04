@@ -214,6 +214,24 @@
         }
       },
       "publicadoEm": "2026-11-04T13:31:58.676Z"
+    },
+    {
+      "slug": "motion-segmentos-beleza",
+      "quando": "2026-11-04T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "Quem vende beleza não vende um pedido",
+      "resumo": "Beleza e skincare: demo do tema Glow Commerce",
+      "pagina": "/segmentos/beleza",
+      "feito": {
+        "instagram": {
+          "id": "18136495807710512",
+          "link": "https://www.instagram.com/reel/DfU9LT7lbgo/",
+          "em": "2026-11-04T17:08:01.796Z"
+        }
+      },
+      "publicadoEm": "2026-11-04T17:08:01.796Z"
     }
   ]
 }
