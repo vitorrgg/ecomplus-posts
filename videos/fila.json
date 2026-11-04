@@ -130,12 +130,14 @@
       "pagina": "/segmentos/casa-e-decoracao"
     },
     {
-      "slug": "conector-06-kits-compre-junto",
+      "slug": "reuniao-01-ia-operando-a-loja",
       "quando": "2026-12-04T12:00:00-03:00",
       "destinos": [
         "instagram",
         "youtube"
-      ]
+      ],
+      "aprovado": false,
+      "obs": "revisar legenda e liberar"
     },
     {
       "slug": "consultoria-10-10-capacidade-de-carga-no-anuncio",
@@ -156,7 +158,7 @@
       "pagina": "/ecommerce-com-assinatura"
     },
     {
-      "slug": "conector-07-nada-muda-sem-autorizar",
+      "slug": "conector-06-kits-compre-junto",
       "quando": "2026-12-11T12:00:00-03:00",
       "destinos": [
         "instagram",
@@ -182,7 +184,7 @@
       "pagina": "/segmentos/pet"
     },
     {
-      "slug": "conector-08-permissoes-leitura-escrita",
+      "slug": "conector-07-nada-muda-sem-autorizar",
       "quando": "2026-12-18T12:00:00-03:00",
       "destinos": [
         "instagram",
@@ -245,12 +247,14 @@
       "aprovado": false
     },
     {
-      "slug": "conector-09-o-que-e-mcp",
+      "slug": "reuniao-02-o-custo-de-um-canal-so",
       "quando": "2027-01-08T12:00:00-03:00",
       "destinos": [
         "instagram",
         "youtube"
-      ]
+      ],
+      "aprovado": false,
+      "obs": "revisar legenda e liberar"
     },
     {
       "slug": "consultoria-15-15-programa-decola",
@@ -271,7 +275,7 @@
       "pagina": "/segmentos/eletronicos"
     },
     {
-      "slug": "conector-10-instalar-conector",
+      "slug": "conector-08-permissoes-leitura-escrita",
       "quando": "2027-01-15T12:00:00-03:00",
       "destinos": [
         "instagram",
@@ -297,7 +301,7 @@
       "pagina": "/ecommerce-com-ia"
     },
     {
-      "slug": "conector-11-usuario-dedicado",
+      "slug": "conector-09-o-que-e-mcp",
       "quando": "2027-01-22T12:00:00-03:00",
       "destinos": [
         "instagram",
@@ -323,6 +327,16 @@
       "pagina": "/segmentos/moda-masculina"
     },
     {
+      "slug": "reuniao-03-quem-pesquisa-converte-o-dobro",
+      "quando": "2027-01-29T12:00:00-03:00",
+      "destinos": [
+        "instagram",
+        "youtube"
+      ],
+      "aprovado": false,
+      "obs": "revisar legenda e liberar"
+    },
+    {
       "slug": "consultoria-18-18-vendi-e-agora-expedicao",
       "quando": "2027-02-02T18:00:00-03:00",
       "destinos": [
@@ -339,6 +353,14 @@
       "titulo": "Quanto da sua venda fica com a plataforma?",
       "resumo": "Calculadora: a comissão de hoje contra o plano",
       "pagina": "/ecommerce-sem-comissao"
+    },
+    {
+      "slug": "conector-10-instalar-conector",
+      "quando": "2027-02-05T12:00:00-03:00",
+      "destinos": [
+        "instagram",
+        "youtube"
+      ]
     },
     {
       "slug": "consultoria-19-19-compra-no-quilo-vende-na-unidade",
@@ -359,6 +381,14 @@
       "pagina": "/segmentos/construcao-e-ferramentas"
     },
     {
+      "slug": "conector-11-usuario-dedicado",
+      "quando": "2027-02-12T12:00:00-03:00",
+      "destinos": [
+        "instagram",
+        "youtube"
+      ]
+    },
+    {
       "slug": "motion-segmentos-autopecas",
       "quando": "2027-02-17T12:00:00-03:00",
       "destinos": [
@@ -370,6 +400,16 @@
       "aprovado": false
     },
     {
+      "slug": "reuniao-04-necessidade-ou-desejo",
+      "quando": "2027-02-19T12:00:00-03:00",
+      "destinos": [
+        "instagram",
+        "youtube"
+      ],
+      "aprovado": false,
+      "obs": "revisar legenda e liberar"
+    },
+    {
       "slug": "motion-trocar-de-plataforma",
       "quando": "2027-02-24T12:00:00-03:00",
       "destinos": [
@@ -378,6 +418,16 @@
       "titulo": "Sua loja cresceu além da plataforma?",
       "resumo": "Compare a sua plataforma de hoje, ponto a ponto",
       "pagina": "/trocar-de-plataforma"
+    },
+    {
+      "slug": "reuniao-05-a-comissao-quando-voce-cresce",
+      "quando": "2027-02-26T12:00:00-03:00",
+      "destinos": [
+        "instagram",
+        "youtube"
+      ],
+      "aprovado": false,
+      "obs": "revisar legenda e liberar"
     },
     {
       "slug": "motion-segmentos-joias-e-semijoias",
@@ -391,6 +441,16 @@
       "aprovado": false
     },
     {
+      "slug": "reuniao-06-pagina-rapida-converte-mais",
+      "quando": "2027-03-05T12:00:00-03:00",
+      "destinos": [
+        "instagram",
+        "youtube"
+      ],
+      "aprovado": false,
+      "obs": "revisar legenda e liberar"
+    },
+    {
       "slug": "motion-ecommerce-com-afiliados",
       "quando": "2027-03-10T12:00:00-03:00",
       "destinos": [
@@ -402,6 +462,16 @@
       "aprovado": false
     },
     {
+      "slug": "reuniao-07-refem-do-marketplace",
+      "quando": "2027-03-12T12:00:00-03:00",
+      "destinos": [
+        "instagram",
+        "youtube"
+      ],
+      "aprovado": false,
+      "obs": "revisar legenda e liberar"
+    },
+    {
       "slug": "motion-segmentos-bebe-e-infantil",
       "quando": "2027-03-17T12:00:00-03:00",
       "destinos": [
@@ -411,6 +481,16 @@
       "resumo": "Bebê e infantil: demo do tema Ninho",
       "pagina": "/segmentos/bebe-e-infantil",
       "aprovado": false
+    },
+    {
+      "slug": "reuniao-08-nao-prendemos-por-contrato",
+      "quando": "2027-03-19T12:00:00-03:00",
+      "destinos": [
+        "instagram",
+        "youtube"
+      ],
+      "aprovado": false,
+      "obs": "revisar legenda e liberar"
     },
     {
       "slug": "motion-ecommerce-para-devs",

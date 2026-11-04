@@ -1,0 +1,9 @@
+A IA lê a loja e também altera, direto pela API
+
+Isso aqui eu falei numa reunião com um lojista, não num vídeo de demonstração.
+
+Conectado por MCP ao Claude ou ao ChatGPT, dá para pedir os três produtos mais vendidos do mês, quais vão faltar no estoque e qual cliente bom parou de comprar. E não é só leitura: a IA altera pela API, com a sua autorização. É quase um gerente de e-commerce do lado.
+
+Veja a plataforma em e-com.plus/ecommerce-com-ia
+
+#ecommerce #lojavirtual #marketplace #gestao #ecomplus

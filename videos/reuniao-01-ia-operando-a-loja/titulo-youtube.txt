@@ -1,0 +1,1 @@
+A IA lê a loja e também altera, direto pela API
