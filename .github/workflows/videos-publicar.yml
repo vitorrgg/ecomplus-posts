@@ -43,7 +43,15 @@ jobs:
       SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
       SLACK_CHANNEL_CONTEUDO: ${{ vars.SLACK_CHANNEL_CONTEUDO }}
     steps:
+      # O acervo de vídeos passa de 1 GB e o checkout levava 2 min por rodada,
+      # de hora em hora, para publicar um arquivo de 30 MB. Aqui vem só o que
+      # decide o que publicar; a pasta do vídeo entra no passo seguinte.
       - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            /scripts/
+            /videos/*.json
+          sparse-checkout-cone-mode: false
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -54,6 +62,13 @@ jobs:
           args=()
           [ -n "${{ github.event.inputs.slug }}" ] && args+=(--slug "${{ github.event.inputs.slug }}")
           node scripts/videos/publicar.mjs --tem-algo "${args[@]}" >> "$GITHUB_OUTPUT"
+      - name: Trazer a pasta do vídeo
+        if: steps.hora.outputs.tem == 'true' && steps.hora.outputs.slug != ''
+        run: |
+          slug='${{ steps.hora.outputs.slug }}'
+          git sparse-checkout set --no-cone '/scripts/' '/videos/*.json' "/videos/$slug/"
+          test -f "videos/$slug/video.mp4" || { echo "::error::videos/$slug/video.mp4 não veio no sparse-checkout"; exit 1; }
+          echo "baixado: $(du -sh "videos/$slug" | cut -f1)"
       - name: Publicar
         if: steps.hora.outputs.tem == 'true'
         run: |

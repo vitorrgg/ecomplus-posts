@@ -187,7 +187,11 @@ if (ehMain) {
   const opts = args();
   const fila = lerJson(FILA, { pendentes: [] });
   if (opts['tem-algo']) {
-    console.log(`tem=${Boolean(opts.slug || proximo(fila))}`);
+    // além de dizer se há o que publicar, devolve o slug: o workflow usa para
+    // baixar só a pasta daquele vídeo, em vez do acervo inteiro
+    const alvo = opts.slug ? fila.pendentes.find((p) => p.slug === opts.slug) : proximo(fila);
+    console.log(`tem=${Boolean(opts.slug || alvo)}`);
+    if (alvo) console.log(`slug=${alvo.slug}`);
     process.exit(0);
   }
   const item = opts.slug ? fila.pendentes.find((p) => p.slug === opts.slug) : proximo(fila);
