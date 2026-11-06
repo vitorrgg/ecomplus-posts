@@ -232,6 +232,28 @@
         }
       },
       "publicadoEm": "2026-11-04T17:08:01.796Z"
+    },
+    {
+      "slug": "conector-02-pedidos-pagos-parados",
+      "quando": "2026-11-06T12:00:00-03:00",
+      "destinos": [
+        "instagram",
+        "youtube"
+      ],
+      "feito": {
+        "instagram": {
+          "id": "18138226660640514",
+          "link": "https://www.instagram.com/reel/DfaI9osCFFN/",
+          "em": "2026-11-06T17:27:41.076Z"
+        },
+        "youtube": {
+          "id": "wQklx0Q4zRE",
+          "link": "https://youtube.com/shorts/wQklx0Q4zRE",
+          "privacidade": "public",
+          "em": "2026-11-06T17:27:43.170Z"
+        }
+      },
+      "publicadoEm": "2026-11-06T17:27:43.171Z"
     }
   ]
 }
