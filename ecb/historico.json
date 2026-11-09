@@ -166,6 +166,30 @@
       "titulo": "Comércio sustenta faturamento das PMEs no 3º trimestre de 2026",
       "semana": "2026-11-02",
       "geradoEm": "2026-11-02T12:31:02.537Z"
+    },
+    {
+      "slug": "ecb-2026-11-09-o-mercado-nao-vai-crescer-por-voce",
+      "serie": "ecb",
+      "fonte": "https://www.ecommercebrasil.com.br/noticias/rascunho-automaticoproducao-industrial-cai-setembro-ibge",
+      "titulo": "Produção industrial recua 0,8% em setembro e acumula perda de 4,1% desde maio",
+      "semana": "2026-11-09",
+      "geradoEm": "2026-11-09T12:21:19.534Z"
+    },
+    {
+      "slug": "ecb-2026-11-09-o-desconto-nao-e-o-seu-diferencial",
+      "serie": "ecb",
+      "fonte": "https://www.ecommercebrasil.com.br/noticias/nubank-shopee-11-11-show-pericles-descontos",
+      "titulo": "Nubank e Shopee unem 11.11 a descontos e show gratuito de Péricles",
+      "semana": "2026-11-09",
+      "geradoEm": "2026-11-09T12:21:19.539Z"
+    },
+    {
+      "slug": "ecb-2026-11-09-o-prazo-pertence-a-vitrine",
+      "serie": "ecb",
+      "fonte": "https://www.ecommercebrasil.com.br/noticias/privalia-entrega-proximo-dia-util-sao-paulo",
+      "titulo": "Privalia passa a oferecer entrega no próximo dia útil em São Paulo",
+      "semana": "2026-11-09",
+      "geradoEm": "2026-11-09T12:21:19.542Z"
     }
   ],
   "publicados": [
