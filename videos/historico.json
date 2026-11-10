@@ -254,6 +254,28 @@
         }
       },
       "publicadoEm": "2026-11-06T17:27:43.171Z"
+    },
+    {
+      "slug": "consultoria-06-06-sistema-na-nuvem",
+      "quando": "2026-11-10T18:00:00-03:00",
+      "destinos": [
+        "vitorrgg",
+        "youtube-vitorrgg"
+      ],
+      "feito": {
+        "vitorrgg": {
+          "id": "18443702461177918",
+          "link": "https://www.instagram.com/reel/Dfk9lgMj_55/",
+          "em": "2026-11-10T22:19:21.783Z"
+        },
+        "youtube-vitorrgg": {
+          "id": "xY2Dbw1q-DA",
+          "link": "https://youtube.com/shorts/xY2Dbw1q-DA",
+          "privacidade": "public",
+          "em": "2026-11-10T22:19:23.905Z"
+        }
+      },
+      "publicadoEm": "2026-11-10T22:19:23.905Z"
     }
   ]
 }
