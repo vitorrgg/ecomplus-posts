@@ -276,6 +276,24 @@
         }
       },
       "publicadoEm": "2026-11-10T22:19:23.905Z"
+    },
+    {
+      "slug": "motion-ecommerce-com-busca-inteligente",
+      "quando": "2026-11-11T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "Seu cliente digita errado",
+      "resumo": "Teste a busca que entende erro de digitação",
+      "pagina": "/ecommerce-com-busca-inteligente",
+      "feito": {
+        "instagram": {
+          "id": "17868551682677095",
+          "link": "https://www.instagram.com/reel/DfnJHN7mVlT/",
+          "em": "2026-11-11T18:38:33.629Z"
+        }
+      },
+      "publicadoEm": "2026-11-11T18:38:33.630Z"
     }
   ]
 }

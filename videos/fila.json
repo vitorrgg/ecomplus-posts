@@ -1,16 +1,6 @@
 {
   "pendentes": [
     {
-      "slug": "motion-ecommerce-com-busca-inteligente",
-      "quando": "2026-11-11T12:00:00-03:00",
-      "destinos": [
-        "instagram"
-      ],
-      "titulo": "Seu cliente digita errado",
-      "resumo": "Teste a busca que entende erro de digitação",
-      "pagina": "/ecommerce-com-busca-inteligente"
-    },
-    {
       "slug": "conector-03-carrinhos-abandonados",
       "quando": "2026-11-13T12:00:00-03:00",
       "destinos": [
