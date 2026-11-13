@@ -1,14 +1,6 @@
 {
   "pendentes": [
     {
-      "slug": "conector-03-carrinhos-abandonados",
-      "quando": "2026-11-13T12:00:00-03:00",
-      "destinos": [
-        "instagram",
-        "youtube"
-      ]
-    },
-    {
       "slug": "consultoria-07-07-foto-titulo-e-descricao",
       "quando": "2026-11-17T18:00:00-03:00",
       "destinos": [

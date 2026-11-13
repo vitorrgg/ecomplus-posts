@@ -294,6 +294,28 @@
         }
       },
       "publicadoEm": "2026-11-11T18:38:33.630Z"
+    },
+    {
+      "slug": "conector-03-carrinhos-abandonados",
+      "quando": "2026-11-13T12:00:00-03:00",
+      "destinos": [
+        "instagram",
+        "youtube"
+      ],
+      "feito": {
+        "instagram": {
+          "id": "18360924082222923",
+          "link": "https://www.instagram.com/reel/DfsB2JGlf8E/",
+          "em": "2026-11-13T16:11:36.508Z"
+        },
+        "youtube": {
+          "id": "QML-X2JjPfg",
+          "link": "https://youtube.com/shorts/QML-X2JjPfg",
+          "privacidade": "public",
+          "em": "2026-11-13T16:11:38.924Z"
+        }
+      },
+      "publicadoEm": "2026-11-13T16:11:38.925Z"
     }
   ]
 }
