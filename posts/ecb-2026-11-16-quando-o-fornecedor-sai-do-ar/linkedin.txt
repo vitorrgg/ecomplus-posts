@@ -1,0 +1,21 @@
+Nenhum serviço fica no ar para sempre, e a pergunta útil é o que da sua loja cai junto.
+
+Na sexta-feira, um dos serviços de inteligência artificial mais usados do mundo ficou cerca de duas horas indisponível por uma falha de autenticação, segundo a página de status da Anthropic. Foi corrigido, os sistemas voltaram, e a história acaba aí para quem só usa o serviço.
+
+Para quem tem loja, a história começa aí. O detalhe que interessa não é a falha, pois isso acontece com qualquer fornecedor, e sim o tamanho do estrago em cada operação que dependia dele.
+
+Vale listar o que realmente para quando um serviço externo cai:
+• a vitrine pode continuar no ar e a busca do site parar de responder;
+• o checkout pode abrir e o meio de pagamento recusar o pedido;
+• o pedido pode entrar e o cálculo de frete travar na última tela;
+• converter visitante em cliente é a alavanca que sente isso primeiro, pois o cliente não volta depois.
+
+O erro comum é descobrir essa lista no dia do problema, quando o suporte do fornecedor já está ocupado com todos os outros clientes dele. Acredito que o que separa duas horas de prejuízo de duas horas de incômodo é ter alternativa no que é crítico, e isso se decide antes.
+
+Aqui na e-com.plus a loja é código do próprio lojista, versionado no Git, e o checkout e a confirmação são telas da marca, então uma mudança urgente não depende de abrir chamado e esperar. O Pix transparente e as mais de 15 integrações nativas de frete dão caminho alternativo quando um parceiro específico sai do ar, e o OMS mostra onde o pedido parou.
+
+Uma sugestão para esta semana: liste os serviços externos que a sua loja usa e marque, em cada um, o que o cliente deixa de conseguir fazer se ele parar.
+
+Na sua operação, quantos desses serviços têm um plano B hoje?
+
+#ecommerce #d2c #headless
