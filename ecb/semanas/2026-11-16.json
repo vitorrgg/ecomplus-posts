@@ -1,0 +1,112 @@
+{
+  "coletadoEm": "2026-11-16T12:15:41.054Z",
+  "fonte": "https://www.ecommercebrasil.com.br/",
+  "capasLivres": [
+    "ai-touch-circuit.jpg",
+    "code-screen-macbook.jpg",
+    "factory-industrial.jpg",
+    "network-nodes.jpg",
+    "reading-article-phone.jpg",
+    "referral-handshake.jpg",
+    "star-rating.jpg",
+    "wireframe-sketch.jpg"
+  ],
+  "ranking": [
+    {
+      "posicao": 1,
+      "url": "https://www.ecommercebrasil.com.br/noticias/claude-fora-do-ar-falha-autenticacao-anthropic",
+      "titulo": "Claude fica fora do ar por duas horas após falha de autenticação",
+      "descricao": "Problema atingiu diferentes serviços da Anthropic na sexta-feira (13); empresa informou que o acesso foi normalizado após a aplicação de uma correção",
+      "categoria": "Inteligência Artificial",
+      "autor": "Alice Lopes",
+      "tempoLeitura": "2 min",
+      "imagem": "https://static.ecommercebrasil.com.br/wp-content/uploads/2026/11/93-claude-anthropic.jpg.webp",
+      "publicadoEm": "2026-11-14T09:00:00-03:00",
+      "texto": "O Claude ficou indisponível por cerca de duas horas na sexta-feira (13) após uma falha de autenticação afetar diferentes serviços da Anthropic.\n\nSegundo a página de status da empresa, o incidente começou às 6h58 e atingiu Claude.ai, Claude Code, Claude Console e Claude Cowork. A companhia identificou um aumento nos erros relacionados à autenticação de usuários e informou que o serviço foi restabelecido às 8h58, no horário de Brasília.\n\nA Anthropic afirmou que aplicou uma correção e encerrou o incidente após monitorar a normalização dos sistemas.\n\nFalha acontece às vésperas do IPO\n\nA indisponibilidade ocorre poucos dias antes da estreia prevista da Anthropic na Nasdaq. As ações devem começar a ser negociadas em 19 de novembro, sob o código ANT.\n\nA oferta pública inicial recebeu demanda equivalente a cerca de seis vezes o volume de ações disponível, segundo informações da Bloomberg reportadas pela Reuters. A companhia e acionistas pretendem vender 825 milhões de ações, com faixa de preço entre US$ 70 e US$ 78 por papel.\n\nNesse intervalo, a operação pode avaliar a Anthropic em até cerca de US$ 1,4 trilhão, colocando a listagem entre as maiores estreias já realizadas no mercado acionário.\n\nO IPO acontece em um momento de maior volatilidade para empresas ligadas à inteligência artificial. Nesta semana, a renúncia de Jensen Huang ao comando da Nvidia ampliou a pressão sobre o setor e trouxe novas discussões sobre governança, exportações de chips e investimentos em infraestrutura de IA.\n\nApesar do momento sensível, a Anthropic tratou a indisponibilidade como uma falha técnica de autenticação e informou que os serviços foram normalizados."
+    },
+    {
+      "posicao": 2,
+      "url": "https://www.ecommercebrasil.com.br/noticias/mercado-livre-shopee-trafego-ecommerce-brasil",
+      "titulo": "Mercado Livre e Shopee concentram 66% do tráfego dos grandes e-commerces",
+      "descricao": "Levantamento da Similarweb e Snaq mostra liderança das duas plataformas no terceiro trimestre; OLX teve a menor taxa de rejeição na web",
+      "categoria": "Mercado",
+      "autor": "Alice Lopes",
+      "tempoLeitura": "2 min",
+      "imagem": "https://static.ecommercebrasil.com.br/wp-content/uploads/2025/08/32-mercado-livre-shopee.jpg.webp",
+      "publicadoEm": "2026-11-13T15:00:00-03:00",
+      "texto": "Mercado Livre e Shopee concentraram 66% de todas as visitas registradas entre os principais e-commerces do Brasil no terceiro trimestre de 2026, considerando acessos por aplicativos e web.\n\nO dado faz parte da terceira edição do relatório de audiência digital produzido pela Similarweb em parceria com a Snaq. O estudo analisou 29 domínios de 28 marcas de comércio eletrônico, além do comportamento de navegação e uso de 24 aplicativos Android.\n\nNo consolidado entre julho e setembro, o Mercado Livre manteve a liderança e somou 5,17 bilhões de visitas em app e web. A Shopee apareceu na segunda posição, com 4,49 bilhões.\n\nA diferença entre as duas plataformas foi de 676,8 milhões de acessos. Em relação à Shein, terceira colocada, a distância foi ainda maior: segundo o levantamento, seriam necessários aproximadamente 4 bilhões de acessos adicionais para alcançar o volume registrado pelo Mercado Livre.\n\nPara Vicky Almeida, Sr. Insights LATAM Leader da Similarweb, a distância entre as líderes e as demais plataformas ajuda a mostrar o nível de concentração do mercado.\n\n“O que essas empresas fazem que as distancia tanto das demais? Esta é a pergunta que deve ser feita pelos líderes”, afirma.\n\nWeb mostra dinâmica diferente entre plataformas\n\nQuando a análise considera apenas o tráfego via web, Mercado Livre e o domínio brasileiro da Amazon aparecem entre os maiores volumes de sessões.\n\nA Webcontinental, apesar de ocupar a 27ª posição no ranking, teve o maior crescimento de visitas ao site no trimestre. Foram 3,6 milhões de sessões, alta de 53,5% em relação ao mesmo período do ano anterior.\n\nA OLX se destacou em outro indicador. A plataforma registrou a menor taxa de rejeição entre os sites analisados, de 30,6%.\n\nNo Mercado Livre, o índice foi de 35,5%, enquanto a Shopee registrou 37,7%.\n\nOs dados reforçam que, embora Mercado Livre e Shopee concentrem a maior parcela da audiência total, os indicadores de desempenho variam conforme o canal e o comportamento de navegação observado em cada plataforma."
+    },
+    {
+      "posicao": 3,
+      "url": "https://www.ecommercebrasil.com.br/noticias/shopee-recorde-11-11-vendas-black-friday",
+      "titulo": "Shopee bate recordes no 11.11 e mais que dobra vendas sobre a Black Friday de 2025",
+      "descricao": "Data registrou o maior número de usuários ativos, pedidos e itens vendidos da história da plataforma no Brasil",
+      "categoria": "Marketplace",
+      "autor": "Alice Lopes",
+      "tempoLeitura": "2 min",
+      "imagem": "https://static.ecommercebrasil.com.br/wp-content/uploads/2026/10/76-shopee-terry.jpg.webp",
+      "publicadoEm": "2026-11-13T13:20:44-03:00",
+      "texto": "O 11.11 de 2026 se tornou o maior dia da história da Shopee no Brasil. A plataforma bateu recordes de pedidos, itens vendidos e usuários ativos e mais que dobrou as vendas na comparação com a Black Friday de 2025.\n\nCasa e Eletrodomésticos responderam por cerca de um terço do valor movimentado, enquanto mais de 95% do volume vendido veio de vendedores locais. Entre as categorias com maior crescimento estiveram Pneus e Rodas, Esporte e Fitness, Cuidados com a Casa e Móveis.\n\nNos itens vendidos em maior quantidade, apareceram panetones, ventiladores, sabão em pó e fraldas. Em tecnologia, os destaques foram consoles de videogame, televisores e smartphones. Já ar-condicionado e geladeiras de quatro portas ficaram entre os produtos de maior valor vendido.\n\nEntrega rápida também bate recorde\n\nO avanço do 11.11 também apareceu nas modalidades logísticas da Shopee. O Turbo, serviço com entregas em até quatro horas na Grande São Paulo, registrou o maior volume de pedidos desde o lançamento.\n\nProdutos de reposição lideraram a procura no serviço. Quatro dos cinco itens mais pedidos foram da categoria Pet, entre eles ração e areia higiênica para cães e gatos. Cerveja também apareceu entre os destaques.\n\nO Fulfillment, operação em que os produtos ficam armazenados nos estoques da Shopee, também alcançou volume recorde e mais que triplicou as vendas em relação à Black Friday de 2025.\n\nPix lidera, mas cartão ganha espaço\n\nO Pix permaneceu como principal meio de pagamento no 11.11, concentrando 52% dos pedidos.\n\nO cartão de crédito, porém, foi a modalidade que mais cresceu. O número de pedidos pagos com cartão avançou 121% frente à Black Friday do ano passado, enquanto sua participação passou de 32% para 37%.\n\nSegundo Felipe Piringer, diretor de Marketing da Shopee, a campanha também marcou a primeira etapa da temporada promocional da plataforma.\n\n“Fizemos do 11.11 de 2026 um dia histórico”, afirma. Durante a data, a Shopee disponibilizou R$ 25 milhões em cupons de desconto, volume 50 vezes superior ao da primeira edição da campanha no Brasil.\n\nCom o resultado, a plataforma chega à Black Friday depois de registrar seu maior pico de vendas no país justamente antes da principal sexta-feira promocional de novembro."
+    },
+    {
+      "posicao": 4,
+      "url": "https://www.ecommercebrasil.com.br/artigos/do-carrinho-abandonado-a-venda-recuperada-como-o-whatsapp-esta-mudando-a-conversao-no-e-commerce",
+      "titulo": "Do carrinho abandonado à venda recuperada: como o WhatsApp está mudando a conversão no e-commerce",
+      "descricao": "Saiba como usar IA e WhatsApp para recuperar carrinho abandonado, melhorar o atendimento e aumentar as vendas no e-commerce.",
+      "categoria": "Conversão",
+      "autor": "Renata Oliveira",
+      "tempoLeitura": "4 min",
+      "imagem": "https://static.ecommercebrasil.com.br/wp-content/uploads/2026/11/34-carrinho-abandonado.jpeg.webp",
+      "publicadoEm": "2026-11-13T11:00:00-03:00"
+    },
+    {
+      "posicao": 5,
+      "url": "https://www.ecommercebrasil.com.br/noticias/mercado-ads-anuncios-video-marketplace",
+      "titulo": "Mercado Ads lança anúncios em vídeo dentro e fora do marketplace",
+      "descricao": "Formato usa vídeos já publicados pelos vendedores e combina conteúdo com dados de catálogo, preços, promoções e condições de envio",
+      "categoria": "Marketing",
+      "autor": "Alice Lopes",
+      "tempoLeitura": "3 min",
+      "imagem": "https://static.ecommercebrasil.com.br/wp-content/uploads/2026/06/4-plataforma-conteudo-digital-live-commerce-mulher-negra-live-commerce.jpg.webp",
+      "publicadoEm": "2026-11-13T10:21:36-03:00"
+    }
+  ],
+  "escolhidos": [
+    {
+      "posicao": 1,
+      "url": "https://www.ecommercebrasil.com.br/noticias/claude-fora-do-ar-falha-autenticacao-anthropic",
+      "titulo": "Claude fica fora do ar por duas horas após falha de autenticação",
+      "descricao": "Problema atingiu diferentes serviços da Anthropic na sexta-feira (13); empresa informou que o acesso foi normalizado após a aplicação de uma correção",
+      "categoria": "Inteligência Artificial",
+      "autor": "Alice Lopes",
+      "tempoLeitura": "2 min",
+      "imagem": "https://static.ecommercebrasil.com.br/wp-content/uploads/2026/11/93-claude-anthropic.jpg.webp",
+      "publicadoEm": "2026-11-14T09:00:00-03:00",
+      "texto": "O Claude ficou indisponível por cerca de duas horas na sexta-feira (13) após uma falha de autenticação afetar diferentes serviços da Anthropic.\n\nSegundo a página de status da empresa, o incidente começou às 6h58 e atingiu Claude.ai, Claude Code, Claude Console e Claude Cowork. A companhia identificou um aumento nos erros relacionados à autenticação de usuários e informou que o serviço foi restabelecido às 8h58, no horário de Brasília.\n\nA Anthropic afirmou que aplicou uma correção e encerrou o incidente após monitorar a normalização dos sistemas.\n\nFalha acontece às vésperas do IPO\n\nA indisponibilidade ocorre poucos dias antes da estreia prevista da Anthropic na Nasdaq. As ações devem começar a ser negociadas em 19 de novembro, sob o código ANT.\n\nA oferta pública inicial recebeu demanda equivalente a cerca de seis vezes o volume de ações disponível, segundo informações da Bloomberg reportadas pela Reuters. A companhia e acionistas pretendem vender 825 milhões de ações, com faixa de preço entre US$ 70 e US$ 78 por papel.\n\nNesse intervalo, a operação pode avaliar a Anthropic em até cerca de US$ 1,4 trilhão, colocando a listagem entre as maiores estreias já realizadas no mercado acionário.\n\nO IPO acontece em um momento de maior volatilidade para empresas ligadas à inteligência artificial. Nesta semana, a renúncia de Jensen Huang ao comando da Nvidia ampliou a pressão sobre o setor e trouxe novas discussões sobre governança, exportações de chips e investimentos em infraestrutura de IA.\n\nApesar do momento sensível, a Anthropic tratou a indisponibilidade como uma falha técnica de autenticação e informou que os serviços foram normalizados."
+    },
+    {
+      "posicao": 2,
+      "url": "https://www.ecommercebrasil.com.br/noticias/mercado-livre-shopee-trafego-ecommerce-brasil",
+      "titulo": "Mercado Livre e Shopee concentram 66% do tráfego dos grandes e-commerces",
+      "descricao": "Levantamento da Similarweb e Snaq mostra liderança das duas plataformas no terceiro trimestre; OLX teve a menor taxa de rejeição na web",
+      "categoria": "Mercado",
+      "autor": "Alice Lopes",
+      "tempoLeitura": "2 min",
+      "imagem": "https://static.ecommercebrasil.com.br/wp-content/uploads/2025/08/32-mercado-livre-shopee.jpg.webp",
+      "publicadoEm": "2026-11-13T15:00:00-03:00",
+      "texto": "Mercado Livre e Shopee concentraram 66% de todas as visitas registradas entre os principais e-commerces do Brasil no terceiro trimestre de 2026, considerando acessos por aplicativos e web.\n\nO dado faz parte da terceira edição do relatório de audiência digital produzido pela Similarweb em parceria com a Snaq. O estudo analisou 29 domínios de 28 marcas de comércio eletrônico, além do comportamento de navegação e uso de 24 aplicativos Android.\n\nNo consolidado entre julho e setembro, o Mercado Livre manteve a liderança e somou 5,17 bilhões de visitas em app e web. A Shopee apareceu na segunda posição, com 4,49 bilhões.\n\nA diferença entre as duas plataformas foi de 676,8 milhões de acessos. Em relação à Shein, terceira colocada, a distância foi ainda maior: segundo o levantamento, seriam necessários aproximadamente 4 bilhões de acessos adicionais para alcançar o volume registrado pelo Mercado Livre.\n\nPara Vicky Almeida, Sr. Insights LATAM Leader da Similarweb, a distância entre as líderes e as demais plataformas ajuda a mostrar o nível de concentração do mercado.\n\n“O que essas empresas fazem que as distancia tanto das demais? Esta é a pergunta que deve ser feita pelos líderes”, afirma.\n\nWeb mostra dinâmica diferente entre plataformas\n\nQuando a análise considera apenas o tráfego via web, Mercado Livre e o domínio brasileiro da Amazon aparecem entre os maiores volumes de sessões.\n\nA Webcontinental, apesar de ocupar a 27ª posição no ranking, teve o maior crescimento de visitas ao site no trimestre. Foram 3,6 milhões de sessões, alta de 53,5% em relação ao mesmo período do ano anterior.\n\nA OLX se destacou em outro indicador. A plataforma registrou a menor taxa de rejeição entre os sites analisados, de 30,6%.\n\nNo Mercado Livre, o índice foi de 35,5%, enquanto a Shopee registrou 37,7%.\n\nOs dados reforçam que, embora Mercado Livre e Shopee concentrem a maior parcela da audiência total, os indicadores de desempenho variam conforme o canal e o comportamento de navegação observado em cada plataforma."
+    },
+    {
+      "posicao": 3,
+      "url": "https://www.ecommercebrasil.com.br/noticias/shopee-recorde-11-11-vendas-black-friday",
+      "titulo": "Shopee bate recordes no 11.11 e mais que dobra vendas sobre a Black Friday de 2025",
+      "descricao": "Data registrou o maior número de usuários ativos, pedidos e itens vendidos da história da plataforma no Brasil",
+      "categoria": "Marketplace",
+      "autor": "Alice Lopes",
+      "tempoLeitura": "2 min",
+      "imagem": "https://static.ecommercebrasil.com.br/wp-content/uploads/2026/10/76-shopee-terry.jpg.webp",
+      "publicadoEm": "2026-11-13T13:20:44-03:00",
+      "texto": "O 11.11 de 2026 se tornou o maior dia da história da Shopee no Brasil. A plataforma bateu recordes de pedidos, itens vendidos e usuários ativos e mais que dobrou as vendas na comparação com a Black Friday de 2025.\n\nCasa e Eletrodomésticos responderam por cerca de um terço do valor movimentado, enquanto mais de 95% do volume vendido veio de vendedores locais. Entre as categorias com maior crescimento estiveram Pneus e Rodas, Esporte e Fitness, Cuidados com a Casa e Móveis.\n\nNos itens vendidos em maior quantidade, apareceram panetones, ventiladores, sabão em pó e fraldas. Em tecnologia, os destaques foram consoles de videogame, televisores e smartphones. Já ar-condicionado e geladeiras de quatro portas ficaram entre os produtos de maior valor vendido.\n\nEntrega rápida também bate recorde\n\nO avanço do 11.11 também apareceu nas modalidades logísticas da Shopee. O Turbo, serviço com entregas em até quatro horas na Grande São Paulo, registrou o maior volume de pedidos desde o lançamento.\n\nProdutos de reposição lideraram a procura no serviço. Quatro dos cinco itens mais pedidos foram da categoria Pet, entre eles ração e areia higiênica para cães e gatos. Cerveja também apareceu entre os destaques.\n\nO Fulfillment, operação em que os produtos ficam armazenados nos estoques da Shopee, também alcançou volume recorde e mais que triplicou as vendas em relação à Black Friday de 2025.\n\nPix lidera, mas cartão ganha espaço\n\nO Pix permaneceu como principal meio de pagamento no 11.11, concentrando 52% dos pedidos.\n\nO cartão de crédito, porém, foi a modalidade que mais cresceu. O número de pedidos pagos com cartão avançou 121% frente à Black Friday do ano passado, enquanto sua participação passou de 32% para 37%.\n\nSegundo Felipe Piringer, diretor de Marketing da Shopee, a campanha também marcou a primeira etapa da temporada promocional da plataforma.\n\n“Fizemos do 11.11 de 2026 um dia histórico”, afirma. Durante a data, a Shopee disponibilizou R$ 25 milhões em cupons de desconto, volume 50 vezes superior ao da primeira edição da campanha no Brasil.\n\nCom o resultado, a plataforma chega à Black Friday depois de registrar seu maior pico de vendas no país justamente antes da principal sexta-feira promocional de novembro."
+    }
+  ]
+}

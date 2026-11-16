@@ -190,6 +190,30 @@
       "titulo": "Privalia passa a oferecer entrega no próximo dia útil em São Paulo",
       "semana": "2026-11-09",
       "geradoEm": "2026-11-09T12:21:19.542Z"
+    },
+    {
+      "slug": "ecb-2026-11-16-quando-o-fornecedor-sai-do-ar",
+      "serie": "ecb",
+      "fonte": "https://www.ecommercebrasil.com.br/noticias/claude-fora-do-ar-falha-autenticacao-anthropic",
+      "titulo": "Claude fica fora do ar por duas horas após falha de autenticação",
+      "semana": "2026-11-16",
+      "geradoEm": "2026-11-16T12:21:01.185Z"
+    },
+    {
+      "slug": "ecb-2026-11-16-nao-dispute-o-trafego-deles",
+      "serie": "ecb",
+      "fonte": "https://www.ecommercebrasil.com.br/noticias/mercado-livre-shopee-trafego-ecommerce-brasil",
+      "titulo": "Mercado Livre e Shopee concentram 66% do tráfego dos grandes e-commerces",
+      "semana": "2026-11-16",
+      "geradoEm": "2026-11-16T12:21:01.188Z"
+    },
+    {
+      "slug": "ecb-2026-11-16-pico-antes-da-black-friday",
+      "serie": "ecb",
+      "fonte": "https://www.ecommercebrasil.com.br/noticias/shopee-recorde-11-11-vendas-black-friday",
+      "titulo": "Shopee bate recordes no 11.11 e mais que dobra vendas sobre a Black Friday de 2025",
+      "semana": "2026-11-16",
+      "geradoEm": "2026-11-16T12:21:01.190Z"
     }
   ],
   "publicados": [

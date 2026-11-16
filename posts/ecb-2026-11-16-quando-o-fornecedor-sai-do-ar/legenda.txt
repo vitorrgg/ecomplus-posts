@@ -1,0 +1,7 @@
+Um dos serviços de inteligência artificial mais usados do mundo ficou cerca de duas horas indisponível por uma falha de autenticação, segundo a página de status da Anthropic. O que interessa para quem tem loja não é a falha, pois ela acontece com qualquer serviço, mas o tamanho do estrago em cada operação que dependia dele. A vitrine pode continuar no ar enquanto a busca para de responder, o checkout abre e o pagamento recusa, o pedido entra e o frete trava na última tela, e converter visitante em cliente é a alavanca que sente isso primeiro. O erro comum é descobrir essa lista no dia do problema, quando o suporte do fornecedor já está ocupado com todos os outros clientes dele.
+
+Na e-com.plus a loja é código seu, o checkout é tela da sua marca, e o Pix transparente e as mais de 15 integrações nativas de frete dão caminho alternativo quando um parceiro sai do ar.
+
+Você sabe dizer, hoje, o que o seu cliente deixa de conseguir fazer se um dos seus serviços externos parar? Conta para nós nos comentários.
+
+#ecommerce #d2c #lojavirtual #headless #checkout #infraestrutura #varejo
