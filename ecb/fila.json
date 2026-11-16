@@ -1,14 +1,6 @@
 {
   "pendentes": [
     {
-      "slug": "ecb-2026-11-16-quando-o-fornecedor-sai-do-ar",
-      "serie": "ecb",
-      "fonte": "https://www.ecommercebrasil.com.br/noticias/claude-fora-do-ar-falha-autenticacao-anthropic",
-      "titulo": "Claude fica fora do ar por duas horas após falha de autenticação",
-      "semana": "2026-11-16",
-      "aprovado": null
-    },
-    {
       "slug": "ecb-2026-11-16-nao-dispute-o-trafego-deles",
       "serie": "ecb",
       "fonte": "https://www.ecommercebrasil.com.br/noticias/mercado-livre-shopee-trafego-ecommerce-brasil",
