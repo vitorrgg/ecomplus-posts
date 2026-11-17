@@ -316,6 +316,28 @@
         }
       },
       "publicadoEm": "2026-11-13T16:11:38.925Z"
+    },
+    {
+      "slug": "consultoria-07-07-foto-titulo-e-descricao",
+      "quando": "2026-11-17T18:00:00-03:00",
+      "destinos": [
+        "vitorrgg",
+        "youtube-vitorrgg"
+      ],
+      "feito": {
+        "vitorrgg": {
+          "id": "17945842773380458",
+          "link": "https://www.instagram.com/reel/Df2-cp7lLsw/",
+          "em": "2026-11-17T22:13:33.235Z"
+        },
+        "youtube-vitorrgg": {
+          "id": "XEj4GWYJ3rA",
+          "link": "https://youtube.com/shorts/XEj4GWYJ3rA",
+          "privacidade": "public",
+          "em": "2026-11-17T22:13:35.888Z"
+        }
+      },
+      "publicadoEm": "2026-11-17T22:13:35.888Z"
     }
   ]
 }
