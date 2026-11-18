@@ -338,6 +338,24 @@
         }
       },
       "publicadoEm": "2026-11-17T22:13:35.888Z"
+    },
+    {
+      "slug": "motion-segmentos-moda-feminina",
+      "quando": "2026-11-18T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "A grade multiplica tudo",
+      "resumo": "Moda feminina: demo do tema Alinhavo",
+      "pagina": "/segmentos/moda-feminina",
+      "feito": {
+        "instagram": {
+          "id": "18113459516462157",
+          "link": "https://www.instagram.com/reel/Df5gs6lgU0W/",
+          "em": "2026-11-18T21:51:02.870Z"
+        }
+      },
+      "publicadoEm": "2026-11-18T21:51:02.871Z"
     }
   ]
 }
