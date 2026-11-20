@@ -356,6 +356,28 @@
         }
       },
       "publicadoEm": "2026-11-18T21:51:02.871Z"
+    },
+    {
+      "slug": "conector-04-clientes-vip-sumidos",
+      "quando": "2026-11-20T12:00:00-03:00",
+      "destinos": [
+        "instagram",
+        "youtube"
+      ],
+      "feito": {
+        "instagram": {
+          "id": "18095095382221070",
+          "link": "https://www.instagram.com/reel/Df-dxIfjOd1/",
+          "em": "2026-11-20T20:01:48.675Z"
+        },
+        "youtube": {
+          "id": "zSglGy4whKw",
+          "link": "https://youtube.com/shorts/zSglGy4whKw",
+          "privacidade": "public",
+          "em": "2026-11-20T20:01:52.089Z"
+        }
+      },
+      "publicadoEm": "2026-11-20T20:01:52.090Z"
     }
   ]
 }
