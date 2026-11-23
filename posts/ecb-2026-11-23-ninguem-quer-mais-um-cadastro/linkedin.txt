@@ -1,0 +1,21 @@
+O seu cliente não quer mais um cadastro, ele quer terminar a compra.
+
+Segundo a Consumoteca, oito em cada dez brasileiros já abandonaram uma tarefa digital porque o processo pedia etapas demais, e 74% desistem de resolver algo quando descobrem que precisam baixar mais um aplicativo. Quem tem loja conhece essa conta por outro nome, pois cada passo a mais entre o produto e o pagamento volta no fim do mês na forma de carrinho abandonado.
+
+O detalhe mais útil do estudo é onde o atrito se concentra:
+• recuperar a senha esquecida incomoda muito 49% dos entrevistados;
+• fazer um cadastro novo vem logo atrás, citado por 41% deles;
+• outros 70% preferem resolver o que precisam em poucos aplicativos;
+• converter quem já chegou na sua loja é onde isso aparece primeiro.
+
+Os dois primeiros ficam na porta de entrada, antes de qualquer coisa que o cliente queira de fato. É como pedir que a pessoa preencha uma ficha no balcão para só depois ver o preço do produto.
+
+Acredito que o erro comum é tratar o cadastro como porta, e por isso a loja pede dados que só vai usar depois para deixar o cliente entrar agora. Sugiro inverter a ordem, pois o cliente aceita se cadastrar depois de comprar, quando o esforço tem uma recompensa clara na frente dele.
+
+Aqui na e-com.plus o checkout é tela da marca do lojista e funciona sem senha, então o pedido fecha sem conta nova. O Pix transparente conclui o pagamento dentro da loja, sem redirecionar, e a recuperação de carrinho chama de volta quem travou no meio.
+
+Uma ação para esta semana: compre na sua própria loja pelo celular e conte quantas telas e quantos campos existem entre o carrinho e a confirmação.
+
+Na sua operação, quantos desses campos você usaria hoje para alguma coisa?
+
+#ecommerce #d2c #checkout

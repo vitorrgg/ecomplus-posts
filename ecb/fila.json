@@ -1,3 +1,28 @@
 {
-  "pendentes": []
+  "pendentes": [
+    {
+      "slug": "ecb-2026-11-23-ninguem-quer-mais-um-cadastro",
+      "serie": "ecb",
+      "fonte": "https://www.ecommercebrasil.com.br/noticias/74-desistem-de-resolver-algo-online-se-precisam-baixar-outro-app",
+      "titulo": "Oito em cada dez já desistiram de usar apps por excesso de etapas",
+      "semana": "2026-11-23",
+      "aprovado": null
+    },
+    {
+      "slug": "ecb-2026-11-23-o-cliente-nao-espera-uma-data-so",
+      "serie": "ecb",
+      "fonte": "https://www.ecommercebrasil.com.br/noticias/jovens-black-friday-moda-beleza-fiserv",
+      "titulo": "Moda e beleza lideram intenção de compra entre jovens na Black Friday",
+      "semana": "2026-11-23",
+      "aprovado": null
+    },
+    {
+      "slug": "ecb-2026-11-23-o-numero-no-campo-nao-e-o-limite",
+      "serie": "ecb",
+      "fonte": "https://www.ecommercebrasil.com.br/artigos/na-black-friday-de-2026-baixar-o-orcamento-a-noite-nao-refaz-o-limite-do-dia-o-google-ads-usa-o-maior-valor",
+      "titulo": "Na Black Friday de 2026, baixar o orçamento à noite não refaz o limite do dia. O Google Ads usa o maior valor",
+      "semana": "2026-11-23",
+      "aprovado": null
+    }
+  ]
 }
