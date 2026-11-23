@@ -1,0 +1,7 @@
+Segundo a ajuda do Google Ads, o limite de cobrança de um dia pode chegar a duas vezes o orçamento médio diário, e no dia em que você altera o valor vale o maior que esteve configurado. Quem sobe a verba de manhã e reduz à noite não refaz o teto daquele dia, pois ele já foi calculado pelo número maior. O problema aparece quando três coisas diferentes recebem o mesmo nome: o teto que a empresa autorizou para o dia somando todos os canais, o orçamento médio diário digitado em cada campanha e o limite de cobrança que a plataforma pode aplicar. Sugerimos tratar as três camadas separadamente antes do dia 27, e usar o horário da sua própria loja em vez de copiar o pico que o mercado divulgou.
+
+Na e-com.plus a API de analytics entrega as agregações direto da base da loja e o OMS nativo junta os pedidos de todos os canais no mesmo painel, então gasto e pedido aprovado podem ser lidos na mesma hora.
+
+Você sabe dizer agora quanto da verba da sexta-feira já está comprometido antes do horário em que o seu cliente mais compra?
+
+#blackfriday #googleads #ecommerce #d2c #midiapaga #varejo #lojavirtual

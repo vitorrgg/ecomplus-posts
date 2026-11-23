@@ -1,0 +1,66 @@
+{
+  "fonte": "https://www.ecommercebrasil.com.br/artigos/na-black-friday-de-2026-baixar-o-orcamento-a-noite-nao-refaz-o-limite-do-dia-o-google-ads-usa-o-maior-valor",
+  "slug": "o-numero-no-campo-nao-e-o-limite",
+  "slides": [
+    {
+      "tipo": "capa",
+      "eyebrow": "análise da semana · mídia paga",
+      "titulo": "o número no\ncampo não é\no seu limite",
+      "subtitulo": "Baixar o orçamento à noite não desfaz o teto que o aumento da manhã criou naquele dia.",
+      "imagem": "magnifying-glass-laptop.jpg"
+    },
+    {
+      "tipo": "texto",
+      "titulo": "O campo de orçamento não é um teto",
+      "paragrafos": [
+        "Segundo a ajuda do Google Ads, o limite de cobrança de um dia pode chegar a duas vezes o orçamento médio diário, e no dia da alteração vale o maior valor que esteve configurado.",
+        "Então reduzir a verba às 18h não refaz o teto criado pelo aumento do meio-dia, pois o limite daquele dia já foi calculado pelo número maior."
+      ],
+      "tema": "claro",
+      "imagem": null
+    },
+    {
+      "tipo": "lista",
+      "titulo": "Três números com o mesmo nome",
+      "itens": [
+        "O teto que a sua empresa autorizou gastar no dia, somando todos os canais",
+        "O orçamento médio diário que alguém digitou dentro de cada campanha",
+        "O limite de cobrança que a plataforma pode aplicar sobre esse valor",
+        "Quando os três viram um só, cada pessoa da reunião fala de uma coisa"
+      ],
+      "tema": "escuro",
+      "imagem": null
+    },
+    {
+      "tipo": "texto",
+      "titulo": "Não copie o pico do mercado",
+      "paragrafos": [
+        "Um levantamento da Nuvemshop apontou o maior pico de pedidos do 11.11 às 11h, e um estudo da Elo viu o maior crescimento entre 20h e 23h.",
+        "São recortes e públicos diferentes, por isso o horário que importa para você é o da sua própria loja, e não a média de ninguém."
+      ],
+      "tema": "claro",
+      "imagem": "dashboard-charts.jpg"
+    },
+    {
+      "tipo": "texto",
+      "titulo": "Como fica na e-com.plus",
+      "paragrafos": [
+        "A API de analytics entrega agregações direto da base da loja, então você compara gasto por hora com pedido aprovado por hora sem depender de exportar planilha.",
+        "O OMS nativo junta os pedidos de todos os canais no mesmo painel, e a IA no painel responde sobre a operação enquanto o dia ainda está correndo."
+      ],
+      "tema": "escuro",
+      "imagem": null
+    },
+    {
+      "tipo": "fechamento",
+      "paragrafos": [
+        "A sexta-feira cobra o que a plataforma entregou dentro das regras dela, pois o número que está no campo às 18h já não governa o teto do dia.",
+        "Esta semana, anote o maior orçamento diário que pode ser configurado em cada campanha e compare a soma com o teto que a sua empresa aprovou."
+      ],
+      "tema": "claro",
+      "imagem": null
+    }
+  ],
+  "legenda": "Segundo a ajuda do Google Ads, o limite de cobrança de um dia pode chegar a duas vezes o orçamento médio diário, e no dia em que você altera o valor vale o maior que esteve configurado. Quem sobe a verba de manhã e reduz à noite não refaz o teto daquele dia, pois ele já foi calculado pelo número maior. O problema aparece quando três coisas diferentes recebem o mesmo nome: o teto que a empresa autorizou para o dia somando todos os canais, o orçamento médio diário digitado em cada campanha e o limite de cobrança que a plataforma pode aplicar. Sugerimos tratar as três camadas separadamente antes do dia 27, e usar o horário da sua própria loja em vez de copiar o pico que o mercado divulgou.\n\nNa e-com.plus a API de analytics entrega as agregações direto da base da loja e o OMS nativo junta os pedidos de todos os canais no mesmo painel, então gasto e pedido aprovado podem ser lidos na mesma hora.\n\nVocê sabe dizer agora quanto da verba da sexta-feira já está comprometido antes do horário em que o seu cliente mais compra?\n\n#blackfriday #googleads #ecommerce #d2c #midiapaga #varejo #lojavirtual",
+  "linkedin": "O número que está no campo de orçamento não é o limite do que você vai gastar na Black Friday.\n\nSegundo a ajuda do Google Ads, o limite de cobrança de um dia pode chegar a duas vezes o orçamento médio diário. E há um detalhe que muda o plano da sexta-feira: no dia em que o valor é alterado, o limite considera o maior orçamento médio diário que esteve configurado naquele dia. Quem sobe a verba de manhã e reduz à noite não refaz o teto, pois ele já foi calculado pelo número maior.\n\nO desconforto maior vem de três coisas diferentes receberem o mesmo nome dentro da empresa:\n• o teto que a diretoria autorizou gastar no dia, somando todos os canais;\n• o orçamento médio diário que alguém digitou dentro de cada campanha;\n• o limite de cobrança que a plataforma pode aplicar sobre esse valor.\n\nQuando os três viram um só número, cada pessoa da reunião fala de uma grandeza e todas acham que combinaram a mesma coisa.\n\nHá também a tentação de copiar o horário de pico do mercado. Um levantamento da Nuvemshop apontou o maior pico de pedidos do 11.11 às 11h, e um estudo da Elo viu o maior crescimento entre 20h e 23h. São recortes e públicos diferentes, por isso acredito que o horário que importa é o da sua própria loja.\n\nAqui na e-com.plus a API de analytics entrega as agregações direto da base da loja e o OMS nativo junta os pedidos de todos os canais no mesmo painel, então gasto e pedido aprovado podem ser lidos na mesma hora, sem exportar planilha.\n\nUma ação para esta semana: anote o maior orçamento diário que pode ser configurado em cada campanha, some tudo e compare com o teto que a empresa aprovou para o dia.\n\nNa sua operação, quem decide liberar verba extra às 19h do dia 27?\n\n#blackfriday #googleads #ecommerce"
+}
