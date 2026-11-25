@@ -1,16 +1,6 @@
 {
   "pendentes": [
     {
-      "slug": "motion-ecommerce-b2b",
-      "quando": "2026-11-25T12:00:00-03:00",
-      "destinos": [
-        "instagram"
-      ],
-      "titulo": "Cada pedido passa por uma pessoa",
-      "resumo": "Monte um pedido de atacado de exemplo",
-      "pagina": "/ecommerce-b2b"
-    },
-    {
       "slug": "conector-05-perda-por-cancelamento",
       "quando": "2026-11-27T12:00:00-03:00",
       "destinos": [

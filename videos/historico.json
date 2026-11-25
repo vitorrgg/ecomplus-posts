@@ -400,6 +400,24 @@
         }
       },
       "publicadoEm": "2026-11-25T02:19:24.286Z"
+    },
+    {
+      "slug": "motion-ecommerce-b2b",
+      "quando": "2026-11-25T12:00:00-03:00",
+      "destinos": [
+        "instagram"
+      ],
+      "titulo": "Cada pedido passa por uma pessoa",
+      "resumo": "Monte um pedido de atacado de exemplo",
+      "pagina": "/ecommerce-b2b",
+      "feito": {
+        "instagram": {
+          "id": "18119185748037673",
+          "link": "https://www.instagram.com/reel/DgLmXqHp7Di/",
+          "em": "2026-11-25T22:26:51.266Z"
+        }
+      },
+      "publicadoEm": "2026-11-25T22:26:51.267Z"
     }
   ]
 }
