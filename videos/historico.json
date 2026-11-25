@@ -378,6 +378,28 @@
         }
       },
       "publicadoEm": "2026-11-20T20:01:52.090Z"
+    },
+    {
+      "slug": "consultoria-08-08-ia-para-foto-de-produto",
+      "quando": "2026-11-24T18:00:00-03:00",
+      "destinos": [
+        "vitorrgg",
+        "youtube-vitorrgg"
+      ],
+      "feito": {
+        "vitorrgg": {
+          "id": "17893504569653275",
+          "link": "https://www.instagram.com/reel/DgJcJl_hOHt/",
+          "em": "2026-11-25T02:19:21.654Z"
+        },
+        "youtube-vitorrgg": {
+          "id": "02h0c0Cy06M",
+          "link": "https://youtube.com/shorts/02h0c0Cy06M",
+          "privacidade": "public",
+          "em": "2026-11-25T02:19:24.286Z"
+        }
+      },
+      "publicadoEm": "2026-11-25T02:19:24.286Z"
     }
   ]
 }
