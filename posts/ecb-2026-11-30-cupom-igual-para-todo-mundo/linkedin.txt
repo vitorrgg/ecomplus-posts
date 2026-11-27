@@ -1,0 +1,20 @@
+Desconto igual para todo mundo é o jeito mais caro de vender.
+
+No balcão da loja física o vendedor olha para o carrinho, para o cliente e para o dia, e decide ali quanto pode dar. No site esse olhar não existe, pois quem decide é a regra que você escreveu antes de o cliente chegar. É por isso que o cupom único de dez por cento para tudo é tão comum, já que ele é a regra mais fácil de escrever. E é também a mais cara, porque dá desconto para quem já ia comprar sem desconto nenhum.
+
+Onde o desconto único vaza dinheiro:
+
+• O cliente que já estava decidido usa o cupom, e você perde margem sem ganhar uma venda nova
+• Produtos de margem apertada entram na promoção junto com os que aguentam o desconto
+• O mesmo código circula em grupo de cupom e vira preço de tabela sem você perceber
+• Quem levaria três peças leva uma, porque não existe motivo para aumentar o carrinho
+
+Sugiro tratar desconto como condição, e não como preço. A partir de duas peças um percentual, a partir de quatro outro, e o item de margem curta simplesmente fora da promoção. O cliente ganha um motivo para levar mais, e você escolhe onde abrir mão em vez de abrir mão em tudo ao mesmo tempo.
+
+Aqui na e-com.plus essas regras são nativas, com desconto progressivo por quantidade, compre junto na página do produto, lista de clientes específica e exclusão de produto ou categoria. O relatório mostra o que cada código gerou, então a próxima campanha nasce do resultado da anterior.
+
+Uma coisa para fazer esta semana: abra o seu cupom mais usado e tire dele os dois produtos de margem mais curta. É a mudança de cinco minutos que mais devolve margem.
+
+Qual cupom da sua operação hoje você não consegue justificar?
+
+#ecommerce #margem #varejodigital
