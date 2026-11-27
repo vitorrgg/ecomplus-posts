@@ -26,3 +26,8 @@ plataforma; não inventar recurso que não existe.
 - D2C para indústrias — loja própria da marca sem perder o distribuidor de vista (tabela por login, B2B e B2C).
 - IA no painel — chat que responde sobre a operação da loja; conector MCP liga o Claude direto à API, sem export.
 - API de analytics — agregações e atualizações em massa direto na base da loja.
+- Plataforma própria por loja (V2) — cada loja roda no próprio projeto do Google Cloud, com os apps que usa; a loja e as suas integrações podem ser atualizadas e customizadas sem esperar as outras, e ao mudar de versão a loja não perde recursos nem precisa migrar de novo.
+- Segurança no checkout — limite de tentativas que barra ataques de teste de cartão em massa e autenticação 3DS no cartão, com o resultado registrado no pedido.
+- Histórico de operações (Events API) — toda criação, edição ou exclusão na API fica registrada com data, campos alterados e quem fez (usuário, app ou chave), útil para auditoria e LGPD.
+- Eventos pelo servidor — compras e conversões enviadas do servidor para GA4, Meta, TikTok e Awin, mesmo quando o navegador bloqueia o pixel.
+- Teste A/B na frente de loja — duas versões no ar com o tráfego dividido e preview do conteúdo antes de publicar.

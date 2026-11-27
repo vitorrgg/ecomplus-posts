@@ -1,0 +1,68 @@
+{
+  "fonte": "https://www.e-com.plus/v2#perguntas",
+  "slug": "migrar-uma-vez-nao-a-cada-versao",
+  "slides": [
+    {
+      "tipo": "capa",
+      "eyebrow": "e-com.plus V2 · migração",
+      "titulo": "migrar uma vez,\nnão a cada\nversão",
+      "subtitulo": "Mudança de versão que tira recurso da loja é um risco que vale perguntar antes de escolher a plataforma.",
+      "imagem": "code-screen-macbook.jpg"
+    },
+    {
+      "tipo": "texto",
+      "titulo": "Uma situação mais comum do que parece",
+      "paragrafos": [
+        "A plataforma lança uma versão nova e avisa que a antiga vai ser desligada. Quem não migrar a tempo perde recursos que usava todo dia.",
+        "Para o lojista, isso vira um projeto que ele não planejou, com o prazo de outra pessoa, bem no meio da operação."
+      ],
+      "tema": "escuro",
+      "imagem": null
+    },
+    {
+      "tipo": "lista",
+      "titulo": "O que costuma ficar pelo caminho",
+      "itens": [
+        "Integrações feitas sob medida que não existem na versão nova",
+        "Personalizações do tema que precisam ser refeitas do zero",
+        "Relatórios e rotinas que o time já sabia usar sem pensar",
+        "Semanas de atenção que deveriam estar indo para atrair e converter clientes"
+      ],
+      "tema": "claro",
+      "imagem": null
+    },
+    {
+      "tipo": "texto",
+      "titulo": "Pergunte antes de escolher",
+      "paragrafos": [
+        "Sugerimos perguntar o que acontece com a loja quando sair a próxima versão da plataforma. É uma pergunta simples que quase ninguém faz.",
+        "A resposta mostra se a loja evolui junto com a plataforma ou se vai precisar recomeçar daqui a alguns anos."
+      ],
+      "tema": "escuro",
+      "imagem": "magnifying-glass-laptop.jpg"
+    },
+    {
+      "tipo": "lista",
+      "titulo": "Como funciona na V2 da e-com.plus",
+      "itens": [
+        "Ao mudar de versão, a loja não perde recursos nem precisa migrar de novo",
+        "As novidades chegam como atualização da própria loja",
+        "As integrações rodam dentro da loja, com os apps que ela usa",
+        "A frente de loja é código da marca, versionado no Git"
+      ],
+      "tema": "claro",
+      "imagem": null
+    },
+    {
+      "tipo": "fechamento",
+      "paragrafos": [
+        "Migrar dá trabalho, por isso o ideal é fazer uma vez só. Vale escolher uma plataforma em que a loja evolui junto, sem recomeçar a cada versão.",
+        "Nesta semana, pergunte à sua plataforma o que acontece com a sua loja na próxima versão, e peça a resposta por escrito."
+      ],
+      "tema": "escuro",
+      "imagem": null
+    }
+  ],
+  "legenda": "Quando a plataforma lança uma versão nova e desliga a antiga, quem não migra a tempo perde recursos que usava todo dia. Para o lojista, isso vira um projeto que ele não planejou, com o prazo de outra pessoa. Por isso sugerimos perguntar, antes de escolher a plataforma, o que acontece com a loja na próxima versão.\n\nNa V2 da e-com.plus, ao mudar de versão a loja não perde recursos nem precisa migrar de novo, pois as novidades chegam como atualização da própria loja.\n\nVocê sabe o que acontece com a sua loja na próxima versão da sua plataforma?\n\n#ecommerce #lojavirtual #migracao #plataformadeecommerce #ecommercebrasil #ecomplus",
+  "linkedin": "Antes de escolher uma plataforma, eu perguntaria o que acontece com a loja na próxima versão.\n\nA cena é mais comum do que parece. A plataforma lança uma versão nova, avisa que a antiga vai ser desligada, e quem não migrar a tempo perde recursos que usava todo dia. Para o lojista, isso vira um projeto que ele não planejou, com o prazo de outra pessoa, bem no meio da operação.\n\nNessa troca costumam ficar pelo caminho coisas que custaram caro para construir:\n\n• Integrações feitas sob medida que não existem na versão nova\n• Personalizações do tema que precisam ser refeitas do zero\n• Relatórios e rotinas que o time já sabia usar sem pensar\n• Semanas de atenção que deveriam estar indo para atrair e converter clientes\n\nPor isso sugiro fazer essa pergunta antes de assinar com qualquer plataforma. Ela é simples, quase ninguém faz, e a resposta mostra se a loja evolui junto com a plataforma ou se vai precisar recomeçar daqui a alguns anos.\n\nAqui na e-com.plus, a V2 foi pensada para que a loja não perca recursos nem precise migrar de novo quando a plataforma muda de versão, pois as novidades chegam como atualização da própria loja.\n\nUma ação para esta semana: pergunte à sua plataforma o que acontece com a sua loja na próxima versão, e peça a resposta por escrito.\n\nVocê já precisou refazer a loja por causa de uma mudança de versão?\n\n#ecommerce #varejodigital #tecnologia"
+}

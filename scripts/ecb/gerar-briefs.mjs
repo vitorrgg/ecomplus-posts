@@ -19,6 +19,8 @@
 //   node scripts/ecb/gerar-briefs.mjs --via api
 //   node scripts/ecb/gerar-briefs.mjs --semana 2026-09-21     # outro arquivo em ecb/semanas/
 //   node scripts/ecb/gerar-briefs.mjs --from-json ecb/saidas/2026-09-21
+//   node scripts/ecb/gerar-briefs.mjs --from-json ecb/saidas/institucional/<arquivo>.json
+//                # pauta própria: "fonte" é uma página do site (https://www.e-com.plus/...)
 //   node scripts/ecb/gerar-briefs.mjs --esquema               # regrava ecb/ESQUEMA.json a partir do zod
 //   node scripts/ecb/gerar-briefs.mjs --exemplo               # sem modelo: brief fixo só pra exercitar a escrita
 import Anthropic from '@anthropic-ai/sdk';
@@ -34,6 +36,11 @@ import {
 } from './util.mjs';
 import { FOTOS, capasRecentes, capasLivres, conferirCapa } from './capas.mjs';
 import { PREFIXO as PREFIXO_LIVRO, pautaPorFonte, chamadaDoLivro, CONFIG as LIVRO } from './livro.mjs';
+
+// Pauta própria: uma página do site da e-com.plus (a /v2, por exemplo) vira post da série
+// institucional, que não passa pela coleta dos mais lidos e sai na quinta enquanto a série
+// do livro está pausada.
+const PREFIXO_SITE = 'https://www.e-com.plus/';
 
 const MODELO = 'claude-opus-5';
 const RECURSOS = readFileSync(join(root, 'ecb', 'recursos.md'), 'utf8')
@@ -207,6 +214,11 @@ function lerSaidasJson(caminho, coleta) {
       const artigo = { url: fonte, titulo: `Livro, cap. ${pauta.capitulo}: ${pauta.assunto}`, serie: 'livro' };
       return [artigo, ajustarSerieLivro(validarSaida(saida), arq), arq];
     }
+    if (fonte?.startsWith(PREFIXO_SITE)) {
+      const capa = saida.slides?.find((s) => s.tipo === 'capa');
+      const titulo = `Pauta própria: ${String(capa?.titulo ?? fonte).replace(/\n/g, ' ')}`;
+      return [{ url: fonte, titulo, serie: 'institucional' }, validarSaida(saida), arq];
+    }
     const artigo = coleta.escolhidos.find((a) => a.url === fonte) ?? coleta.ranking.find((a) => a.url === fonte);
     if (!artigo) throw new Error(`${arq}: "fonte" ${fonte} não está na coleta da semana.`);
     return [artigo, validarSaida(saida), arq];
@@ -278,7 +290,8 @@ if (ehMain) {
       ?? (via === 'exemplo' ? exemploFixo(artigo, livres)
         : via === 'api' ? await gerarComApi(client, artigo, livres)
         : gerarComClaudeCode(artigo, livres));
-    const slug = `${artigo.serie === 'livro' ? 'livro' : 'ecb'}-${semana}-${slugify(saida.slug || artigo.titulo, 36)}`;
+    const prefixo = { livro: 'livro', institucional: 'inst' }[artigo.serie] ?? 'ecb';
+    const slug = `${prefixo}-${semana}-${slugify(saida.slug || artigo.titulo, 36)}`;
     const dir = gravarPost({ slug, brief: montarBrief(saida, artigo), legenda: saida.legenda, linkedin: saida.linkedin, artigo, semana });
     console.log(`✓ ${dir}`);
     gerados.push(slug);

@@ -1,7 +1,9 @@
 # Publica o próximo carrossel da fila no Instagram (@ecomplus.io). Seg/qua/sex sai a
 # série ecb (os 3 posts dos mais lidos gerados na segunda de manhã) e quinta a série
 # do livro (ecb/livro/), que em seguida sai também no Instagram pessoal @vitorrgg com a
-# legenda em primeira pessoa (publicar-vitorrgg.mjs). Logo depois de cada post, o texto
+# legenda em primeira pessoa (publicar-vitorrgg.mjs). Com o livro pausado, a quinta
+# publica a série institucional (posts sobre a própria e-com.plus, como a V2), que não
+# vai para o @vitorrgg. Logo depois de cada post, o texto
 # dele (posts/<slug>/linkedin.txt) sai no perfil pessoal do Vitor no LinkedIn; se o
 # LinkedIn ou o @vitorrgg falharem, o @ecomplus.io já foi e o histórico é comitado do
 # mesmo jeito. As imagens são
@@ -12,7 +14,7 @@ name: ECB — publicar no Instagram
 on:
   schedule:
     - cron: '0 15 * * 1,3,5'   # seg/qua/sex 12:00 em São Paulo (15:00 UTC): série ecb
-    - cron: '0 15 * * 4'       # qui 12:00 em São Paulo: série do livro
+    - cron: '0 15 * * 4'       # qui 12:00 em São Paulo: série do livro (pausada → série institucional)
   workflow_dispatch:
     inputs:
       slug:
@@ -21,7 +23,7 @@ on:
       serie:
         description: 'Série quando o slug está vazio'
         type: choice
-        options: [ecb, livro]
+        options: [ecb, livro, institucional]
         default: ecb
       dry_run:
         description: 'Só simular (não chama a API)'

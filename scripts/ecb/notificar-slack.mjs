@@ -64,13 +64,14 @@ export function montarMensagemGerado(post) {
   const texto = [
     `🆕 *Post gerado: ${post.titulo}*`,
     `_${post.subtitulo}_ · ${post.nSlides} slides · \`${post.slug}\``,
-    post.fonte?.startsWith('http') ? `Pauta: <${post.fonte}|artigo no E-Commerce Brasil>` : null,
+    post.fonte?.startsWith('http') && post.serie !== 'institucional' ? `Pauta: <${post.fonte}|artigo no E-Commerce Brasil>` : null,
     post.serie === 'livro' ? `Série do livro · pauta \`${post.fonte}\`` : null,
+    post.serie === 'institucional' ? `Série institucional · pauta própria: <${post.fonte}|página do site>` : null,
     '',
     '*Legenda:*',
     post.legenda.slice(0, 2900),
     '',
-    `_Entra na fila de publicação (${post.serie === 'livro' ? 'quinta' : 'seg/qua/sex'} 12:00). Pra vetar, \`"aprovado": false\` em \`ecb/fila.json\`._`,
+    `_Entra na fila de publicação (${{ livro: 'quinta', institucional: 'quinta, enquanto o livro estiver pausado' }[post.serie] ?? 'seg/qua/sex'} 12:00). Pra vetar, \`"aprovado": false\` em \`ecb/fila.json\`._`,
   ].filter((l) => l !== null).join('\n');
   return { text: texto };
 }

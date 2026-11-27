@@ -1,0 +1,19 @@
+Plataforma compartilhada funciona bem até a loja precisar de algo só dela.
+
+Na maioria das plataformas de e-commerce, todas as lojas rodam no mesmo sistema. Isso tem um lado bom de verdade, pois uma melhoria chega para todo mundo de uma vez, sem que você precise fazer nada.
+
+O outro lado é que tudo anda no mesmo ritmo. O que só a sua loja precisa espera caber no que serve para todas, e isso aparece em situações bem concretas:
+
+• Um ajuste no checkout que só faz sentido para o seu público entra numa lista de pedidos
+• Uma mudança na integração com o ERP vale para todas as lojas ao mesmo tempo
+• Uma correção de segurança precisa servir para todas antes de chegar na sua
+
+Acredito que isso pesa mais na conversão do que parece, pois as mudanças que mais mexem nela costumam ser as mais específicas: o checkout do seu público, a página de produto do seu catálogo, o frete da sua região. Quanto mais a loja cresce, mais caro fica esperar a plataforma decidir quando cada ajuste chega.
+
+Aqui na e-com.plus, a V2 coloca cada loja no próprio projeto do Google Cloud, com os apps que ela usa, para que a loja e as suas integrações possam ser atualizadas e customizadas sem esperar as outras.
+
+O que eu faria nesta semana: listar os três últimos ajustes que você pediu à sua plataforma e que ainda não saíram. Eles dizem se o padrão ainda serve para a sua operação.
+
+E na sua loja, quais ajustes estão hoje esperando a plataforma?
+
+#ecommerce #d2c #varejodigital

@@ -1,0 +1,20 @@
+Robôs testam cartões roubados no checkout de lojas virtuais, e quem paga a conta é a loja.
+
+Funciona assim. Quem rouba dados de cartão precisa saber quais ainda funcionam, e para isso usa robôs que fazem centenas de compras pequenas em checkouts de lojas virtuais, uma atrás da outra. Cada tentativa pode gerar tarifa no gateway, e o volume de recusas pode fazer o adquirente desconfiar da loja.
+
+Os sinais costumam aparecer antes do problema ficar grande:
+
+• Muitas tentativas de pagamento recusadas em poucos minutos
+• Pedidos de valor baixo com dados de cliente que não fazem sentido
+• Picos de acesso ao checkout sem aumento de visitas na loja
+• Aviso do gateway sobre uma taxa de recusa acima do normal
+
+A reação mais comum é endurecer o antifraude, e acredito que isso resolve uma parte do problema e cria outra, pois o cliente de verdade começa a ter o cartão recusado sem motivo. A proteção que eu prefiro é a que barra o robô sem pôr mais uma barreira para quem quer comprar.
+
+Aqui na e-com.plus, a V2 limita as tentativas no checkout para barrar esse tipo de ataque, tem autenticação 3DS no cartão e roda cada loja no próprio projeto, então um ataque é tratado na loja atingida.
+
+Uma ação para esta semana: peça ao seu gateway o relatório de recusas dos últimos 30 dias e veja se há picos fora do normal.
+
+Você acompanha a taxa de recusa do seu checkout toda semana?
+
+#ecommerce #segurancadigital #varejodigital

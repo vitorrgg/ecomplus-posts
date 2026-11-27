@@ -12,6 +12,7 @@ segunda 09:00        geração          coleta "Mais Lidos" → análises (Claud
                                       + 1 post da série do livro (pauta de ecb/livro/pautas.json)
 seg/qua/sex 12:00    ecb-publicar.yml publica a próxima análise da fila no Instagram → registra no histórico
 quinta 12:00         ecb-publicar.yml publica o próximo post da série do livro
+                     (com o livro pausado, o próximo da série institucional)
 ```
 
 Na segunda, o post gerado às 09:00 já sai às 12:00 do mesmo dia; os outros dois
@@ -145,6 +146,21 @@ O texto do livro fica no repo **privado** `vitorrgg/meu-livro` e nunca entra nes
 O manuscrito usado é o `Manuscrito/… manuscrito v<versão>.md` mais novo do repo do livro. Se uma
 seção mudar de nome numa versão nova, `livro.mjs` avisa qual pauta ajustar. Na fila, cada item tem
 `serie` (`ecb` ou `livro`), e o workflow de publicação escolhe a série pelo dia.
+
+## Série institucional
+
+Posts sobre a própria e-com.plus (a V2, por exemplo), escritos à mão a partir de uma página
+do site, na mesma voz e no mesmo esquema das análises. Saem na quinta 12:00 enquanto a série
+do livro está pausada, sem atrasar as análises de seg/qua/sex; quando o livro voltar
+(`ativa: true`), a quinta volta a ser dele e a série institucional só sai com
+`--serie institucional` no *Run workflow*.
+
+- O JSON vai em `ecb/saidas/institucional/` com `"fonte"` igual à página do site
+  (`https://www.e-com.plus/...`, referência interna, não entra no post).
+- `node scripts/ecb/gerar-briefs.mjs --from-json ecb/saidas/institucional/<arquivo>.json`
+  valida, grava `posts/inst-<segunda>-<assunto>/` e enfileira com `serie: institucional`;
+  depois, `render.mjs` e `jpeg.mjs` como nos outros posts.
+- Valem as regras de `ecb/PROMPT.md`: sem nome de loja cliente, sem preço, número só com dono.
 
 ## LinkedIn
 

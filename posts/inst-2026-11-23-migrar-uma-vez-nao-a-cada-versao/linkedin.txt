@@ -1,0 +1,20 @@
+Antes de escolher uma plataforma, eu perguntaria o que acontece com a loja na próxima versão.
+
+A cena é mais comum do que parece. A plataforma lança uma versão nova, avisa que a antiga vai ser desligada, e quem não migrar a tempo perde recursos que usava todo dia. Para o lojista, isso vira um projeto que ele não planejou, com o prazo de outra pessoa, bem no meio da operação.
+
+Nessa troca costumam ficar pelo caminho coisas que custaram caro para construir:
+
+• Integrações feitas sob medida que não existem na versão nova
+• Personalizações do tema que precisam ser refeitas do zero
+• Relatórios e rotinas que o time já sabia usar sem pensar
+• Semanas de atenção que deveriam estar indo para atrair e converter clientes
+
+Por isso sugiro fazer essa pergunta antes de assinar com qualquer plataforma. Ela é simples, quase ninguém faz, e a resposta mostra se a loja evolui junto com a plataforma ou se vai precisar recomeçar daqui a alguns anos.
+
+Aqui na e-com.plus, a V2 foi pensada para que a loja não perca recursos nem precise migrar de novo quando a plataforma muda de versão, pois as novidades chegam como atualização da própria loja.
+
+Uma ação para esta semana: pergunte à sua plataforma o que acontece com a sua loja na próxima versão, e peça a resposta por escrito.
+
+Você já precisou refazer a loja por causa de uma mudança de versão?
+
+#ecommerce #varejodigital #tecnologia
