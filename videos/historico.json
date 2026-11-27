@@ -418,6 +418,28 @@
         }
       },
       "publicadoEm": "2026-11-25T22:26:51.267Z"
+    },
+    {
+      "slug": "conector-05-perda-por-cancelamento",
+      "quando": "2026-11-27T12:00:00-03:00",
+      "destinos": [
+        "instagram",
+        "youtube"
+      ],
+      "feito": {
+        "instagram": {
+          "id": "17969560907983233",
+          "link": "https://www.instagram.com/reel/DgQXbM-hv9r/",
+          "em": "2026-11-27T18:52:36.524Z"
+        },
+        "youtube": {
+          "id": "3gPhNq8mxQQ",
+          "link": "https://youtube.com/shorts/3gPhNq8mxQQ",
+          "privacidade": "public",
+          "em": "2026-11-27T18:52:38.736Z"
+        }
+      },
+      "publicadoEm": "2026-11-27T18:52:38.736Z"
     }
   ]
 }
