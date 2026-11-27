@@ -1,0 +1,7 @@
+A loja liga o intermediador de frete, ele devolve as transportadoras e é isso que o cliente vê no checkout. Se a sua operação entrega melhor que todas elas num raio de dez quadras, ninguém fica sabendo. O cliente que mora ao lado paga transportadora, espera dias e às vezes desiste na hora do frete. Retirada na loja, motoboy no bairro e entrega própria na sua região são opções que a cotação nunca vai devolver sozinha.
+
+Na e-com.plus são mais de quinze integrações nativas de frete e, junto delas, um aplicativo de frete personalizado para retirada na loja, motoboy e entrega própria, cada regra com a sua faixa de CEP e podendo rodar ao mesmo tempo que as transportadoras.
+
+De quais CEPs vêm os pedidos que você mesmo entregaria mais rápido? Conta para nós nos comentários.
+
+#ecommerce #logistica #frete #entrega #d2c #ecomplus #varejodigital
