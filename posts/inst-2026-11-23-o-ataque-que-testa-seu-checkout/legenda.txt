@@ -1,0 +1,7 @@
+Robôs usam o checkout de lojas virtuais para descobrir quais cartões roubados ainda funcionam, com centenas de compras pequenas em poucos minutos. Cada tentativa pode gerar tarifa, e o volume de recusas pode fazer o adquirente desconfiar da loja. Endurecer o antifraude resolve uma parte do problema e cria outra, pois o cliente de verdade começa a ter o cartão recusado.
+
+Na V2 da e-com.plus, o checkout limita as tentativas para barrar esse tipo de ataque e tem autenticação 3DS no cartão, com o resultado registrado no pedido.
+
+Você acompanha a taxa de recusa do seu checkout toda semana?
+
+#ecommerce #segurancadigital #antifraude #lojavirtual #checkout #ecomplus

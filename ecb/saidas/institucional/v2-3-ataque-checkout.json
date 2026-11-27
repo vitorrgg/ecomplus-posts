@@ -1,0 +1,68 @@
+{
+  "fonte": "https://www.e-com.plus/v2#o-que-muda",
+  "slug": "o-ataque-que-testa-seu-checkout",
+  "slides": [
+    {
+      "tipo": "capa",
+      "eyebrow": "e-com.plus V2 · segurança",
+      "titulo": "o ataque\nque testa\nseu checkout",
+      "subtitulo": "Robôs usam o checkout de lojas para descobrir quais cartões roubados funcionam, e o custo fica com a loja.",
+      "imagem": "own-store-checkout.jpg"
+    },
+    {
+      "tipo": "texto",
+      "titulo": "O que é o teste de cartão",
+      "paragrafos": [
+        "Quem rouba dados de cartão precisa saber quais ainda funcionam. Para isso, robôs fazem centenas de compras pequenas em checkouts de lojas, uma atrás da outra.",
+        "Cada tentativa pode gerar tarifa no gateway, e o volume de recusas pode fazer o adquirente desconfiar da sua loja."
+      ],
+      "tema": "escuro",
+      "imagem": null
+    },
+    {
+      "tipo": "lista",
+      "titulo": "Os sinais de que a loja virou alvo",
+      "itens": [
+        "Muitas tentativas de pagamento recusadas em poucos minutos",
+        "Pedidos de valor baixo com dados de cliente que não fazem sentido",
+        "Picos de acesso ao checkout sem aumento de visitas na loja",
+        "Aviso do gateway sobre uma taxa de recusa acima do normal"
+      ],
+      "tema": "claro",
+      "imagem": null
+    },
+    {
+      "tipo": "texto",
+      "titulo": "Por que isso mexe na conversão",
+      "paragrafos": [
+        "A reação comum é endurecer o antifraude, e aí o cliente de verdade começa a ter o cartão recusado sem motivo.",
+        "Na nossa experiência, a proteção boa é a que barra o robô sem pôr mais uma barreira para quem quer comprar."
+      ],
+      "tema": "escuro",
+      "imagem": "payment-terminal-tap.jpg"
+    },
+    {
+      "tipo": "lista",
+      "titulo": "Como a V2 da e-com.plus protege o checkout",
+      "itens": [
+        "Limite de tentativas no checkout, que barra ataques de teste de cartão em massa",
+        "Autenticação 3DS no cartão, com o resultado registrado no pedido",
+        "Cada loja no próprio projeto do Google Cloud, então o ataque é tratado na loja atingida",
+        "Histórico de cada operação na API, para saber o que mudou e quem mudou"
+      ],
+      "tema": "claro",
+      "imagem": null
+    },
+    {
+      "tipo": "fechamento",
+      "paragrafos": [
+        "O teste de cartão procura qualquer checkout sem proteção, de loja grande ou pequena. Quanto antes ele é barrado, menos ele custa.",
+        "Nesta semana, peça ao seu gateway o relatório de recusas dos últimos 30 dias e veja se há picos fora do normal."
+      ],
+      "tema": "escuro",
+      "imagem": null
+    }
+  ],
+  "legenda": "Robôs usam o checkout de lojas virtuais para descobrir quais cartões roubados ainda funcionam, com centenas de compras pequenas em poucos minutos. Cada tentativa pode gerar tarifa, e o volume de recusas pode fazer o adquirente desconfiar da loja. Endurecer o antifraude resolve uma parte do problema e cria outra, pois o cliente de verdade começa a ter o cartão recusado.\n\nNa V2 da e-com.plus, o checkout limita as tentativas para barrar esse tipo de ataque e tem autenticação 3DS no cartão, com o resultado registrado no pedido.\n\nVocê acompanha a taxa de recusa do seu checkout toda semana?\n\n#ecommerce #segurancadigital #antifraude #lojavirtual #checkout #ecomplus",
+  "linkedin": "Robôs testam cartões roubados no checkout de lojas virtuais, e quem paga a conta é a loja.\n\nFunciona assim. Quem rouba dados de cartão precisa saber quais ainda funcionam, e para isso usa robôs que fazem centenas de compras pequenas em checkouts de lojas virtuais, uma atrás da outra. Cada tentativa pode gerar tarifa no gateway, e o volume de recusas pode fazer o adquirente desconfiar da loja.\n\nOs sinais costumam aparecer antes do problema ficar grande:\n\n• Muitas tentativas de pagamento recusadas em poucos minutos\n• Pedidos de valor baixo com dados de cliente que não fazem sentido\n• Picos de acesso ao checkout sem aumento de visitas na loja\n• Aviso do gateway sobre uma taxa de recusa acima do normal\n\nA reação mais comum é endurecer o antifraude, e acredito que isso resolve uma parte do problema e cria outra, pois o cliente de verdade começa a ter o cartão recusado sem motivo. A proteção que eu prefiro é a que barra o robô sem pôr mais uma barreira para quem quer comprar.\n\nAqui na e-com.plus, a V2 limita as tentativas no checkout para barrar esse tipo de ataque, tem autenticação 3DS no cartão e roda cada loja no próprio projeto, então um ataque é tratado na loja atingida.\n\nUma ação para esta semana: peça ao seu gateway o relatório de recusas dos últimos 30 dias e veja se há picos fora do normal.\n\nVocê acompanha a taxa de recusa do seu checkout toda semana?\n\n#ecommerce #segurancadigital #varejodigital"
+}

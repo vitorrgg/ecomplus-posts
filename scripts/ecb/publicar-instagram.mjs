@@ -10,6 +10,10 @@
 //   node scripts/ecb/publicar-instagram.mjs --dry-run      # monta tudo, não chama a API
 //   node scripts/ecb/publicar-instagram.mjs --serie livro  # próximo pendente da série do livro
 //                                                          # (padrão: ecb, as análises dos mais lidos)
+//   node scripts/ecb/publicar-instagram.mjs --serie institucional  # posts sobre a própria e-com.plus
+//
+// Com o livro pausado (ecb/livro/config.json → "ativa": false), --serie livro publica o
+// próximo da série institucional: a quinta continua tendo post sem atrasar as análises.
 //
 // Variáveis de ambiente:
 //   IG_USER_ID        id da conta profissional do Instagram
@@ -114,10 +118,10 @@ const ehMain = process.argv[1] && import.meta.url.endsWith(process.argv[1].split
 if (ehMain) {
   const opts = args();
   const fila = lerFila();
-  const serie = typeof opts.serie === 'string' ? opts.serie : 'ecb';
+  let serie = typeof opts.serie === 'string' ? opts.serie : 'ecb';
   if (serie === 'livro' && !opts.slug && lerJson(join(root, 'ecb', 'livro', 'config.json'), {}).ativa === false) {
-    console.log('Série do livro pausada (ecb/livro/config.json → "ativa": false) — nada a publicar.');
-    process.exit(0);
+    console.log('Série do livro pausada (ecb/livro/config.json → "ativa": false) — a quinta publica a série institucional.');
+    serie = 'institucional';
   }
   const item = opts.slug ? { slug: opts.slug } : proximoDaFila(fila, serie);
   if (!item) { console.log(`Fila vazia na série ${serie} (ou nada aprovado) — nada a publicar.`); process.exit(0); }

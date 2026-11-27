@@ -1,0 +1,7 @@
+Na maioria das plataformas, todas as lojas dividem o mesmo sistema, e por isso tudo anda no mesmo ritmo. Enquanto a loja cabe no padrão, isso é prático. Quando ela começa a pedir ajustes próprios no checkout, na página de produto ou nas integrações, esperar a vez na plataforma passa a custar conversão.
+
+Na V2 da e-com.plus, cada loja roda no próprio projeto, e a loja e as suas integrações podem ser atualizadas e customizadas sem esperar as outras.
+
+Quais ajustes da sua loja estão hoje esperando a plataforma?
+
+#ecommerce #lojavirtual #ecommercebrasil #d2c #headless #ecomplus
