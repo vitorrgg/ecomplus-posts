@@ -1,0 +1,22 @@
+A entrega mais rápida e mais barata da sua loja costuma ser justamente a que o checkout não oferece.
+
+O caminho padrão é ligar um intermediador de frete, receber de volta a lista de transportadoras e mostrar aquilo para o cliente. Funciona, e resolve a maior parte dos CEPs do país. O problema é que a cotação só sabe devolver o que as transportadoras cotam, e a sua operação não está nessa lista.
+
+Então acontece o seguinte: o cliente que mora a dez quadras da sua loja paga transportadora, espera três ou quatro dias e, em alguma dessas vezes, desiste na hora de ver o frete. Você perdeu uma venda que entregaria no mesmo dia, de carro, mais barato.
+
+Opções que a cotação não devolve sozinha:
+
+• Retirada na loja, com prazo seu e sem custo de envio para quem já está perto
+• Motoboy no bairro, com valor fixo e entrega no mesmo dia
+• Entrega própria na região que você já atende
+• Transportadora com contrato direto, quando a sua tabela é melhor que a do intermediador
+
+Vale lembrar que essas opções não são excludentes. A loja pode rodar o intermediador, o contrato direto e a entrega própria ao mesmo tempo, com cada regra limitada à faixa de CEP que faz sentido. Quem compra perto vê a opção de perto, e quem compra longe continua vendo as transportadoras.
+
+Aqui na e-com.plus são mais de quinze integrações nativas de frete e, junto delas, um aplicativo de frete personalizado para retirada na loja, motoboy e entrega própria, e com mais de um centro de distribuição o cálculo já considera de qual origem sai cada item.
+
+Uma coisa para fazer esta semana: olhe de quais CEPs vêm os seus pedidos e veja se existe uma região onde você mesmo entregaria mais rápido e mais barato do que qualquer transportadora.
+
+Qual é a região mais próxima da sua operação que hoje recebe o mesmo frete de quem está do outro lado do país?
+
+#ecommerce #logistica #varejodigital
